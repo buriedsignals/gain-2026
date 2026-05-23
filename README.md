@@ -89,16 +89,19 @@ Full claim-by-claim narrative + replication paths in [`report.html`](report.html
 git clone https://github.com/buriedsignals/gain-2026.git
 cd gain-2026
 
-# 2. Drop data-detective into your agent's skills directory
-cp -R data-detective/ ~/.claude/skills/
+# 2. Install — copies all 10 skills + 2 agent personas into ~/.claude/
+./install.sh
 
-# 3. Place the corpus where the profile expects it (see skills/ingest/PROFILE-FORMAT.md)
+# 3. Place the corpus where the profile expects it
+#    (see data-detective/skills/ingest/PROFILE-FORMAT.md).
 #    For this run: U.S. Senate LDA JSON 2008-2025, House LDA XML 2008-2025,
 #    congressional press release JSONL.
 
-# 4. Launch
+# 4. Launch in a fresh Claude Code session
 /data-detective
 ```
+
+The installer mirrors what Spotlight's marketplace handler does at install time: flat-copies each sub-skill from `data-detective/skills/<name>/` to `~/.claude/skills/<name>/` so the runtime registers each individually, and copies the agent personas to `~/.claude/agents/`. Override destinations with `CLAUDE_SKILLS_DIR=... CLAUDE_AGENTS_DIR=... ./install.sh` for non-Claude-Code harnesses.
 
 The orchestrator handles the rest: preflight, brief, methodology, cycles, Gate 1, finishing path.
 

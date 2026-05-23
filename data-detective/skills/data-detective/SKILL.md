@@ -148,7 +148,7 @@ Build/refresh the index first via `ingest`. Then spawn the investigator in plann
 
 ```
 Agent(
-  subagent_type: "spotlight:investigator",
+  subagent_type: "data-detective-investigator",
   prompt: "MODE: PLANNING
 PROJECT: <project_slug>
 SEARCH_LIBRARY: not-applicable (this is a structured-records investigation)
@@ -195,7 +195,7 @@ CYCLE N (N starts at 1):
 
 2. Spawn investigator in EXECUTION mode:
      Agent(
-       subagent_type: "spotlight:investigator",
+       subagent_type: "data-detective-investigator",
        prompt: "MODE: EXECUTION
 PROJECT: <slug>
 CYCLE: <N>
@@ -219,7 +219,7 @@ Stop when 3+ high-confidence claims accumulate OR you exhaust strong leads.",
 
 3. Spawn fact-checker adversarially:
      Agent(
-       subagent_type: "spotlight:fact-checker",
+       subagent_type: "data-detective-fact-checker",
        prompt: "PROJECT: <slug>
 SEARCH_LIBRARY: firecrawl
 INVESTIGATION_KIND: data-corpus
