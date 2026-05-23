@@ -1,0 +1,13 @@
+{
+  "case_id": "northwestern-gain-challenge",
+  "phase": "P1_ingest_in_progress",
+  "last_updated": "2026-05-22T10:30:00Z",
+  "checked_threads": [],
+  "open_questions": [
+    "How does the senate.registrant.id segment of house.senateID line up across years — same registrant always same first segment, or do clients get reissued IDs?",
+    "Does the press release date field match the press release filing pattern? Some appear with date: null."
+  ],
+  "completed_queries": [],
+  "pending_fact_checks": [],
+  "anomalies_run": []
+}

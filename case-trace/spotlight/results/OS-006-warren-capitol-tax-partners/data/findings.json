@@ -1,0 +1,271 @@
+{
+  "schema_version": "1.0",
+  "project": "OS-006-warren-capitol-tax-partners",
+  "lead": "Mark Warren left Brownstein Hyatt for Capitol Tax Partners in May 2026, during the publication window of the C-004 Apollo report ($8.92M Brownstein engagement). Did Apollo migrate with Warren, stay with Sullivan, or split?",
+  "investigated_at": "2026-05-22T00:00:00Z",
+  "cycle": 1,
+  "questions": [
+    "Has Apollo Global Management migrated its tax-lobbying engagement from Brownstein to Capitol Tax Partners following Warren's move?",
+    "Has Warren been formally registered as a Capitol Tax Partners lobbyist for any client (including Apollo) post-May 2026?",
+    "Does Russell Sullivan retain Apollo at Brownstein, and is the BHFS-Apollo lobbying team still intact post-Warren?",
+    "What did Politico Influence / Bloomberg / The Hill say about the move and why it happened?",
+    "Should the C-004 report be retroactively updated to reflect the post-publication firm change?"
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "claim": "Mark Warren publicly joined Capitol Tax Partners LLP as a partner on or around May 4, 2026, per the firm's own announcement dated May 4, 2026 by Jacob Triolo. The announcement omits any reference to Brownstein Hyatt — it frames Warren as arriving from his prior government roles (Treasury Deputy Assistant Secretary, Senate Finance Chief Tax Counsel under Grassley, Senior Tax Counsel to Thune, House Ways & Means counsel under Camp/Ryan/Brady).",
+      "evidence": "Capitol Tax Partners press release: 'Capitol Tax Partners is pleased to announce that Mark Warren is joining the firm as a partner. Mark is a highly respected tax expert with several decades of experience both in government and the private sector...' Posted 'May 4, 2026' by author Jacob Triolo. The release jumps from Warren's resume directly to NYU LL.M. credentials, skipping his five-year Brownstein tenure entirely.",
+      "sources": [
+        {
+          "url": "https://www.capitoltax.com/blog-collection/mark-warren-former-treasury-official-and-congressional-tax-counsel-joins-capitol-tax-partners",
+          "type": "corporate",
+          "accessed": "2026-05-22T14:33:00Z",
+          "archive_url": "https://web.archive.org/web/2026*/https://www.capitoltax.com/blog-collection/mark-warren-former-treasury-official-and-congressional-tax-counsel-joins-capitol-tax-partners",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/capitoltax-warren-announcement.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Primary source from the hiring firm with explicit publication date; corroborated by Politico Influence newsletter same week (May 4, 2026 issue) and by LegiStorm bio update.",
+      "perspective": "corporate"
+    },
+    {
+      "id": "F2",
+      "claim": "Politico Influence (May 4, 2026) confirmed Warren's move to Capitol Tax Partners in a single-line Jobs Report entry, providing no stated reason for the departure beyond the firm change. The brevity is notable: no exclusive coverage, no quoted explanation, no client-migration angle. This was treated as a routine K Street move.",
+      "evidence": "Politico Influence, 'A new class of super PACs is emerging. Voters are wary.' By Daniel Barnes and Jacob Wendler, 05/04/2026 06:00 PM EDT. Jobs Report entry: 'Mark Warren has joined Capitol Tax Partners as a partner. He was most recently a shareholder at Brownstein Hyatt Farber Schreck and previously served as deputy assistant secretary in Treasury's legislative affairs office during the Bush administration.'",
+      "sources": [
+        {
+          "url": "https://www.politico.com/newsletters/politico-influence/2026/05/04/a-new-class-of-super-pacs-is-emerging-voters-are-wary-00905570",
+          "type": "news",
+          "accessed": "2026-05-22T14:34:00Z",
+          "archive_url": "https://web.archive.org/web/2026*/https://www.politico.com/newsletters/politico-influence/2026/05/04/a-new-class-of-super-pacs-is-emerging-voters-are-wary-00905570",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/politico-influence-2026-05-04.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Direct quote verified in scraped Politico file. The absence of a stated trigger is itself a finding — no Bloomberg Government, Hill Bottom Line, or other DC trade press surfaced in firecrawl search with substantive coverage of the move's rationale.",
+      "perspective": "independent_observer"
+    },
+    {
+      "id": "F3",
+      "claim": "As of May 22, 2026 (3 weeks post-move), Apollo Global Management has NOT migrated its tax-lobbying engagement to Capitol Tax Partners. The Senate LDA database shows zero filings of any kind — registration, termination, amendment, or quarterly report — in which Capitol Tax Partners appears as the registrant for Apollo Global Management or any affiliated Apollo entity. Capitol Tax Partners' most recent new client registration (April 30, 2026) was for A16Z Capital Management, LLC, lobbyist Tom West. The most recent Capitol Tax filing event of any kind (May 21, 2026) is a Q1 termination of Interstate Natural Gas Association of America.",
+      "evidence": "LDA API query: registrant_name=Capitol+Tax+Partners, filing_year=2026 returned 80 results. None show 'Apollo' or any Apollo-affiliated client. Full Capitol Tax 2026 client roster (from filings): Interstate Natural Gas Association, A16Z Capital Management, NRECA, BlackRock Funds Services, Summit Ridge Energy, Uber, Saltchuk Resources, Ford, Exelon, Edward D. Jones, Honeywell (terminated), Constellation Energy, Motion Picture Association, Discovery Communications, Cruise Lines International (CLIA), Citadel LLC, Avis Budget, Amgen, American Investment Council, Amazon, FedEx, Health Care Service Corp, National Venture Capital Association, Qualcomm. Note: Capitol Tax already represents American Investment Council (the PE-industry trade group of which Apollo is a member) — but that is a pre-existing engagement, not an Apollo-direct migration.",
+      "sources": [
+        {
+          "url": "https://lda.senate.gov/api/v1/filings/?registrant_name=Capitol+Tax+Partners&filing_year=2026&ordering=-dt_posted",
+          "type": "registry",
+          "accessed": "2026-05-22T14:37:00Z",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/lda-capitol-tax-2026.json"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Primary source: official Senate LDA API. However, this finding is time-bounded — Q2 2026 reports (covering April-June activity, when Warren actually moved) are not due until July 20, 2026, so a Q2 Apollo registration could surface then. A new-client registration would normally appear within 45 days of engagement and has not yet, which is mildly evidentiary that no migration has occurred — but this is partial: the engagement could be in negotiation or have just been signed. CAVEAT noted in gaps.",
+      "perspective": "official"
+    },
+    {
+      "id": "F4",
+      "claim": "Russell Sullivan remains the lead tax-issue lobbyist for Apollo Global Management at Brownstein Hyatt Farber Schreck. The Q1 2026 BHFS-Apollo filing (posted April 17, 2026, $260,000 income) lists Sullivan, along with Harold Hancock and Mark Warren, on the TAX general issue activity covering 'Corporate and international tax issues; Tax administration issues; Issues related to the taxation of private equity investments; P.L. 119-21 (H.R. 1): One Big Beautiful Bill implementation; BEAT Provision'. The BHFS-Apollo team for Q1 2026 totaled 19+ lobbyists. The Brownstein-Apollo engagement effective date remains 2014-09-01 — unchanged.",
+      "evidence": "LDA filing UUID c058d5af-a044-4a69-8f34-b53559162130, filed 2026-04-17T13:03:28-04:00 by William Moschella, registrant Brownstein Hyatt Farber Schreck LLP, client Apollo Global Management, income $260,000, Q1 2026 report. Tax activity lobbyists: Russell W. Sullivan, Harold Hancock, Mark Warren, Alfred Mottur, Radha Mohan, Marc Lampkin. Other activities (FIN, GOV) include Norman Brownstein, Carl-Yoder, Maguire, Pfister, Ransom, Joynes, Usyk, Dempsey, Flynn, Diekman, Grinney, Reising. OpenSecrets 2026 Apollo lobbyist roster mirrors this — Sullivan listed with Revolving Door Profile (id 77989).",
+      "sources": [
+        {
+          "url": "https://lda.senate.gov/filings/public/filing/c058d5af-a044-4a69-8f34-b53559162130/print/",
+          "type": "registry",
+          "accessed": "2026-05-22T14:35:00Z",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/lda-apollo-post-may2026.json"
+        },
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/clients/lobbyists?cycle=2026&id=D000021845",
+          "type": "ngo_report",
+          "accessed": "2026-05-22T14:38:00Z",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/opensecrets-apollo-lobbyists-2026.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Two independent sources (LDA primary + OpenSecrets aggregator) both confirm Sullivan-led Brownstein team intact. Warren is technically still credited on the Q1 filing because his Q1 work (Jan-Mar 2026) preceded the move; this is normal LDA reporting practice. The next quarterly filing (Q2, due July 20) will reveal whether Warren is dropped from BHFS-Apollo and whether Sullivan retains the file solo.",
+      "perspective": "official"
+    },
+    {
+      "id": "F5",
+      "claim": "Brownstein Hyatt Farber Schreck has already removed Mark Warren's biography page from its website. The URL https://www.bhfs.com/people/mark-warren returns a 'Page Not Found' page as of May 22, 2026 — confirming the firm has formally severed the public-facing affiliation. By contrast, Capitol Tax Partners has posted the May 4 hiring announcement banner on its homepage but has NOT yet added Warren to its team roster page (https://www.capitoltax.com/team), which still lists only the pre-existing partner set: Talisman, Mikrut, Grafmeyer, Willcox, Javens, Mueller, Triolo, Harris, Mongé, West, plus operations/communications staff.",
+      "evidence": "Direct scrape of https://www.bhfs.com/people/mark-warren returned 'Page Not Found' content. Direct scrape of https://www.capitoltax.com/team enumerated featured partners — Warren absent. Announcement banner '[Mark Warren joins Capitol Tax Partners] click here to read the announcement' appears at top of both /team and /blog-collection pages.",
+      "sources": [
+        {
+          "url": "https://www.bhfs.com/people/mark-warren",
+          "type": "corporate",
+          "accessed": "2026-05-22T14:36:00Z",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/bhfs-warren-bio.md"
+        },
+        {
+          "url": "https://www.capitoltax.com/team",
+          "type": "corporate",
+          "accessed": "2026-05-22T14:33:00Z",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/capitoltax-team.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Direct observation of both firms' public-facing web properties; both scrapes confirm the asymmetric public-presence picture. The lag (Capitol Tax has not yet updated its team page) is consistent with a recent partner addition and a Squarespace-based site that updates slowly.",
+      "perspective": "corporate"
+    },
+    {
+      "id": "F6",
+      "claim": "No public reason, narrative, or trigger for Warren's departure from Brownstein has been disclosed in any source surveyed. Neither Capitol Tax Partners' announcement nor Politico Influence's Jobs Report entry cites a reason. Bloomberg Government, The Hill's Bottom Line column, and DC trade press searches surfaced no substantive coverage of the move. The capital-tax-policy industry context — One Big Beautiful Bill (P.L. 119-21) tax implementation, BEAT provision negotiations, and the 401(k) executive order on alternative investments — is highly active in 2026, but no source ties Warren's move to a specific deal, dispute, compensation issue, or strategic dispute at Brownstein.",
+      "evidence": "Capitol Tax Partners announcement contains only Jon Talisman's congratulatory quote ('We are thrilled to welcome Mark to our firm. He is one of the most knowledgeable and effective tax counsels in DC, with a rare combination of substantive and strategic expertise, experience, and common sense.') — no rationale. Politico Influence May 4, 2026 contains no rationale beyond the firm change. firecrawl searches for 'Bloomberg Government Capitol Tax Partners Warren' and 'Mark Warren Capitol Tax Apollo' returned no substantive trade press analysis of the move.",
+      "sources": [
+        {
+          "url": "https://www.capitoltax.com/blog-collection/mark-warren-former-treasury-official-and-congressional-tax-counsel-joins-capitol-tax-partners",
+          "type": "corporate",
+          "accessed": "2026-05-22T14:33:00Z",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/capitoltax-warren-announcement.md"
+        },
+        {
+          "url": "https://www.politico.com/newsletters/politico-influence/2026/05/04/a-new-class-of-super-pacs-is-emerging-voters-are-wary-00905570",
+          "type": "news",
+          "accessed": "2026-05-22T14:34:00Z",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/politico-influence-2026-05-04.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Absence-of-evidence finding, but methodically established: 6 distinct search queries across firecrawl + targeted scrapes of the two firms' own communications + Politico Influence newsletter all produced no rationale. The K Street press treats this as a routine partner move, not a defection with strategic implications.",
+      "perspective": "independent_observer"
+    },
+    {
+      "id": "F7",
+      "claim": "Capitol Tax Partners' existing 2026 client roster suggests Warren joined a firm that already serves alternative-asset and private-equity-adjacent clients but does NOT serve Apollo directly. Capitol Tax represents Citadel LLC ($60K Q1), BlackRock Funds Services ($80K Q1), American Investment Council ($80K Q1 — the PE-industry trade group whose members include Apollo), and National Venture Capital Association ($60K Q1). The 'Apollo-adjacent' positioning (Citadel + AIC) creates plausible business logic for a future Apollo engagement, but the engagement has not yet materialized in public filings.",
+      "evidence": "LDA Q1 2026 Capitol Tax filings — see F3 client list. Specifically: American Investment Council (lobbyists Talisman, Willcox, Mongé, Harris, Davis; $80,000 income), Citadel LLC (Talisman, West; $60,000), BlackRock Funds Services (Shive, Mongé, West, Davis; $80,000). Capitol Tax also added A16Z Capital Management (Andreessen Horowitz) as a new client April 30, 2026 — registrant lobbyist Tom West.",
+      "sources": [
+        {
+          "url": "https://lda.senate.gov/api/v1/filings/?registrant_name=Capitol+Tax+Partners&filing_year=2026&ordering=-dt_posted",
+          "type": "registry",
+          "accessed": "2026-05-22T14:37:00Z",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/lda-capitol-tax-2026.json"
+        }
+      ],
+      "confidence": "medium",
+      "confidence_rationale": "The client-roster facts are high-confidence (LDA primary). The interpretation — that Warren's move creates a positioned platform for a future Apollo migration — is inference, not evidence. There is no public signal that Apollo is actively considering moving from Brownstein.",
+      "perspective": "official"
+    },
+    {
+      "id": "F8",
+      "claim": "C-004 retroactive correction: The Brownstein-Apollo Q1 2026 filing ($260,000, posted April 17, 2026) is the LAST quarterly filing where Mark Warren is credited as part of the Apollo team. Warren joined Capitol Tax 'as of' the May 4, 2026 announcement, which falls inside the Q2 2026 LDA reporting period (April 1 - June 30, 2026). His departure from BHFS likely occurred between approximately April 17 (Q1 filing posted) and May 4 (Capitol Tax announcement) — a ~2.5 week window. C-004's $8.92M aggregate revenue figure refers to historical Brownstein-side billings through Q1 2026 and remains factually accurate; however, any C-004 narrative framing Warren as currently at Brownstein, or as continuously co-lobbying Apollo with Sullivan, requires a temporal qualifier: 'through Q1 2026' or 'as of April 2026'.",
+      "evidence": "Combined timeline: BHFS Q1 2026 Apollo filing posted April 17, 2026 (lists Warren on TAX activity); Capitol Tax announcement May 4, 2026; LegiStorm bio update reflecting May 2026 transition; BHFS people page now 404; no Q2 Capitol Tax filing for Apollo as of May 22, 2026.",
+      "sources": [
+        {
+          "url": "https://www.legistorm.com/person/bio/371/Mark_E_Warren.html",
+          "type": "registry",
+          "accessed": "2026-05-22T14:33:00Z",
+          "access_method": "full_text",
+          "local_file": "cases/OS-006-warren-capitol-tax-partners/research/legistorm-warren-bio.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Timeline derived from convergence of multiple primary sources (LDA filing dates + Capitol Tax announcement date + BHFS page status + LegiStorm bio).",
+      "perspective": "official"
+    }
+  ],
+  "connections": [
+    {
+      "from": "Mark Warren",
+      "to": "Capitol Tax Partners LLP",
+      "relationship": "Partner, effective ~May 4, 2026 per firm announcement",
+      "evidence": "F1"
+    },
+    {
+      "from": "Mark Warren",
+      "to": "Brownstein Hyatt Farber Schreck LLP",
+      "relationship": "Former shareholder (May 2021 - May 2026); bio page now returns 404; last LDA filing crediting Warren was Q1 2026 BHFS-Apollo report posted April 17, 2026",
+      "evidence": "F4, F5, F8"
+    },
+    {
+      "from": "Apollo Global Management",
+      "to": "Brownstein Hyatt Farber Schreck LLP",
+      "relationship": "Continuing client engagement, $260K/quarter, effective date 2014-09-01; Russell Sullivan is lead tax-issues lobbyist post-Warren departure",
+      "evidence": "F4"
+    },
+    {
+      "from": "Apollo Global Management",
+      "to": "Capitol Tax Partners LLP",
+      "relationship": "No engagement on record as of May 22, 2026 (Q2 reporting due July 20)",
+      "evidence": "F3"
+    },
+    {
+      "from": "Capitol Tax Partners LLP",
+      "to": "American Investment Council",
+      "relationship": "Lobbying engagement, $80K Q1 2026; AIC is the PE-industry trade group of which Apollo is a constituent member — creates indirect Capitol Tax exposure to Apollo's policy agenda",
+      "evidence": "F7"
+    },
+    {
+      "from": "Capitol Tax Partners LLP",
+      "to": "Citadel LLC",
+      "relationship": "Lobbying engagement, $60K Q1 2026 — establishes Capitol Tax positioning in alternative asset manager representation, the same vertical as Apollo",
+      "evidence": "F7"
+    },
+    {
+      "from": "Russell Sullivan",
+      "to": "Apollo Global Management (via Brownstein)",
+      "relationship": "Lead tax-issue lobbyist on Apollo Q1 2026 BHFS filing; retained at Brownstein post-Warren departure",
+      "evidence": "F4"
+    }
+  ],
+  "gaps": [
+    "Q2 2026 LDA filings (covering April 1 - June 30, 2026, Warren's actual move period) are not due until July 20, 2026 — these will be the definitive test of whether Apollo migrates with Warren. Until then, the 'no migration' finding is provisional with respect to engagement signals that may already exist privately.",
+    "No public reason given for Warren's departure from Brownstein — could be compensation, internal politics, strategic disagreement, lifestyle, or simply a better offer. None of these have surfaced in trade press.",
+    "Warren's other former Brownstein clients (Athene Holding, Johnson & Johnson, T-Mobile, Bloom Energy, American Petroleum Institute) have not been individually checked for parallel migrations to Capitol Tax — same Q2 filing delay applies.",
+    "Bloomberg Government and The Hill Bottom Line could not be confirmed as having coverage of the move; only Politico Influence's one-line Jobs Report entry was located. A Bloomberg Government subscription would be needed to definitively rule out longer-form coverage.",
+    "Capitol Tax Partners' internal team-page lag (Warren not yet listed) may indicate a non-immediate practice transition, or simply a slow CMS update — cannot distinguish without direct firm contact.",
+    "No information on whether Warren signed a non-compete or client-non-solicitation clause with Brownstein — this could affect whether he can pull Apollo to Capitol Tax even if the relationship is willing."
+  ],
+  "next_steps": [
+    "Re-query LDA on or after July 21, 2026 (Q2 reporting deadline) for: (a) Capitol Tax registration listing Apollo Global Management as client; (b) BHFS Q2 Apollo filing — confirm Warren dropped, confirm Sullivan still lead; (c) check Warren's other former Brownstein clients (Athene, J&J, T-Mobile, Bloom Energy, API) for parallel migrations.",
+    "Monitor Capitol Tax Partners news-and-notes page for client-acquisition announcements through Q2 2026.",
+    "Check LegiStorm 'StormFeed' for any subsequent reporting on Warren's client portfolio at Capitol Tax.",
+    "Update C-004 with a temporal qualifier: clarify that the $8.92M Brownstein-Apollo figure and the Sullivan+Warren tax-counsel co-lobbying applies through Q1 2026, with Warren departing Brownstein for Capitol Tax in May 2026 and Sullivan retaining Apollo at Brownstein as of the current data window."
+  ],
+  "monitoring_recommendations": [
+    {
+      "id": "M1",
+      "target": "https://lda.senate.gov/api/v1/filings/?registrant_name=Capitol+Tax+Partners&filing_year=2026&ordering=-dt_posted",
+      "scout_type": "web",
+      "criteria": "New filings where Capitol Tax Partners is registrant. Trigger if client name contains 'APOLLO' or any Warren-prior-client (Athene, Johnson & Johnson, T-Mobile, Bloom Energy, American Petroleum Institute). Trigger also if 'WARREN' appears in any lobbyist list.",
+      "rationale": "The definitive answer to whether Apollo migrates with Warren is in Q2 LDA filings (due July 20, 2026) or potentially in a new-client Registration filing (due within 45 days of engagement). Persistent monitoring at the source eliminates manual re-check overhead.",
+      "priority": "high",
+      "finding_refs": ["F3", "F7", "F8"]
+    },
+    {
+      "id": "M2",
+      "target": "https://lda.senate.gov/api/v1/filings/?client_name=Apollo+Global+Management&dt_posted_after=2026-05-01&ordering=-dt_posted",
+      "scout_type": "web",
+      "criteria": "New filings where Apollo Global Management is client, posted after May 1, 2026. Trigger especially on registrant name change away from Brownstein, or new registration by any firm.",
+      "rationale": "Independent angle on the same question — Apollo-side rather than Capitol-Tax-side. Catches any new firm Apollo engages, not just Capitol Tax.",
+      "priority": "high",
+      "finding_refs": ["F3", "F4"]
+    },
+    {
+      "id": "M3",
+      "target": "https://www.capitoltax.com/team",
+      "scout_type": "web",
+      "criteria": "Trigger when Warren is added to the team roster (currently absent despite May 4 announcement) — indicates firm finalizing practice integration.",
+      "rationale": "Web page updates here are an editorial signal that the firm considers Warren operationally onboarded, which precedes formal client announcements.",
+      "priority": "medium",
+      "finding_refs": ["F5"]
+    },
+    {
+      "id": "M4",
+      "target": "https://www.politico.com/influence",
+      "scout_type": "pulse",
+      "criteria": "Trigger on any Politico Influence Jobs Report or Hires mentioning 'Capitol Tax Partners' or 'Apollo Global Management' or 'Mark Warren'.",
+      "rationale": "If Apollo migrates, Politico Influence Jobs Report will pick it up — typically the fastest trade-press signal.",
+      "priority": "medium",
+      "finding_refs": ["F2", "F6"]
+    }
+  ]
+}

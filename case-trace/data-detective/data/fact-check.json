@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0",
+  "case_id": "northwestern-gain-challenge",
+  "source_document": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/data/findings.json",
+  "checked_at": "2026-05-22T13:50:00Z",
+  "cycle": 1,
+  "fact_checker_role": "adversarial",
+  "summary": "Four claims were adversarially verified against independent primary and secondary sources. C-001 (LOC Nation, $20M/quarter sovereign-citizen filings) is fully verified — the LDA filings exist verbatim on lda.senate.gov, the named lobbyist signs each report as 'REV DR CHRISTINA CLEMENT,' the cited court case (CLEMENT v. GARLAND, 1:24-cv-00479-RC) is confirmed on PacerMonitor, and the client website (stateoflocnation.com) is live with self-published documents matching the filings. One small numerical discrepancy: OpenLobby reports 14 filings totaling $160M while the finding claims 15 filings / $180M from 9 2025 reports — a documentation gap; the underlying $20M-per-Q-filing pattern is confirmed. C-002 (Anchor & Arrow) is fully verified — Noonan's House Armed Services / Cotton-NSA biography is corroborated by The Hill and Polaris National Security; Zumbar's Marine Corps Appropriations Liaison role is confirmed on the HQ Marine Corps OLA website; the 13-client lobbying roster matches LegiStorm; and the $22M Apex Technology STRATFI award (FA880925CB005) is independently confirmed via G2X, GovTribe, SBIR.gov and the SpaceWERX/AFWERX press releases. C-003 (FARA gap) is partially verified — the specific candidate that we tested (Akin Gump representing Ant Group Co.) is corroborated via the House LDA client lookup (Akin Gump registrant 31784, Ant Group client subid 317840961); the aggregate 'only 61 of 743 also appear in FARA' figure is an internally computed statistic that we cannot independently reproduce without re-running the cross-corpus join, and the finding's own limitations correctly note that the name-equality match may undercount lawyer-level FARA registrations. C-004 (Brownstein Hyatt revolving-door cluster) is verified — Sullivan's Senate Finance Staff Director background is confirmed on the firm's own bio page and OpenSecrets revolving-door record; Warren's chief-tax-counsel-to-Senate-Finance background is confirmed in Brownstein's own 2021 hiring press release; Sullivan's 2025 client roster at OpenSecrets explicitly includes Apollo Global Management, Bloom Energy, American Tower, and other clients matching the finding; Sen. Elizabeth Warren's attacks on Apollo over Steward Health Care are confirmed via her senate.gov press releases, Boston Globe and Boston Herald. One nuance: per LegiStorm, Mark Warren left Brownstein for Capitol Tax Partners in May 2026 — within days of this fact-check window — so the present-tense 'both lobby Apollo' wording in the finding is accurate only through Q1 2026 and should be qualified with the role-change as of May 2026. The specific revenue figures ($8.92M Apollo, $4.54M Athene, $1.65M T-Mobile, etc.) are not independently re-verifiable from open data scraping but are consistent with OpenSecrets-style aggregations.",
+  "verdicts": {
+    "C-001": {
+      "verdict": "verified",
+      "confidence": "high",
+      "sift_assessment": {
+        "stop": "Original sources are lda.senate.gov (federal primary record) and stateoflocnation.com (client's own self-published website). No red flags — both are unambiguous direct sources.",
+        "investigate_source": "lda.senate.gov is the canonical Senate LDA database operated by the Secretary of the Senate. stateoflocnation.com is the registrant's self-operated website (whois history not checked — would only confirm self-publication, not verifying any underlying truth claims). OpenLobby.us is an independent open-data project; LegiStorm is a commercial congressional-records service. PacerMonitor mirrors PACER federal court records.",
+        "find_better_coverage": "Primary sources (LDA filings) are the original. OpenLobby's aggregate ($160M / 14 filings) and the finding's ($180M / 15 filings) differ slightly — both rely on the same underlying primary record but the finding includes 9 amendment-style 2025 filings (each at $20M, so likely double-counted across amendments per the finding's own limitation note).",
+        "trace_claims": "Court case CLEMENT v. GARLAND 1:24-cv-00479 confirmed via PacerMonitor (Judge Rudolph Contreras, Nature of Suit: Civil Rights, Cause: 28:1331 Fed.); appellate case 24-5263 surfaces in PacerMonitor and was filed March 19, 2024. Both filings tie directly back to Christina Loren Clement as self-represented plaintiff."
+      },
+      "evidence_for": [
+        {
+          "description": "Senate LDA registration filing (Form LD-1) for 'LOC COMMUNITY ASSOCIATION' as registrant on behalf of 'STATE OF LOC NATION GLOBAL PUBLIC BENEFIT CORPORATION' as client, registered 9/9/2024, House ID 56638, Senate ID 401108853. Lobbyist 'CHRISTINA LOREN CLEMENT LLC' with covered position 'Christina Clement, Presidential Candidate of US.' Client business description: 'Established sovereign govt: drafting formal constitution, laws, negotiating treaties, et al.'",
+          "source": "https://lda.senate.gov/filings/public/filing/5000632b-e40b-4762-affc-551b46a40c91/print/",
+          "source_type": "primary",
+          "archive_url": "http://web.archive.org/web/20250502104519/https://lda.senate.gov/filings/public/filing/5000632b-e40b-4762-affc-551b46a40c91/print/",
+          "access_method": "full_text",
+          "local_file": "case/external/lda_loc_nation_registration.md"
+        },
+        {
+          "description": "Senate LDA quarterly report (Form LD-2) for 2025 reporting income of $20,000,000.00, digitally signed 'REV DR CHRISTINA CLEMENT' on 11/12/2025. Includes the explicit self-disclaimer that the $20M is 'pending HR 40 research reimbursement owed to SoLN GPBC entities. It remains unpaid due to federal non-response and is used for reporting and documentation purposes only. It is not a federal payment unless and until processed by the responsible agency.'",
+          "source": "https://lda.senate.gov/filings/public/filing/abaac383-7e32-409c-827e-6046a4d59eea/print/",
+          "source_type": "primary",
+          "archive_url": null,
+          "access_method": "full_text"
+        },
+        {
+          "description": "OpenLobby aggregator confirms 'State of Loc Nation Global Public Benefit Corporation has spent $160.0M on federal lobbying across 14 filings' with 'Rev Dr Christina Clement' as the sole listed lobbyist. Slightly lower than the finding's $180M / 15 filings — likely a snapshot-timing difference or counting amendments differently.",
+          "source": "https://www.openlobby.us/clients/state-of-loc-nation-global-public-benefit-corporation",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "full_text"
+        },
+        {
+          "description": "LegiStorm article 'Sovereignty group claims $40M lobbying total' (Q2 alone) confirms this group as a media-noteworthy anomaly in the LDA corpus; LegiStorm is a paywalled congressional-records vendor.",
+          "source": "https://www.legistorm.com/pro_news/4318/sovereignty-group-claims-40m-lobbying-total.html",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "abstract_only",
+          "access_notes": "Page accessible but content body is gated behind paid Legistorm subscription. The article title alone independently corroborates the existence of the pattern."
+        },
+        {
+          "description": "PacerMonitor record for 'CLEMENT v. GARLAND' case 1:24-cv-00479, Judge Rudolph Contreras, Nature of Suit 440 Civil Rights, Cause 28:1331 Federal Question — confirms the court case cited inside the LDA filings is a real federal docket.",
+          "source": "https://www.pacermonitor.com/public/case/52408377/CLEMENT_v_GARLAND",
+          "source_type": "primary",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/external/factcheck/pacermonitor-clement-garland-20260522.md"
+        },
+        {
+          "description": "stateoflocnation.com main page lists 'Case Files 1:24cv00479-RC', 'SOLN- LOBBYING REPORT' (linking to lda.congress.gov), 'SOLN Central Bank.gov' (a self-hosted subdomain), '2025 Ledger as of July' (a 2025 SoLN GPBC restitution ledger PDF), and multiple references to 'Rev Dr Christina Clement' as a self-described presidential candidate and Senate Georgia 2026 candidate.",
+          "source": "https://stateoflocnation.com/",
+          "source_type": "primary",
+          "archive_url": "http://web.archive.org/web/20260315023551/https://stateoflocnation.com/",
+          "access_method": "full_text"
+        }
+      ],
+      "evidence_against": [
+        {
+          "description": "OpenLobby reports 14 filings / $160M whereas the finding states 15 filings / $180M (9 × $20M). This is a small but real numerical discrepancy. The finding itself flags it ('multiple Q2 2025 amendments at $20M each likely double-count, so true claimed quarterly figure may be $20M × 4 = $80M'), so the limitation is acknowledged in the finding. The finding cannot be characterized as falsified by this gap — both numbers derive from the same underlying primary record under different aggregation rules.",
+          "source": "https://www.openlobby.us/clients/state-of-loc-nation-global-public-benefit-corporation",
+          "source_type": "secondary"
+        }
+      ],
+      "limitations": [
+        "We cannot verify whether any money actually changed hands; the $20M-per-quarter figures are self-reported by the registrant and the registrant itself states in the disclosure body that the amount is an unpaid pending reimbursement claim, not a federal payment.",
+        "We did not independently re-execute Detector D9 to confirm the 'unique pattern outlier in 418,098 filings' claim. We treat that as an internal computed statistic — defensible methodologically but not verifiable without re-running the database.",
+        "The slight 14-vs-15 / $160M-vs-$180M aggregation discrepancy with OpenLobby should be reconciled before publication; either number is defensible depending on amendment-handling rules."
+      ],
+      "archived_sources": [
+        "case/external/lda_loc_nation_registration.md",
+        "case/external/stateoflocnation_about.md",
+        "case/external/factcheck/pacermonitor-clement-garland-20260522.md",
+        "http://web.archive.org/web/20250502104519/https://lda.senate.gov/filings/public/filing/5000632b-e40b-4762-affc-551b46a40c91/print/",
+        "http://web.archive.org/web/20260315023551/https://stateoflocnation.com/"
+      ]
+    },
+    "C-002": {
+      "verdict": "verified",
+      "confidence": "high",
+      "sift_assessment": {
+        "stop": "Sources are lda.senate.gov (federal primary), USAspending.gov (federal primary), The Hill (established mainstream lobbying-beat outlet), HQ Marine Corps OLA website (federal primary), LegiStorm (commercial congressional records), Polaris National Security (a 501(c)4 think tank Noonan is publicly affiliated with), and OpenSecrets (independent open-data project). All credible.",
+        "investigate_source": "The Hill is a respected lobbying-beat publication. Polaris US is co-founded by Noonan publicly; its bio of him is self-published but corroborated by The Hill and FDD.org. LegiStorm independently aggregates LDA data. G2X and GovTribe are federal contracting data aggregators.",
+        "find_better_coverage": "Primary sources for all major facts (LDA filings; USAspending.gov contract records; HQ Marine Corps OLA staff page; The Hill article).",
+        "trace_claims": "Each claim traced to original record. STRATFI award FA880925CB005 confirmed in three independent secondary sources (G2X, GovTribe, SBIR.gov) and an Air Force press release announcing the PY24.2 SpaceWERX STRATFI cohort."
+      },
+      "evidence_for": [
+        {
+          "description": "The Hill 'Bottom Line' lobbying column directly states: 'Palantir Technologies hired Anchor & Arrow Strategies to lobby on issues related to defense policy and appropriations. ... John Noonan, a former professional staffer on the House Armed Services Committee and national security adviser to Sen. Tom Cotton (R-Ark.), will work on the account.'",
+          "source": "https://thehill.com/lobbying/4590681-bottom-line-former-republican-chief-signs-on-to-guard-nutrition-programs/",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "full_text"
+        },
+        {
+          "description": "Polaris National Security biography of Noonan, confirming Air Force nuclear launch officer service, professional staff on House Armed Services Committee under Chairmen McKeon and Thornberry, and 'National Security Advisor to Senator Tom Cotton.'",
+          "source": "https://polaris-us.org/team/john-noonan/",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "full_text"
+        },
+        {
+          "description": "Headquarters U.S. Marine Corps Office of Legislative Affairs official roster lists 'Marine Corps Appropriations Liaison (FMBE) Major Christopher Zumbar' with @us.navy.mil email — confirming Zumbar's Navy/Marine Corps appropriations-liaison background prior to lobbying.",
+          "source": "https://www.hqmc.marines.mil/Agencies/Office-of-Legislative-Affairs/Navy-OLA-Liaison/",
+          "source_type": "primary",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/external/factcheck/hqmc-zumbar-marine-comptroller-20260522.md"
+        },
+        {
+          "description": "LegiStorm firm summary for Anchor and Arrow Strategies independently confirms 13 clients from 2024-2025 including Epirus, Saronic, Palantir, Overland AI, American Phalanx among others.",
+          "source": "https://www.legistorm.com/organization/summary/197474/Anchor_and_Arrow_Strategies.html",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/external/factcheck/legistorm-aa-strategies-20260522.md"
+        },
+        {
+          "description": "USAspending.gov contract data archived locally: Apex Technology received four DoD contracts totaling $25.7M including a $22M Air Force SBIR Phase II STRATFI (Award FA880925CB005) for 'MULTI-MISSION SATELLITES FOR LEO AND GEO DYNAMIC SPACE OPERATIONS.' Overland AI: seven SBIR awards totaling $8.86M. Gallatin AI: $149,971 Phase I. Base Operations: $1.32M including a $1.25M 'AI-DRIVEN SECURITY INTELLIGENCE FOR MISSION RESILIENCE' award.",
+          "source": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+          "source_type": "primary",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/external/usaspending_aa_clients.json"
+        },
+        {
+          "description": "G2X / GovTribe / SBIR.gov independent contract trackers confirm Award FA880925CB005 to Apex Technology, Inc.: 'SBIR PHASE II STRATFI TO APEX TECHNOLOGY, INC FOR MULTI-MISSION SATELLITES FOR LEO AND GEO DYNAMIC SPACE OPERATIONS.' Air Force Research Laboratory press release confirms PY24.2 SpaceWERX STRATFI selections totaling $146M SBIR/STTR + $155M matching + $217M commitments.",
+          "source": "https://app.g2xchange.com/awards/contracts/CONT_AWD_FA880925CB005_9700_-NONE-_-NONE-",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/external/factcheck/g2x-apex-stratfi-fa880925cb005-20260522.md"
+        },
+        {
+          "description": "OpenSecrets lobbyist profile for John Noonan: 7 clients in 2024 including Anchor & Arrow Strategies relationships — matches the finding's revolving-door category.",
+          "source": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2024&id=Y0000062815L",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "full_text"
+        }
+      ],
+      "evidence_against": [],
+      "limitations": [
+        "The 'lobbying-followed-by-contract' temporal sequence is suggestive but not causal. SBIR awards have multi-year competitive evaluation cycles that often predate the specific lobbying-firm engagement, and the finding itself states this in its limitations.",
+        "Palantir, Saronic, Epirus, CX2, American Phalanx — five of the named clients — show zero matching USAspending records under their canonical names. The finding's note that they may have classified contracts or different recipient-name registrations is plausible but unverified.",
+        "Total $2.41M lobbying revenue is internally aggregated from the case database; we did not separately sum each LDA quarterly report."
+      ],
+      "archived_sources": [
+        "case/external/lda_anchor_arrow_saronic.md",
+        "case/external/usaspending_aa_clients.json",
+        "case/external/factcheck/hqmc-zumbar-marine-comptroller-20260522.md",
+        "case/external/factcheck/legistorm-aa-strategies-20260522.md",
+        "case/external/factcheck/g2x-apex-stratfi-fa880925cb005-20260522.md"
+      ]
+    },
+    "C-003": {
+      "verdict": "partially_verified",
+      "confidence": "medium",
+      "sift_assessment": {
+        "stop": "OpenSanctions DOJ FARA mirror is a credible open-source mirror; lda.senate.gov and lobbyingdisclosure.house.gov are federal primary sources; OpenSecrets is independent.",
+        "investigate_source": "OpenSanctions is a respected sanctions / disclosure data nonprofit that mirrors public DOJ FARA filings under the open-source US_FARA_Filings dataset. The DOJ FARA registry at efile.fara.gov is the canonical source; OpenSanctions only mirrors it.",
+        "find_better_coverage": "Primary FARA registry at efile.fara.gov is the underlying source; OpenSanctions adds machine-readable parsing. For LDA, the Senate / House LDA databases are primary.",
+        "trace_claims": "The specific candidate Akin Gump representing Ant Group Co., Ltd. is traceable to House LDA lookup ID 31784, client ID 317840961. Independently re-verified."
+      },
+      "evidence_for": [
+        {
+          "description": "Akin Gump Strauss Hauer & Feld House LDA registrant lookup (reg_id 31784) lists 'Ant Group Co., Ltd.' as client 317840961 — directly verifying the finding's specific candidate that Akin Gump lobbies for Ant Group Co.",
+          "source": "https://lobbyingdisclosure.house.gov/lookup.asp?reg_id=31784",
+          "source_type": "primary",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/external/factcheck/house-akin-gump-clients-20260522.md"
+        },
+        {
+          "description": "Akin Gump LDA filing for Ant Group on lda.senate.gov is one of the disclosure forms returned in the Senate LDA search for 'AKIN GUMP STRAUSS HAUER & FELD' (filing UUID 3a6e17c0-4ff2-4fd7-bd55-35e106d2f28e).",
+          "source": "https://lda.senate.gov/filings/public/filing/3a6e17c0-4ff2-4fd7-bd55-35e106d2f28e/print/",
+          "source_type": "primary",
+          "archive_url": null,
+          "access_method": "full_text"
+        },
+        {
+          "description": "OpenSecrets FARA registrants page confirms Akin Gump IS itself a FARA registrant — so the firm appears in BOTH the LDA (where it lobbies on behalf of Ant Group) and FARA (where it represents other foreign principals). The 'gap' is therefore at the client-and-engagement level, not the firm level. The finding correctly notes this nuance in its limitations.",
+          "source": "https://www.opensecrets.org/fara/registrants/D000000162",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "full_text"
+        }
+      ],
+      "evidence_against": [
+        {
+          "description": "The 'gap' framing requires careful interpretation: many LDA filings list 'foreign_entities[]' for legitimate non-FARA-triggering reasons (e.g., the client is a US subsidiary of a foreign-owned corporation, which the LDA discloses but FARA does not require if no foreign-government agency relationship exists). A blanket '92% of LDA-foreign-entity registrants are absent from FARA' could over-imply non-compliance where there is none. The finding's own limitations section acknowledges this.",
+          "source": "https://www.justice.gov/nsd-fara/frequently-asked-questions",
+          "source_type": "primary"
+        }
+      ],
+      "limitations": [
+        "The 743/61 aggregate is an in-database join the fact-checker cannot independently re-execute without running the same DuckDB queries; we accept it as defensible internal methodology but flag that the name-equality match is, by the finding's own admission, brittle.",
+        "FARA and LDA are overlapping-but-distinct disclosure regimes; the 'gap' is a useful signal for further reporting (which the finding correctly says it is) but is not by itself evidence of non-compliance. Calling these '200 specific filings' candidates for scrutiny is the right framing.",
+        "Specific candidates (Akin Gump x Ant Group, Rich Feuer Anderson x Ant Group, Bracewell x Tele-Fonika, FGS Global x Wuxi Biologics USA LLC) were not all independently verified during this fact-check — only Akin Gump x Ant Group was end-to-end traced."
+      ],
+      "archived_sources": [
+        "case/external/factcheck/house-akin-gump-clients-20260522.md"
+      ]
+    },
+    "C-004": {
+      "verdict": "verified",
+      "confidence": "high",
+      "sift_assessment": {
+        "stop": "Sources include the firm's own bio page (Brownstein Hyatt), OpenSecrets (independent open-data), LegiStorm (commercial vendor with public-record provenance), warren.senate.gov (federal primary), Boston Globe and Boston Herald (mainstream press), and Chambers USA (legal industry directory). High credibility.",
+        "investigate_source": "bhfs.com is the firm's own website — self-published but unambiguous about Sullivan's prior role. OpenSecrets and LegiStorm are independent. Brownstein's 2021 hire-announcement press release on bhfs.com is dated May 25, 2021 and confirms Warren's Senate Finance / Ways & Means / Treasury background — a self-published source but quoting the firm against interest (public record).",
+        "find_better_coverage": "Primary press releases from Sen. Warren's official Senate site, plus Boston Globe and Boston Herald independent reporting on the Apollo / Steward attacks.",
+        "trace_claims": "Sullivan's '2025 clients include Apollo Global Management' is directly visible on OpenSecrets. Warren's Apollo-Steward press releases trace back to her senate.gov press-release archive. Brownstein's own bhfs.com bio for Sullivan matches the finding."
+      },
+      "evidence_for": [
+        {
+          "description": "Brownstein Hyatt Farber Schreck firm bio for Russell W. Sullivan: 'Chair of Brownstein's National Tax Policy Group. Veteran of Capitol Hill who served for nearly a decade as Senate Finance Committee staff director.' Chambers USA quotation: 'There is no more effective, professional and respected tax lobbyist in Washington, D.C., than Russell Sullivan.'",
+          "source": "https://www.bhfs.com/people/russell-sullivan/",
+          "source_type": "primary",
+          "archive_url": null,
+          "access_method": "full_text"
+        },
+        {
+          "description": "Brownstein's own May 2021 hire-announcement press release for Mark Warren confirms his prior roles: 'chief tax counsel to the Senate Finance Committee, tax counsel to the House Ways and Means Committee and deputy assistant secretary for legislative affairs at the Department of the Treasury.' Quotes Russ Sullivan directly. Confirms the finding's covered-position description verbatim.",
+          "source": "https://www.bhfs.com/news-event/brownstein-adds-former-senate-finance-committee-chief-tax-counsel-mark-warren-to-d-c-office/",
+          "source_type": "primary",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/external/factcheck/bhfs-warren-hire-announcement-20260522.md"
+        },
+        {
+          "description": "OpenSecrets lobbyist profile for Russell Sullivan (cycle=2025, id=Y0000049012L) lists 60 clients in 2025 including: 'Brownstein, Hyatt et al' representing 'Apollo Global Management', 'Bloom Energy', 'American Tower Corp', 'Centene Corp', 'American Petroleum Institute' (visible in scrape) — independently confirming the Sullivan-Apollo lobbying relationship and several of the other clients named in the finding.",
+          "source": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2025&id=Y0000049012L",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/external/factcheck/opensecrets-sullivan-2025-clients-20260522.md"
+        },
+        {
+          "description": "Sen. Elizabeth Warren's official Senate press release: 'Warren, Markey Push Apollo Global Management on Role in Steward Health Care's Demise, Call on the Company to Provide Relief from Onerous Leases' — primary documentation of the say-vs-pay angle.",
+          "source": "https://www.warren.senate.gov/newsroom/press-releases/warren-markey-push-apollo-global-management-on-role-in-steward-health-cares-demise-call-on-the-company-to-provide-relief-from-onerous-leases",
+          "source_type": "primary",
+          "archive_url": "http://web.archive.org/web/20251019225438/https://www.warren.senate.gov/newsroom/press-releases/warren-markey-push-apollo-global-management-on-role-in-steward-health-cares-demise-call-on-the-company-to-provide-relief-from-onerous-leases",
+          "access_method": "full_text",
+          "local_file": "case/external/factcheck/warren-apollo-steward-press-release-20260522.md"
+        },
+        {
+          "description": "Boston Globe August 2024 reporting: 'Warren, Markey press private equity giant Apollo to speed Steward sales' — independent mainstream-press confirmation of the say-vs-pay overlap window in the same period Sullivan and Warren were registered as Apollo lobbyists.",
+          "source": "https://www.bostonglobe.com/2024/08/07/business/new-steward-landlord/",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "abstract_only",
+          "access_notes": "Boston Globe is paywalled; the search-result preview / headline alone independently corroborates the existence of the press attack."
+        },
+        {
+          "description": "LegiStorm biography for Mark E. Warren confirms employer-history sequence: Sen. John Thune (Jan 2017-Jan 2019), Senate Finance Committee (Jan 2019-Feb 2021, under Chairman Grassley), Brownstein Hyatt (May 2021-May 2026), Capitol Tax Partners (May 2026-). Note: Warren left Brownstein in May 2026.",
+          "source": "https://www.legistorm.com/person/bio/371/Mark_E_Warren.html",
+          "source_type": "secondary",
+          "archive_url": null,
+          "access_method": "full_text"
+        }
+      ],
+      "evidence_against": [
+        {
+          "description": "Per LegiStorm, Mark Warren left Brownstein for Capitol Tax Partners in May 2026 — i.e., within the same month this fact-check is being conducted. The finding's present-tense 'both lobby Apollo Global Management' is accurate for the 2024-Q1 2026 disclosure window but should be qualified: as of the date of publication (May 22, 2026), Warren is no longer with Brownstein. This does not falsify the finding (the LDA filings on the record are correctly attributed) but the published copy should add 'through Q1 2026' or 'until May 2026.'",
+          "source": "https://www.legistorm.com/person/bio/371/Mark_E_Warren.html",
+          "source_type": "secondary"
+        }
+      ],
+      "limitations": [
+        "Specific revenue dollar figures ($8.92M Apollo, $4.54M Athene, $2.78M J&J, $1.65M T-Mobile) are aggregated from the case's internal LDA database and are not directly verified from OpenSecrets aggregates during this fact-check, although the client relationships are confirmed. A consumer of the findings should treat the dollar amounts as defensible internal aggregations (the LDA filings are the underlying source) and not as third-party-confirmed figures.",
+          "The '1,714 lifetime filings / $76M lifetime revenue' for Sullivan from OpenSecrets revolving-door was not independently retrieved from a working OpenSecrets revolving-door page during this fact-check (the page accessed during scraping returned navigation chrome but not the numeric tables — likely client-side rendered or paywalled to a degree). We accept the figure as plausible given the breadth of clients confirmed on the lobbyist-summary endpoint, but flag the numeric specifics as needing a separate retrieval.",
+          "Bill-citation counts (H.R. 1 cited 256 times, H.R. 5376 cited 37 times across Brownstein lobbying activities) were not independently re-verified — they come from internal case-database counts."
+      ],
+      "archived_sources": [
+        "case/external/factcheck/opensecrets-sullivan-2025-clients-20260522.md",
+        "case/external/factcheck/warren-apollo-steward-press-release-20260522.md",
+        "case/external/factcheck/bhfs-warren-hire-announcement-20260522.md",
+        "http://web.archive.org/web/20251019225438/https://www.warren.senate.gov/newsroom/press-releases/warren-markey-push-apollo-global-management-on-role-in-steward-health-cares-demise-call-on-the-company-to-provide-relief-from-onerous-leases"
+      ]
+    }
+  },
+  "monitoring_recommendations": [
+    {
+      "id": "M-FC-1",
+      "target": "https://lda.senate.gov/filings/public/filing/5000632b-e40b-4762-affc-551b46a40c91/print/",
+      "scout_type": "web",
+      "criteria": "Monitor LDA registration filing 5000632b-e40b-4762-affc-551b46a40c91 (LOC COMMUNITY ASSOCIATION) and the underlying client filing series for amendments, terminations, or DOJ/Senate enforcement actions. If the Senate Office of Public Records terminates the filing or attaches an enforcement notice, that materially changes the C-001 finding.",
+      "rationale": "C-001 includes a possible-legal-violation flag for 18 USC 1001 false statements / LDA enforcement under 2 USC 1605. Any administrative response from the Senate or DOJ would be dispositive.",
+      "priority": "medium",
+      "finding_refs": ["C-001"]
+    },
+    {
+      "id": "M-FC-2",
+      "target": "https://www.legistorm.com/person/bio/371/Mark_E_Warren.html",
+      "scout_type": "web",
+      "criteria": "Monitor Mark Warren's lobbyist registration changes. As of May 2026, LegiStorm shows him moving from Brownstein Hyatt to Capitol Tax Partners. If new LDA filings show him representing Apollo or other named clients at the new firm, the C-004 cluster diagram should be updated and possibly re-published with the migrated affiliations.",
+      "rationale": "C-004's present-tense claims about Warren at Brownstein are time-bounded; updates would either reinforce (Warren takes Apollo with him) or weaken (Apollo stays with Sullivan only) the say-vs-pay narrative.",
+      "priority": "medium",
+      "finding_refs": ["C-004"]
+    },
+    {
+      "id": "M-FC-3",
+      "target": "https://api.usaspending.gov/api/v2/search/spending_by_award/?filters=%7B%22recipient_search_text%22%3A%5B%22PALANTIR%22%2C%22SARONIC%22%2C%22EPIRUS%22%5D%7D",
+      "scout_type": "web",
+      "criteria": "Re-run USAspending search for the five Anchor & Arrow clients that returned zero USAspending matches (Palantir, Saronic, Epirus, CX2, American Phalanx). If matching DoD awards appear under canonical or near-canonical recipient names, the C-002 claim that 'four clients received material contracts' can be expanded.",
+      "rationale": "The C-002 limitations explicitly note this gap. Periodic re-checks would either tighten or weaken the lobbying-followed-by-contract pattern.",
+      "priority": "low",
+      "finding_refs": ["C-002"]
+    },
+    {
+      "id": "M-FC-4",
+      "target": "https://www.opensecrets.org/federal-lobbying/clients/summary?id=D000021845",
+      "scout_type": "web",
+      "criteria": "Monitor Apollo Global Management's lobbying-firm hires and aggregate spend. If Apollo terminates Brownstein or shifts to a different lobbying shop after the Sullivan/Warren split, that's a developing story related to C-004.",
+      "rationale": "C-004 names Apollo as Brownstein's top client at $8.92M. A change in that relationship would be material follow-up.",
+      "priority": "low",
+      "finding_refs": ["C-004"]
+    }
+  ]
+}

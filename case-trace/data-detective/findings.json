@@ -1,0 +1,277 @@
+{
+  "schema_version": "1.0",
+  "case_id": "northwestern-gain-challenge",
+  "generated_at": "2026-05-22T12:30:00Z",
+  "cycles_completed": 2,
+  "db_path": "case/index.duckdb",
+  "claims": {
+    "C-001": {
+      "statement": "An entity styling itself the 'State of LOC Nation Global Public Benefit Corporation' (SOLNGPBC), described in its own filings as an 'Established sovereign govt: drafting formal constitution, laws, negotiating treaties', filed fifteen Lobbying Disclosure Act records in 2024-2025 reporting $20 million per quarter — claiming $180 million in lobbying income across nine 2025 filings — through a Delaware-registered shell called LOC COMMUNITY ASSOCIATION whose sole disclosed lobbyist is Rev. Dr. Christina Loren Clement, identified across the filings as 'President of Black USA', '2024 Presidential candidate (assumed the Presidency)', and 'HH Empress Queen'. Detector D9 (shell-pattern scan over all 418K filings) confirms this is a unique-pattern outlier: the next-highest-scoring registrant scores 1 of 6 signals (vs. LOC's 4), and the closest comparable filing in the corpus is THEYFEARTRUTH FEDERAL GOVERNMENT OF AMERICA (zero income, but same self-styled-sovereign category).",
+      "confidence": "high",
+      "category": "data_quality",
+      "supporting_query_hashes": ["f9e737b8f3554a90", "bbbea171aa997a1e"],
+      "supporting_cards": [
+        "senate_filing_5000632b-e40b-4762-affc-551b46a40c91.md",
+        "senate_filing_4d5b1cb0-0971-43b8-958b-d260e2be8af1.md",
+        "senate_filing_c2d195d2-8df2-4b75-8e95-7014cacd5e81.md",
+        "senate_filing_abaac383-7e32-409c-827e-6046a4d59eea.md",
+        "senate_filing_f77a4908-5b4f-41d6-a9c7-acc85dee6946.md"
+      ],
+      "external_sources": [
+        {"url": "https://lda.senate.gov/filings/public/filing/5000632b-e40b-4762-affc-551b46a40c91/print/", "archive_path": "case/external/lda_loc_nation_registration.md", "fetched_at": "2026-05-22T11:25:00Z"},
+        {"url": "https://stateoflocnation.com/about", "archive_path": "case/external/stateoflocnation_about.md", "fetched_at": "2026-05-22T11:25:00Z"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "Filings live on lda.senate.gov; client website exists; founder publicly active on Reddit/Facebook/PDFs. D9 (cycle-4 deterministic detector) shows LOC NATION is the only sovereign-citizen-pattern filing in the entire 418K-record corpus that meets the multi-signal threshold. CYCLE-5 ADDITION: court case 1:24-cv-00479 cited in the LDA filings is REAL and was independently verified via CourtListener — 'CLEMENT v. GARLAND', U.S. District Court for the District of Columbia, filed 2024-02-13, terminated 2024-12-11, Judge Rudolph Contreras. Christina Clement filed pro se against four defendants: Chief Justice John Roberts Jr., UN Secretary General, ICJ Registrar at the Peace Palace, and Attorney General Merrick Garland. The LDA registration was filed September 2024 (during the litigation) and the $20M income reports begin January 2025 (after termination). Suing the Chief Justice, the UN, the ICJ and the US AG in one pro se federal complaint is a textbook sovereign-citizen litigation pattern — and it is the basis cited in the $180M lobbying disclosures.",
+      "limitations": [
+        "$180M is the sum of all 2025 filings as filed; multiple Q2 2025 amendments at $20M each likely double-count. The deduplicated quarterly figure is $20M × 4 = $80M. OpenLobby reports 14 filings totaling $160M — a small documentation-rule difference at the amendment-counting layer. We report both.",
+        "The filer's own disclosure body, per the adversarial fact-checker, states: 'the $20M is pending HR 40 research reimbursement owed to SoLN GPBC entities. It remains unpaid due to federal non-response and is used for reporting and documentation purposes only. It is not a federal payment unless and until processed by the responsible agency.' So Christina Clement is not claiming receipt of $20M from lobbying clients — she is using the LDA income field to register a putative reparations-reimbursement claim against the federal government. The finding stands as 'fictitious filings in the federal lobbying database', but the framing should not over-imply that anyone has paid the $20M."
+      ],
+      "possible_legal_violation_flag": "False statements in a federal filing (18 U.S.C. § 1001) and Lobbying Disclosure Act enforcement (2 U.S.C. § 1605) are potentially implicated. We flag this to the evaluation panel for journalistic discretion; no determination of intent is made here."
+    },
+    "C-002": {
+      "statement": "Anchor & Arrow Strategies / Anchor & Arrow LLC, founded by former House Armed Services Committee, Sen. Tom Cotton's national-security desk, and Navy/Marine Corps appropriations staff, registered 13 AI- and autonomous-defense startups as lobbying clients in 2024-2026 (102 filings, $2.41M lobbying revenue). USAspending.gov data confirms at least four of those clients received material DoD contracts during the same period — Apex Technology ($25.7M, including a $22M Air Force SBIR Phase II STRATFI for multi-mission satellites awarded after Anchor & Arrow's Q3 2025 registration), Overland AI ($8.86M across seven SBIR awards), Base Operations ($1.32M for AI-driven security intelligence), and Gallatin AI ($150K SBIR Phase I).",
+      "confidence": "high",
+      "category": "revolving_door",
+      "supporting_query_hashes": ["e51ec9c1d23d4479"],
+      "supporting_cards": [
+        "senate_filing_4c6a09cd-efc2-433d-ace2-5aba684b2e4d.md",
+        "senate_filing_1678194c-8051-43bc-a726-2c98ab982ffa.md",
+        "senate_filing_a4abaf28-75ef-48b5-8d9f-dbb3023e6aed.md"
+      ],
+      "external_sources": [
+        {"url": "https://api.usaspending.gov/api/v2/search/spending_by_award/", "purpose": "DoD contract awards for Anchor & Arrow clients 2022-2026 Q1", "archive_path": "case/external/usaspending_aa_clients.json", "fetched_at": "2026-05-22T11:55:00Z"},
+        {"url": "https://thehill.com/lobbying/4590681-bottom-line-former-republican-chief-signs-on-to-guard-nutrition-programs/", "purpose": "Independent biographical verification (Noonan)"},
+        {"url": "https://www.linkedin.com/in/christopher-zumbar-a721a256", "purpose": "Independent biographical verification (Zumbar)"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "All founders verified via independent public sources. USAspending.gov hits confirm material DoD contract flow to lobbied clients in the same window as lobbying disclosures. Apex Technology paired most tightly: Anchor & Arrow registered Q3 2025 → Apex received $22M Air Force SBIR STRATFI; lobbying spend ~$100K total against $22M-plus award.",
+      "limitations": [
+        "Revolving-door + lobbying-followed-by-contract patterns alone are not illegal; SBIR awards are competitively reviewed and typically span multi-year decision cycles.",
+        "USAspending.gov search did not return matches for Palantir, Saronic, Epirus, CX2, American Phalanx — these companies may have prime-contract awards under slightly-different recipient names or under classified award streams (USAspending does not capture classified obligations)."
+      ]
+    },
+    "C-003": {
+      "statement": "Across the 2024-2026 Senate LDA filings, 743 distinct registrants disclose foreign_entities[]; only 61 (8%) also appear in the U.S. DOJ FARA registrant list — a 682-name aggregate 'FARA gap'. Detector D10 narrows this gap to 200 specific filings that combine the gap with at least one of (a) non-US client country, (b) foreign-government-policy lobbying topics (embassy/ambassador/sanctions/FARA mentions), or (c) state-owned-enterprise client naming (Republic of, Kingdom of, Ministry of, etc.). The narrowed list surfaces concrete candidates including Akin Gump Strauss Hauer & Feld lobbying for Ant Group Co. (China), Rich Feuer Anderson lobbying for Ant Group Co. (China), Bracewell LLP lobbying for Tele-Fonika Cable Americas, and FGS Global lobbying for Wuxi Biologics USA LLC (HK).",
+      "confidence": "medium",
+      "category": "foreign_influence",
+      "supporting_query_hashes": ["f7c962b62d2393b1", "ae4ebdb2ecf19559"],
+      "supporting_cards": [],
+      "external_sources": [
+        {"url": "https://data.opensanctions.org/datasets/latest/us_fara_filings/", "purpose": "FARA bulk source (DOJ-mirrored XML)"}
+      ],
+      "fact_check_status": "partially_verified",
+      "fact_check_notes": "Aggregate gap mechanically computed via in-database join (D10). Specific candidates surfaced are leads for case-by-case scrutiny — Akin Gump and Rich Feuer Anderson lobbying for Ant Group is a particularly worth-pursuing pairing given Ant Group's Chinese state-adjacent profile and ongoing US regulatory friction.",
+      "limitations": [
+        "FARA and LDA capture overlapping but distinct activity. Many gap filings are legitimate (US client owned by a foreign parent does not by itself require FARA from its lobbyist).",
+        "Name match used uppercased equality. Some gap entries (e.g., Akin Gump) likely DO have FARA registrations under specific lawyers, not the firm name."
+      ]
+    },
+    "C-004": {
+      "statement": "A multi-hop revolving-door detector (D11) — joining lobbyists whose covered_position text names a specific committee, current quarterly filings, and the issue-code those filings lobby on — surfaces a particularly dense cluster at Brownstein Hyatt Farber Schreck LLP: Russell Sullivan (former Staff Director, Senate Finance Committee) and Mark Warren (former Chief Tax Counsel, Senate Finance Committee; Senior Tax Counsel to Sen. Thune; Tax Counsel, House Ways & Means; Deputy Assistant Secretary, Treasury Legislative Affairs) both lobby Apollo Global Management, Athene Holding (Apollo's annuities arm), Johnson & Johnson Services, T-Mobile, Bloom Energy, and the American Petroleum Institute on TAX/FIN topics. Sullivan alone has appeared in 1,714 federal lobbying filings and lifetime-tracked revenue exceeding $76 million per OpenSecrets. The detector identified 16 named lobbyists representing $122 million in 2024-2026 lobbying income on topics directly aligned with the committee they previously staffed. **Bill-citation analysis confirms Brownstein Hyatt cited H.R. 1 (the 2025 'Big Beautiful Bill' tax-and-spending reconciliation) 256 times across its lobbying activities, and H.R. 5376 (Inflation Reduction Act) 37 times — the most-lobbied bills in the corpus by this single firm. Cross-corpus 'say vs. pay' signal: Sen. Elizabeth Warren issued ten 2024-2025 press releases publicly attacking Apollo Global Management over the Steward Health Care bankruptcy — while Sullivan + Warren billed the same Apollo $8.92M for representation during the same period.**",
+      "confidence": "high",
+      "category": "revolving_door",
+      "supporting_query_hashes": ["a7712c723043a717", "274c4ef00515cd73"],
+      "supporting_cards": [
+        "senate_filing_c058d5af-a044-4a69-8f34-b53559162130.md",
+        "senate_filing_1d846f6d-3a5f-409f-a2c5-03b5f2dbe860.md"
+      ],
+      "external_sources": [
+        {"url": "https://www.bhfs.com/people/russell-sullivan/", "purpose": "Sullivan official firm bio — confirms Staff Director, Senate Finance Committee"},
+        {"url": "https://www.opensecrets.org/revolving-door/sullivan-russell/summary?id=77989", "purpose": "OpenSecrets revolving-door record — career-tracked revenue figures"},
+        {"url": "https://www.legistorm.com/person/bio/371/Mark_E_Warren.html", "purpose": "Warren biography — confirms Senate Finance / Ways & Means / Treasury history"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "Sullivan and Warren are publicly-known DC tax lobbyists. Chambers USA: 'There is no more effective, professional and respected tax lobbyist in Washington, D.C., than Russell Sullivan.' Their LDA covered_position fields match their public biographies. Christopher Treanor (former H. Energy & Commerce policy analyst) is a third cluster member at Akin Gump representing the Partnership to Address Global Emissions ($16.6M lifetime engagement at Akin Gump) — energy-and-emissions lobbying mapped to his former committee jurisdiction. Detector D12 (committee-jurisdiction × press-release × lobbying multi-corpus join, sql_hash 274c4ef00515cd73) makes the say-vs-pay structure deterministic: TWO current Senate Finance Committee members — Elizabeth Warren (Democrat, 9 press releases) and Chuck Grassley (Republican, 1 press release) — publicly attack Apollo Global Management on private equity / Steward Health Care / Genesis Nursing Home issues, while their committee's former Staff Director (Sullivan) bills Apollo $8.92M for representation. Bipartisan committee critique of a client whose lobbying is led by that committee's former senior staff.",
+      "limitations": [
+        "Revolving-door + topic-match alone is not illegal. The finding documents a structural pattern; per-individual ethical or legal review is out of scope.",
+        "D11 keyword-mapping from covered_position text to former-committee is heuristic. Future iterations should use Congress.gov / LegiStorm staff databases for precise role-to-committee mapping.",
+        "Per LegiStorm (confirmed by the adversarial fact-checker), Mark Warren LEFT Brownstein for Capitol Tax Partners in May 2026 — i.e. during the publication window. The finding's present-tense 'Sullivan + Warren co-lobby Apollo' is accurate through Q1 2026 (the LDA window of our index) but should be qualified in any published copy as 'through Q1 2026'. Sullivan remains at Brownstein. The Apollo engagement may continue under Sullivan alone.",
+        "Specific revenue figures ($8.92M Apollo, $4.54M Athene, $1.65M T-Mobile etc.) are aggregated from our LDA index. Client relationships are confirmed via OpenSecrets (Sullivan's 2025 client roster explicitly includes Apollo, Bloom Energy, American Tower, Centene, API). Dollar specifics are internally computed and not separately reproduced from third-party aggregators.",
+        "POST-PUBLICATION UPDATE from OS-006 spotlight-handoff (May 22, 2026, three weeks after Warren's May 4 2026 announcement at Capitol Tax Partners): Apollo Global Management has STAYED with Russell Sullivan at Brownstein Hyatt. The Senate LDA database shows ZERO filings of any kind (registration, amendment, or quarterly) in which Capitol Tax Partners appears as registrant for Apollo. The Brownstein-Apollo engagement remains intact at $260K/quarter and the BHFS Q1 2026 filing (posted April 17, 2026) lists Sullivan as the lead tax-issue lobbyist with Harold Hancock. The Q2 2026 LDA filing deadline of July 20, 2026 is the definitive test of whether Apollo will migrate. Brownstein has already taken Warren's bio page to 404; Capitol Tax has not yet added Warren to its team page despite the May 4 announcement banner — an asymmetric public-presence picture indicating a fast departure but a slow practice integration on the receiving end."
+      ]
+    },
+    "C-005": {
+      "statement": "The Federal Election Commission has formally taken regulatory action against Christina Loren Clement's Senate campaign committee on the same fictitious-filing pattern data-detective surfaced from the LDA database. On April 28, 2026, the FEC issued a warning letter to her committee (STATE OF LOC NATION FOR CLEMENT FOR SENATE, FEC ID C00857128) over her $50.25 million reported self-loan; the FEC subsequently reclassified the filing into its 'False and Fictitious Filings' miscellaneous repository on the committee's public page. The 'loan' is not cash — Clement's own published policy states the $50.25M is the asserted fair-market value of a license to her self-issued 'Loc Nation Dollar' (LND) currency pegged at 1 LND = $750 USD. The pattern is not unique to Clement: Rico Cortez Dukes (b. 1979, Shreveport LA), the operator of the second sovereign-citizen-pattern LDA filing data-detective surfaced (THEYFEARTRUTH FEDERAL GOVERNMENT OF AMERICA), has a documented federal-court litigation history of at least eleven pro se complaints in the U.S. District Court for the Northern District of Texas (2017-2021), including textbook sovereign-citizen-style titles like 'Dukes v. Roman Empire' (3:17-cv-02834), 'Dukes v. Federal Reserve Central Bank' (3:17-cv-02510), and 'Dukes v. Trump' (3:17-cv-02167). Both Clement and Dukes are formally registered FEC 2024 presidential candidates of self-styled sovereign-government parties (Clement: FEC P40016412 REPUBLICAN PARTY; Dukes: FEC P00011163 AMERICAN INDEPENDENT PARTY, statement of candidacy filed 08/17/2021; THEYFEARTRUTH PRESIDENTIAL COMMITTEE C00884064).",
+      "confidence": "high",
+      "category": "data_quality + regulatory_corroboration",
+      "supporting_query_hashes": ["bbbea171aa997a1e", "f9e737b8f3554a90"],
+      "supporting_cards": [],
+      "supporting_records": {
+        "fec_committee_ids": ["C00857128 STATE OF LOC NATION FOR CLEMENT FOR SENATE", "C00884064 THEYFEARTRUTH PRESIDENTIAL COMMITTEE"],
+        "fec_candidate_ids": ["S6GA00366 Clement (Senate Georgia 2026 write-in)", "P40016412 Clement (Presidential 2024 REPUBLICAN PARTY)", "P00011163 Dukes (Presidential 2024 AMERICAN INDEPENDENT PARTY)"],
+        "dukes_ndtx_cases": ["Dukes v. Roman Empire 3:17-cv-02834", "Dukes v. Federal Reserve Central Bank 3:17-cv-02510", "Dukes v. Trump 3:17-cv-02167", "+8 additional pro se N.D. Texas cases 2017-2021"],
+        "stateoflocnation_first_wayback": "2022-10-08T00:00:00Z (16 months before CLEMENT v. GARLAND was filed)",
+        "fec_warning_letter_date": "2026-04-28",
+        "fec_action": "warning letter + reclassification into 'False and Fictitious Filings' repository",
+        "external_expert_quote": "Quinnipiac election-law professor John Martin (on the record via OpenSecrets May 15, 2026) characterised the filing as either typo or fabrication.",
+        "georgia_general_election_2026": "Clement is on the November 3, 2026 Georgia general election ballot as a write-in U.S. Senate candidate (REPUBLICAN PARTY per FEC registration)",
+        "disconfirmed_hypothesis": "The '8 The Green, Suite A, Dover, DE 19901' address from data-detective is NOT a Clement-specific shell hub — it is the office of 'A Registered Agent, Inc.' / 'Delaware Corporate Headquarters LLC' used by thousands of unrelated LLCs"
+      },
+      "external_sources": [
+        {"url": "https://docquery.fec.gov/cgi-bin/forms/C00857128/", "purpose": "FEC committee record showing False and Fictitious Filings reclassification"},
+        {"url": "https://www.fec.gov/data/committee/C00857128/", "purpose": "FEC committee page"},
+        {"url": "https://www.fec.gov/data/candidate/S6GA00366/", "purpose": "Clement Senate Georgia 2026 candidate page"},
+        {"url": "https://www.fec.gov/data/candidate/P40016412/", "purpose": "Clement Presidential 2024 candidate page"},
+        {"url": "https://www.fec.gov/data/candidate/P00011163/", "purpose": "Dukes Presidential 2024 candidate page"},
+        {"url": "https://www.opensecrets.org/", "purpose": "OpenSecrets coverage with Quinnipiac expert quote"},
+        {"url": "https://www.legistorm.com/pro_news/4318/sovereignty-group-claims-40m-lobbying-total.html", "purpose": "Independent LegiStorm reporting"},
+        {"url": "https://pcl.uscourts.gov/", "purpose": "PACER N.D. Texas Dukes case search"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "All 12 OS-001 spotlight:investigator findings sourced to primary records (FEC, PACER, Wayback, OpenSecrets) with 23 archived files in case/spotlight/results/OS-001-loc-nation-network/external/. Independent expert commentary on the record (John Martin, Quinnipiac). The data-detective fact-check pattern applies: every claim cites a public-record document.",
+      "limitations": [
+        "No documented operational connection between Clement and Dukes — working position is 'independent cells of the same pattern,' not 'coordinated network.' Absence of evidence is not evidence of absence.",
+        "D.C. Circuit appellate disposition on Clement's case 24-5263 (notice of appeal filed pro se 11/19/2024, no fee paid) is not yet public via free databases; PACER pull would settle it.",
+        "Northrop Grumman creditor matrix listing of Clement at 2787 S Orange Blossom Trl, Apopka FL is unexplained and a candidate for a future cycle."
+      ],
+      "promoted_from": "OS-001 spotlight-handoff (passover from data-detective C-001)"
+    },
+    "C-006": {
+      "statement": "Akin Gump Strauss Hauer & Feld's complete 2025 FARA foreign-principal list is six sovereigns (UAE, Cambodia, Japan, Palau, Marshall Islands, Costa Rica) plus the Korea Embassy (March 2026 Exhibit AB). NONE of the four LDA-flagged Akin Gump engagements data-detective C-003/D10 surfaced — Ant Group Co. (CN), TP-Link Systems (SG/VG/GB), Adani North America (IN), United Solar Polysilicon (CN/OM) — are covered at firm OR attorney level FARA. The same partners (Pomper, Babin, Ros-Lehtinen, Kho) handle both sides but FARA-register only the government clients. The Adani engagement is the strongest 'gap should not exist' case: Akin Gump was retained THE DAY AFTER the November 20, 2024 DOJ Eastern District of New York indictment of Gautam and Sagar Adani; the lobbying targets are White House + State Department + Commerce Department on bilateral 'U.S.-India renewable energy cooperation'; the LDA-named foreign entity of interest is Adani Enterprises Limited — the indicted parent corporation. NYT reporting on May 18, 2026 indicates the DOJ is moving to drop the criminal case. The United Solar Polysilicon engagement is structurally adjacent to active US sanctions enforcement: the client's chairman/founder Zhang Longgen was CEO of Daqo (2018-2023) and vice-chair of Xinjiang Daqo, an entity on the BIS Entity List since June 2021 for Uyghur forced labor; the US Treasury voted AGAINST the IFC's $250M loan to this exact entity on August 8, 2025; Akin Gump's specific lobbying issue is the Section 232 polysilicon investigation. The TP-Link engagement uses Steve Kho — former Acting Chief Counsel for China Enforcement at USTR — to lobby on a potential ITC Section 337 exclusion for a router maker under active Commerce Department national-security review.",
+      "confidence": "high",
+      "category": "foreign_influence + regulatory_evasion",
+      "supporting_query_hashes": ["ae4ebdb2ecf19559"],
+      "supporting_cards": [],
+      "supporting_records": {
+        "akin_gump_2025_fara_principals": ["UAE", "Cambodia", "Japan", "Palau", "Marshall Islands", "Costa Rica", "Korea Embassy (March 2026 Exhibit AB)"],
+        "lda_engagements_not_in_fara": ["Ant Group Co. (CN)", "TP-Link Systems Inc. (SG/VG/GB)", "Adani North America (IN; parent Adani Enterprises Limited)", "United Solar Polysilicon (CN/OM)"],
+        "named_partners_handling_both_sides": ["Stephen Pomper", "Hal Babin", "Ileana Ros-Lehtinen", "Steve Kho"],
+        "adani_indictment_date": "2024-11-20 (DOJ EDNY, Gautam Adani and Sagar Adani)",
+        "akin_gump_adani_retainer_date": "2024-11-21 (day after the indictment)",
+        "adani_lobbying_targets": "White House + State Department + Commerce Department",
+        "adani_lobbying_topic": "bilateral 'U.S.-India renewable energy cooperation'",
+        "nyt_doj_dropping_adani_reporting_date": "2026-05-18",
+        "united_solar_chairman_history": "Zhang Longgen — former CEO of Daqo (2018-2023); former vice-chair of Xinjiang Daqo (on BIS Entity List since June 2021 for Uyghur forced labor)",
+        "us_treasury_ifc_loan_vote": "Aug 8, 2025: US Treasury voted AGAINST IFC $250M loan to United Solar Polysilicon",
+        "united_solar_lobbying_topic": "Section 232 polysilicon investigation",
+        "tp_link_lobbyist": "Steve Kho — former Acting Chief Counsel for China Enforcement at USTR",
+        "tp_link_lobbying_topic": "potential ITC Section 337 Exclusion",
+        "tp_link_review_status": "active Commerce Department national-security review (2024-2025)"
+      },
+      "external_sources": [
+        {"url": "https://efile.fara.gov/", "purpose": "DOJ FARA eFile — Akin Gump foreign-principal list verification"},
+        {"url": "https://www.opensecrets.org/fara/registrants/D000000162", "purpose": "OpenSecrets FARA Akin Gump aggregator"},
+        {"url": "https://lobbyingdisclosure.house.gov/lookup.asp?reg_id=31784", "purpose": "House LDA Akin Gump registrant lookup"},
+        {"url": "https://www.justice.gov/usao-edny/press-release/file/1786596/dl", "purpose": "DOJ EDNY November 20 2024 indictment of Gautam and Sagar Adani"},
+        {"url": "https://www.nytimes.com/2026/05/18/business/adani-doj-prosecution.html", "purpose": "NYT reporting on DOJ moving to drop the Adani case"},
+        {"url": "https://home.treasury.gov/news/press-releases/", "purpose": "US Treasury Aug 8 2025 statement on IFC United Solar Polysilicon loan vote"},
+        {"url": "https://www.bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/entity-list", "purpose": "BIS Entity List Xinjiang Daqo June 2021 designation"},
+        {"url": "https://www.akingump.com/en/lawyers-advisors/stephen-pomper", "purpose": "Akin Gump partner Pomper bio"},
+        {"url": "https://www.akingump.com/en/lawyers-advisors/steve-kho", "purpose": "Akin Gump partner Steve Kho bio — former USTR China Enforcement Counsel"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "OS-002 spotlight:investigator pulled 7 findings (4 high-confidence) across 17 scraped evidence files + 8 Wayback archives. Two engagements (Adani, United Solar) have independent investigative-press corroboration aligning with the data-derived FARA-gap hypothesis. The 'gap should not exist' analysis distinguishes Adani (criminal indictment of named foreign parent, executive-branch-only lobbying, bilateral state-policy framing — strongest case for FARA trigger) from TP-Link (Delaware US subsidiary, conventional commercial trade defense via ITC §337 — defensibly LDA-only).",
+      "limitations": [
+        "FARA §3(d) commerce exemption and §3(h) legal-representation exemption are the most likely structural explanations for the Akin Gump gap. Whether those exemptions legitimately cover each engagement is the journalistic-legal call this finding flags but does not adjudicate.",
+        "Ant Group Q1 2025 LD-2 reports $90K income but the rendered LDA print shows empty issue text — likely a rendering artifact; LD-1 retrieval would confirm.",
+        "DOJ Public Integrity Section / NSD-FARA Unit referral status (if any) for these specific engagements is not public."
+      ],
+      "possible_legal_violation_flag": "Federal FARA enforcement (22 U.S.C. § 611 et seq.) is theoretically triggered when an agent represents a foreign principal's interests in influencing US government policy. The Adani retainer day-after-indictment + executive-branch-only lobbying + named indicted foreign parent is the configuration most likely to attract NSD-FARA Unit scrutiny. We flag this to the evaluation panel without adjudicating intent.",
+      "promoted_from": "OS-002 spotlight-handoff (passover from data-detective C-003)"
+    },
+    "C-007": {
+      "statement": "Tarplin, Downs & Young LLC — a healthcare-policy lobby boutique surfaced by D11 — is the institutional home of two named Medicare Part D legislative architects who became drug-industry lobbyists. ProPublica's 2009 investigation 'Medicare Drug Plan Architects Now Drug Company Lobbyists' named TDY co-founders **Raissa Downs** (HHS Principal Deputy Assistant Secretary for Legislation; helped spearhead Part D implementation) and **Jennifer Young** (HHS Assistant Secretary for Legislation; Senior Counselor to HHS Secretary Mike Leavitt). The firm has held a pharma-heavy client roster — Amgen, AstraZeneca, BIO, Boston Scientific, Genzyme, PhRMA, Vertex Pharmaceuticals, Blue Cross Blue Shield — continuously for sixteen years and counting. **The strongest current say-vs-pay configuration**: TDY's $6M+ client **Vertex Pharmaceuticals is in active federal litigation against HHS-OIG** to set aside the agency's Anti-Kickback Statute interpretation of its Casgevy fertility-preservation program (Bass Berry & Sims / Law360, July 2024) — meaning a top-five TDY client is suing the precise federal agency (HHS-OIG) where two of TDY's three founders ran the Office of the Assistant Secretary for Legislation. The firm was acquired by FGS Global on September 10, 2025 — a market-structure event explaining the Q4 2025 spending spike data-detective's D1 detector flagged.",
+      "confidence": "high",
+      "category": "revolving_door + active_litigation_conflict",
+      "supporting_query_hashes": ["a7712c723043a717"],
+      "supporting_cards": [],
+      "supporting_records": {
+        "tdy_cofounders_part_d_architects": ["Raissa Downs (HHS Principal Deputy Asst Sec for Legislation; Part D implementation)", "Jennifer Young (HHS Assistant Secretary for Legislation; Senior Counselor to HHS Sec. Leavitt)"],
+        "third_partner": "Linda Tarplin (likely also HHS-veteran; needs confirmation)",
+        "long_running_pharma_clients": ["Amgen", "AstraZeneca", "Biotechnology Innovation Organization (BIO)", "Boston Scientific", "Genzyme (Sanofi)", "PhRMA", "Vertex Pharmaceuticals", "Blue Cross Blue Shield Association"],
+        "vertex_v_hhs_oig": "active federal litigation; Vertex suing HHS-OIG to set aside Anti-Kickback Statute interpretation of Casgevy fertility-preservation program (Bass Berry & Sims counsel; Law360 July 2024 coverage)",
+        "fgs_global_acquisition_date": "2025-09-10",
+        "fgs_global_acquisition_explains": "D1 spending-spikes detector flagged TDY at Q4 2025; the spike is the consolidated FGS revenue rollup post-acquisition"
+      },
+      "external_sources": [
+        {"url": "https://www.propublica.org/article/medicare-drug-plan-architects-now-drug-company-lobbyists", "purpose": "ProPublica 2009 investigation naming Downs + Young as Part D architects → pharma lobbyists"},
+        {"url": "https://tdyllc.com/", "purpose": "TDY firm website with partner bios (Wayback archived 2026-05-22)"},
+        {"url": "https://web.archive.org/web/20260522123759/https://tdyllc.com/", "purpose": "Wayback Machine TDY archive"},
+        {"url": "https://www.law360.com/", "purpose": "Law360 July 2024 Vertex v. HHS-OIG Casgevy litigation coverage"},
+        {"url": "https://www.opensecrets.org/", "purpose": "OpenSecrets TDY client roster + revenue history"},
+        {"url": "https://fgsglobal.com/", "purpose": "FGS Global September 10, 2025 TDY acquisition announcement"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "OS-005 spotlight:investigator pulled 10 findings + 22 source scrapes. Surfaced and CORRECTED a name-attribution error in data-detective D11: the LDA 'covered_position' field aggregates positions across all lobbyists on a single filing, so D11's matching of 'former HHS Asst Sec for Legislation' to 'Pamela Smith' should be to 'Raissa Downs' — the data-detective heuristic conflated co-filers. ProPublica's 2009 reporting is the load-bearing independent source establishing the Part D-architect-to-pharma-lobbyist pattern.",
+      "limitations": [
+        "Linda Tarplin (third partner) needs separate HHS-history verification; not all three founders pulled in this cycle.",
+        "Vertex v. HHS-OIG case file beyond Law360 secondary coverage needs PACER pull for the full complaint + scheduling order.",
+        "D1 detector spike was the FGS Global acquisition, not a true lobbying revenue change — this is a data-detective methodological correction; should update D1 documentation."
+      ],
+      "promoted_from": "OS-005 spotlight-handoff (corrected D11 attribution from Pamela Smith to Raissa Downs)"
+    },
+    "C-008": {
+      "statement": "**Reynolds American — parent of RAI Services Company, the $3.18M lobbying client of Ballard Partners' Daniel McFaul — paid Make America Great Again Inc. $5 million on April 30, 2026; Reynolds executives met Donald Trump in Jupiter, Florida two days later (May 2); and the FDA reversed its flavored-vape ban within approximately ten days.** The New York Times's Kenneth Vogel and Christine Jewett reported the timeline, corroborated across four independent secondary sources. McFaul is the lobbyist of record on RAI Services LDA filings; he is also Managing Partner of Ballard Partners' DC office, served on the 2016-17 Trump Presidential Transition Team in the Appointments office covering DoD, VA, Armed Services, and Intelligence, and served on Matt Gaetz's own congressional transition team. McFaul's personal FEC giving (46 contributions, ~$33K, 2017-2026, all Republican) explicitly includes Friends of Matt Gaetz (2018), Trump Victory + Trump for President (February 2020), and Brian Jack (former Trump WH Political Director, 2024). Ballard Partners' lobbying revenue grew 4.5× from $19.6M in 2024 to $88.3M in 2025 — making it the #1 lobbying firm in America by revenue — with current White House Chief of Staff Susie Wiles and current Attorney General Pam Bondi as Ballard alumni.",
+      "confidence": "high",
+      "category": "say_vs_pay + administration_access",
+      "supporting_query_hashes": ["a7712c723043a717"],
+      "supporting_cards": [],
+      "supporting_records": {
+        "reynolds_maga_inc_donation": {
+          "donor": "Reynolds American Inc.",
+          "recipient_committee": "Make America Great Again Inc. (FEC C00825851)",
+          "amount": "$5,000,000",
+          "date": "2026-04-30"
+        },
+        "trump_jupiter_meeting": "2026-05-02 (Reynolds executives meeting Trump in Jupiter, Florida)",
+        "fda_vape_ban_reversal_within_days": "approximately 10 days after the meeting",
+        "nyt_reporters": "Kenneth Vogel + Christine Jewett (corroborated across 4 independent secondary sources)",
+        "mcfaul_ballard_role": "Managing Partner of Ballard Partners' DC office",
+        "mcfaul_trump_transition_2016_17": "Appointments office covering Department of Defense, Veterans Affairs, Armed Services, Intelligence",
+        "mcfaul_gaetz_transition": "served on Matt Gaetz's own congressional transition team",
+        "mcfaul_personal_fec_giving": "46 contributions, ~$33,000, 2017-2026, all Republican (incl. Friends of Matt Gaetz 2018, Trump Victory + Trump for President Feb 2020, Brian Jack 2024)",
+        "ballard_revenue_2024_to_2025": "$19.6M → $88.3M (4.5× growth; #1 lobbying firm in America in 2025)",
+        "ballard_alumni_in_administration": ["Susie Wiles (WH Chief of Staff)", "Pam Bondi (Attorney General)"],
+        "la28_olympic_engagement": "McFaul sits on the 4-lobbyist team registered for LA28 Olympic 'intergovernmental agency coordination' — struck shortly after LA28 President Casey Wasserman flew to Mar-a-Lago"
+      },
+      "external_sources": [
+        {"url": "https://www.nytimes.com/", "purpose": "Vogel/Jewett NYT reporting on Reynolds-MAGA-FDA timeline"},
+        {"url": "https://www.fec.gov/data/committee/C00825851/", "purpose": "FEC MAGA Inc. committee for the $5M Reynolds contribution"},
+        {"url": "https://www.fec.gov/data/", "purpose": "McFaul personal FEC contribution history (46 entries, all Republican)"},
+        {"url": "https://www.ballardpartners.com/", "purpose": "Ballard Partners firm — McFaul as Managing Partner of DC office"},
+        {"url": "https://www.opensecrets.org/federal-lobbying/firms?id=D000048798", "purpose": "OpenSecrets Ballard Partners revenue growth $19.6M → $88.3M"},
+        {"url": "https://www.legistorm.com/", "purpose": "McFaul biography + Trump transition role"},
+        {"url": "https://lda.senate.gov/filings/", "purpose": "McFaul LDA filings for RAI Services + LA28"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "OS-003 spotlight:investigator pulled 7 findings (5 high-confidence). The Reynolds-MAGA-FDA timeline (F4) was corroborated across 4 independent secondary sources beyond the NYT Vogel/Jewett primary. McFaul's Trump transition role and Gaetz transition role are independently verifiable via LegiStorm + Ballard firm bio. Ballard Partners' revenue figures from OpenSecrets are publicly reported.",
+      "limitations": [
+        "Causation between the $5M donation and the FDA vape-ban reversal is not provable on public-record evidence alone. The timeline is established; intent is not adjudicated.",
+        "The LA28 / Mar-a-Lago lobbying configuration is plausibly 'gov-to-gov access' rather than a money-for-policy exchange. Distinguishing requires the underlying LDA issue text + LA28 internal communications (FOIA).",
+        "RAI Services' specific LDA issue text on PMTA / flavored-vape regulation needs to be pulled from the matching McFaul filings to close the causal-chain claim formally."
+      ],
+      "possible_legal_violation_flag": "The factual chain (donation → meeting → policy reversal) is established; whether it constitutes any of (FECA pay-to-play, federal anti-bribery 18 U.S.C. § 201, or LDA misreporting) requires both intent and a specific exchange element not in the public record. Flagged to evaluation panel; no determination of intent.",
+      "promoted_from": "OS-003 spotlight-handoff (passover from data-detective D3 revolving-door + Ballard ad-hoc query)"
+    },
+    "C-009": {
+      "statement": "**Anthony 'Lazer' Lazarski at Cornerstone Government Affairs** — a 25-year USAF Colonel; former Senate Armed Services Committee Professional Staff Member; former Senior Legislative Advisor to SASC Chair Jim Inhofe — is the named lobbyist on Cornerstone's 2024 contracts with **Apollo Global Management, Boeing, General Dynamics, and Anduril**. He is attacked on the record by **Sen. Elizabeth Warren — a current SASC member** — on two independent axes simultaneously: (a) Warren co-signed a 2024 Senate letter naming Apollo by name and demanding accountability for Apollo's 'shadowy' role in the Steward Health Care bankruptcy; (b) Warren published a campaign platform — 'Reduce Corporate Influence at the Pentagon' — that verbatim describes Lazarski's exact revolving-door pattern ('giant contractors have deployed an extremely profitable strategy: recruit armies of lobbyists from former Pentagon officials and congressional staffers...My plan would ban giant defense contractors from hiring senior DOD officials and general and flag officers for four years after they leave the Department'). Lazarski's $108,400 in 2024 FEC donations went exclusively to SASC + HASC Republicans (Britt, Fischer, Mike Rogers, Sheehy, Lamborn, Kiggans, Gallagher) — a clean money-axis contrast with Warren's attack. **This finding triangulates C-004**: the same Apollo Global Management client is lobbied by TWO different mega-firms (Brownstein/Sullivan on Senate Finance committee jurisdiction + Cornerstone/Lazarski on Senate Armed Services jurisdiction), each via former senior committee staff, and the same senator — Warren — attacks Apollo from both committee positions.",
+      "confidence": "high",
+      "category": "say_vs_pay + cross_committee_triangulation",
+      "supporting_query_hashes": ["a7712c723043a717"],
+      "supporting_cards": [],
+      "supporting_records": {
+        "lazarski_prior_roles": ["Colonel, US Air Force (25 years)", "Professional Staff Member, Senate Armed Services Committee", "Senior Legislative Advisor, Sen. Jim Inhofe (SASC Chair)"],
+        "lazarski_2024_clients": ["Apollo Global Management", "Boeing", "General Dynamics", "Anduril"],
+        "lazarski_fec_2024_giving": {"total": "$108,400", "all_to": "SASC + HASC Republicans only", "named": ["Britt", "Fischer", "Mike Rogers", "Sheehy", "Lamborn", "Kiggans", "Gallagher"]},
+        "warren_attack_axis_1": "Co-signed Senate letter naming Apollo for 'shadowy' role in Steward Health Care bankruptcy",
+        "warren_attack_axis_2": "Campaign platform 'Reduce Corporate Influence at the Pentagon' — verbatim describes Lazarski's pattern",
+        "c004_triangulation": "Apollo Global Management is lobbied by BOTH Brownstein (Sullivan; Senate Finance axis) AND Cornerstone (Lazarski; Senate Armed Services axis); Warren attacks from both committee positions"
+      },
+      "external_sources": [
+        {"url": "https://cgagroup.com/people/anthony-lazarski/", "purpose": "Cornerstone official Lazarski bio"},
+        {"url": "https://www.opensecrets.org/revolving-door/lazarski-anthony/summary?id=81286", "purpose": "OpenSecrets Lazarski revolving-door profile"},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2024&id=Y0000053591L", "purpose": "Lazarski 2024 clients + revenue"},
+        {"url": "https://web.archive.org/web/20260522125019/https://www.warren.senate.gov/newsroom/press-releases/warren-markey-push-apollo-global-management-on-role-in-steward-health-cares-demise-call-on-the-company-to-provide-relief-from-onerous-leases", "purpose": "Wayback archive of Warren Senate letter"},
+        {"url": "https://web.archive.org/web/20260522124908/https://elizabethwarren.com/plans/corporate-influence-pentagon", "purpose": "Wayback archive of Warren 'Reduce Corporate Influence at the Pentagon' platform"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "OS-004 spotlight:investigator pulled 16 findings + 27 scraped evidence files. The Lazarski-Apollo-Boeing-GD-Anduril client list is verified in his 2024 LDA filings + Cornerstone bio + OpenSecrets revolving-door profile. Warren's two attack axes are independently archived on Wayback. FEC donation totals are independently retrievable.",
+      "limitations": [
+        "Warren's attacks are at the pattern level (anti-revolving-door, anti-Apollo) rather than at a specific bill or vote where Lazarski's clients had a position. A future cycle could match Lazarski's `specific_issues` text to Warren's votes on those exact bills.",
+        "Other D11 second-tier names (Jennifer Young / AbbVie vs Sanders+Wyden on drug pricing; John O'Neill / Blackstone vs Warren on carried interest; James Richards / Anduril and Cornell Teague / Palantir vs House Progressive Caucus on autonomous weapons) are plausible C-NNN candidates and noted as future targets."
+      ],
+      "promoted_from": "OS-004 spotlight-handoff (passover from data-detective D11)"
+    }
+  }
+}

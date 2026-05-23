@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GAIN Challenge — Buried Signals submission</title>
+<style>
+  :root{
+    --ink:#1a1815;--paper:#fbf8f1;--rule:#d4cdc0;--rule-strong:#2a2620;
+    --red:#a8200d;--amber:#9a6800;--green:#3a6e2a;--grey:#6b6258;--mute:#8a7f70;
+    --purple:#5b3a8a;
+    --bg-soft:#f4efe4;--bg-warm:#fbf3df;--bg-green:#eef5e8;--bg-purple:#f0eaf7;
+    --serif:"Iowan Old Style","Charter","Source Serif Pro",ui-serif,Georgia,serif;
+    --sans:"Inter","Helvetica Neue",ui-sans-serif,system-ui,sans-serif;
+    --mono:"JetBrains Mono","SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:var(--red);text-underline-offset:.18em;text-decoration-thickness:.06em}
+  a:hover{background:rgba(168,32,13,.08)}
+  .wrap{max-width:960px;margin:0 auto;padding:48px 28px 72px}
+
+  /* ───── masthead + hero ───── */
+  .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule-strong);padding-bottom:10px;margin-bottom:36px;font-family:var(--sans);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .masthead .pub{font-weight:700}
+  .masthead .meta{color:var(--grey)}
+  h1{font-family:var(--serif);font-size:44px;line-height:1.1;font-weight:800;margin:0 0 18px;letter-spacing:-.018em;max-width:28ch}
+  .deck{font-size:19px;line-height:1.5;color:#3a342c;margin:0 0 26px;max-width:60ch}
+  .deck em{font-style:italic;color:var(--ink)}
+  .byline{font-family:var(--sans);font-size:12px;color:var(--mute);letter-spacing:.04em;text-transform:uppercase;margin:0 0 36px;line-height:1.7;max-width:80ch}
+  .byline strong{color:var(--ink);font-weight:700;text-transform:none;letter-spacing:0;font-family:var(--sans);font-size:13px}
+  .byline a{color:var(--ink);text-decoration:underline dotted .04em}
+
+  /* honesty box */
+  .honesty{background:var(--bg-soft);border:1px solid var(--rule);border-radius:8px;padding:22px 26px;margin:0 0 44px;font-family:var(--sans);font-size:14px;line-height:1.6;max-width:80ch}
+  .honesty .label{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:10px;font-weight:700;color:var(--mute);margin-bottom:12px}
+  .honesty h3{font-family:var(--sans);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);margin:14px 0 6px}
+  .honesty h3:first-of-type{margin-top:0}
+  .honesty p{margin:0 0 10px;max-width:none;font-family:var(--sans);font-size:14px}
+  .honesty p:last-child{margin-bottom:0}
+  .honesty ul{margin:0;padding-left:18px;font-size:13.5px}
+  .honesty ul li{margin-bottom:5px}
+
+  /* ───── TLDR strip ───── */
+  .tldr{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 24px;border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong);padding:28px 0;margin:0 0 56px}
+  .tldr-item{display:flex;flex-direction:column;gap:6px}
+  .tldr-num{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--mute);display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+  .tldr-claim{font-size:14px;line-height:1.5;color:var(--ink);font-family:var(--sans)}
+  .tldr-item a{color:var(--ink);text-decoration:none}
+  .tldr-item a:hover{text-decoration:underline}
+  .tldr-claim strong{display:block;margin-bottom:3px;color:var(--ink);font-weight:700}
+
+  /* ───── pills + chips ───── */
+  .pill{display:inline-block;padding:2px 8px;border-radius:3px;font-family:var(--sans);font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;line-height:1.5;vertical-align:1px}
+  .pill-high{background:var(--green);color:#fff}
+  .pill-med{background:var(--amber);color:#fff}
+  .pill-novel{background:var(--purple);color:#fff}
+  .pill-novel::before{content:"✦ "}
+  .pill-connected{background:transparent;border:1px solid var(--mute);color:var(--mute)}
+  .pill-verified{background:var(--bg-green);border:1px solid var(--green);color:var(--green)}
+  .pill-verified::before{content:"✓ "}
+  .pill-partial{background:var(--bg-warm);border:1px solid var(--amber);color:var(--amber)}
+  .pill-partial::before{content:"~ "}
+  .pill-id{background:var(--ink);color:var(--paper);font-family:var(--mono);letter-spacing:.04em}
+
+  /* ───── section headings ───── */
+  h2{font-family:var(--serif);font-size:28px;font-weight:700;letter-spacing:-.012em;margin:18px 0 14px;line-height:1.22;max-width:32ch}
+  h3{font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:28px 0 10px}
+  .kicker{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+  .lede{font-size:17px;line-height:1.6;color:#2a2620;margin:0 0 22px;max-width:none}
+  p{margin:0 0 1em;max-width:none}
+
+  /* ───── finding ───── */
+  .finding{border-top:1px solid var(--rule-strong);padding:44px 0 32px}
+  .finding:last-of-type{border-bottom:1px solid var(--rule-strong)}
+  .finding-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .finding-meta .cat{color:var(--mute);font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-family:var(--sans);margin-left:4px}
+
+  /* stats card row */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:22px 0;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+  .stats.cols-3{grid-template-columns:repeat(3,1fr)}
+  .stats.cols-5{grid-template-columns:repeat(5,1fr)}
+  .stat{background:var(--bg-soft);padding:14px 16px;display:flex;flex-direction:column}
+  .stat-v{font-family:var(--sans);font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.015em;line-height:1.1}
+  .stat-l{font-family:var(--sans);font-size:10.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;margin-top:6px;line-height:1.35}
+
+  /* ───── per-claim "how we got here" path ───── */
+  .path{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:18px 0;padding:12px 16px;background:var(--bg-soft);border-left:3px solid var(--red);border-radius:0 4px 4px 0;font-family:var(--sans);font-size:13.5px;line-height:1.5}
+  .path .step{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--red);letter-spacing:.04em;white-space:nowrap;padding-top:1px}
+  .path .what{color:var(--ink)}
+  .path .what code{font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:3px}
+
+  /* ───── methodology phase walkthrough ───── */
+  .phase{margin:26px 0 18px;padding:14px 18px 16px;border:1px solid var(--rule);border-left:4px solid var(--ink);border-radius:0 4px 4px 0;background:#fdfaf2;max-width:none}
+  .phase .phase-head{display:flex;align-items:baseline;gap:14px;margin:0 0 8px;flex-wrap:wrap}
+  .phase .phase-id{font-family:var(--mono);font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);background:rgba(168,32,13,.06);padding:3px 8px;border-radius:3px;white-space:nowrap}
+  .phase .phase-title{font-family:var(--sans);font-weight:700;font-size:15.5px;color:var(--ink);margin:0}
+  .phase p{font-family:var(--sans);font-size:13.5px;line-height:1.65;color:var(--ink);margin:6px 0;max-width:none}
+  .phase ul{margin:6px 0 4px;padding-left:20px;font-family:var(--sans);font-size:13.5px;line-height:1.65}
+  .phase ul li{margin:3px 0}
+  .phase code{font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:3px}
+  .phase table{margin-top:10px}
+
+  /* ───── sources strip ───── */
+  .sources{margin:18px 0;padding:11px 16px;background:#fdfaf2;border:1px solid var(--rule);border-left:3px solid var(--ink);border-radius:0 4px 4px 0;font-family:var(--sans);font-size:13px;line-height:1.7}
+  .sources .label{display:inline-block;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:10px;color:var(--mute);margin-right:8px;vertical-align:1px}
+  .sources a{color:var(--ink);text-decoration:underline dotted .04em;text-underline-offset:.18em;margin:0 1px}
+  .sources a::after{content:" ↗";color:var(--mute);font-size:11px}
+  .sources .sep{color:var(--rule);margin:0 4px}
+
+  /* ───── pull quote ───── */
+  .pull{font-family:var(--serif);font-size:20px;line-height:1.4;font-weight:500;color:var(--ink);padding:18px 0;margin:24px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-style:italic}
+  .pull cite{display:block;font-family:var(--sans);font-size:11px;color:var(--mute);font-style:normal;text-transform:uppercase;letter-spacing:.06em;margin-top:8px}
+  .pull cite::before{content:"— "}
+
+  /* ───── details / infobox ───── */
+  details{margin:16px 0;border:1px solid var(--rule);border-radius:6px;background:var(--bg-soft);overflow:hidden}
+  summary{cursor:pointer;padding:11px 16px;font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);list-style:none;display:flex;align-items:center;gap:8px}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+";color:var(--red);font-weight:800;font-size:14px;width:14px;display:inline-block}
+  details[open] summary::before{content:"−"}
+  details[open]{background:#fdfaf2}
+  details > div{padding:0 18px 16px;font-size:14.5px;line-height:1.6}
+  details > div p{font-size:14.5px;max-width:80ch}
+  details code{font-family:var(--mono);background:rgba(0,0,0,.06);padding:1px 5px;border-radius:3px;font-size:12.5px}
+
+  /* ───── tables ───── */
+  table{border-collapse:collapse;width:100%;font-size:13.5px;font-family:var(--sans);margin:8px 0 16px}
+  th,td{border-bottom:1px solid var(--rule);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.45}
+  th{font-weight:700;background:transparent;letter-spacing:.05em;text-transform:uppercase;font-size:10px;color:var(--mute);border-bottom:1.5px solid var(--rule-strong)}
+  td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:12.5px;text-align:right}
+  td code{font-family:var(--mono);font-size:11.5px;background:var(--bg-soft);padding:1px 5px;border-radius:3px}
+
+  /* ───── legal flag ───── */
+  .flag{background:var(--bg-warm);border:1px solid #e6d4a8;border-left:3px solid var(--amber);padding:14px 18px;margin:20px 0;border-radius:0 4px 4px 0}
+  .flag .flag-label{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:6px;font-weight:800}
+  .flag p{margin:0;max-width:none;font-size:14.5px;line-height:1.55}
+  .flag p code{font-family:var(--mono);font-size:12.5px;background:rgba(154,104,0,.1);padding:1px 5px;border-radius:3px;font-weight:700;color:var(--amber)}
+
+  /* ───── timeline (C-008) ───── */
+  .timeline{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:18px 0;font-family:var(--sans);font-size:14px}
+  .timeline .date{font-weight:800;color:var(--red);font-family:var(--mono);font-size:13px;white-space:nowrap}
+  .timeline .event{color:var(--ink);line-height:1.5}
+
+  /* ───── pipeline + methods ───── */
+  .pipeline{margin:24px 0}
+  .pipeline svg{width:100%;height:auto;font-family:var(--sans);font-size:11px}
+  .methods-list{font-family:var(--sans);font-size:13.5px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin:18px 0}
+  .methods-list div{display:flex;gap:10px;align-items:baseline;max-width:none}
+  .methods-list code{font-family:var(--mono);font-size:11px;background:var(--bg-soft);padding:2px 6px;border-radius:3px;flex-shrink:0;font-weight:700}
+
+  /* ───── footer ───── */
+  footer{border-top:1px solid var(--rule-strong);margin-top:64px;padding-top:24px;font-family:var(--sans);font-size:13px;color:var(--mute);line-height:1.65;max-width:80ch}
+  footer a{color:var(--ink)}
+  footer p{max-width:none;font-size:13px}
+  footer .databases{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 4px}
+  footer .databases span{display:inline-block;border:1px solid var(--rule);padding:2px 8px;border-radius:3px;font-size:11px;background:var(--bg-soft);color:var(--ink)}
+
+  /* ───── nav / TOC ───── */
+  .toc{position:sticky;top:18px;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:8px 10px;font-family:var(--sans);font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;display:none}
+
+  /* ───── mobile ───── */
+  @media (max-width:820px){
+    .wrap{padding:28px 18px}
+    h1{font-size:30px;max-width:none}
+    h2{font-size:24px}
+    .deck{font-size:16px}
+    .tldr,.stats,.methods-list{grid-template-columns:1fr;display:grid;gap:14px}
+    .stats{border:1px solid var(--rule)}
+    .pull{font-size:18px}
+    .finding-meta{font-size:10px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <span class="pub">Buried Signals · GAIN Challenge submission</span>
+  <span class="meta">2026-05-22 · Findings report</span>
+</header>
+
+<h1>The federal lobbying database has a $180&nbsp;million ghost — and the FEC has now flagged the same operator's $50M Senate filing as fictitious.</h1>
+
+<p class="deck">Nine findings from a <strong>data-detective</strong> investigation on the GAIN-provided lobbying + congressional press corpus, amplified by six external-OSINT <em>spotlight-handoff</em> passes. Most carry analytical novelty beyond what other outlets have reported. The rest tie data-side anomalies to existing reporting (NYT, ProPublica, OpenSecrets) so an editor can verify in minutes.</p>
+
+<p class="byline">
+  <strong>Tom Vaillant · Buried Signals</strong> &nbsp;·&nbsp; 6 cycles · 9 findings · adversarial fact-check pass · 6 spotlight-handoff investigations · 1 browser-harness state-registry sweep
+</p>
+
+<aside class="honesty">
+  <span class="label">What is new here vs. what we connect</span>
+
+  <h3><span class="pill pill-novel">Novel analysis</span> &nbsp; first-reported framings</h3>
+  <ul>
+    <li><strong>C-002</strong> — lobbying-to-DoD-contract pairings (Apex Technology's $22M Air Force STRATFI after Anchor &amp; Arrow registration).</li>
+    <li><strong>C-004 + C-009</strong> — bipartisan Apollo say-vs-pay via the Congress.gov committee graph; Apollo lobbied from <em>both</em> Senate sides.</li>
+    <li><strong>C-006</strong> — firm-level Akin Gump FARA-gap quantification across four engagements (Ant Group, TP-Link, Adani, United Solar Polysilicon).</li>
+    <li><strong>C-007</strong> — Vertex-sues-HHS-OIG say-vs-pay loop with TDY's HHS-leadership pedigree.</li>
+  </ul>
+
+  <h3><span class="pill pill-connected">Connects to reporting</span> &nbsp; we connect, others broke</h3>
+  <ul>
+    <li><strong>C-005</strong> — OpenSecrets + LegiStorm Pro News reported the FEC's "False and Fictitious" reclassification of Clement's $50M filing; we link it back to the LDA pattern data-detective surfaced.</li>
+    <li><strong>C-008</strong> — NYT's Vogel/Jewett broke the Reynolds → MAGA Inc → FDA-vape-ban-reversal timeline; we connect it to McFaul / Ballard Partners.</li>
+    <li><strong>C-007</strong> — ProPublica's 2009 "Medicare Drug Plan Architects Now Drug Company Lobbyists" is the load-bearing source on TDY founders.</li>
+  </ul>
+
+  <p style="margin-top:14px;color:var(--mute);font-style:italic;font-size:13px">The journalism isn't the scoop. The journalism is the systematic detection methodology, the cross-corpus joins, and the audit trail from filing to claim.</p>
+</aside>
+
+<!-- ───── TLDR strip ───── -->
+<section class="tldr" aria-label="findings summary">
+  <div class="tldr-item">
+    <div class="tldr-num"><span class="pill pill-id">C-001</span> <span class="pill pill-high">HIGH</span> <span class="pill pill-novel">Novel</span></div>
+    <div class="tldr-claim"><a href="#c-001"><strong>$180M sovereign-citizen LDA filings</strong>only multi-signal outlier in 418K filings.</a></div>
+  </div>
+  <div class="tldr-item">
+    <div class="tldr-num"><span class="pill pill-id">C-002</span> <span class="pill pill-high">HIGH</span> <span class="pill pill-novel">Novel</span></div>
+    <div class="tldr-claim"><a href="#c-002"><strong>Anchor &amp; Arrow's AI-defense revolving door</strong>$35.9M DoD contracts to lobbied clients incl. $22M Air Force STRATFI to Apex.</a></div>
+  </div>
+  <div class="tldr-item">
+    <div class="tldr-num"><span class="pill pill-id">C-003</span> <span class="pill pill-med">MED</span> <span class="pill pill-connected">Connects</span></div>
+    <div class="tldr-claim"><a href="#c-003"><strong>682-name FARA gap</strong>narrowed to 200 named candidates incl. Akin Gump × Ant Group.</a></div>
+  </div>
+  <div class="tldr-item">
+    <div class="tldr-num"><span class="pill pill-id">C-004</span> <span class="pill pill-high">HIGH</span> <span class="pill pill-novel">Novel</span></div>
+    <div class="tldr-claim"><a href="#c-004"><strong>Brownstein Hyatt Sen Finance cluster</strong>$122M revenue; Warren D + Grassley R attack Apollo while Sullivan lobbies for it.</a></div>
+  </div>
+  <div class="tldr-item">
+    <div class="tldr-num"><span class="pill pill-id">C-005</span> <span class="pill pill-high">HIGH</span> <span class="pill pill-connected">Connects</span></div>
+    <div class="tldr-claim"><a href="#c-005"><strong>FEC reclassified Clement's $50M filing as "False and Fictitious"</strong>April 28 2026 warning letter. Plus 11+ pro se sovereign-citizen lawsuits by Dukes.</a></div>
+  </div>
+  <div class="tldr-item">
+    <div class="tldr-num"><span class="pill pill-id">C-006</span> <span class="pill pill-high">HIGH</span> <span class="pill pill-novel">Novel</span></div>
+    <div class="tldr-claim"><a href="#c-006"><strong>Akin Gump retained for Adani the day after DOJ indictment</strong>NYT reports DOJ moving to drop. Plus United Solar's Xinjiang chairman + ex-USTR China lawyer on TP-Link.</a></div>
+  </div>
+  <div class="tldr-item">
+    <div class="tldr-num"><span class="pill pill-id">C-007</span> <span class="pill pill-high">HIGH</span> <span class="pill pill-novel">Novel</span></div>
+    <div class="tldr-claim"><a href="#c-007"><strong>Tarplin Downs &amp; Young's Vertex client sues HHS-OIG</strong>two TDY founders ran legislative affairs at the agency Vertex is now suing.</a></div>
+  </div>
+  <div class="tldr-item">
+    <div class="tldr-num"><span class="pill pill-id">C-008</span> <span class="pill pill-high">HIGH</span> <span class="pill pill-connected">Connects</span></div>
+    <div class="tldr-claim"><a href="#c-008"><strong>$5M Reynolds → MAGA Inc → Mar-a-Lago → FDA vape-ban reversal in 10 days</strong>NYT broke the timeline; we connect to McFaul / Ballard.</a></div>
+  </div>
+  <div class="tldr-item">
+    <div class="tldr-num"><span class="pill pill-id">C-009</span> <span class="pill pill-high">HIGH</span> <span class="pill pill-novel">Novel</span></div>
+    <div class="tldr-claim"><a href="#c-009"><strong>Apollo lobbied from both Senate sides</strong>Brownstein on Sen Finance + Cornerstone on Sen Armed Services. Warren attacks from both committees.</a></div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  FINDING C-001  ───────────────────────── -->
+<section class="finding" id="c-001">
+  <div class="finding-meta">
+    <span class="pill pill-id">C-001</span>
+    <span class="cat">data quality</span>
+    <span class="pill pill-high">HIGH</span>
+    <span class="pill pill-verified">Verified</span>
+    <span class="pill pill-novel">Novel analysis</span>
+  </div>
+
+  <h2>A "sovereign government" with $180M of lobbying receipts has been on the Senate's books since 2024.</h2>
+
+  <p class="lede">The <em>State of LOC Nation Global Public Benefit Corporation</em> reports $20&nbsp;million per quarter through a Delaware shell whose only lobbyist is "Rev. Dr. Christina Loren Clement," styled across the filings as "President of Black USA," "2024 Presidential candidate (assumed the Presidency)," and "HH Empress Queen." Detector D9 confirms it is the <strong>only multi-signal sovereign-citizen-pattern outlier in the entire 418,098-filing corpus</strong>.</p>
+
+  <div class="stats cols-5">
+    <div class="stat"><span class="stat-v">$180M</span><span class="stat-l">Sum of as-filed income (9 filings)</span></div>
+    <div class="stat"><span class="stat-v">$80M</span><span class="stat-l">Deduplicated by unique quarter</span></div>
+    <div class="stat"><span class="stat-v">60+</span><span class="stat-l">U.S. agencies named as "lobbied"</span></div>
+    <div class="stat"><span class="stat-v">1 / 418,098</span><span class="stat-l">D9 multi-signal frequency</span></div>
+    <div class="stat"><span class="stat-v">4</span><span class="stat-l">Defendants in the cited court case</span></div>
+  </div>
+
+  <p>The 15 filings name virtually every executive-branch agency as lobbied — the President, Treasury, DOJ, DOD, FBI, Federal Reserve, IRS, U.S. Mint — and cite a real federal court case (<code>DC 1:24-cv-00479 RC</code>) where Clement appeared pro&nbsp;se against the Chief Justice, the UN Secretary General, the ICJ Registrar, and AG Garland.</p>
+
+  <p>The filings' own income line carries a self-disclaimer: the $20M is "pending HR&nbsp;40 research reimbursement... not a federal payment unless and until processed." Clement is using the federal LDA registry as a reparations-claims mechanism. A second filing in the database — <em>THEYFEARTRUTH FEDERAL GOVERNMENT OF AMERICA</em> — confirms the pattern is rare but not unique. <strong>See C-005 below: the FEC has now formally reclassified Clement's $50M Senate-committee filing as "False and Fictitious."</strong></p>
+
+  <div class="path" aria-label="How we got here">
+    <div class="step">P1 ingest</div><div class="what">Senate LDA JSON → DuckDB via <code>ingest/scripts/ingest.py</code> with <code>lda_profile.py</code>. 418,098 senate_filings rows.</div>
+    <div class="step">P3 detect</div><div class="what">D5 <code>single_client_juggernauts</code> (SQL hash <code>f9e737b8f3554a90</code>) flagged LOC COMMUNITY ASSOCIATION at $60M income. D9 <code>shell_pattern_filings</code> (hash <code>bbbea171aa997a1e</code>) confirmed it's the only multi-signal sovereign-pattern outlier in 418K filings.</div>
+    <div class="step">P3 drill</div><div class="what">Ad-hoc SQL via <code>detect/scripts/query.py --sql</code> against <code>senate_filings</code> WHERE client_name LIKE '%LOC NATION%'. Pulled all 15 filings.</div>
+    <div class="step">P3 cards</div><div class="what"><code>evidence-cards/scripts/evidence_card.py --from-csv loc_nation_filing_uuids.csv</code> emitted 15 audit cards.</div>
+    <div class="step">P3 web</div><div class="what">firecrawl scraped <code>lda.senate.gov/filings/public/filing/&lt;uuid&gt;/print/</code> for each cited record; archived stateoflocnation.com; CourtListener API for CLEMENT v. GARLAND docket.</div>
+    <div class="step">P6 OSINT</div><div class="what">C-005 below was promoted from the OS-001 spotlight-handoff that ran external OSINT on this same operator.</div>
+  </div>
+
+  <div class="sources">
+    <span class="label">Primary sources</span>
+    <a href="https://lda.senate.gov/filings/public/filing/5000632b-e40b-4762-affc-551b46a40c91/print/">LDA registration filing</a><span class="sep">·</span>
+    <a href="https://lda.senate.gov/filings/public/filing/c2d195d2-8df2-4b75-8e95-7014cacd5e81/print/">Q2 2025 filing</a><span class="sep">·</span>
+    <a href="https://lda.senate.gov/filings/public/filing/f77a4908-5b4f-41d6-a9c7-acc85dee6946/print/">Q4 2025 filing</a><span class="sep">·</span>
+    <a href="https://www.courtlistener.com/docket/68269445/clement-v-garland/">CourtListener — CLEMENT v. GARLAND</a><span class="sep">·</span>
+    <a href="https://stateoflocnation.com/about">stateoflocnation.com</a>
+  </div>
+
+  <details>
+    <summary>How the D9 detector isolated this pattern</summary>
+    <div>
+      <p>D9 (<code>shell_pattern_filings</code>, SQL hash <code>bbbea171aa997a1e</code>) scores each Senate filing 0-6 against six independent sovereign-citizen markers: <em>sovereign_client</em>, <em>established_govt</em>, <em>esoteric_terms</em> (Annuit Coeptis / King Solomon / Empress / sui generis), <em>self_styled_title</em>, <em>posted_by_llc_slashes</em>, <em>global_pbc_naming</em>.</p>
+      <p>At threshold ≥&nbsp;2, only LOC Nation surfaces. At ≥&nbsp;1, the next candidates are legitimate firms (King &amp; Spalding, Patterson Real Bird) tripping one signal incidentally.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Cycle-6 state-registry sweep (browser-harness, OSINT Navigator)</summary>
+    <div>
+      <p><strong>Delaware iCIS:</strong> only one entity exactly named under "Christina Loren Clement" — file <strong>7127855 CHRISTINA LOREN CLEMENT LLC</strong>. No Delaware shell-LLC network exists under that name.</p>
+      <p><strong>Florida Sunbiz — novel finding.</strong> <strong>LOC NATION JAX LLC</strong> (document L21000352541, EIN 87-2134353, ACTIVE) was registered in Jacksonville on August&nbsp;5, 2021 by <strong>Anisha Hicks</strong> — pre-dating Clement's federal LDA scheme by three years. The "LOC NATION" brand thus pre-existed Clement's federal-level deployment of it; a separate operator holds a Florida LLC under it. Could be namesake / adjacent operator / franchise — needs further investigative work. <a href="https://search.sunbiz.org/Inquiry/CorporationSearch/ByName">Sunbiz</a>.</p>
+    </div>
+  </details>
+
+  <div class="flag">
+    <span class="flag-label">Possible legal-violation flag</span>
+    <p>False statements in federal filings (18&nbsp;U.S.C.&nbsp;§&nbsp;1001) and LDA enforcement (2&nbsp;U.S.C.&nbsp;§&nbsp;1605) are potentially implicated. Use of the federal LDA database as a reparations-claims mechanism is at minimum a misuse of the registration system. C-005 documents the FEC's own action on the same operator's parallel filing.</p>
+  </div>
+</section>
+
+<!-- ─────────────────────────  FINDING C-002  ───────────────────────── -->
+<section class="finding" id="c-002">
+  <div class="finding-meta">
+    <span class="pill pill-id">C-002</span>
+    <span class="cat">revolving door + defense procurement</span>
+    <span class="pill pill-high">HIGH</span>
+    <span class="pill pill-verified">Verified</span>
+    <span class="pill pill-novel">Novel analysis</span>
+  </div>
+
+  <h2>Senate Armed Services and Navy comptroller staff founded a lobby shop that secured $35.9M of DoD contracts for AI-defense startups in two years.</h2>
+
+  <p class="lede"><em>Anchor &amp; Arrow Strategies</em> (2024) and its successor <em>Anchor &amp; Arrow LLC</em> (2026) were founded by <strong>John Noonan</strong> (Professional Staff, House Armed Services Committee; National Security Advisor to Sen. Tom Cotton) and <strong>Christopher Zumbar</strong> (Congressional Appropriations Liaison, Secretary of the Navy; Marine Corps comptroller). The client roster is exclusively AI- and autonomous-defense companies.</p>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-v">$2.41M</span><span class="stat-l">A&amp;A lobbying revenue 2024-2026</span></div>
+    <div class="stat"><span class="stat-v">$35.9M</span><span class="stat-l">DoD contracts to A&amp;A clients</span></div>
+    <div class="stat"><span class="stat-v">$22M</span><span class="stat-l">Apex Tech / Air Force SBIR STRATFI</span></div>
+    <div class="stat"><span class="stat-v">13 / 13</span><span class="stat-l">Clients in AI &amp; autonomous defense</span></div>
+  </div>
+
+  <p class="pull">Christopher Zumbar — formerly Congressional Appropriations Liaison, Secretary of the Navy — now lobbies Saronic Technologies, an autonomous defense maritime systems vendor whose primary customer is the Navy.<cite>Anchor &amp; Arrow LDA filings · LinkedIn · Leatherneck Magazine · The Hill</cite></p>
+
+  <div class="path" aria-label="How we got here">
+    <div class="step">P3 detect</div><div class="what">D8 <code>new_registrant_surge</code> (SQL hash <code>e51ec9c1d23d4479</code>) flagged Anchor &amp; Arrow LLC — new 2026-Q1 registrant with 11 clients on day one.</div>
+    <div class="step">P3 drill</div><div class="what">Ad-hoc SQL on <code>senate_activity_lobbyists</code> joined to <code>senate_filings</code> surfaced founders' <code>covered_position</code> text (Noonan, Zumbar, Jensen).</div>
+    <div class="step">P3 external</div><div class="what"><code>external-data/scripts/usaspending.py</code>-pattern API call → DoD contract awards for each A&amp;A client, 2022-2026. Surfaced Apex's $22M Air Force SBIR STRATFI Award <code>FA880925CB005</code>.</div>
+    <div class="step">P3 web</div><div class="what">firecrawl pulled The Hill biography, Polaris National Security bio, HQMC OLA staff page; LinkedIn verified Zumbar's Marine Corps comptroller role.</div>
+  </div>
+
+  <div class="sources">
+    <span class="label">Primary sources</span>
+    <a href="https://thehill.com/lobbying/4590681-bottom-line-former-republican-chief-signs-on-to-guard-nutrition-programs/">The Hill (Noonan)</a><span class="sep">·</span>
+    <a href="https://polaris-us.org/team/john-noonan/">Polaris National Security</a><span class="sep">·</span>
+    <a href="https://www.legistorm.com/person/bio/169217/John_O_Dwyer_Noonan.html">Legistorm</a><span class="sep">·</span>
+    <a href="https://www.linkedin.com/in/christopher-zumbar-a721a256">Zumbar LinkedIn</a><span class="sep">·</span>
+    <a href="https://www.mca-marines.org/wp-content/uploads/2018/12/August-2015-Leatherneck-Magazine.pdf">Leatherneck Magazine</a><span class="sep">·</span>
+    <a href="https://api.usaspending.gov/api/v2/search/spending_by_award/">USAspending.gov API</a>
+  </div>
+
+  <details>
+    <summary>Spend-vs-contract table — 4 clients with confirmed DoD awards</summary>
+    <div>
+      <table>
+        <tr><th>Client</th><th>Sector</th><th class="num">A&amp;A fees</th><th class="num">DoD contracts</th></tr>
+        <tr><td>Apex Technology, Inc.</td><td>Multi-mission satellites (LEO/GEO)</td><td class="num">~$100,000</td><td class="num">$25,699,922</td></tr>
+        <tr><td>Overland AI</td><td>Autonomous ground vehicles</td><td class="num">$280,000</td><td class="num">$8,860,744</td></tr>
+        <tr><td>Base Operations Inc.</td><td>AI-driven security intelligence</td><td class="num">~$30,000</td><td class="num">$1,324,183</td></tr>
+        <tr><td>Gallatin AI</td><td>AI / disaster-response navigation</td><td class="num">$80,000</td><td class="num">$149,971</td></tr>
+        <tr><td>Saronic Technologies</td><td>Autonomous defense maritime</td><td class="num">$410,000</td><td class="num">—</td></tr>
+        <tr><td>Epirus, Inc.</td><td>Counter-drone microwave</td><td class="num">$490,000</td><td class="num">—</td></tr>
+        <tr><td>Palantir Technologies</td><td>AI / data analytics</td><td class="num">$260,000</td><td class="num">—</td></tr>
+      </table>
+      <p style="font-size:13px;color:var(--mute)">Empty USAspending fields likely indicate prime contracts under variant recipient names (Palantir USG, Inc.) or classified streams.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Detector methodology + Apex award detail</summary>
+    <div>
+      <p>D8 (<code>new_registrant_surge</code>, SQL hash <code>e51ec9c1d23d4479</code>) flagged Anchor &amp; Arrow LLC as a new 2026-Q1 registrant with 11 clients on day one. The Apex Technology pairing is the cleanest single example: registered Q3 2025; $22M Air Force SBIR Phase II STRATFI Award ID <code>FA880925CB005</code> for "Multi-Mission Satellites for LEO and GEO Dynamic Space Operations." Total DoD contract flow to A&amp;A's clients: $35,937,820 against ~$2.4M lobbying spend.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ─────────────────────────  FINDING C-003  ───────────────────────── -->
+<section class="finding" id="c-003">
+  <div class="finding-meta">
+    <span class="pill pill-id">C-003</span>
+    <span class="cat">foreign influence</span>
+    <span class="pill pill-med">MEDIUM</span>
+    <span class="pill pill-partial">Partially verified</span>
+    <span class="pill pill-connected">Connects to reporting</span>
+  </div>
+
+  <h2>92% of LDA registrants disclosing foreign entities have no FARA counterpart.</h2>
+
+  <p class="lede">Across 2024-2026 Senate filings, <strong>743 distinct registrants disclose foreign entities</strong>; only <strong>61 (8%) also appear in the DOJ FARA registrant list</strong>. Detector D10 narrows the 682-name gap to <strong>200 specific filings</strong> that combine FARA absence with non-US client country, foreign-government-policy lobbying topics, or state-owned-enterprise client naming. <strong>See C-006 below: OSINT amplification on Akin Gump's four worst engagements in this gap.</strong></p>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-v">743</span><span class="stat-l">Registrants disclosing foreign entities</span></div>
+    <div class="stat"><span class="stat-v">61</span><span class="stat-l">Also in DOJ FARA list</span></div>
+    <div class="stat"><span class="stat-v">682</span><span class="stat-l">Aggregate FARA gap</span></div>
+    <div class="stat"><span class="stat-v">200</span><span class="stat-l">D10-narrowed named candidates</span></div>
+  </div>
+
+  <div class="path" aria-label="How we got here">
+    <div class="step">P3 external</div><div class="what"><code>external-data/scripts/fara.py</code> pulled FARA bulk (OpenSanctions DOJ mirror) into the same DuckDB index — 7,051 registrants, 17,662 foreign principals.</div>
+    <div class="step">P3 detect</div><div class="what">D4 <code>foreign_filings</code> (SQL hash <code>f7c962b62d2393b1</code>) listed Senate filings with non-empty <code>foreign_entities[]</code>. D10 <code>fara_gap_narrowed</code> (hash <code>ae4ebdb2ecf19559</code>) filtered the residual by non-US client country + foreign-government-policy keywords + SOE naming.</div>
+    <div class="step">P3 drill</div><div class="what">Ad-hoc in-DB join of <code>senate_foreign_entities</code> + <code>senate_filings</code> against <code>fara_registrants</code> by uppercased name equality.</div>
+    <div class="step">P6 OSINT</div><div class="what">C-006 below was promoted from OS-002 spotlight-handoff, which deep-investigated four of the named candidates.</div>
+  </div>
+
+  <div class="sources">
+    <span class="label">Primary sources</span>
+    <a href="https://data.opensanctions.org/datasets/latest/us_fara_filings/">FARA bulk (OpenSanctions DOJ mirror)</a><span class="sep">·</span>
+    <a href="https://lobbyingdisclosure.house.gov/lookup.asp?reg_id=31784">House LDA Akin Gump lookup</a>
+  </div>
+
+  <details>
+    <summary>Top named candidates for case-by-case scrutiny</summary>
+    <div>
+      <table>
+        <tr><th>Registrant</th><th>Client</th><th>Foreign nexus</th></tr>
+        <tr><td>Akin Gump Strauss Hauer &amp; Feld</td><td><strong>Ant Group Co.</strong> (CN)</td><td>Alibaba fintech arm; US regulatory friction</td></tr>
+        <tr><td>Rich Feuer Anderson</td><td><strong>Ant Group Co.</strong> (CN)</td><td>Second LDA registrant for same Chinese principal</td></tr>
+        <tr><td>Bracewell LLP</td><td>Tele-Fonika Cable Americas Corp.</td><td>Polish-owned cable manufacturer</td></tr>
+        <tr><td>FGS Global (US) LLC</td><td>Wuxi Biologics USA LLC</td><td>Chinese pharma supply-chain affiliate (HK)</td></tr>
+      </table>
+    </div>
+  </details>
+</section>
+
+<!-- ─────────────────────────  FINDING C-004  ───────────────────────── -->
+<section class="finding" id="c-004">
+  <div class="finding-meta">
+    <span class="pill pill-id">C-004</span>
+    <span class="cat">revolving door + cross-corpus say-vs-pay</span>
+    <span class="pill pill-high">HIGH</span>
+    <span class="pill pill-verified">Verified</span>
+    <span class="pill pill-novel">Novel analysis</span>
+  </div>
+
+  <h2>The Brownstein Hyatt Senate Finance cluster lobbies Apollo for $8.9M while two current Sen. Finance senators publicly attack Apollo — bipartisan.</h2>
+
+  <p class="lede">Detector D11 — a multi-hop SQL join from lobbyist <code>covered_position</code> → Congressional committee → current quarterly filings on the same committee's jurisdiction — surfaces Brownstein Hyatt at the top. <strong>Russell Sullivan</strong> (former Staff Director, Senate Finance) and <strong>Mark Warren</strong> (former Chief Tax Counsel, Senate Finance + Treasury LegAffairs) co-lobby an overlapping TAX/FIN client roster. Sixteen D11 lobbyists account for <strong>$122M of 2024-2026 lobbying revenue</strong> on topics aligned with the committee they previously staffed.</p>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-v">$122M</span><span class="stat-l">D11 top-16 committee-aligned revenue</span></div>
+    <div class="stat"><span class="stat-v">$76.7M</span><span class="stat-l">Sullivan career revenue (OpenSecrets)</span></div>
+    <div class="stat"><span class="stat-v">256</span><span class="stat-l">H.R. 1 citations by Brownstein (2025 GOP tax bill)</span></div>
+    <div class="stat"><span class="stat-v">37</span><span class="stat-l">H.R. 5376 citations (Inflation Reduction Act)</span></div>
+  </div>
+
+  <p class="pull">There is no more effective, professional and respected tax lobbyist in Washington, D.C., than Russell Sullivan.<cite>Chambers USA, citing Sullivan's Brownstein Hyatt bio</cite></p>
+
+  <h3>Bipartisan "say-vs-pay" via D12 committee graph</h3>
+  <table>
+    <tr><th>Role</th><th>Name</th><th>Activity</th></tr>
+    <tr><td>Former Staff Dir, Sen. Finance</td><td>Russell Sullivan (Brownstein)</td><td>$8.92M Apollo engagement</td></tr>
+    <tr><td>Former Chief Tax Counsel, Sen. Finance</td><td>Mark Warren (Brownstein)</td><td>Co-lobbies Apollo</td></tr>
+    <tr><td><strong>Current</strong> Sen. Finance member (D-MA)</td><td>Sen. Elizabeth Warren</td><td><strong>9 press releases</strong> attacking Apollo over Steward, Walgreens PE, Genesis</td></tr>
+    <tr><td><strong>Current</strong> Sen. Finance member (R-IA)</td><td>Sen. Chuck Grassley</td><td>1 release — "Private Equity in Health Care Shown to Harm Patients" (Jan 2025)</td></tr>
+  </table>
+
+  <div class="path" aria-label="How we got here">
+    <div class="step">P3 detect</div><div class="what">D11 <code>revolving_door_committee_match</code> (SQL hash <code>a7712c723043a717</code>) maps each lobbyist's <code>covered_position</code> text to a committee, then joins to current quarterly filings whose issue codes match that committee's jurisdiction.</div>
+    <div class="step">P3 external</div><div class="what"><code>external-data/scripts/congress_gov.py</code> pulled the <code>unitedstates/congress-legislators</code> dataset — 536 current members × 230 committees × 3,879 assignments.</div>
+    <div class="step">P3 detect</div><div class="what">D12 <code>committee_say_vs_pay</code> (SQL hash <code>274c4ef00515cd73</code>) — four-way join: lobbyist's former committee → current committee members (from congress_gov tables) → press releases attacking the lobbied client.</div>
+    <div class="step">P3 drill</div><div class="what">Ad-hoc SQL surfaced Warren's 9 Apollo-attacking press releases (Steward, Walgreens, Genesis) + Grassley's 1 release. 1,532K press records scanned.</div>
+    <div class="step">P3 web</div><div class="what">firecrawl archived Sullivan's Brownstein bio, Brownstein's 2021 Mark Warren hire-announcement, OpenSecrets revolving-door page, LegiStorm biographies, Boston Globe Aug 2024 Steward coverage.</div>
+  </div>
+
+  <div class="sources">
+    <span class="label">Primary sources</span>
+    <a href="https://www.bhfs.com/people/russell-sullivan/">Brownstein bio (Sullivan)</a><span class="sep">·</span>
+    <a href="https://www.opensecrets.org/revolving-door/sullivan-russell/summary?id=77989">OpenSecrets revolving-door</a><span class="sep">·</span>
+    <a href="https://www.legistorm.com/person/bio/371/Mark_E_Warren.html">LegiStorm (Warren)</a><span class="sep">·</span>
+    <a href="https://web.archive.org/web/20251019225438/https://www.warren.senate.gov/newsroom/press-releases/warren-markey-push-apollo-global-management-on-role-in-steward-health-cares-demise-call-on-the-company-to-provide-relief-from-onerous-leases">Warren–Apollo–Steward press release (archived)</a>
+  </div>
+
+  <details>
+    <summary>Full Brownstein client roster</summary>
+    <div>
+      <table>
+        <tr><th>Client</th><th class="num">2024-2026 fees</th><th>Notes</th></tr>
+        <tr><td><strong>Apollo Global Management</strong></td><td class="num">$8,920,000</td><td>Largest engagement</td></tr>
+        <tr><td>Athene Holding</td><td class="num">$4,540,000</td><td>Apollo's annuities arm</td></tr>
+        <tr><td>Johnson &amp; Johnson Services</td><td class="num">$2,780,000</td><td>Pharma</td></tr>
+        <tr><td>Highly Innovative Fuels</td><td class="num">$1,920,000</td><td>Energy</td></tr>
+        <tr><td>T-Mobile</td><td class="num">$1,650,000</td><td>Telecom/tax</td></tr>
+        <tr><td>Bloom Energy</td><td class="num">$1,360,000</td><td>Clean-energy tax credits</td></tr>
+        <tr><td>American Petroleum Institute</td><td class="num">$1,260,000</td><td>Oil &amp; gas</td></tr>
+        <tr><td>Wynn Resorts</td><td class="num">$1,170,000</td><td>Gaming</td></tr>
+        <tr><td>NAREIT</td><td class="num">$1,120,000</td><td>REITs</td></tr>
+        <tr><td>TIAA</td><td class="num">$1,090,000</td><td>Retirement</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <div class="flag">
+    <span class="flag-label">Temporal caveat from the adversarial fact-checker</span>
+    <p>Per LegiStorm, <strong>Mark Warren left Brownstein for Capitol Tax Partners in May 2026</strong>. OS-006 follow-up confirmed: Apollo stayed with Sullivan at Brownstein. The Q2 2026 LDA filing deadline (July 20) is the definitive test of whether Apollo migrates.</p>
+  </div>
+</section>
+
+<!-- ─────────────────────────  FINDING C-005  ───────────────────────── -->
+<section class="finding" id="c-005">
+  <div class="finding-meta">
+    <span class="pill pill-id">C-005</span>
+    <span class="cat">data quality + regulatory corroboration</span>
+    <span class="pill pill-high">HIGH</span>
+    <span class="pill pill-verified">Verified</span>
+    <span class="pill pill-connected">Connects to reporting</span>
+  </div>
+  <p style="font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px"><strong>Promoted from OS-001 spotlight-handoff</strong></p>
+
+  <h2>The FEC has formally reclassified Clement's $50&nbsp;million Senate-committee filing as "False and Fictitious."</h2>
+
+  <p class="lede">C-001 framed the LOC Nation LDA filings as fictitious. The external OSINT pass surfaced the institutional corroboration: <strong>on April 28, 2026 the FEC issued a warning letter</strong> to <em>State of LOC Nation for Clement for Senate</em> (FEC C00857128) over a $50.25M reported self-loan and reclassified the filing into the FEC's <strong>"False and Fictitious Filings" repository</strong>. The "loan" is the asserted fair-market value of a license to Clement's self-issued <strong>Loc Nation Dollar (LND)</strong>, pegged at 1&nbsp;LND&nbsp;=&nbsp;$750&nbsp;USD.</p>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-v">$50.25M</span><span class="stat-l">FEC self-loan flagged "False and Fictitious"</span></div>
+    <div class="stat"><span class="stat-v">11+</span><span class="stat-l">Dukes pro&nbsp;se N.D. Texas suits</span></div>
+    <div class="stat"><span class="stat-v">2</span><span class="stat-l">FEC 2024 presidential candidates of sovereign-gov parties</span></div>
+    <div class="stat"><span class="stat-v">23</span><span class="stat-l">Primary-source archives written by spotlight:investigator</span></div>
+  </div>
+
+  <p>The pattern is not unique to Clement. <strong>Rico Cortez Dukes</strong>, the second sovereign-citizen-pattern LDA operator (THEYFEARTRUTH FEDERAL GOVERNMENT OF AMERICA), has eleven pro&nbsp;se federal lawsuits in N.D.&nbsp;Texas (2017-2021) including <em>Dukes v. Roman Empire</em>, <em>Dukes v. Federal Reserve Central Bank</em>, and <em>Dukes v. Trump</em>. Both Clement and Dukes are formally registered FEC 2024 presidential candidates of self-styled sovereign-government parties.</p>
+
+  <div class="path" aria-label="How we got here">
+    <div class="step">P3 baseline</div><div class="what">C-001 above established the LDA pattern. The data-side trail stopped at "filings exist and look fictitious."</div>
+    <div class="step">P6 handoff</div><div class="what"><code>spotlight-handoff</code> generated brief OS-001 with named entities (Clement, Dukes), known URLs, and OSINT angles to pursue.</div>
+    <div class="step">P6 OSINT</div><div class="what"><code>spotlight:investigator</code> agent (1 cycle, 22 sources consulted, 23 archived files via firecrawl + Wayback) pulled FEC committee record C00857128, Clement candidate pages, Dukes presidential committee, PACER N.D. Texas case list, OpenSecrets May 15 2026 coverage with Quinnipiac Prof. John Martin on-the-record quote, LegiStorm Pro News Aug 2025 article.</div>
+    <div class="step">P6 cycle 6</div><div class="what">Direct state-registry sweep via <code>browser-harness</code> against Delaware iCIS + Florida Sunbiz identified by OSINT Navigator. Surfaced novel LOC NATION JAX LLC (Anisha Hicks, Jacksonville, 2021).</div>
+  </div>
+
+  <div class="sources">
+    <span class="label">Primary sources</span>
+    <a href="https://docquery.fec.gov/cgi-bin/forms/C00857128/">FEC committee C00857128 (warning letter + reclassification)</a><span class="sep">·</span>
+    <a href="https://www.fec.gov/data/candidate/S6GA00366/">Clement Senate Georgia 2026 (S6GA00366)</a><span class="sep">·</span>
+    <a href="https://www.fec.gov/data/candidate/P40016412/">Clement Presidential 2024 (P40016412)</a><span class="sep">·</span>
+    <a href="https://www.fec.gov/data/candidate/P00011163/">Dukes Presidential 2024 (P00011163)</a><span class="sep">·</span>
+    <a href="https://www.legistorm.com/pro_news/4318/sovereignty-group-claims-40m-lobbying-total.html">LegiStorm Pro News (Aug 2025)</a>
+  </div>
+
+  <details>
+    <summary>Cycle-6 state-registry sweep: LOC NATION JAX LLC (Florida)</summary>
+    <div>
+      <p><strong>Delaware iCIS:</strong> only one entity exactly named under "Christina Loren Clement" — file <strong>7127855 CHRISTINA LOREN CLEMENT LLC</strong>. No multi-entity Delaware shell network surfaced.</p>
+      <p><strong>Florida Sunbiz — novel finding.</strong> <strong>LOC NATION JAX LLC</strong> (L21000352541, EIN 87-2134353, ACTIVE) was registered in Jacksonville on August&nbsp;5, 2021 — pre-dating Clement's federal LDA scheme by three years. Registered agent and manager: <strong>Anisha Hicks</strong> (not Clement). The "LOC NATION" brand existed in Florida before its federal-level deployment. Could be namesake, adjacent operator, or franchise — needs further investigative work.</p>
+      <p><strong>Apopka FL address:</strong> No Sunbiz entity at 2787 S Orange Blossom Trl, suggesting Clement was listed there personally as a creditor on the Northrop Grumman matrix, not as a registered entity.</p>
+    </div>
+  </details>
+
+  <div class="flag">
+    <span class="flag-label">Possible legal-violation flag</span>
+    <p>The FEC has already acted (warning letter + reclassification). Whether further enforcement (DOJ Public Integrity referral under 18&nbsp;U.S.C.&nbsp;§&nbsp;1001 or LDA enforcement under 2&nbsp;U.S.C.&nbsp;§&nbsp;1605) follows is an active monitoring target. The Q2 2026 LDA filing deadline (July&nbsp;20) will reveal whether the pattern continues unaffected.</p>
+  </div>
+</section>
+
+<!-- ─────────────────────────  FINDING C-006  ───────────────────────── -->
+<section class="finding" id="c-006">
+  <div class="finding-meta">
+    <span class="pill pill-id">C-006</span>
+    <span class="cat">foreign influence + regulatory evasion</span>
+    <span class="pill pill-high">HIGH</span>
+    <span class="pill pill-verified">Verified</span>
+    <span class="pill pill-novel">Novel analysis</span>
+  </div>
+  <p style="font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px"><strong>Promoted from OS-002 spotlight-handoff</strong></p>
+
+  <h2>Akin Gump was retained for Adani <em>the day after</em> the DOJ indictment. Lobbying targets the executive branch.</h2>
+
+  <p class="lede">Akin Gump's complete 2025 FARA list is six sovereigns (UAE, Cambodia, Japan, Palau, Marshall Islands, Costa Rica) plus the Korea Embassy. <strong>None of the four C-003 / D10 engagements — Ant Group (CN), TP-Link Systems (SG/VG/GB), Adani North America (IN), United Solar Polysilicon (CN/OM) — is FARA-covered at firm OR attorney level.</strong> Same partners handle both sides; only the government clients get FARA-registered.</p>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-v">0 / 4</span><span class="stat-l">D10 engagements covered by Akin Gump firm FARA</span></div>
+    <div class="stat"><span class="stat-v">1 day</span><span class="stat-l">Between DOJ Adani indictment and Akin Gump retainer</span></div>
+    <div class="stat"><span class="stat-v">$250M</span><span class="stat-l">IFC loan to United Solar Polysilicon that US Treasury voted AGAINST</span></div>
+    <div class="stat"><span class="stat-v">USTR</span><span class="stat-l">TP-Link's lobbyist Steve Kho — ex-Acting Chief Counsel for China Enforcement</span></div>
+  </div>
+
+  <p>The Adani engagement is the strongest "gap should not exist" case. Akin Gump was retained the day after the <strong>November&nbsp;20, 2024 DOJ EDNY indictment</strong> of Gautam and Sagar Adani; the lobbying targets are <strong>White House + State + Commerce</strong> on bilateral "U.S.-India renewable energy cooperation"; the LDA-named foreign entity is the indicted parent <strong>Adani Enterprises Limited</strong>. NYT (May&nbsp;18, 2026) reports the DOJ is moving to drop the criminal case.</p>
+
+  <div class="path" aria-label="How we got here">
+    <div class="step">P3 baseline</div><div class="what">C-003 above surfaced Akin Gump in the 200-name FARA-gap narrowed list via D10 (SQL hash <code>ae4ebdb2ecf19559</code>) — four LDA filings disclose foreign entities for Ant Group, TP-Link, Adani, United Solar Polysilicon.</div>
+    <div class="step">P6 handoff</div><div class="what"><code>spotlight-handoff</code> generated brief OS-002 with the four-engagement priority + the unresolved question "is the gap structural or evasive?"</div>
+    <div class="step">P6 OSINT</div><div class="what"><code>spotlight:investigator</code> agent (1 cycle, 110 tool calls, 17 scraped evidence files + 8 Wayback archives via firecrawl) pulled DOJ FARA eFile complete Akin Gump principals list (only 6 sovereigns + Korea Embassy), OpenSecrets FARA aggregator, House LDA reg_id 31784 / client 317840961 (Ant Group), DOJ EDNY indictment, NYT 5/18/2026 reporting, US Treasury Aug 2025 IFC vote, BIS Entity List, Akin Gump partner bios (Pomper, Babin, Ros-Lehtinen, Kho).</div>
+  </div>
+
+  <div class="sources">
+    <span class="label">Primary sources</span>
+    <a href="https://efile.fara.gov/">DOJ FARA eFile (Akin Gump principals)</a><span class="sep">·</span>
+    <a href="https://www.opensecrets.org/fara/registrants/D000000162">OpenSecrets FARA</a><span class="sep">·</span>
+    <a href="https://lobbyingdisclosure.house.gov/lookup.asp?reg_id=31784">House LDA reg_id 31784</a><span class="sep">·</span>
+    <a href="https://www.nytimes.com/">NYT (5/18/2026) — DOJ Adani drop</a><span class="sep">·</span>
+    <a href="https://www.bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/entity-list">BIS Entity List (Xinjiang Daqo)</a>
+  </div>
+
+  <details>
+    <summary>The four engagements, ranked by FARA-gap severity</summary>
+    <div>
+      <table>
+        <tr><th>Client</th><th>Read</th><th>Why</th></tr>
+        <tr><td><strong>Adani North America</strong></td><td><strong>Gap should not exist</strong></td><td>Day-after-indictment retainer; executive-branch-only lobbying; named foreign parent under criminal indictment</td></tr>
+        <tr><td><strong>United Solar Polysilicon</strong></td><td><strong>Structurally adjacent to active sanctions</strong></td><td>Chairman Zhang Longgen was CEO of Daqo (2018-2023) + vice-chair of Xinjiang Daqo (BIS Entity List since June 2021); US Treasury voted against the IFC's $250M loan; Akin Gump lobbies Section 232</td></tr>
+        <tr><td><strong>TP-Link Systems</strong></td><td>Gap is defensibly structural</td><td>Delaware US subsidiary; ITC §337 trade defense; commerce exemption typically covers. Newsworthy element: former USTR China Enforcement Chief Counsel is the lobbyist</td></tr>
+        <tr><td>Ant Group Co.</td><td>Needs LD-1 retrieval</td><td>Q1 2025 LD-2 reports $90K with rendered empty issue text — likely rendering artifact</td></tr>
+      </table>
+      <p>Named partners handling both LDA + FARA sides: <strong>Stephen Pomper, Hal Babin, Ileana Ros-Lehtinen, Steve Kho</strong>. They FARA-register only the government clients.</p>
+    </div>
+  </details>
+
+  <div class="flag">
+    <span class="flag-label">Possible legal-violation flag</span>
+    <p>FARA enforcement (22&nbsp;U.S.C.&nbsp;§&nbsp;611 et seq.) is theoretically triggered when an agent represents a foreign principal's interests in influencing US government policy. The Adani configuration is the most likely NSD-FARA scrutiny target. Flagged without adjudicating intent.</p>
+  </div>
+</section>
+
+<!-- ─────────────────────────  FINDING C-007  ───────────────────────── -->
+<section class="finding" id="c-007">
+  <div class="finding-meta">
+    <span class="pill pill-id">C-007</span>
+    <span class="cat">revolving door + active litigation</span>
+    <span class="pill pill-high">HIGH</span>
+    <span class="pill pill-verified">Verified</span>
+    <span class="pill pill-novel">Novel analysis</span>
+  </div>
+  <p style="font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px"><strong>Promoted from OS-005 spotlight-handoff</strong></p>
+
+  <h2>Vertex sues HHS-OIG. Two of Vertex's lobbyists ran HHS legislative affairs.</h2>
+
+  <p class="lede"><strong>Tarplin, Downs &amp; Young</strong> is the institutional home of two Medicare Part D legislative architects. <strong>ProPublica's 2009 investigation</strong> named co-founders <strong>Raissa Downs</strong> (HHS Principal Deputy Asst Sec for Legislation) and <strong>Jennifer Young</strong> (HHS Assistant Secretary for Legislation; Sr Counselor to HHS Sec. Leavitt). The firm has carried Amgen, AstraZeneca, BIO, Boston Scientific, Genzyme, PhRMA, Vertex Pharmaceuticals, and BCBS for sixteen years.</p>
+
+  <p>The current say-vs-pay loop: <strong>Vertex Pharmaceuticals — TDY's $6M+ client — is in active federal litigation against HHS-OIG</strong> to set aside the agency's Anti-Kickback Statute interpretation of its Casgevy fertility-preservation program (Bass Berry &amp; Sims counsel; Law360 July 2024). A top-five TDY client is suing the precise agency where two of three TDY founders ran the Office of the Assistant Secretary for Legislation.</p>
+
+  <div class="path" aria-label="How we got here">
+    <div class="step">P3 detect</div><div class="what">D11 <code>revolving_door_committee_match</code> + D3 <code>revolving_door_candidates</code> surfaced Tarplin Downs &amp; Young's lobbying revenue concentration on healthcare clients with former-HHS staff covered_position.</div>
+    <div class="step">P6 handoff</div><div class="what"><code>spotlight-handoff</code> brief OS-005 asked spotlight to verify TDY founders' biographies, identify the firm's full client roster, and check for HHS-OIG enforcement against any client.</div>
+    <div class="step">P6 OSINT</div><div class="what"><code>spotlight:investigator</code> agent (1 cycle, 80 tool calls, 22 scraped files via firecrawl) pulled ProPublica's 2009 investigation as the load-bearing source naming Downs + Young as Part D architects → drug lobbyists, TDY firm website (Wayback archive), Law360 July 2024 Vertex v. HHS-OIG coverage via Bass Berry &amp; Sims, FGS Global Sept 2025 acquisition announcement. Corrected data-detective's D11 attribution from "Pamela Smith" to Raissa Downs.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-v">16 yrs</span><span class="stat-l">TDY's continuous pharma representation</span></div>
+    <div class="stat"><span class="stat-v">2 / 3</span><span class="stat-l">TDY founders ran HHS legislative affairs</span></div>
+    <div class="stat"><span class="stat-v">$6M+</span><span class="stat-l">Vertex's lobbying spend with TDY (2022-2026)</span></div>
+    <div class="stat"><span class="stat-v">Sept 10 2025</span><span class="stat-l">FGS Global acquired TDY</span></div>
+  </div>
+
+  <div class="sources">
+    <span class="label">Primary sources</span>
+    <a href="https://www.propublica.org/article/medicare-drug-plan-architects-now-drug-company-lobbyists">ProPublica 2009 (load-bearing source)</a><span class="sep">·</span>
+    <a href="https://tdyllc.com/">TDY firm website</a><span class="sep">·</span>
+    <a href="https://web.archive.org/web/20260522123759/https://tdyllc.com/">Wayback TDY archive</a><span class="sep">·</span>
+    <a href="https://www.law360.com/">Law360 (Vertex v. HHS-OIG)</a><span class="sep">·</span>
+    <a href="https://fgsglobal.com/">FGS Global acquisition</a>
+  </div>
+
+  <details>
+    <summary>Methodology correction surfaced by the OSINT pass</summary>
+    <div>
+      <p>Data-detective's D11 detector originally attributed the HHS Asst Sec for Legislation role to "Pamela Smith"; the actual holder is <strong>Raissa Downs</strong>. The LDA <code>covered_position</code> field aggregates positions across all lobbyists on a single filing, conflating co-filers. A future cycle should use LegiStorm / Congress.gov individual-staff databases to resolve this rather than the aggregated text. The TDY acquisition by FGS Global on Sept&nbsp;10, 2025 also explains the Q4 2025 spending-spike D1 flagged.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ─────────────────────────  FINDING C-008  ───────────────────────── -->
+<section class="finding" id="c-008">
+  <div class="finding-meta">
+    <span class="pill pill-id">C-008</span>
+    <span class="cat">say-vs-pay + administration access</span>
+    <span class="pill pill-high">HIGH</span>
+    <span class="pill pill-verified">Verified</span>
+    <span class="pill pill-connected">Connects to reporting</span>
+  </div>
+  <p style="font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px"><strong>Promoted from OS-003 spotlight-handoff</strong></p>
+
+  <h2>$5&nbsp;million donation. Mar-a-Lago meeting. FDA reverses its vape ban in ten days.</h2>
+
+  <p class="lede">Reynolds American Inc. — parent of <strong>RAI Services</strong>, the $3.18M lobbying client of Ballard Partners' <strong>Daniel McFaul</strong> — paid <strong>Make America Great Again Inc.</strong> $5&nbsp;million on April&nbsp;30, 2026. Two days later, Reynolds executives met Donald Trump in Jupiter, Florida. Within approximately ten days, <strong>the FDA reversed its flavored-vape ban</strong>. NYT's Vogel and Jewett reported the timeline; corroborated across four independent secondary sources.</p>
+
+  <div class="timeline">
+    <div class="date">Apr&nbsp;30 2026</div><div class="event">Reynolds American → <strong>$5M</strong> to MAGA Inc. (FEC C00825851)</div>
+    <div class="date">May&nbsp;2 2026</div><div class="event">Reynolds executives meet Donald Trump in Jupiter, FL</div>
+    <div class="date">~May&nbsp;12 2026</div><div class="event">FDA reverses its flavored-vape ban</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-v">$5M</span><span class="stat-l">Reynolds → MAGA Inc., Apr 30 2026</span></div>
+    <div class="stat"><span class="stat-v">~10 days</span><span class="stat-l">Jupiter meeting → FDA reversal</span></div>
+    <div class="stat"><span class="stat-v">$19.6M → $88.3M</span><span class="stat-l">Ballard revenue 2024 → 2025 (#1 firm 2025)</span></div>
+    <div class="stat"><span class="stat-v">Wiles + Bondi</span><span class="stat-l">Ballard alumni now WH Chief of Staff + AG</span></div>
+  </div>
+
+  <p>McFaul is Managing Partner of Ballard's DC office; he served on the 2016-17 Trump Presidential Transition Team in the Appointments office covering DoD, VA, Armed Services, and Intelligence; and on Matt Gaetz's own congressional transition team. His personal FEC giving (46 contributions, ~$33K, 2017-2026, all Republican) includes Friends of Matt Gaetz, Trump Victory, and Brian Jack (former Trump WH Political Director).</p>
+
+  <div class="path" aria-label="How we got here">
+    <div class="step">P3 detect</div><div class="what">D3 <code>revolving_door_candidates</code> flagged McFaul's covered_position (former Gaetz / Miller / Scarborough Chief of Staff) on Ballard Partners filings.</div>
+    <div class="step">P3 drill</div><div class="what">Ad-hoc SQL on <code>senate_activity_lobbyists</code> + <code>senate_filings</code> aggregated McFaul's full client list (U.S. Sugar $4.56M, Amazon $4.08M, RAI Services $3.18M, Hard Rock Japan, MHP, LA28).</div>
+    <div class="step">P6 handoff</div><div class="what"><code>spotlight-handoff</code> brief OS-003 prioritised the Gaetz tie, the Reynolds tobacco engagement, and the LA28 Mar-a-Lago angle.</div>
+    <div class="step">P6 OSINT</div><div class="what"><code>spotlight:investigator</code> agent (1 cycle, 52 tool calls, 22 scraped files + 3 Wayback archives via firecrawl) pulled NYT Vogel/Jewett reporting on the Reynolds → MAGA Inc → FDA timeline (corroborated across 4 secondary sources), Ballard Partners firm bio confirming McFaul as DC Managing Partner, FEC committee C00825851 (MAGA Inc.) for the $5M contribution, McFaul personal FEC giving (46 contributions), Ballard revenue history via OpenSecrets ($19.6M → $88.3M), and Susie Wiles + Pam Bondi as Ballard alumni now in the administration.</div>
+  </div>
+
+  <div class="sources">
+    <span class="label">Primary sources</span>
+    <a href="https://www.nytimes.com/">NYT (Vogel/Jewett)</a><span class="sep">·</span>
+    <a href="https://www.fec.gov/data/committee/C00825851/">FEC MAGA Inc. C00825851</a><span class="sep">·</span>
+    <a href="https://www.ballardpartners.com/">Ballard Partners firm bio</a><span class="sep">·</span>
+    <a href="https://www.opensecrets.org/federal-lobbying/firms?id=D000048798">OpenSecrets Ballard revenue</a>
+  </div>
+
+  <div class="flag">
+    <span class="flag-label">Possible legal-violation flag</span>
+    <p>The factual chain (donation → meeting → policy reversal) is established. Intent and a specific exchange element are not in the public record. Federal Election Campaign Act pay-to-play, federal anti-bribery (18&nbsp;U.S.C.&nbsp;§&nbsp;201), and LDA misreporting are all potentially implicated; flagged without adjudicating intent.</p>
+  </div>
+</section>
+
+<!-- ─────────────────────────  FINDING C-009  ───────────────────────── -->
+<section class="finding" id="c-009">
+  <div class="finding-meta">
+    <span class="pill pill-id">C-009</span>
+    <span class="cat">say-vs-pay + cross-committee triangulation</span>
+    <span class="pill pill-high">HIGH</span>
+    <span class="pill pill-verified">Verified</span>
+    <span class="pill pill-novel">Novel analysis</span>
+  </div>
+  <p style="font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px"><strong>Promoted from OS-004 spotlight-handoff</strong></p>
+
+  <h2>Apollo is lobbied from <em>both</em> sides of the Senate. Warren attacks from <em>both</em>.</h2>
+
+  <p class="lede"><strong>Anthony "Lazer" Lazarski</strong> at <strong>Cornerstone Government Affairs</strong> — 25-year USAF Colonel; former Senate Armed Services Committee Professional Staffer; former Sr Legislative Advisor to SASC Chair Jim Inhofe — is the named lobbyist on Cornerstone's 2024 contracts with <strong>Apollo Global Management, Boeing, General Dynamics, AND Anduril</strong>.</p>
+
+  <p>Sen. Elizabeth Warren (current SASC) attacks the portfolio on two axes:</p>
+  <ul style="font-size:15px;max-width:64ch;margin:0 0 18px;padding-left:20px">
+    <li>Co-signed a 2024 Senate letter naming Apollo for its "shadowy" role in the Steward Health Care bankruptcy.</li>
+    <li>Campaign platform <em>"Reduce Corporate Influence at the Pentagon"</em> — verbatim describes Lazarski's revolving-door pattern.</li>
+  </ul>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-v">2 firms</span><span class="stat-l">Brownstein + Cornerstone both lobby Apollo</span></div>
+    <div class="stat"><span class="stat-v">2 committees</span><span class="stat-l">Warren attacks from Finance AND Armed Services</span></div>
+    <div class="stat"><span class="stat-v">$108,400</span><span class="stat-l">Lazarski 2024 FEC giving — SASC+HASC Republicans only</span></div>
+    <div class="stat"><span class="stat-v">27</span><span class="stat-l">spotlight:investigator scraped evidence files</span></div>
+  </div>
+
+  <p><strong>Triangulation with C-004.</strong> The same Apollo Global Management client is lobbied by two mega-firms simultaneously — Brownstein on Senate Finance, Cornerstone on Senate Armed Services — each via former senior committee staff. The same senator (Warren) attacks Apollo from both committee positions.</p>
+
+  <div class="path" aria-label="How we got here">
+    <div class="step">P3 baseline</div><div class="what">D11 <code>revolving_door_committee_match</code> (SQL hash <code>a7712c723043a717</code>) surfaced second-tier names beyond Brownstein: Richards, Lazarski, Young, Teague, O'Neill — each $50M+ committee-aligned revenue.</div>
+    <div class="step">P6 handoff</div><div class="what"><code>spotlight-handoff</code> brief OS-004 asked spotlight to profile the five second-tier lobbyists and identify the cleanest say-vs-pay extension of C-004.</div>
+    <div class="step">P6 OSINT</div><div class="what"><code>spotlight:investigator</code> agent (1 cycle, 79 tool calls, 27 scraped evidence files via firecrawl) pulled OpenSecrets revolving-door profiles + LegiStorm biographies for each of the five, then archived Sen. Warren's 2024 Apollo/Steward Senate letter (Wayback) and her campaign platform "Reduce Corporate Influence at the Pentagon" (Wayback). Lazarski's 2024 client list verified via OpenSecrets + Cornerstone Government Affairs official bio. The triangulation with C-004 emerged from observing Apollo as the common client across Brownstein + Cornerstone, with the same Warren attacking from both committee positions.</div>
+  </div>
+
+  <div class="sources">
+    <span class="label">Primary sources</span>
+    <a href="https://cgagroup.com/people/anthony-lazarski/">Cornerstone bio (Lazarski)</a><span class="sep">·</span>
+    <a href="https://www.opensecrets.org/revolving-door/lazarski-anthony/summary?id=81286">OpenSecrets revolving-door</a><span class="sep">·</span>
+    <a href="https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2024&id=Y0000053591L">OpenSecrets 2024 clients</a><span class="sep">·</span>
+    <a href="https://web.archive.org/web/20260522124908/https://elizabethwarren.com/plans/corporate-influence-pentagon">Warren Pentagon-influence platform (archived)</a>
+  </div>
+</section>
+
+<!-- ─────────────────────────  METHODOLOGY (FULL RUN) ───────────────────────── -->
+<section id="method">
+  <div class="kicker">Methodology · how the full run was executed</div>
+  <h2 style="margin-top:36px">How <code style="font-size:.7em;background:var(--bg-soft);padding:2px 8px;border-radius:4px">data-detective</code> works — phase by phase.</h2>
+
+  <p class="lede">The skill pushes ETL, indexing, entity resolution, and aggregation to deterministic Python + DuckDB; it reserves the LLM for reasoning over already-filtered candidates. Every numeric claim cites a SQL query by SHA-16; every named record has an evidence card; every external source is archived. The skill is corpus-agnostic — configuration lives in a Python <em>profile</em> module that maps file globs to mapper functions. What follows is the actual run that produced the nine findings above.</p>
+
+  <div class="pipeline" aria-label="data-detective pipeline">
+    <svg viewBox="0 0 980 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#1a1815"/>
+        </marker>
+      </defs>
+      <g font-family="Inter, sans-serif" font-size="11" fill="#1a1815">
+        <rect x="10" y="10" width="140" height="28" fill="#fbf8f1" stroke="#1a1815" stroke-width="1.1"/>
+        <text x="80" y="28" text-anchor="middle">Senate LDA (JSON)</text>
+        <rect x="10" y="46" width="140" height="28" fill="#fbf8f1" stroke="#1a1815" stroke-width="1.1"/>
+        <text x="80" y="64" text-anchor="middle">House LDA (XML)</text>
+        <rect x="10" y="82" width="140" height="28" fill="#fbf8f1" stroke="#1a1815" stroke-width="1.1"/>
+        <text x="80" y="100" text-anchor="middle">Congress press (JSONL)</text>
+        <rect x="10" y="118" width="140" height="28" fill="#fbf8f1" stroke="#1a1815" stroke-width="1.1"/>
+        <text x="80" y="132" text-anchor="middle">FARA bulk</text>
+        <text x="80" y="143" text-anchor="middle" font-size="9" fill="#8a7f70">OpenSanctions mirror</text>
+        <rect x="10" y="154" width="140" height="28" fill="#fbf8f1" stroke="#1a1815" stroke-width="1.1"/>
+        <text x="80" y="168" text-anchor="middle">USAspending API</text>
+        <text x="80" y="179" text-anchor="middle" font-size="9" fill="#8a7f70">DoD awards</text>
+        <rect x="10" y="190" width="140" height="32" fill="#fbf3df" stroke="#9a6800" stroke-width="1.5"/>
+        <text x="80" y="204" text-anchor="middle" font-weight="700" fill="#9a6800">Congress.gov graph</text>
+        <text x="80" y="216" text-anchor="middle" font-size="9" fill="#8a7f70">members + committees</text>
+
+        <line x1="160" y1="120" x2="200" y2="120" stroke="#1a1815" marker-end="url(#arr)" stroke-width="1.5"/>
+
+        <rect x="200" y="60" width="200" height="120" fill="#fbf3df" stroke="#a8200d" stroke-width="1.5"/>
+        <text x="300" y="84" text-anchor="middle" font-weight="700" fill="#a8200d">DuckDB index</text>
+        <text x="300" y="100" text-anchor="middle" font-size="10">2.3 GB · 17 tables · 3 min build</text>
+        <text x="300" y="118" text-anchor="middle" font-size="10">99.9% entity resolution via bridge keys</text>
+        <text x="300" y="136" text-anchor="middle" font-size="10">100% House↔Senate join coverage</text>
+        <text x="300" y="154" text-anchor="middle" font-size="10">20K bills extracted from 1.5M activities</text>
+        <text x="300" y="172" text-anchor="middle" font-size="10">5 LDA + Congress + FARA + USAspending</text>
+
+        <line x1="400" y1="120" x2="440" y2="120" stroke="#1a1815" marker-end="url(#arr)" stroke-width="1.5"/>
+
+        <rect x="440" y="20" width="200" height="200" fill="#f4efe4" stroke="#1a1815" stroke-width="1.1"/>
+        <text x="540" y="40" text-anchor="middle" font-weight="700">12 detectors (deterministic SQL)</text>
+        <text x="455" y="58" font-size="10">D1 spending spikes</text>
+        <text x="455" y="72" font-size="10">D2 missing income</text>
+        <text x="455" y="86" font-size="10">D3 revolving-door candidates</text>
+        <text x="455" y="100" font-size="10">D4 foreign filings</text>
+        <text x="455" y="114" font-size="10">D5 single-client juggernauts</text>
+        <text x="455" y="128" font-size="10">D6 PAC contribution flow</text>
+        <text x="455" y="142" font-size="10">D7 issue concentration shifts</text>
+        <text x="455" y="156" font-size="10">D8 new-registrant surge</text>
+        <text x="455" y="170" font-size="10" font-weight="700" fill="#a8200d">D9 shell pattern</text>
+        <text x="455" y="184" font-size="10" font-weight="700" fill="#a8200d">D10 FARA-gap narrowing</text>
+        <text x="455" y="198" font-size="10" font-weight="700" fill="#a8200d">D11 multi-hop revolving door</text>
+        <text x="455" y="212" font-size="10" font-weight="700" fill="#a8200d">D12 committee say-vs-pay</text>
+
+        <line x1="640" y1="120" x2="680" y2="120" stroke="#1a1815" marker-end="url(#arr)" stroke-width="1.5"/>
+
+        <rect x="680" y="40" width="280" height="160" fill="#fbf8f1" stroke="#1a1815" stroke-width="1.1"/>
+        <text x="820" y="64" text-anchor="middle" font-weight="700">Ranked CSVs + provenance.json</text>
+        <text x="820" y="82" text-anchor="middle" font-size="10">SHA-tagged per query, top 50-500 each</text>
+        <text x="820" y="106" text-anchor="middle" font-weight="700">Evidence cards (markdown)</text>
+        <text x="820" y="124" text-anchor="middle" font-size="10">One per cited source record</text>
+        <text x="820" y="148" text-anchor="middle" font-weight="700" fill="#5b3a8a">Spotlight-handoff</text>
+        <text x="820" y="166" text-anchor="middle" font-size="10">data-side → external OSINT</text>
+        <text x="820" y="184" text-anchor="middle" font-size="10" fill="#5b3a8a">5 of 6 promoted to findings (C-005..C-009)</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="methods-list">
+    <div><code>~3 min</code> Full corpus ingest (pyarrow bulk insert; 60× faster than executemany)</div>
+    <div><code>99.9%</code> Entity resolution via deterministic bridge keys</div>
+    <div><code>0 tokens</code> LLM tokens spent scanning raw documents during exploration</div>
+    <div><code>12</code> SQL-only detectors with SHA-tagged provenance per query</div>
+    <div><code>SHA-tagged</code> Every numeric claim cites a query hash + provenance JSON</div>
+    <div><code>Portable</code> Profile-driven — new corpus = new <code>profile.py</code>, same scripts</div>
+    <div><code>Cross-corpus</code> In-DB joins to FARA + Congress.gov; out-of-band joins to USAspending</div>
+    <div><code>Multi-hop SQL</code> D11 + D12 demonstrate three- and four-way joins</div>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-size:22px;margin:36px 0 10px;font-weight:600;max-width:32ch">The full run, phase by phase.</h3>
+
+  <p style="max-width:none">data-detective is structured as eight phases mirroring Spotlight's brief → methodology → cycles → fact-check → gates → handoff arc, adapted for structured records. Each phase has its own sub-skill (or, in Spotlight's case, an external orchestrator). The audit chain is preserved across the data → OSINT handoff so that every claim in this report has a single replicable path back to the source rows.</p>
+
+  <div class="phase">
+    <div class="phase-head"><span class="phase-id">Phase 0 · preflight</span><h4 class="phase-title">Skill discovery, corpus inventory, profile pick.</h4></div>
+    <p>The orchestrator (<code>data-detective</code> SKILL.md) loaded its sub-skill registry, confirmed DuckDB + pyarrow + lxml available, and inventoried the corpus: Senate LDA JSON (2008-2025), House LDA XML (2008-2025), congressional press releases JSONL, FARA bulk (OpenSanctions DOJ mirror), USAspending DoD contract API, and the unitedstates/congress-legislators member/committee graph. The <code>congress.py</code> profile module declared the file-glob → mapper-function bindings.</p>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="phase-id">Phase 1 · ingest</span><h4 class="phase-title"><code>ingest</code> sub-skill — load to columnar DuckDB.</h4></div>
+    <p>First run took 740 s/file using <code>executemany</code>. Replaced with <code>pyarrow.Table.from_pydict()</code> → <code>INSERT INTO ... SELECT FROM _batch</code>: full corpus ingests in ~3 minutes. Output: 17 normalized tables, 2.3 GB on disk, 1.5M+ lobbying activities. The XML parser was hardened with <code>recover=True</code> to handle several malformed House quarterly XMLs.</p>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="phase-id">Phase 2 · resolve</span><h4 class="phase-title"><code>resolve</code> sub-skill — bridge-key entity unification.</h4></div>
+    <p>Senate <code>registrant.id</code> ↔ House <code>senateID</code> first segment is a deterministic bridge — 99.9% match rate measured against ~14,000 House registrant records. No fuzzy matching needed. Member rosters keyed by bioguide_id; committee assignments keyed by thomas_id. Normalized name + state + role tables materialized in DuckDB for cross-corpus joins.</p>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="phase-id">Phase 3 · detect + cycles + fact-check</span><h4 class="phase-title"><code>detect</code> + <code>similarity-search</code> + <code>external-data</code> + <code>evidence-cards</code> — the analytic loop.</h4></div>
+    <p>This is the largest phase. Three iterative cycles, each running the same loop: <strong>(a)</strong> SQL-only detector against the DuckDB index — each query SHA-16 tagged into <code>case-trace/data-detective/anomalies/<i>name</i>/{ranked.csv, provenance.json}</code>. <strong>(b)</strong> Drill into the top 5-20 candidates via ad-hoc joins. <strong>(c)</strong> Hop out-of-band to FARA / USAspending / Congress.gov to triangulate. <strong>(d)</strong> Generate evidence cards (one markdown per cited record). <strong>(e)</strong> firecrawl-archive every external source. <strong>(f)</strong> Adversarial fact-check pass.</p>
+
+    <p><strong>Detectors that produced findings:</strong></p>
+    <ul>
+      <li><code>D3 revolving_door_candidates</code> — flagged McFaul (Ballard) → C-008.</li>
+      <li><code>D4 foreign_filings</code> + <code>D10 fara_gap_narrowed</code> (SQL hash <code>ae4ebdb2ecf19559</code>) — narrowed FARA gap to 4 named engagements including Adani → C-003 + C-006.</li>
+      <li><code>D5 single_client_juggernauts</code> + <code>D9 shell_pattern</code> — flagged SOLN GPBC's $50M Clement filing → C-001 + C-005.</li>
+      <li><code>D8 new_registrant_surge</code> — flagged Polaris Government Strategies + $22M Apex STRATFI → C-002.</li>
+      <li><code>D11 revolving_door_committee_match</code> (SQL hash <code>a7712c723043a717</code>) — Brownstein + Cornerstone + TDY → C-004, C-007, C-009.</li>
+      <li><code>D12 committee_say_vs_pay</code> (SQL hash <code>274c4ef00515cd73</code>) — Warren's 9 Apollo press releases vs Apollo lobbying → C-004.</li>
+    </ul>
+
+    <p><strong>Adversarial fact-check verdicts</strong> (Spotlight pattern, applied to data-side claims by an independent fact-checker agent — every source archived, disconfirming evidence surfaced):</p>
+    <table>
+      <tr><th>Claim</th><th>Verdict</th><th>Key fact-checker contribution</th></tr>
+      <tr><td>C-001</td><td><strong>verified · high</strong></td><td>PacerMonitor independently confirmed CLEMENT v. GARLAND. Surfaced the registrant's own self-disclaimer that the $20M is "pending HR&nbsp;40 reimbursement."</td></tr>
+      <tr><td>C-002</td><td><strong>verified · high</strong></td><td>The Hill + Polaris + HQMC OLA confirmed founders. G2X + GovTribe + AFRL confirmed the $22M Apex STRATFI award.</td></tr>
+      <tr><td>C-003</td><td>partially · medium</td><td>Akin Gump × Ant Group traced via House LDA reg_id 31784. Akin Gump IS itself in FARA for other clients; gap is at engagement level.</td></tr>
+      <tr><td>C-004</td><td><strong>verified · high</strong></td><td>Brownstein's 2021 Warren-hire announcement confirmed prior roles. OpenSecrets confirmed Sullivan's 2025 client list. Surfaced Mark Warren's May 2026 move to Capitol Tax Partners.</td></tr>
+      <tr><td>C-005</td><td><strong>verified · high</strong></td><td>OS-001 verified the FEC reclassification + on-the-record Quinnipiac Prof. John Martin commentary. 11+ Dukes pro&nbsp;se N.D. Texas cases verified via PACER.</td></tr>
+      <tr><td>C-006</td><td><strong>verified · high</strong></td><td>OS-002 cross-validated DOJ FARA eFile + OpenSecrets. NYT 5/18/2026 + US Treasury Aug 2025 + BIS Entity List corroboration.</td></tr>
+      <tr><td>C-007</td><td><strong>verified · high</strong></td><td>OS-005 surfaced ProPublica's 2009 Part D architects investigation. Vertex v. HHS-OIG via Bass Berry &amp; Sims / Law360. Corrected D11 attribution.</td></tr>
+      <tr><td>C-008</td><td><strong>verified · high</strong></td><td>OS-003 confirmed the Reynolds-MAGA-FDA timeline via NYT Vogel/Jewett plus 4 independent secondary sources.</td></tr>
+      <tr><td>C-009</td><td><strong>verified · high</strong></td><td>OS-004 confirmed Lazarski's 2024 client list via OpenSecrets + Cornerstone bio + LDA filings. Warren's two attack axes archived on Wayback.</td></tr>
+    </table>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="phase-id">Phase 4 · Gate 1</span><h4 class="phase-title">Human-readable summary, user-approval checkpoint.</h4></div>
+    <p>The orchestrator wrote a synthesis to <code>case-trace/data-detective/summary.md</code> with a findings table, methods summary, and unresolved-gap inventory. Gate 1 protocol: the user must approve before promotion or hand-off. Iteration here patched C-004 (the temporal puzzle of Apollo's 2024 vs 2025 lobbyist) by spawning a targeted re-cycle (OS-006).</p>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="phase-id">Phase 5 · synthesis</span><h4 class="phase-title"><code>report-drafting</code> sub-skill — findings-report.md + report.html + evidence-map.json.</h4></div>
+    <p>Each verified claim was written to <code>findings.json</code> with confidence, fact-check verdict, query-hash provenance, source list, and cross-reference IDs. <code>evidence-map.json</code> indexes every source record cited across findings — the audit ledger used to verify replication paths. The <code>report-drafting</code> sub-skill (added during this investigation) produces all three Phase 5 deliverables from a working template that enforces the design discipline used here: per-finding <code>.path</code> replication block, per-finding <code>.sources</code> strip, novelty + confidence pills, and the phase-by-phase methodology pattern that absorbs the fact-check verdict table inside Phase 3 and the spotlight-handoff outcomes table inside Phase 6.</p>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="phase-id">Phase 6 · spotlight-handoff</span><h4 class="phase-title"><code>spotlight-handoff</code> sub-skill — formal data-side → OSINT pass.</h4></div>
+    <p>Six leads were identified for external OSINT amplification. The <code>spotlight-handoff</code> sub-skill generated structured briefs (named entities, known URLs, OSINT angles, falsification protocol, the upstream data-side audit chain) and dispatched a <code>spotlight:investigator</code> agent on each. All six completed. Five surfaced material new evidence and were promoted to data-detective findings (C-005 through C-009).</p>
+    <table>
+      <tr><th>Brief</th><th>Topic</th><th>Spotlight execution</th><th>Promoted to</th></tr>
+      <tr><td><strong>OS-001</strong></td><td>LOC Nation / Rico Dukes</td><td>1 cycle, 22 sources, 23 firecrawl + Wayback archives; <code>browser-harness</code> Delaware iCIS + Florida Sunbiz sweep</td><td><strong>C-005</strong></td></tr>
+      <tr><td><strong>OS-002</strong></td><td>Akin Gump foreign cluster</td><td>1 cycle, 110 tool calls, 17 scraped + 8 Wayback archives; DOJ FARA eFile, OpenSecrets, House LDA reg_id 31784</td><td><strong>C-006</strong></td></tr>
+      <tr><td><strong>OS-003</strong></td><td>McFaul / Ballard portfolio</td><td>1 cycle, 52 tool calls, 22 scraped + 3 Wayback archives; NYT Reynolds-MAGA-FDA, Ballard bio, FEC C00825851</td><td><strong>C-008</strong></td></tr>
+      <tr><td><strong>OS-004</strong></td><td>D11 second-tier revolving door</td><td>1 cycle, 79 tool calls, 27 scraped evidence files; OpenSecrets + LegiStorm bios, Warren letter + platform on Wayback</td><td><strong>C-009</strong></td></tr>
+      <tr><td><strong>OS-005</strong></td><td>Tarplin Downs &amp; Young</td><td>1 cycle, 80 tool calls, 22 scraped files; ProPublica 2009 Part D investigation, Law360 Vertex v. HHS-OIG, TDY firm site</td><td><strong>C-007</strong></td></tr>
+      <tr><td>OS-006</td><td>Warren → Capitol Tax Partners</td><td>1 cycle, temporal disambiguation of "Mark Warren" lobbyist career — verified May 2026 firm move</td><td>C-004 patch</td></tr>
+    </table>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="phase-id">Phase 7 · vault-ingest</span><h4 class="phase-title"><code>vault-ingest</code> sub-skill — Obsidian write-back with <code>--sensitive</code> flag.</h4></div>
+    <p>Mirrors <code>spotlight:ingest</code>: writes one finding-note per verified claim, one source-record note per cited row, one query-hash note per detector hash, plus entity notes for each named person/firm. The <code>--sensitive</code> flag scrubs identifiers for the public vault and keeps the unredacted set in the private vault. This run produced 4 finding notes, 22 source-records, 6 query-hashes, 36 entity notes (real run, dry-run validated first).</p>
+  </div>
+</section>
+
+<!-- ─────────────────────────  WHAT'S NEXT ───────────────────────── -->
+<section id="next">
+  <div class="kicker">Open monitoring targets</div>
+  <h2 style="margin-top:36px">What the next cycle should close.</h2>
+
+  <table>
+    <tr><th>Target</th><th>Why</th></tr>
+    <tr><td><strong>Q2 2026 LDA filing deadline</strong> (July&nbsp;20, 2026)</td><td>Reveals whether the SOLN GPBC LDA pattern continues unaffected by the FEC action — and whether Apollo migrates from Brownstein to Capitol Tax Partners.</td></tr>
+    <tr><td><strong>DOJ Adani disposition</strong></td><td>NYT 5/18/2026 reports DOJ moving to drop the EDNY case. If it drops, the C-006 NSD-FARA configuration becomes tighter.</td></tr>
+    <tr><td><strong>FDA flavored-vape regulatory record</strong></td><td>The reversal is the substantive policy hinge of C-008. Federal Register filings would document the procedural reversal.</td></tr>
+    <tr><td><strong>LOC NATION JAX LLC</strong> (Anisha Hicks, Jacksonville)</td><td>The brand pre-dates Clement's federal LDA scheme by three years. Independent / adjacent / franchise? Unresolved.</td></tr>
+    <tr><td><strong>D.C. Circuit appeal 24-5263</strong></td><td>Filed pro&nbsp;se 11/19/2024, no fee paid. PACER document download via authenticated session.</td></tr>
+    <tr><td><strong>Remaining D11 candidates</strong></td><td>James Richards / Anduril; Cornell Teague / Palantir; Jennifer Young / AbbVie; John O'Neill / Blackstone. Each parallel to C-009.</td></tr>
+  </table>
+</section>
+
+<footer>
+  <p><strong>Submission contents</strong> at <code><a href="https://github.com/buriedsignals/gain-2026">github.com/buriedsignals/gain-2026</a></code>: 10 Agent Skills (orchestrator + 9 sub-skills); <code>findings-report.md</code> (narrative); <code>evidence-map.json</code> (machine-readable audit ledger); <code>case-trace/data-detective/</code> (state, anomalies, cards, fact-check); <code>case-trace/spotlight/</code> (handoff briefs + 6 OSINT-investigation outputs).</p>
+  <p><strong>Conflicts of interest:</strong> None. Tom Vaillant (Buried Signals) has no relationship to any registrant, client, member, or lobbyist named above.</p>
+  <p class="databases">
+    <span>lda.senate.gov</span>
+    <span>FARA bulk (OpenSanctions DOJ mirror)</span>
+    <span>USAspending.gov API</span>
+    <span>Congress.gov / unitedstates.io committee graph</span>
+    <span>FEC docquery</span>
+    <span>OpenSecrets revolving door</span>
+    <span>LegiStorm</span>
+    <span>Chambers USA</span>
+    <span>CourtListener</span>
+    <span>PacerMonitor</span>
+    <span>Delaware iCIS</span>
+    <span>Florida Sunbiz</span>
+    <span>NYT</span>
+    <span>ProPublica</span>
+    <span>Law360</span>
+    <span>Boston Globe</span>
+    <span>BIS Entity List</span>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

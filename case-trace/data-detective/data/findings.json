@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "case_id": "northwestern-gain-challenge",
+  "generated_at": "2026-05-22T12:30:00Z",
+  "cycles_completed": 2,
+  "db_path": "case/index.duckdb",
+  "claims": {
+    "C-001": {
+      "statement": "An entity styling itself the 'State of LOC Nation Global Public Benefit Corporation' (SOLNGPBC), described in its own filings as an 'Established sovereign govt: drafting formal constitution, laws, negotiating treaties', filed fifteen Lobbying Disclosure Act records in 2024-2025 reporting $20 million per quarter — claiming $180 million in lobbying income across nine 2025 filings — through a Delaware-registered shell called LOC COMMUNITY ASSOCIATION whose sole disclosed lobbyist is Rev. Dr. Christina Loren Clement, identified across the filings as 'President of Black USA', '2024 Presidential candidate (assumed the Presidency)', and 'HH Empress Queen'. Detector D9 (shell-pattern scan over all 418K filings) confirms this is a unique-pattern outlier: the next-highest-scoring registrant scores 1 of 6 signals (vs. LOC's 4), and the closest comparable filing in the corpus is THEYFEARTRUTH FEDERAL GOVERNMENT OF AMERICA (zero income, but same self-styled-sovereign category).",
+      "confidence": "high",
+      "category": "data_quality",
+      "supporting_query_hashes": ["f9e737b8f3554a90", "bbbea171aa997a1e"],
+      "supporting_cards": [
+        "senate_filing_5000632b-e40b-4762-affc-551b46a40c91.md",
+        "senate_filing_4d5b1cb0-0971-43b8-958b-d260e2be8af1.md",
+        "senate_filing_c2d195d2-8df2-4b75-8e95-7014cacd5e81.md",
+        "senate_filing_abaac383-7e32-409c-827e-6046a4d59eea.md",
+        "senate_filing_f77a4908-5b4f-41d6-a9c7-acc85dee6946.md"
+      ],
+      "external_sources": [
+        {"url": "https://lda.senate.gov/filings/public/filing/5000632b-e40b-4762-affc-551b46a40c91/print/", "archive_path": "case/external/lda_loc_nation_registration.md", "fetched_at": "2026-05-22T11:25:00Z"},
+        {"url": "https://stateoflocnation.com/about", "archive_path": "case/external/stateoflocnation_about.md", "fetched_at": "2026-05-22T11:25:00Z"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "Filings live on lda.senate.gov; client website exists; founder publicly active on Reddit/Facebook/PDFs. D9 (cycle-4 deterministic detector) shows LOC NATION is the only sovereign-citizen-pattern filing in the entire 418K-record corpus that meets the multi-signal threshold.",
+      "limitations": [
+        "$180M is the sum of all 2025 filings as filed; multiple Q2 2025 amendments at $20M each likely double-count, so true claimed quarterly figure may be $20M × 4 = $80M. We report both.",
+        "We cannot independently confirm whether any money actually changed hands; this is a self-reported filing."
+      ],
+      "possible_legal_violation_flag": "False statements in a federal filing (18 U.S.C. § 1001) and Lobbying Disclosure Act enforcement (2 U.S.C. § 1605) are potentially implicated. We flag this to the evaluation panel for journalistic discretion; no determination of intent is made here."
+    },
+    "C-002": {
+      "statement": "Anchor & Arrow Strategies / Anchor & Arrow LLC, founded by former House Armed Services Committee, Sen. Tom Cotton's national-security desk, and Navy/Marine Corps appropriations staff, registered 13 AI- and autonomous-defense startups as lobbying clients in 2024-2026 (102 filings, $2.41M lobbying revenue). USAspending.gov data confirms at least four of those clients received material DoD contracts during the same period — Apex Technology ($25.7M, including a $22M Air Force SBIR Phase II STRATFI for multi-mission satellites awarded after Anchor & Arrow's Q3 2025 registration), Overland AI ($8.86M across seven SBIR awards), Base Operations ($1.32M for AI-driven security intelligence), and Gallatin AI ($150K SBIR Phase I).",
+      "confidence": "high",
+      "category": "revolving_door",
+      "supporting_query_hashes": ["e51ec9c1d23d4479"],
+      "supporting_cards": [
+        "senate_filing_4c6a09cd-efc2-433d-ace2-5aba684b2e4d.md",
+        "senate_filing_1678194c-8051-43bc-a726-2c98ab982ffa.md",
+        "senate_filing_a4abaf28-75ef-48b5-8d9f-dbb3023e6aed.md"
+      ],
+      "external_sources": [
+        {"url": "https://api.usaspending.gov/api/v2/search/spending_by_award/", "purpose": "DoD contract awards for Anchor & Arrow clients 2022-2026 Q1", "archive_path": "case/external/usaspending_aa_clients.json", "fetched_at": "2026-05-22T11:55:00Z"},
+        {"url": "https://thehill.com/lobbying/4590681-bottom-line-former-republican-chief-signs-on-to-guard-nutrition-programs/", "purpose": "Independent biographical verification (Noonan)"},
+        {"url": "https://www.linkedin.com/in/christopher-zumbar-a721a256", "purpose": "Independent biographical verification (Zumbar)"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "All founders verified via independent public sources. USAspending.gov hits confirm material DoD contract flow to lobbied clients in the same window as lobbying disclosures. Apex Technology paired most tightly: Anchor & Arrow registered Q3 2025 → Apex received $22M Air Force SBIR STRATFI; lobbying spend ~$100K total against $22M-plus award.",
+      "limitations": [
+        "Revolving-door + lobbying-followed-by-contract patterns alone are not illegal; SBIR awards are competitively reviewed and typically span multi-year decision cycles.",
+        "USAspending.gov search did not return matches for Palantir, Saronic, Epirus, CX2, American Phalanx — these companies may have prime-contract awards under slightly-different recipient names or under classified award streams (USAspending does not capture classified obligations)."
+      ]
+    },
+    "C-003": {
+      "statement": "Across the 2024-2026 Senate LDA filings, 743 distinct registrants disclose foreign_entities[]; only 61 (8%) also appear in the U.S. DOJ FARA registrant list — a 682-name aggregate 'FARA gap'. Detector D10 narrows this gap to 200 specific filings that combine the gap with at least one of (a) non-US client country, (b) foreign-government-policy lobbying topics (embassy/ambassador/sanctions/FARA mentions), or (c) state-owned-enterprise client naming (Republic of, Kingdom of, Ministry of, etc.). The narrowed list surfaces concrete candidates including Akin Gump Strauss Hauer & Feld lobbying for Ant Group Co. (China), Rich Feuer Anderson lobbying for Ant Group Co. (China), Bracewell LLP lobbying for Tele-Fonika Cable Americas, and FGS Global lobbying for Wuxi Biologics USA LLC (HK).",
+      "confidence": "medium",
+      "category": "foreign_influence",
+      "supporting_query_hashes": ["f7c962b62d2393b1", "ae4ebdb2ecf19559"],
+      "supporting_cards": [],
+      "external_sources": [
+        {"url": "https://data.opensanctions.org/datasets/latest/us_fara_filings/", "purpose": "FARA bulk source (DOJ-mirrored XML)"}
+      ],
+      "fact_check_status": "partially_verified",
+      "fact_check_notes": "Aggregate gap mechanically computed via in-database join (D10). Specific candidates surfaced are leads for case-by-case scrutiny — Akin Gump and Rich Feuer Anderson lobbying for Ant Group is a particularly worth-pursuing pairing given Ant Group's Chinese state-adjacent profile and ongoing US regulatory friction.",
+      "limitations": [
+        "FARA and LDA capture overlapping but distinct activity. Many gap filings are legitimate (US client owned by a foreign parent does not by itself require FARA from its lobbyist).",
+        "Name match used uppercased equality. Some gap entries (e.g., Akin Gump) likely DO have FARA registrations under specific lawyers, not the firm name."
+      ]
+    },
+    "C-004": {
+      "statement": "A multi-hop revolving-door detector (D11) — joining lobbyists whose covered_position text names a specific committee, current quarterly filings, and the issue-code those filings lobby on — surfaces a particularly dense cluster at Brownstein Hyatt Farber Schreck LLP: Russell Sullivan (former Staff Director, Senate Finance Committee) and Mark Warren (former Chief Tax Counsel, Senate Finance Committee; Senior Tax Counsel to Sen. Thune; Tax Counsel, House Ways & Means; Deputy Assistant Secretary, Treasury Legislative Affairs) both lobby Apollo Global Management, Athene Holding (Apollo's annuities arm), Johnson & Johnson Services, T-Mobile, Bloom Energy, and the American Petroleum Institute on TAX/FIN topics. Sullivan alone has appeared in 1,714 federal lobbying filings and lifetime-tracked revenue exceeding $76 million per OpenSecrets. The detector identified 16 named lobbyists representing $122 million in 2024-2026 lobbying income on topics directly aligned with the committee they previously staffed. **Bill-citation analysis confirms Brownstein Hyatt cited H.R. 1 (the 2025 'Big Beautiful Bill' tax-and-spending reconciliation) 256 times across its lobbying activities, and H.R. 5376 (Inflation Reduction Act) 37 times — the most-lobbied bills in the corpus by this single firm. Cross-corpus 'say vs. pay' signal: Sen. Elizabeth Warren issued ten 2024-2025 press releases publicly attacking Apollo Global Management over the Steward Health Care bankruptcy — while Sullivan + Warren billed the same Apollo $8.92M for representation during the same period.**",
+      "confidence": "high",
+      "category": "revolving_door",
+      "supporting_query_hashes": ["a7712c723043a717"],
+      "supporting_cards": [
+        "senate_filing_c058d5af-a044-4a69-8f34-b53559162130.md",
+        "senate_filing_1d846f6d-3a5f-409f-a2c5-03b5f2dbe860.md"
+      ],
+      "external_sources": [
+        {"url": "https://www.bhfs.com/people/russell-sullivan/", "purpose": "Sullivan official firm bio — confirms Staff Director, Senate Finance Committee"},
+        {"url": "https://www.opensecrets.org/revolving-door/sullivan-russell/summary?id=77989", "purpose": "OpenSecrets revolving-door record — career-tracked revenue figures"},
+        {"url": "https://www.legistorm.com/person/bio/371/Mark_E_Warren.html", "purpose": "Warren biography — confirms Senate Finance / Ways & Means / Treasury history"}
+      ],
+      "fact_check_status": "verified",
+      "fact_check_notes": "Sullivan and Warren are publicly-known DC tax lobbyists. Chambers USA: 'There is no more effective, professional and respected tax lobbyist in Washington, D.C., than Russell Sullivan.' Their LDA covered_position fields match their public biographies. Christopher Treanor (former H. Energy & Commerce policy analyst) is a third cluster member at Akin Gump representing the Partnership to Address Global Emissions ($16.6M lifetime engagement at Akin Gump) — energy-and-emissions lobbying mapped to his former committee jurisdiction.",
+      "limitations": [
+        "Revolving-door + topic-match alone is not illegal. The finding documents a structural pattern; per-individual ethical or legal review is out of scope.",
+        "D11 keyword-mapping from covered_position text to former-committee is heuristic. Future iterations should use Congress.gov / LegiStorm staff databases for precise role-to-committee mapping."
+      ]
+    }
+  }
+}

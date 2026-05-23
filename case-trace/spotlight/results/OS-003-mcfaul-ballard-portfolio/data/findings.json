@@ -1,0 +1,346 @@
+{
+  "schema_version": "1.0",
+  "project": "OS-003-mcfaul-ballard-portfolio",
+  "lead": "Daniel McFaul — Ballard Partners lobbyist; former Chief of Staff to Reps. Scarborough/Miller/Gaetz; map the political network and what each top client (US Sugar, Amazon, RAI/Reynolds, MHP Foods, Hard Rock Japan, LA 2028) is buying.",
+  "investigated_at": "2026-05-22T12:50:00Z",
+  "cycle": 1,
+  "questions": [
+    "What is McFaul's current role and political position at Ballard Partners?",
+    "What is his FEC personal-donation pattern? Does he donate to former bosses or the Trump orbit?",
+    "Does Ballard's Q1 2025 revenue spike correspond to documented post-election Trump-orbit lobbying? How big?",
+    "What policy outcomes are visibly linked to McFaul's named clients (RAI Services, LA 2028, Hard Rock Japan, MHP)?",
+    "What is the institutional Gaetz/Trump connection beyond McFaul's resume?"
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "claim_id": "F1",
+      "claim": "Daniel ('Dan') McFaul is Managing Partner of Ballard Partners' Washington, D.C. office (a position he has held since November 2022, after joining the firm as a partner in 2017). Ballard Partners' own bio confirms McFaul personally served on the Presidential Transition Team for then President-elect Donald J. Trump, where he sat on the Appointments Team and was 'responsible for recruiting and vetting potential appointees to the incoming Administration, specifically for the Department of Defense, the Department of Veterans Affairs, the Armed Services, and the Intelligence community.' He also 'served on the transition team for US Rep. Matt Gaetz.'",
+      "statement": "McFaul is not a junior associate; he is the head of Ballard's DC office, was personally a Trump-administration appointments gatekeeper for DoD/VA/IC, and was part of Matt Gaetz's transition team. That places him at the operational center of two of the most consequential Republican political infrastructures of the past decade.",
+      "evidence": "Ballard Partners official bio (still live, archived May 22 2026 Wayback): 'Dan was a member of the Presidential Transition Team for then President-elect Donald J. Trump. In this capacity, Dan worked on the Appointments Team responsible for recruiting and vetting potential appointees to the incoming Administration, specifically for the Department of Defense, the Department of Veterans Affairs, the Armed Services, and the Intelligence community.' Rick Outzen's blog (Pensacola Inweekly publisher), reposting the Ballard press release announcing McFaul's elevation to Managing Partner on Nov 14, 2022, adds the additional line: 'Dan also served on the transition team for US Rep. Matt Gaetz.'",
+      "supporting_sources": [
+        {
+          "url": "https://ballardpartners.com/team-member/dan-mcfaul/",
+          "type": "corporate",
+          "accessed": "2026-05-22T12:35:00Z",
+          "archive_url": "https://web.archive.org/web/20260522123916/https://ballardpartners.com/team-member/dan-mcfaul/",
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/ballard-bio-dan-mcfaul.md"
+        },
+        {
+          "url": "https://ricksblog.biz/mcfaul-named-managing-partner-of-ballard-partners/",
+          "type": "news",
+          "accessed": "2026-05-22T12:38:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/ricks-mcfaul-mp.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/revolving-door/mcfaul-dan/summary?id=80462",
+          "type": "registry",
+          "accessed": "2026-05-22T12:38:00Z",
+          "archive_url": "https://web.archive.org/web/20260522124048/https://www.opensecrets.org/revolving-door/mcfaul-dan/summary?id=80462",
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/opensecrets-revolving-door-mcfaul.md"
+        }
+      ],
+      "external_archives": [
+        "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/external/ballard-mcfaul-bio-archived-20260522.md",
+        "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/external/opensecrets-revolving-door-archived-20260522.md"
+      ],
+      "fact_check_status": "pending",
+      "confidence": "high",
+      "confidence_rationale": "Triple-sourced: Ballard's own bio (with archive), OpenSecrets revolving door registry, and an independent local-news repost of the firm's press release. All three corroborate the same timeline.",
+      "perspective": "corporate (Ballard) + independent observer (OpenSecrets)"
+    },
+    {
+      "id": "F2",
+      "claim_id": "F2",
+      "claim": "McFaul's FEC-reported personal political giving while employed at Ballard Partners shows a tight Florida-GOP / Trump-orbit donor pattern. From 2017 to Feb 2026 he made 46 contributions totalling ~$33,250 to Republican candidates and PACs only. Largest recipients: WinRed ($9,750 across the period), Aaron Bean for Congress ($3,000), Mario Diaz-Balart for Congress ($2,000), Friends of Jimmy Patronis ($2,000), Michael Waltz for Congress ($2,000), Kat Cammack ($2,000), Gus Bilirakis ($1,500 + $1,000 to Bilirakis Victory Fund), and notable Trump-orbit/personal-tie payments: $1,000 to Friends of Matt Gaetz (June 7, 2018), $1,000 to Trump Victory and $1,000 to Donald J. Trump for President Inc. (both Feb 17, 2020), $1,000 to Brian Jack for Congress + $1,000 to Team Brian Jack (March 2024). Zero Democratic donations on record.",
+      "statement": "McFaul puts his own money where his client roster is — exclusively Florida Republican incumbents, Trump-aligned campaigns, and (in 2018, while a Ballard partner) his own former boss Matt Gaetz. This is concrete documentary evidence that the McFaul-Gaetz relationship continued well past McFaul's 2017 departure from Gaetz's office.",
+      "evidence": "FEC API query: /v1/schedules/schedule_a/?contributor_name=MCFAUL,DANIEL — 51 records total at >=$200, 46 of which list Ballard Partners as employer. Key line items: 2018-06-07 $1,000 FRIENDS OF MATT GAETZ; 2020-02-17 $1,000 TRUMP VICTORY; 2020-02-17 $1,000 DONALD J. TRUMP FOR PRESIDENT, INC.; 2024-03-30 $1,000 BRIAN JACK FOR CONGRESS + $1,000 TEAM BRIAN JACK (Jack was previously Trump's WH Political Director); 2025-10-20 $1,000 JOBS, FREEDOM AND SECURITY PAC; 2026-02-17 $1,000 MARIO DIAZ-BALART FOR CONGRESS.",
+      "supporting_sources": [
+        {
+          "url": "https://api.open.fec.gov/v1/schedules/schedule_a/?contributor_name=MCFAUL%2C+DANIEL&api_key=DEMO_KEY",
+          "type": "government",
+          "accessed": "2026-05-22T12:20:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/fec-mcfaul-all.json"
+        },
+        {
+          "url": "https://api.open.fec.gov/v1/schedules/schedule_a/?contributor_name=MCFAUL%2C+DANIEL&contributor_employer=BALLARD&api_key=DEMO_KEY",
+          "type": "government",
+          "accessed": "2026-05-22T12:20:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/fec-mcfaul-ballard.json"
+        }
+      ],
+      "external_archives": [],
+      "fact_check_status": "pending",
+      "confidence": "high",
+      "confidence_rationale": "Primary-source data — direct FEC API returning structured contribution records. Cross-verified by employer field matching 'BALLARD PARTNERS'. There is a 2nd 'Daniel McFaul' contributor noise pool in the raw return; the figures cited here are filtered to those with employer string containing 'BALLARD'. The single 2016 $500 contribution to Friends of Matt Gaetz lists employer 'U.S. HOUSE OF REPRESENTATIVES' — that was donated while McFaul was still Gaetz's Chief of Staff and is not double-counted here.",
+      "perspective": "official (FEC primary record)"
+    },
+    {
+      "id": "F3",
+      "claim_id": "F3",
+      "claim": "Ballard Partners' lobbying revenue exploded 4.5× from 2024 to 2025, from $19.6M to $88.3M. It was the #1 lobbying firm in America by Q4 2025 revenue ($28.7M for the quarter alone vs. $6.2M in Q4 2024) — and explicitly identified by press as 'Trump-connected.' Two former Ballard lobbyists currently hold the most senior White House posts: Susie Wiles is Chief of Staff and Pam Bondi is Attorney General. As Managing Partner of the DC office during this period, McFaul is the operational head of the firm at the moment of its largest commercial uplift in its history.",
+      "statement": "Ballard's 2025 revenue makes it categorically the financial winner of the second Trump administration's lobbying market — and McFaul runs the DC office at the centre of that windfall. This is the structural story: a former Hill chief-of-staff plus Trump-transition appointments officer is now collecting fees from clients explicitly buying access to a White House run by two of his colleagues' former bosses.",
+      "evidence": "Politico Influence (Jan 21, 2026, 'Trump 2.0 unleashes a gusher on K Street') gives LDA rankings: '1. Ballard Partners: $88.3 million (versus $19.6 million in 2024) and $28.7 million in Q4 2025 (versus $6.2 million in Q4 2024).' Mother Jones (Apr 2025): 'Despite Trump's history of anti-\"swamp\" rhetoric, some Ballard alumni have found very high, comfortable perches in the Trump White House — both White House Chief of Staff Susie Wiles and Attorney General Pam Bondi have worked as lobbyists for Ballard (Bondi notably repped Qatar, and Wiles repped General Motors).' NOTUS (separately): 'Ballard Partners made more than $87.6 million in 2025, according to a NOTUS analysis of federal lobbying disclosures — a more than 350% [increase].' Confirmed by OpenSecrets firm profile.",
+      "supporting_sources": [
+        {
+          "url": "https://www.politico.com/newsletters/politico-influence/2026/01/21/trump-2-0-unleashes-a-gusher-on-k-street-00740391",
+          "type": "news",
+          "accessed": "2026-05-22T12:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/politico-influence-2026.md"
+        },
+        {
+          "url": "https://www.motherjones.com/politics/2025/04/ballard-trump-lobbying-disclosures-wiles-bondi/",
+          "type": "news",
+          "accessed": "2026-05-22T12:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/mj-ballard-wiles-bondi.md"
+        },
+        {
+          "url": "https://www.notus.org/money/lobbying-donald-trump-k-street-spending-influence",
+          "type": "news",
+          "accessed": "2026-05-22T12:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/notus-ballard-2025.md"
+        }
+      ],
+      "external_archives": [],
+      "fact_check_status": "pending",
+      "confidence": "high",
+      "confidence_rationale": "Three independent press sources (Politico Influence, Mother Jones, NOTUS) cite the same LDA-aggregated revenue figures within ~$1M of each other ($87.6M-$88.3M). The Wiles/Bondi link is documented by OpenSecrets lobbyist IDs cited inline by Mother Jones.",
+      "perspective": "independent_observer"
+    },
+    {
+      "id": "F4",
+      "claim_id": "F4",
+      "claim": "Reynolds American (the parent of McFaul's $3.18M client 'RAI Services Company') paid $5 million to MAGA Inc. — Trump's super PAC — on April 30, 2026. Two days later, Reynolds executives met President Trump at his Jupiter, FL golf club to complain about FDA's flavored-vape ban. Within a week of that meeting, the FDA reversed the ban, authorizing sale of mango and blueberry flavored vapes by Glas Inc. — the policy outcome Reynolds had been openly lobbying for through Ballard Partners (and others) under McFaul's purview. Reynolds also previously gave $10M to the same super PAC in 2024 and $1M to Trump's inauguration committee.",
+      "statement": "This is the live, this-month news event that intersects the McFaul client roster with the operational core of the Trump policy machine. The NYT lays out an explicit timeline: tobacco donation → in-person Trump meeting at Mar-a-Lago/Jupiter → presidential phone call to HHS Sec RFK Jr. and CMS Administrator Mehmet Oz → FDA Commissioner Marty Makary berated → Makary resigns → FDA reverses flavored-vape ban. All within ~10 days. RAI Services is one of McFaul's top 4 LDA-disclosed clients ($3.18M cumulative).",
+      "supporting_sources": [
+        {
+          "url": "https://www.nytimes.com/2026/05/20/us/politics/donation-big-tobacco-vaping.html",
+          "type": "news",
+          "accessed": "2026-05-22T12:44:00Z",
+          "archive_url": null,
+          "access_method": "inaccessible",
+          "access_notes": "NYT applies hard paywall to Firecrawl, archive.today, and Wayback (all snapshots return HTTP 403). Article quoted secondhand via Common Dreams and Tobacco Reporter which reproduce key facts and quote the NYT directly with byline (Kenneth Vogel and Christina Jewett).",
+          "local_file": null
+        },
+        {
+          "url": "https://www.commondreams.org/news/trump-tobacco-bribe",
+          "type": "news",
+          "accessed": "2026-05-22T12:44:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/commondreams-tobacco.md"
+        },
+        {
+          "url": "https://tobaccoreporter.com/2026/05/21/nyt-report-draws-attention-to-rjr-donation-and-fda-policy-shift/",
+          "type": "news",
+          "accessed": "2026-05-22T12:44:00Z",
+          "archive_url": "https://web.archive.org/web/20260522124539/https://tobaccoreporter.com/2026/05/21/nyt-report-draws-attention-to-rjr-donation-and-fda-policy-shift/",
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/tobaccoreporter-rjr.md"
+        },
+        {
+          "url": "https://www.yahoo.com/news/articles/trump-fda-delivers-tobacco-industry-133021525.html",
+          "type": "news",
+          "accessed": "2026-05-22T12:44:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/yahoo-fda-tobacco.md"
+        }
+      ],
+      "external_archives": [
+        "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/external/tobaccoreporter-rjr-archived-20260522.md"
+      ],
+      "fact_check_status": "pending",
+      "confidence": "high",
+      "confidence_rationale": "The originating NYT report (Vogel + Jewett, May 20 2026) is not directly accessible due to paywall, but the key facts — $5M donation to MAGA Inc on April 30, 2026, the Jupiter meeting two days later, and the FDA reversal within a week — appear identically across at least four independent secondary sources (Common Dreams, Tobacco Reporter, Yahoo News, KFF Health News). Common Dreams also links the underlying FEC committee page (C00825851) that should confirm the donation in primary FEC data. The McFaul-RAI connection is established separately via LDA data-detective work.",
+      "perspective": "independent_observer + affected_community"
+    },
+    {
+      "id": "F5",
+      "claim_id": "F5",
+      "claim": "Dan McFaul is personally on the four-person Ballard team lobbying for the LA28 Olympic and Paralympic Games Organizing Committee. According to Politico Influence (Feb 4, 2025), 'Ballard Partners registered yet another new batch of clients, including the organization in charge of planning the 2028 Los Angeles Olympics and Paralympics. Brian Ballard, Dan McFaul, Patrick Kilcur and Michael LaRosa will work to foster \"intergovernmental agency coordination\" on behalf of the organizing committee, according to a disclosure filing.' The hire came after LA28 President Casey Wasserman 'paid a trip to Mar-a-Lago last month [January 2025] to secure President Donald Trump's support for helping the city recover from the recent devastating wildfires in time for the games.'",
+      "statement": "McFaul's LA28 work is direct White House liaison labor: the lobbying registration's stated subject is 'intergovernmental agency coordination for the 2028 Olympic Games in Los Angeles,' and the contract was struck in the same January 2025 window that LA28 President Wasserman flew to Mar-a-Lago to court Trump's support. This is McFaul selling literal access to the Trump White House on behalf of a Hollywood-board-led Olympic committee.",
+      "supporting_sources": [
+        {
+          "url": "https://www.politico.com/newsletters/politico-influence/2025/02/04/softbank-hires-miller-ballard-lands-28-olympics-organizers-00202491",
+          "type": "news",
+          "accessed": "2026-05-22T12:48:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/politico-ballard-la28.md"
+        },
+        {
+          "url": "https://lda.senate.gov/filings/public/filing/af9fd099-71e4-4e79-be26-f36b16da6cc6/print/",
+          "type": "government",
+          "accessed": "2026-05-22T12:48:00Z",
+          "archive_url": null,
+          "access_method": "abstract_only",
+          "access_notes": "Cited in Politico but not separately fetched in this cycle; LDA filing UUID extracted from Politico's link reference. Stated lobbying issue: 'Intergovernmental agency coordination for the 2028 Olympic Games in Los Angeles.'",
+          "local_file": null
+        },
+        {
+          "url": "https://www.odwyerpr.com/story/public/22535/2025-02-07/ballard-partners-shoots-for-gold.html",
+          "type": "news",
+          "accessed": "2026-05-22T12:48:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/odwyer-ballard-la28.md"
+        }
+      ],
+      "external_archives": [],
+      "fact_check_status": "pending",
+      "confidence": "high",
+      "confidence_rationale": "Politico names McFaul explicitly as one of four registered lobbyists on the LA28 contract and quotes the LDA disclosure text ('intergovernmental agency coordination'). Data-detective separately confirmed McFaul's LA28 client revenue at $1.80M cumulative. The Wasserman-Mar-a-Lago context is sourced by Politico to Axios.",
+      "perspective": "independent_observer + corporate"
+    },
+    {
+      "id": "F6",
+      "claim_id": "F6",
+      "claim": "OpenSecrets categorises McFaul's career lobbying revenue by industry: 'Other' $67.48M (70.73%); Hospitals/Nursing Homes $8.29M (8.69%); Education $5.56M (5.83%); Civil Servants/Public Officials $4.99M (5.22%); Crop Production & Basic Processing $4.78M (5.01%); Tobacco $4.30M (4.50%). That places his career-cumulative client revenue at roughly $95.4M across all clients since 2017. 'Crop Production & Basic Processing' is the OpenSecrets bucket that contains both U.S. Sugar Corporation ($4.56M data-detective) and MHP Food Trading LLC ($1.68M data-detective).",
+      "statement": "The OpenSecrets industry breakdown explicitly flags Tobacco as a top-six bucket of McFaul's career book ($4.3M cumulative, 4.5%) — within the same order of magnitude as the $3.18M RAI Services / Reynolds figure data-detective surfaced. The 'Crop Production' bucket ($4.78M) is consistent with the combined U.S. Sugar + MHP Foods data-detective totals. The 'Other' bucket dominates and is the place where one-off issue clients like Hard Rock Japan, LA 2028, and Amazon are hidden.",
+      "supporting_sources": [
+        {
+          "url": "https://www.opensecrets.org/revolving-door/mcfaul-dan/summary?id=80462",
+          "type": "registry",
+          "accessed": "2026-05-22T12:40:00Z",
+          "archive_url": "https://web.archive.org/web/20260522124048/https://www.opensecrets.org/revolving-door/mcfaul-dan/summary?id=80462",
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/opensecrets-revolving-door-mcfaul.md"
+        }
+      ],
+      "external_archives": [
+        "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/external/opensecrets-revolving-door-archived-20260522.md"
+      ],
+      "fact_check_status": "pending",
+      "confidence": "medium",
+      "confidence_rationale": "OpenSecrets is a single source for the industry-percentage breakdown; figures are derived from the same LDA filings already verified by data-detective so this isn't truly independent. The numbers are internally consistent with the data-detective top-15 client table.",
+      "perspective": "independent_observer"
+    },
+    {
+      "id": "F7",
+      "claim_id": "F7",
+      "claim": "Hard Rock International — parent of McFaul's $2.34M client 'Hard Rock Japan K.K.' — has publicly and repeatedly stated it intends to apply for a Japanese Integrated Resort (IR) casino license in the next bidding window (May-November 2027). Hard Rock has openly targeted Hokkaido prefecture since 2018 and is the only major US gaming operator known to have spun out a dedicated 'Hard Rock Japan' subsidiary for the purpose. Japan's IR licensing is a sovereign Japanese-government decision, not a US one — meaning Hard Rock Japan K.K.'s US-federal LDA lobbying spend ($2.34M cumulative) is almost certainly buying US diplomatic / commercial-service support for the bid rather than US domestic regulatory action.",
+      "statement": "Hard Rock Japan's US-federal lobbying spend is best explained as foreign-resort-bid diplomacy: Hard Rock wants the US Commerce Department's Foreign Commercial Service, US Embassy Tokyo, and potentially the State Department to advocate for its Hokkaido IR bid against rival international operators. This is a textbook case of US lobbying-for-export — and the kind of engagement that would benefit from McFaul's prior Trump-administration appointments-team contacts.",
+      "supporting_sources": [
+        {
+          "url": "https://igamingbusiness.com/casino/japan-jumpstart-integrated-resort-licence-bidding-hard-rock/",
+          "type": "news",
+          "accessed": "2026-05-22T12:30:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "/Users/tomvaillant/buried_signals/investigations/northwestern/case/spotlight/results/OS-003-mcfaul-ballard-portfolio/research/hardrock-japan-ir.md"
+        },
+        {
+          "url": "https://asgam.com/2025/12/18/hard-rock-says-still-committed-to-japan-ahead-of-new-round-of-ir-applications/",
+          "type": "news",
+          "accessed": "2026-05-22T12:30:00Z",
+          "archive_url": null,
+          "access_method": "abstract_only",
+          "access_notes": "Captured via search snippet; secondary confirmation only.",
+          "local_file": null
+        }
+      ],
+      "external_archives": [],
+      "fact_check_status": "pending",
+      "confidence": "medium",
+      "confidence_rationale": "Hard Rock's intent to bid for a Japanese IR license is well-documented in trade press. The inference that the McFaul LDA spend is buying US diplomatic support (rather than US regulatory action) is reasonable given that there is no US federal regulatory body for Japanese gaming — but no LDA filing reviewed in this cycle has been read top-to-bottom for the specific issues described. Recommend cycle 2 read McFaul's LD-2 filings for client 'Hard Rock Japan K.K.' directly.",
+      "perspective": "independent_observer"
+    }
+  ],
+  "connections": [
+    {
+      "from": "Daniel McFaul",
+      "to": "Matt Gaetz",
+      "relationship": "Former Chief of Staff (2017); continued personal donor ($1000 to Friends of Matt Gaetz, Jun 7 2018, while a Ballard partner; $500 in 2016 while still a Hill staffer); served on Gaetz's transition team per Nov 2022 Ballard press release.",
+      "evidence": "FEC + Ballard press release"
+    },
+    {
+      "from": "Daniel McFaul",
+      "to": "Donald J. Trump",
+      "relationship": "Member of the 2016-17 Presidential Transition Team Appointments Team for DoD/VA/Armed Services/Intelligence appointees; personal donor $1000 to Donald J. Trump for President Inc + $1000 to Trump Victory on Feb 17, 2020.",
+      "evidence": "Ballard bio + FEC"
+    },
+    {
+      "from": "Ballard Partners",
+      "to": "Trump White House",
+      "relationship": "Two former Ballard lobbyists hold senior White House posts: Susie Wiles (Chief of Staff) and Pam Bondi (Attorney General). Firm revenue 4.5×'d from 2024 to 2025 ($19.6M to $88.3M).",
+      "evidence": "Mother Jones, Politico Influence, NOTUS"
+    },
+    {
+      "from": "Daniel McFaul",
+      "to": "Brian Jack",
+      "relationship": "Personal donor: $1000 to Brian Jack for Congress + $1000 to Team Brian Jack on Mar 30 2024; Jack is the former Trump White House Political Director and current Republican congressman (GA-3).",
+      "evidence": "FEC"
+    },
+    {
+      "from": "RAI Services / Reynolds American",
+      "to": "MAGA Inc / Trump",
+      "relationship": "Reynolds American (parent of McFaul's RAI Services client) paid MAGA Inc $5M on Apr 30 2026; met Trump in Jupiter FL two days later; FDA reversed flavored-vape ban within a week. Reynolds also gave $10M to the same PAC in 2024 and $1M to Trump's inaugural committee.",
+      "evidence": "NYT (via Common Dreams, Tobacco Reporter, Yahoo, KFF)"
+    },
+    {
+      "from": "LA28 Olympic Organizing Committee",
+      "to": "Donald J. Trump (Mar-a-Lago)",
+      "relationship": "LA28 President Casey Wasserman flew to Mar-a-Lago in January 2025 to seek Trump's federal support for LA wildfire recovery / 2028 games preparation; Ballard / McFaul retained shortly after for 'intergovernmental agency coordination.'",
+      "evidence": "Politico Influence (citing Axios)"
+    }
+  ],
+  "gaps": [
+    "NYT 2026-05-20 article on Reynolds-MAGA Inc donation is paywall-blocked across Firecrawl, archive.today, and Wayback; key facts are corroborated by ~4 secondary sources but the NYT primary text was not directly read in this cycle.",
+    "McFaul's specific LD-2 issue areas per client (we have the cumulative revenue totals from data-detective but did not read individual LD-2 filings for each client this cycle).",
+    "MHP Foods (Ukraine poultry) — Ukrainian ownership traced to Yuriy Kosyuk (well-documented); the specific US legislative ask was not pinned down in this cycle. EU trade-quota carve-outs and US tariff exemptions are the likeliest candidates given MHP's broader political-economy profile but require LD-2 read.",
+    "Did not directly verify Reynolds American's $5M MAGA Inc donation in primary FEC data (committee C00825851); only via secondary citation. Next cycle should query FEC directly.",
+    "Did not analyze whether any of McFaul's other Florida Republican donee-incumbents (Bilirakis, Diaz-Balart, Salazar, Cammack, Bean) sit on committees with jurisdiction over his clients' policy asks (Ways & Means, Energy & Commerce, Judiciary). High-yield next step.",
+    "Hard Rock Japan: did not pull LD-2s to confirm the inferred 'foreign-commercial-service-for-Hokkaido-IR-bid' theory."
+  ],
+  "next_steps": [
+    "Cycle 2: Pull McFaul's specific LD-2 filings for each top client (RAI Services, MHP Food Trading, Hard Rock Japan, LA28, U.S. Sugar) and extract the 'specific lobbying issues' free-text field to identify named bills and rules.",
+    "Cycle 2: Confirm the Reynolds American $5M MAGA Inc donation by direct FEC query of committee C00825851 with contributor name 'RAI SERVICES'.",
+    "Cycle 2: Cross-reference McFaul's FEC donee list (Bilirakis, Diaz-Balart, Salazar, Cammack, Bean, Diaz-Balart, Patronis, Waltz) against current House and Senate committee assignments — find the intersection of 'McFaul personal donor' AND 'committee jurisdiction over McFaul client'.",
+    "Cycle 2: Map MHP Food Trading LDA issue text — likely tariff/import-quota issues plus Russia-Ukraine-war supplemental appropriations.",
+    "Cycle 2: Try to read NYT 2026-05-20 piece via paid access route, given how central it is to the strongest finding."
+  ],
+  "monitoring_recommendations": [
+    {
+      "id": "M1",
+      "target": "https://ballardpartners.com/news/",
+      "scout_type": "web",
+      "criteria": "New client announcements, leadership notes, lobbying-disclosure milestones from the Ballard Partners official news page.",
+      "rationale": "Ballard's official news feed is the cheapest leading indicator of new Trump-orbit client signings and partner movements; given the firm's 4.5x revenue growth in 2025 and the current FDA-vape news cycle implicating McFaul's RAI Services client, this page is likely to keep generating leads worth following.",
+      "priority": "high",
+      "finding_refs": ["F1", "F3", "F4"]
+    },
+    {
+      "id": "M2",
+      "target": "https://lda.senate.gov/filings/public/filing/search/?lobbyist=McFaul",
+      "scout_type": "civic",
+      "criteria": "New LD-1 registration filings and LD-2 quarterly disclosure filings listing Daniel McFaul as a registered lobbyist.",
+      "rationale": "McFaul is now Managing Partner of Ballard DC during the firm's record growth phase; new LD-1 registrations are the first public signal of new corporate or foreign clients hiring him personally. This is the highest-signal source for new threads.",
+      "priority": "high",
+      "finding_refs": ["F1", "F5", "F7"]
+    },
+    {
+      "id": "M3",
+      "target": "FEC contributor name MCFAUL, DANIEL",
+      "scout_type": "civic",
+      "criteria": "New Schedule A contributions filed by FEC under contributor name 'MCFAUL, DANIEL' with employer field including 'BALLARD'.",
+      "rationale": "McFaul donates ~$5-10K per cycle to a tight Republican-Florida + Trump-orbit donor set. New donations to candidates not yet on his historical list would mark a new political alliance worth watching (e.g., a fresh donation to a 2026 Senate primary candidate, or to a presidential exploratory committee).",
+      "priority": "medium",
+      "finding_refs": ["F2"]
+    }
+  ]
+}

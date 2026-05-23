@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "cycles": [
+    {
+      "cycle": 1,
+      "timestamp": "2026-05-22T12:45:00Z",
+      "focus": "Hand-off from data-detective D11: profile the five second-tier revolving-door lobbyists (Richards, Lazarski, Young, Teague, O'Neill) — confirm current firm, verify covered-position dates, enumerate top clients, FEC pattern, identify the strongest say-vs-pay extension for promotion to a data-detective finding.",
+      "methodology": {
+        "techniques_used": [
+          "OpenSecrets revolving-door pivot chain (lobbyist name -> revolving-door profile -> employment timeline -> current firm)",
+          "OpenSecrets LDA lobbying-firm pivot (lobbyist ID -> 2024 client roster -> industry concentration)",
+          "OpenSecrets FEC pivot (lobbyist ID -> contributions page -> recipient mapping against committee membership)",
+          "LegiStorm staff-biography cross-check (verifies exact dates of Hill tenure)",
+          "Corporate firm bio cross-check (Cornerstone for Richards + Lazarski; AcademyHealth/LegiStorm for Young; Harbinger PDF for O'Neill; OpenLobby for Teague + O'Neill)",
+          "Say-vs-pay D12-style extension (cross-reference Lazarski's Apollo + Boeing clients against Sen. Warren's published press releases and campaign platform)"
+        ],
+        "tools_used": [
+          "firecrawl search (web query, JSON output)",
+          "firecrawl scrape (URL -> local markdown in .firecrawl/ cache, with -o override for unique filenames)",
+          "curl + Wayback Machine /save endpoint (attempted; rate-limited 429/520 during the window)",
+          "grep + Read for content extraction from scraped markdown"
+        ],
+        "search_queries": [
+          "James Richards lobbyist Cornerstone Government Affairs OpenSecrets",
+          "Anthony Lazarski lobbyist Inhofe OpenSecrets",
+          "Jennifer Young lobbyist HHS Assistant Secretary Legislation OpenSecrets",
+          "Cornell Teague lobbyist House Appropriations Defense OpenSecrets",
+          "John O'Neill lobbyist Senate Finance tax counsel current firm OpenSecrets",
+          "site:opensecrets.org 'John O'Neill' Colton Street Group lobbyist OR 'Harbinger Strategies'",
+          "Senate Armed Services Apollo Global Management defense acquisition opposition",
+          "Elizabeth Warren Apollo Global Management private equity defense contractors",
+          "Bernie Sanders pharma lobbyist drug prices Eli Lilly Pfizer Senate HELP"
+        ],
+        "failed_approaches": [
+          "First three scrapes saved to the same OpenSecrets filename (opensecrets.org-federal-lobbying-lobbyists-summary.md), overwriting each other in the .firecrawl/ cache — fixed by re-scraping with the -o flag and unique filenames per lobbyist (richards-clients-2024.md, lazarski-clients-2024.md, young-clients-2023.md, teague-clients-2026.md, oneill-contributions-2024.md).",
+          "Guessed OpenSecrets ID Y0000061612L for John O'Neill — turned out to be Kyle Nayback, not O'Neill. Corrected by pivoting through Principal Financial Group's 2025 lobbyist page (D000000669) to find the actual O'Neill ID = Y0000009811L.",
+          "Wayback Machine archive submissions timed out / 520'd / 000'd (no response) during the investigation window. IA rate-limit is the suspected cause. All sources are stored locally; re-archiving will be retried in a follow-up cycle.",
+          "Did not pursue LinkedIn — anonymous scraping is blocked; alternative bio sources (corporate websites, LegiStorm) provided equivalent data."
+        ]
+      },
+      "sources_consulted": [
+        {"url": "https://cgagroup.com/people/jim-richards/", "type": "corporate", "accessed": "2026-05-22T12:30:00Z", "useful": true},
+        {"url": "https://cgagroup.com/people/anthony-lazarski/", "type": "corporate", "accessed": "2026-05-22T12:30:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2024&id=Y0000034946L", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2024&id=Y0000053591L", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2023&id=Y0000017431M", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?id=Y0000053912L", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/revolving-door/lazarski-anthony/summary?id=81286", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/revolving-door/young-jennifer-b/summary?id=71399", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/revolving-door/teague-cornell/summary?id=81561", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/revolving-door/o-neill-john-j/summary?id=73822", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.legistorm.com/person/bio/82299/Jennifer_B_Young.html", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.legistorm.com/person/bio/102343/John_O_Neill.html", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://harbingerdc.com/wp-content/uploads/2020/11/John-ONeill.pdf", "type": "corporate", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.openlobby.us/lobbyists/cornell-teague", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.openlobby.us/lobbyists/john-o-neill", "type": "registry", "accessed": "2026-05-22T12:32:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000034946L", "type": "registry", "accessed": "2026-05-22T12:36:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000053591L", "type": "registry", "accessed": "2026-05-22T12:36:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000017431M", "type": "registry", "accessed": "2026-05-22T12:36:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000053912L", "type": "registry", "accessed": "2026-05-22T12:36:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000009811L", "type": "registry", "accessed": "2026-05-22T12:39:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/clients/lobbyists?cycle=2025&id=D000000669", "type": "registry", "accessed": "2026-05-22T12:38:00Z", "useful": true},
+        {"url": "https://elizabethwarren.com/plans/corporate-influence-pentagon", "type": "ngo_report", "accessed": "2026-05-22T12:40:00Z", "useful": true},
+        {"url": "https://www.warren.senate.gov/newsroom/press-releases/warren-markey-push-apollo-global-management-on-role-in-steward-health-cares-demise-call-on-the-company-to-provide-relief-from-onerous-leases", "type": "government", "accessed": "2026-05-22T12:40:00Z", "useful": true}
+      ],
+      "findings_added": 16,
+      "findings_upgraded": 0,
+      "gaps_resolved": [],
+      "gaps_remaining": [
+        "Wayback archive URLs (IA was rate-limited)",
+        "Full client rosters beyond 25-row pagination",
+        "Politico/Bloomberg/Roll Call profile pieces",
+        "Say-vs-pay extensions for the other four lobbyists",
+        "FARA filings for Richards (J&F), Lazarski (BioNTech), Teague (ASML/NEC), O'Neill",
+        "LinkedIn current-firm verification (alternative sources covered this)"
+      ],
+      "notes": "Highest-impact discovery: Lazarski has Apollo Global Management AND Boeing AND General Dynamics AND Anduril as 2024 Cornerstone clients, and Sen. Elizabeth Warren (D-MA, sitting SASC member — Lazarski's former committee) has a documented, written, two-axis attack on both Apollo (Steward Health bankruptcy letter) and the entire defense-contractor lobbyist class Lazarski exemplifies (her Pentagon-corporate-influence platform). This is the cleanest say-vs-pay extension and the recommended promotion to a parallel data-detective finding (alongside C-004's Brownstein/Apollo cluster). Second-most important structural finding: three of the five top tier lobbyists work at the same firm (Cornerstone Government Affairs — Richards and Lazarski; Young is at her own Tarplin Downs & Young; Teague is at Alpine; O'Neill is at Colton Street/Harbinger). Cornerstone deserves a firm-level Spotlight follow-up as the second-tier analog to Brownstein."
+    }
+  ]
+}

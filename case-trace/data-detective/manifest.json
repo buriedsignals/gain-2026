@@ -1,0 +1,59 @@
+{
+  "profile": "Lobbying Disclosure Act + Congressional Press",
+  "generated_at": "2026-05-22T09:00:42Z",
+  "table_counts": {
+    "government_entities_lookup": 257,
+    "house_activity_lobbyists": 7158792,
+    "house_filings": 409640,
+    "house_foreign_entities": 3647,
+    "house_lobbying_activities": 785026,
+    "issue_codes": 79,
+    "members": 536,
+    "press_releases": 141332,
+    "senate_activity_govt_entities": 2016363,
+    "senate_activity_lobbyists": 2121863,
+    "senate_contributions": 155682,
+    "senate_contribution_items": 636805,
+    "senate_contribution_pacs": 22379,
+    "senate_filings": 418098,
+    "senate_foreign_entities": 3627,
+    "senate_lobbying_activities": 798998
+  },
+  "sources": [
+    {
+      "source_id": "house_filings",
+      "files_ingested": 22,
+      "rows_emitted": 8357105
+    },
+    {
+      "source_id": "senate_govt_entities_lookup",
+      "files_ingested": 1,
+      "rows_emitted": 257
+    },
+    {
+      "source_id": "senate_contributions",
+      "files_ingested": 5,
+      "rows_emitted": 814901
+    },
+    {
+      "source_id": "senate_constants",
+      "files_ingested": 1,
+      "rows_emitted": 79
+    },
+    {
+      "source_id": "press_releases_yeared",
+      "files_ingested": 48,
+      "rows_emitted": 259613
+    },
+    {
+      "source_id": "senate_filings",
+      "files_ingested": 5,
+      "rows_emitted": 5359215
+    },
+    {
+      "source_id": "press_releases_2026",
+      "files_ingested": 3,
+      "rows_emitted": 22929
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "case": "OS-001-loc-nation-network",
+  "cycles": [
+    {
+      "cycle": 1,
+      "agent": "spotlight:web-osint (external amplification)",
+      "started_at": "2026-05-22T12:20:40Z",
+      "completed_at": "2026-05-22T12:40:00Z",
+      "focus": "External OSINT amplification of data-detective C-001 (LOC Nation $180M LDA pattern + Rico Dukes second-instance THEYFEARTRUTH filing). Pursue Delaware LLC network, federal court history, web archive trail, social media footprint, sovereign-citizen extremism profiles, press coverage, and Clement-Dukes connection check.",
+      "methodology": {
+        "techniques_used": [
+          "search-library scan (firecrawl search) on named entities, addresses, court captions, FEC IDs, social handles",
+          "Wayback Machine CDX query to establish website timeline",
+          "Wayback Machine save endpoint to archive key URLs",
+          "direct primary-source scrapes (FEC.gov, CourtListener.com, OpenSecrets, Ballotpedia, LegiStorm, stateoflocnation.com, Wikimedia, Bizapedia)",
+          "negative-finding triangulation: three independent searches with overlapping terms to confirm absence of Clement-Dukes connection",
+          "SIFT on the '8 The Green, Suite A' registered-agent address (lookup of who operates the suite to disconfirm the network hypothesis)"
+        ],
+        "tools_used": [
+          "firecrawl search (15+ queries)",
+          "firecrawl scrape (12+ primary-source pulls)",
+          "curl + Wayback CDX API",
+          "curl + Wayback save endpoint (5 archived URLs)",
+          "Read/Grep for local file analysis"
+        ],
+        "search_queries": [
+          "\"Christina Loren Clement\" Delaware LLC",
+          "\"Rico Dukes\" \"THEYFEARTRUTH\"",
+          "\"State of LOC Nation\" OR \"LOC Nation\" reparations sovereign",
+          "\"Christina Clement\" \"Senate\" Georgia 2026 candidate",
+          "\"Clement v. Garland\" 24-cv-00479 appeal",
+          "\"8 The Green\" \"Suite A\" Dover Delaware registered agent",
+          "\"Christina Loren Clement LLC\" Delaware \"November 9\" filed organized",
+          "\"Rico Dukes\" \"Christina Clement\"",
+          "\"State of Loc Nation\" SPLC OR ADL OR \"sovereign citizen\"",
+          "\"Dukes v\" OR \"Dukes vs\" \"Rico Dukes\" pro se federal court",
+          "\"Christina Clement\" OR \"Christina Loren Clement\" pro se court filing complaint",
+          "site:splcenter.org OR site:adl.org OR site:gwu.edu \"sovereign citizen\" black OR Moorish 2024 OR 2025 reparations",
+          "\"State of Loc Nation\" OR \"LOC Nation\" Georgia secretary state UCC filing",
+          "\"Christina Clement\" 2024 president FEC C00 committee independent",
+          "\"Rico Dukes\" FEC OR \"Federal Election\" committee president",
+          "site:search.sunbiz.org \"Christina Clement\" OR \"loc nation\" OR \"dynasty healing\"",
+          "\"Rico Dukes\" Christina OR Clement OR \"loc nation\" connection collaboration",
+          "\"Christina Clement\" Twitter X Facebook Instagram Truth Social handle profile",
+          "\"Rico Dukes\" \"Theyfeartruth\" Twitter X Facebook Instagram handle"
+        ],
+        "failed_approaches": [
+          "Direct Delaware Division of Corporations entity search via firecrawl — the icis.corp.delaware.gov form requires interactive POST and cannot enumerate all LLCs at a shared RA address without paid API access. Pivoted to confirming the address belongs to a commercial RA (which disconfirms the network hypothesis).",
+          "Florida Sunbiz programmatic search for Clement-controlled entities — Sunbiz returned only flat directory listings of unrelated 'loc nation' (dreadlock-related) businesses. Carries forward as a gap.",
+          "Wayback Machine save endpoint hit a rate-limit / timeout after 5 successful archive captures; the remaining URLs (LegiStorm, Wikimedia, stateoflocnation.com/about, WTOC, SavannahNow) were not Wayback-archived this cycle but the local-file scrapes preserve content. The next cycle can re-attempt."
+        ]
+      },
+      "sources_consulted": [
+        {"url": "https://www.opensecrets.org/news/2026/05/georgia-senate-candidate-christina-clement-reports-50m-self-loan", "type": "news", "accessed": "2026-05-22T12:21:00Z", "useful": true, "archived": true},
+        {"url": "https://www.fec.gov/data/committee/C00857128/?cycle=2026", "type": "government", "accessed": "2026-05-22T12:28:00Z", "useful": true, "archived": true},
+        {"url": "https://www.fec.gov/data/committee/C00857128/?cycle=2026&tab=filings", "type": "government", "accessed": "2026-05-22T12:33:00Z", "useful": true, "archived": false},
+        {"url": "https://www.fec.gov/data/candidate/S6GA00366/?cycle=2026", "type": "government", "accessed": "2026-05-22T12:30:00Z", "useful": true, "archived": true},
+        {"url": "https://www.fec.gov/data/candidate/P40016412/", "type": "government", "accessed": "2026-05-22T12:31:00Z", "useful": true, "archived": true},
+        {"url": "https://www.fec.gov/data/candidate/P00011163/", "type": "government", "accessed": "2026-05-22T12:31:00Z", "useful": true, "archived": true},
+        {"url": "https://www.courtlistener.com/docket/68269445/clement-v-garland/", "type": "court_filing", "accessed": "2026-05-22T12:29:00Z", "useful": true, "archived": false},
+        {"url": "https://www.courtlistener.com/?type=r&q=Rico+Dukes", "type": "court_filing", "accessed": "2026-05-22T12:30:00Z", "useful": true, "archived": false},
+        {"url": "https://www.legistorm.com/pro_news/4318/sovereignty-group-claims-40m-lobbying-total.html", "type": "news", "accessed": "2026-05-22T12:28:00Z", "useful": true, "archived": false, "notes": "Brief flagged as paywalled; firecrawl returned full body."},
+        {"url": "https://www.legistorm.com/person/bio/544998/Rico_Cortez_Dukes.html", "type": "reference", "accessed": "2026-05-22T12:21:00Z", "useful": true, "archived": false},
+        {"url": "https://ballotpedia.org/Christina_Loren_Clement", "type": "reference", "accessed": "2026-05-22T12:31:00Z", "useful": true, "archived": false},
+        {"url": "https://ballotpedia.org/Christina_Clement_(President_of_the_United_States,_Georgia,_candidate_2024)", "type": "reference", "accessed": "2026-05-22T12:31:00Z", "useful": true, "archived": false},
+        {"url": "https://stateoflocnation.com/about", "type": "self_published", "accessed": "2026-05-22T12:30:00Z", "useful": true, "archived": false},
+        {"url": "https://stateoflocnation.com/soln-central-bank-gov", "type": "self_published", "accessed": "2026-05-22T12:31:00Z", "useful": true, "archived": false},
+        {"url": "https://commons.wikimedia.org/wiki/User:Rico_Cortez_Dukes", "type": "self_published", "accessed": "2026-05-22T12:21:00Z", "useful": true, "archived": false},
+        {"url": "https://home.forwardparty.com/theyfeartruthfederal", "type": "self_published", "accessed": "2026-05-22T12:21:00Z", "useful": true, "archived": false},
+        {"url": "https://www.wtoc.com/2026/04/01/georgias-senate-race-heats-up-four-candidates-pitch-savannah-voters/", "type": "news", "accessed": "2026-05-22T12:21:00Z", "useful": true, "archived": false},
+        {"url": "https://www.savannahnow.com/story/news/local/2026/04/02/georgia-republican-senate-primary-candidates-speak-at-savannah-area-event/89423953007/", "type": "news", "accessed": "2026-05-22T12:21:00Z", "useful": true, "archived": false},
+        {"url": "https://www.bizapedia.com/de/christina-loren-clement-llc.html", "type": "registry", "accessed": "2026-05-22T12:21:00Z", "useful": "partial", "archived": false, "notes": "Page is rendered server-side; firecrawl returned mostly nav/header markup. Search snippet (Bizapedia: 'filed on November 9...') is what carried the inference forward."},
+        {"url": "https://politics1.com/p2028.htm", "type": "reference", "accessed": "2026-05-22T12:21:00Z", "useful": true, "archived": false},
+        {"url": "https://corp.delaware.gov/agents/", "type": "government", "accessed": "2026-05-22T12:22:00Z", "useful": "snippet_only", "archived": false},
+        {"url": "https://web.archive.org/cdx/search/cdx?url=stateoflocnation.com&output=json&from=20220101&to=20260601", "type": "archive", "accessed": "2026-05-22T12:22:00Z", "useful": true, "archived": "n/a"}
+      ],
+      "archives_created": [
+        "https://web.archive.org/web/20260522122626/https://www.opensecrets.org/news/2026/05/georgia-senate-candidate-christina-clement-reports-50m-self-loan",
+        "https://web.archive.org/web/20260522122808/https://www.fec.gov/data/committee/C00857128/?cycle=2026",
+        "https://web.archive.org/web/20260522123129/https://www.fec.gov/data/candidate/S6GA00366/?cycle=2026",
+        "https://web.archive.org/web/20260522123339/https://www.fec.gov/data/candidate/P40016412/",
+        "https://web.archive.org/web/20260522123538/https://www.fec.gov/data/candidate/P00011163/"
+      ],
+      "findings_added": 12,
+      "findings_upgraded": 0,
+      "gaps_resolved": [
+        "Did Clement actually run for Senate Georgia 2026? YES — confirmed via FEC + Ballotpedia + WTOC + Savannah Morning News.",
+        "Is the LegiStorm article real (brief flagged it as paywalled)? YES — full body accessed via firecrawl, no paywall barrier.",
+        "Is '8 The Green Suite A' a Clement-cluster signal? NO — it's a commercial registered-agent suite used by thousands of unrelated LLCs.",
+        "When was stateoflocnation.com first online? At least October 8, 2022 — 16 months before the federal lawsuit.",
+        "Does Rico Dukes have a federal court history? YES — at least 11 N.D. Texas pro se cases including the textbook sovereign-citizen-style 'Dukes v. Roman Empire'."
+      ],
+      "gaps_remaining": [
+        "D.C. Circuit appellate disposition for 24-5263 (PACER pull needed).",
+        "Sunbiz Florida and Georgia SOS interactive search for any other Clement-controlled entities.",
+        "Whether SPLC/ADL have private (un-published) profiles of LOC Nation or THEYFEARTRUTH.",
+        "Whether the FEC has formally referred Clement's filing to DOJ.",
+        "Georgia Superior Court UCC filings (044-2024-004422 and 044-2025-002376) — need direct Georgia SOS UCC pull.",
+        "THEYFEARTRUTH PRESIDENTIAL COMMITTEE (C00884064) financial activity and the additional Dukes-linked committee C00946418 referenced in 2026 Form1Filer CSV."
+      ],
+      "stop_condition_met": "3+ high-confidence findings accumulated (12 findings total, 9 high-confidence, 2 medium, 0 low) AND core priority-ranked angles exhausted within budget.",
+      "notes": "The investigation gained five materially new things beyond the data-detective trace: (1) a documented FEC regulatory action against Clement (warning letter + reclassification to False & Fictitious Filings) which is the strongest external corroboration of the SOLN-as-fictitious-filer thesis; (2) an on-the-record outside expert (John Martin, Quinnipiac) characterizing the $50.25M filing as either typo or fabrication; (3) Dukes's pre-existing federal litigation footprint (11 N.D. Tex. pro se cases, 2017-2021) which firmly establishes him as a textbook sovereign-citizen serial litigant pre-dating the THEYFEARTRUTH LDA filing; (4) both Clement and Dukes are FEC-registered 2024 presidential candidates (P40016412 and P00011163) — they are not just LDA filers, they are FEC-recognised candidates of sovereign-government 'parties'; (5) the disconfirmation that '8 The Green Suite A' is a Clement network address (it is a commercial RA). The most reportable single fact: the FEC has ALREADY moved Clement's $50.25M loan filing to the 'False and Fictitious Filings' miscellaneous repository. Recommendation: promote OS-001 to a full data-detective finding C-005 with the FEC action as the lede."
+    }
+  ]
+}

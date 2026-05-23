@@ -1,0 +1,200 @@
+{
+  "EPIRUS, INC.": {
+    "n_awards_top_25_by_amount": 0,
+    "sum_amount_top_25": 0,
+    "top_5_awards": []
+  },
+  "SARONIC TECHNOLOGIES, INC.": {
+    "n_awards_top_25_by_amount": 0,
+    "sum_amount_top_25": 0,
+    "top_5_awards": []
+  },
+  "OVERLAND AI": {
+    "n_awards_top_25_by_amount": 7,
+    "sum_amount_top_25": 8860743.94,
+    "top_5_awards": [
+      {
+        "internal_id": 309319560,
+        "Recipient Name": "OVERLAND AI INC",
+        "Award Amount": 2241642.0,
+        "Awarding Agency": "Department of Defense",
+        "Description": "SMALL BUSINESS INNOVATION RESEARCH PHASE II",
+        "Action Date": null,
+        "Award ID": "M6785425C6532",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_M6785425C6532_9700_-NONE-_-NONE-"
+      },
+      {
+        "internal_id": 352957816,
+        "Recipient Name": "OVERLAND AI INC",
+        "Award Amount": 1999876.04,
+        "Awarding Agency": "Department of Defense",
+        "Description": "SMALL BUSINESS INNOVATIVE RESEARCH (SBIR) DIRECT TO PHASE II (D2PHII), TOPIC # A254-008, OVERLAND AI INC",
+        "Action Date": null,
+        "Award ID": "W5170125CA222",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_W5170125CA222_9700_-NONE-_-NONE-"
+      },
+      {
+        "internal_id": 357211324,
+        "Recipient Name": "OVERLAND AI INC",
+        "Award Amount": 1999822.85,
+        "Awarding Agency": "Department of Defense",
+        "Description": "SMALL BUSINESS INNOVATION RESEARCH, DIRECT TO PHASE II TOPIC A254-P030, XTECHOVERWATCH OPEN TOPIC",
+        "Action Date": null,
+        "Award ID": "W5170126CA020",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_W5170126CA020_9700_-NONE-_-NONE-"
+      },
+      {
+        "internal_id": 349251868,
+        "Recipient Name": "OVERLAND AI INC",
+        "Award Amount": 1897682.83,
+        "Awarding Agency": "Department of Defense",
+        "Description": "SMALL BUSINESS INNOVATION RESEARCH TO DEVELOP AND DEMONSTRATE SOLUTIONS OR COMPONENTS OF SOLUTIONS FOR TERRAIN SHAPING TO DELAY, DETER, AND DENY ENEMY FORCES FREEDOM OF MOVEMENT 70 TO 150KM BEYOND THE FORWARD LINE OF TROOPS.",
+        "Action Date": null,
+        "Award ID": "W911NF25C0004",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_W911NF25C0004_9700_-NONE-_-NONE-"
+      },
+      {
+        "internal_id": 307305382,
+        "Recipient Name": "OVERLAND AI INC",
+        "Award Amount": 250000.0,
+        "Awarding Agency": "Department of Defense",
+        "Description": "EMBEDDED ENTREPRENEURSHIP INITIATIVE",
+        "Action Date": null,
+        "Award ID": "HR001123C0159",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_HR001123C0159_9700_-NONE-_-NONE-"
+      }
+    ]
+  },
+  "PALANTIR TECHNOLOGIES, INC.": {
+    "n_awards_top_25_by_amount": 0,
+    "sum_amount_top_25": 0,
+    "top_5_awards": []
+  },
+  "AMERICAN PHALANX": {
+    "n_awards_top_25_by_amount": 0,
+    "sum_amount_top_25": 0,
+    "top_5_awards": []
+  },
+  "CX2, INC.": {
+    "n_awards_top_25_by_amount": 0,
+    "sum_amount_top_25": 0,
+    "top_5_awards": []
+  },
+  "GALLATIN AI": {
+    "n_awards_top_25_by_amount": 1,
+    "sum_amount_top_25": 149971.2,
+    "top_5_awards": [
+      {
+        "internal_id": 352034633,
+        "Recipient Name": "GALLATIN AI, INC",
+        "Award Amount": 149971.2,
+        "Awarding Agency": "Department of Defense",
+        "Description": "SBIR PHASE I TO GALLATIN AI, INC PROPOSAL TITLE: GALLATIN NAVIGATOR FOR HADR MISSION SET",
+        "Action Date": null,
+        "Award ID": "W519TC25P0020",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_W519TC25P0020_9700_-NONE-_-NONE-"
+      }
+    ]
+  },
+  "OKLO INC": {
+    "n_awards_top_25_by_amount": 0,
+    "sum_amount_top_25": 0,
+    "top_5_awards": []
+  },
+  "APEX TECHNOLOGY, INC.": {
+    "n_awards_top_25_by_amount": 4,
+    "sum_amount_top_25": 25699922.0,
+    "top_5_awards": [
+      {
+        "internal_id": 298615482,
+        "Recipient Name": "APEX TECHNOLOGY, INC.",
+        "Award Amount": 22000000.0,
+        "Awarding Agency": "Department of Defense",
+        "Description": "SBIR PHASE II STRATFI TO APEX TECHNOLOGY, INC FOR MULTI-MISSION SATELLITES FOR LEO AND GEO DYNAMIC SPACE OPERATIONS",
+        "Action Date": null,
+        "Award ID": "FA880925CB005",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_FA880925CB005_9700_-NONE-_-NONE-"
+      },
+      {
+        "internal_id": 298615471,
+        "Recipient Name": "APEX TECHNOLOGY, INC.",
+        "Award Amount": 1900000.0,
+        "Awarding Agency": "Department of Defense",
+        "Description": "APEX TECHNOLOGY INC ARIES BUS CAPABILITY FOR RAPIDLY ACCOMMODATING A SELECT SET OF SERB EXPERIMENT PAYLOADS AS DIRECTED BY SSC, ALONG WITH THE INTEGRATION AND FLIGHT QUALIFICATION OF A 6DOF PROPULSION SUBSYSTEM.",
+        "Action Date": null,
+        "Award ID": "FA880924CB003",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_FA880924CB003_9700_-NONE-_-NONE-"
+      },
+      {
+        "internal_id": 298565873,
+        "Recipient Name": "APEX TECHNOLOGY, INC.",
+        "Award Amount": 1699922.0,
+        "Awarding Agency": "Department of Defense",
+        "Description": "DEVELOP A NEW, HIGHLY-MANEUVERABLE, 6 DEGREE-OF-FREEDOM (6DOF) PROPULSION CONFIGURATION OF THE ARIES BUS",
+        "Action Date": null,
+        "Award ID": "FA864924P0371",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_FA864924P0371_9700_-NONE-_-NONE-"
+      },
+      {
+        "internal_id": 298615467,
+        "Recipient Name": "APEX TECHNOLOGY, INC.",
+        "Award Amount": 100000.0,
+        "Awarding Agency": "Department of Defense",
+        "Description": "APEX SBIR PHII",
+        "Action Date": null,
+        "Award ID": "FA880923C0023",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_FA880923C0023_9700_-NONE-_-NONE-"
+      }
+    ]
+  },
+  "BASE OPERATIONS INC": {
+    "n_awards_top_25_by_amount": 2,
+    "sum_amount_top_25": 1324183.0,
+    "top_5_awards": [
+      {
+        "internal_id": 298566836,
+        "Recipient Name": "BASE OPERATIONS INC",
+        "Award Amount": 1249500.0,
+        "Awarding Agency": "Department of Defense",
+        "Description": "F2D-16218 AI-DRIVEN SECURITY INTELLIGENCE FOR MISSION RESILIENCE AND FORCE PROTECTION",
+        "Action Date": null,
+        "Award ID": "FA864925P0291",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_FA864925P0291_9700_-NONE-_-NONE-"
+      },
+      {
+        "internal_id": 298566640,
+        "Recipient Name": "BASE OPERATIONS INC",
+        "Award Amount": 74683.0,
+        "Awarding Agency": "Department of Defense",
+        "Description": "GLOBAL SECURITY THREAT INTELLIGENCE FOR RESILIENT OPERATIONS AND DECISION-MAKING",
+        "Action Date": null,
+        "Award ID": "FA864925P0088",
+        "awarding_agency_id": 1173,
+        "agency_slug": "department-of-defense",
+        "generated_internal_id": "CONT_AWD_FA864925P0088_9700_-NONE-_-NONE-"
+      }
+    ]
+  }
+}

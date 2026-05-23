@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0",
+  "project": "OS-002-akin-gump-foreign-cluster",
+  "lead": "Akin Gump's 2024-2026 LDA filings disclose foreign entities for four politically-sensitive clients (Ant Group, TP-Link Systems, Adani North America, United Solar Polysilicon) — none of which appear matched by FIRM-level FARA registrations. Verify whether attorney-level FARA filings cover the gap, and whether each engagement aligns with active US national-security review.",
+  "investigated_at": "2026-05-22T14:50:00Z",
+  "cycle": 1,
+  "questions": [
+    "Does Akin Gump have any FARA registration — at the firm OR attorney level — that covers Ant Group, TP-Link, Adani North America, or United Solar Polysilicon engagements?",
+    "What is the active US national-security / regulatory posture toward each of the four clients?",
+    "What specific Akin Gump lawyers are signing these LDA filings, and what is their revolving-door pedigree?",
+    "Is the gap (LDA-disclosed foreign affiliation without FARA filing) structurally legitimate (i.e., these are private-corporate clients, not government principals) or substantively suspicious (the engagement is for the benefit of a foreign government)?"
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "claim": "Akin Gump's FARA registrant ID is 3492. Its complete 2025 FARA foreign-principal list consists of six sovereign or sovereign-related entities — Government of UAE ($4.14M), Government of Cambodia ($711K), Government of Japan ($451K), Republic of Palau ($307K), Government of Marshall Islands ($200K), and Promotora De Comercio Exterior De Costa Rica ($90K). None of the four LDA clients flagged by data-detective (Ant Group, TP-Link, Adani North America, United Solar Polysilicon) appear on Akin Gump's FARA filings as foreign principals or as clients of any individual FARA short-form-registered lawyer at the firm.",
+      "evidence": "OpenSecrets FARA registrant page for Akin Gump (D000000162) lists the 2025 foreign principals as: Government of the United Arab Emirates $4,144,566; Government of the Kingdom of Cambodia $711,141; Government of Japan $451,525; Republic of Palau $307,538; Government of the Marshall Islands $200,000; Promotora De Comercio Exterior De Costa Rica $90,000. The FARA eFile documents list for registrant 3492 shows the most recent Exhibit AB filings attach to Embassy of the Republic of Korea (2026-03-03), PROCOMER for COMEX Costa Rica (2025-09-18), and Government of the Marshall Islands (ongoing) — all sovereign-government principals; none cover the four LDA clients.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/fara/registrants/D000000162",
+          "type": "ngo_report",
+          "accessed": "2026-05-22T14:32:00Z",
+          "archive_url": "https://web.archive.org/web/2026*/https://www.opensecrets.org/fara/registrants/D000000162",
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/opensecrets-akingump-fara.md"
+        },
+        {
+          "url": "https://efile.fara.gov/ords/fara/f?p=185:200::::RP,200:P200_REG_NUMBER:3492",
+          "type": "government",
+          "accessed": "2026-05-22T14:35:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/fara-3492-documents-list.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Two independent sources cross-confirm the same finite list of FARA foreign principals: OpenSecrets aggregator and DOJ's primary FARA eFile docs listing. The DOJ documents list is the authoritative primary source.",
+      "perspective": "official",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "F2",
+      "claim": "The same Akin Gump partners and lobbyists who sign LD-2 disclosures for the four flagged clients (Brian Pomper, Reginald Babin, Ileana Ros-Lehtinen, Roger Murry, Steve Kho, Joseph Fawkner) also appear on Akin Gump's FARA short-form filings — but only for the firm's registered government principals (Korea, UAE, Cambodia, Japan, Palau, Marshall Islands, Costa Rica), NOT for Ant Group, TP-Link, Adani, or United Solar. Same people, different framework: FARA for government clients, LDA-only for corporate clients. This is a deliberate compartmentalization, not an oversight.",
+      "evidence": "FARA short-form filings 2025-09-18 attach to Costa Rica PROCOMER Exhibit AB and list Ros-Lehtinen, Fawkner, Parven, Borjon, Verhoff, Herman, Teitelbaum, Montanez Torres, Bates. FARA short-form filings 2026-03-03 attach to Embassy of the Republic of Korea Exhibit AB and list Babin, Murry, Paulsen, Parven, Smith, Ros-Lehtinen, Pagano, Verhoff, Rubin, Kho. Cross-checking the LDA filings: Adani LD-2 (UUID eef6a92b) lists Babin, Tucker, Murry, Ros-Lehtinen; United Solar LD-1 (UUID eda7a0c7) lists Pomper, Fawkner; TP-Link LD-1 (UUID 36cfa565) lists Pomper, Friedman, Kho, Roehl. Steve Kho — former Acting Chief Counsel for China Enforcement at USTR (1998-2007) — is FARA-registered for Korea but lobbies for TP-Link Global on 'potential ITC Exclusion' issues under LDA only.",
+      "sources": [
+        {
+          "url": "https://efile.fara.gov/ords/fara/f?p=185:200::::RP,200:P200_REG_NUMBER:3492",
+          "type": "government",
+          "accessed": "2026-05-22T14:35:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/fara-3492-documents-list.md"
+        },
+        {
+          "url": "https://lda.senate.gov/filings/public/filing/eef6a92b-3ac6-4e47-84a4-faf0618bcb5a/print/",
+          "type": "government",
+          "accessed": "2026-05-22T14:36:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/lda-akingump-adani-filing.md"
+        },
+        {
+          "url": "https://lda.senate.gov/filings/public/filing/36cfa565-c70f-4954-90c4-3807732e2324/print/",
+          "type": "government",
+          "accessed": "2026-05-22T14:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/lda-akingump-tplink-filing.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Direct comparison of primary-source DOJ FARA filings against primary-source Senate LDA filings, with the same lobbyist names appearing on both but only the government-client side being FARA-flagged.",
+      "perspective": "official",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "F3",
+      "claim": "Akin Gump's representation of Adani Solar USA and its Affiliates began on or about November 21, 2024 — one day after the DOJ unsealed the criminal indictment against Gautam Adani, Sagar Adani, and others (EDNY case unsealed November 20, 2024). The Akin Gump Q4 2024 LD-2 disclosure names 'Adani Enterprises Limited' (the Indian-listed parent company) as the foreign entity with interest, and lists lobbying targets as White House Office, Dept of Commerce, Dept of State, and U.S. House. This sequence — indictment day → next-day engagement → multi-agency Washington lobbying — is consistent with a crisis-management campaign rather than commercial advocacy.",
+      "evidence": "Akin Gump LD-2 filing UUID eef6a92b-3ac6-4e47-84a4-faf0618bcb5a (signed by Brian Pomper, 1/21/2025) states: 'Issues related to U.S. - India renewable energy cooperation and supply chain' with foreign entity 'Adani Enterprises Limited'; lobbying targets named: 'White House Office, Commerce - Dept of (DOC), State - Dept of (DOS), U.S. HOUSE OF REPRESENTATIVES'; lobbyists named: Reginald Babin, Jamie Tucker, Roger Murry, Ileana Ros-Lehtinen (former Member of Congress 1989-2019). TheWire's August 2025 investigation, citing OpenSecrets data, independently confirms: 'In a rapid response to the indictment, the very next day, on November 21, 2024, Adani hired a major law and lobbying firm, Akin Gump Strauss Hauer & Feld...$20,000 paid to Akin Gump' in 2024. DOJ EDNY indictment unsealed November 20, 2024; SEC parallel action (SEC v. Adani et al., 1:24-cv-08080 EDNY) also filed November 20, 2024.",
+      "sources": [
+        {
+          "url": "https://lda.senate.gov/filings/public/filing/eef6a92b-3ac6-4e47-84a4-faf0618bcb5a/print/",
+          "type": "government",
+          "accessed": "2026-05-22T14:36:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/lda-akingump-adani-filing.md"
+        },
+        {
+          "url": "https://thewire.in/business/adani-us-indictment-lobbying-campaign",
+          "type": "news",
+          "accessed": "2026-05-22T14:35:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/thewire-adani-lobbying-v2.md"
+        },
+        {
+          "url": "https://www.justice.gov/usao-edny/pr/billionaire-chairman-conglomerate-and-seven-other-senior-business-executives-indicted",
+          "type": "government",
+          "accessed": "2026-05-22T14:34:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/doj-adani-indictment.md"
+        },
+        {
+          "url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26177",
+          "type": "government",
+          "accessed": "2026-05-22T14:34:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/sec-adani-litigation-release.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Three independent primary sources (DOJ EDNY press release, SEC litigation release, Senate LDA filing) plus secondary corroboration (TheWire/OpenSecrets). The temporal sequence (Nov 20 indictment → Nov 21 hire) is empirically established.",
+      "perspective": "official",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "F4",
+      "claim": "Akin Gump's United Solar Polysilicon (FZC) SPC engagement (LD-1 registration effective 9/23/2025, UUID eda7a0c7-5907-47ce-8581-30bd78fc3424) is to lobby on 'Issues related to section 232 investigation on polysilicon' — the very US national-security trade investigation that could restrict polysilicon imports from China and Xinjiang-linked supply chains. The client's chairman/founder, Zhang Longgen, was CEO of Daqo New Energy 2018-2023 and vice-chairman of Xinjiang Daqo New Energy (a subsidiary on the US Commerce Department's Bureau of Industry and Security Entity List since June 2021 for Uyghur forced-labor links) from 2018-2022. The Akin Gump lobbyists assigned: Brian Pomper (former Chief International Trade Counsel, Senate Finance Committee) and Joseph Fawkner.",
+      "evidence": "Akin Gump LD-1 registration: 'Client name: United Solar Polysilicon (FZC) SPC; Address: P.O. Box 351, Sohar, Oman'; '9. General description of client's business or activities: Polysilicon Manufacturer'; '11. General lobbying issue areas: TRD'; '12. Specific lobbying issues (current and anticipated): Issues related to section 232 investigation on polysilicon.'; '10. Lobbyists: Brian Pomper (Ch Intl Trade Cnsl, Intl Trade Cnsl, Senate Fin), Joseph Fawkner (Snr Pol Adv for Rep. Carol D. Miller, Feb 20 - Jan 22).' Washington Examiner reports (corroborating): 'In September 2025, Akin Gump entered into a lobbying contract with United Solar Polysilicon to represent its interests on trade policy...United Solar Polysilicon is led by its founder, Longgen Zhang. Zhang was the CEO of Daqo New Energy...from 2018 to 2023... He also served as the vice chairman of Xinjiang Daqo New Energy, a subsidiary of the company based in China's Uyghur-inhabited far west, from 2018 to 2022. In June 2021, for instance, the Department of Commerce added Xinjiang Daqo New Energy to the Bureau of Industry and Security's Entity List.' Reuters (August 9, 2025): 'A key United Solar shareholder, Chinese private equity investor IDG Capital, spent much of last year on a U.S. Defense Department list of companies with links to China's military before its removal in December.' The US Treasury's executive director at the IFC voted AGAINST a $250 million IFC loan for the United Solar Oman project on August 8, 2025; Treasury statement: 'The United States voted against this project and will continue to use its voice and vote at the World Bank Group, as well as at all other multilateral institutions, to pursue America First principles.'",
+      "sources": [
+        {
+          "url": "https://lda.senate.gov/filings/public/filing/eda7a0c7-5907-47ce-8581-30bd78fc3424/print/",
+          "type": "government",
+          "accessed": "2026-05-22T14:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/lda-akingump-unitedsolar-filing.md"
+        },
+        {
+          "url": "https://www.washingtonexaminer.com/news/investigations/4542548/top-lobbying-firm-does-bidding-entity-linked-uyghur-repression/",
+          "type": "news",
+          "accessed": "2026-05-22T14:40:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/washex-akingump-united-solar.md"
+        },
+        {
+          "url": "https://www.reuters.com/sustainability/climate-energy/world-banks-ifc-approves-oman-polysilicon-project-loan-over-us-objection-2025-08-09/",
+          "type": "news",
+          "accessed": "2026-05-22T14:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/reuters-ifc-oman.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Primary-source LDA filing + Reuters (independent) + Washington Examiner investigation (independent) + government primary records (BIS Entity List, US Treasury statement). All three sources agree on facts; the synthesis is novel and damning.",
+      "perspective": "independent_observer",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "F5",
+      "claim": "Akin Gump's TP-Link Global Inc. engagement (LD-1 effective 6/3/2024, UUID 36cfa565-c70f-4954-90c4-3807732e2324) is to lobby on 'Issues related to potential ITC Exclusion' — a US International Trade Commission exclusion order that would block TP-Link imports. The LD-1 discloses six foreign-controlled affiliated entities: TP-Link UK Limited (Reading, GB) at 100% ownership; TP-Link Corporation PTE LTD (Singapore) at 100% ownership; and four BVI-incorporated entities at Vistra Corporate Services Center, Tortola — Ivy Grove Limited BVI, Diamond Creek Global Limited BVI (97.26%), Harbour Glory Holdings Limited BVI, and Accord True Investments Limited BVI. The Akin Gump lobbyist team includes Steve Kho — Associate General Counsel and Acting Chief Counsel for China Enforcement at the Office of the U.S. Trade Representative (1998-2007); Legal Advisor to the U.S. Mission to the WTO (2002-2005). A former senior US-government China-trade-enforcement official is now lobbying for an entity under active US national-security review for China ties.",
+      "evidence": "Akin Gump LD-1 filing extract: 'Client name: TP-Link Global Inc.; Address: 36 Technology Drive, Suite 200, Irvine, CA 92618 USA; General description of client's business or activities: Manufacturer of Wi-Fi routers and related products.' Foreign entities disclosed (line 14): TP-Link UK Limited (Reading, GB, 100%), TP-Link Corporation PTE LTD (Singapore, 100%), Ivy Grove Limited BVI (Vistra, Tortola), Diamond Creek Global Limited BVI (Vistra, Tortola, 97.26%), Harbour Glory Holdings Limited BVI, Accord True Investments Limited BVI. Lobbyists (line 10): Brian Pomper (Ch Intl Trade Cnsl, Intl Trade Cnsl, Senate Fin), Francine Friedman, Steve Kho (Associate General Counsel, Acting Chief Counsel for China Enforcement, USTR, 1998-2007; Legal Advisor, U.S. Mission to the WTO, 2002-2005), Galen Roehl. Specific issues (line 12): 'Issues related to potential ITC Exclusion.' Washington Post (October 30, 2025): 'The Commerce Department has proposed barring sales of TP-Link products, citing a national security risk from ties to China...More than a half-dozen federal departments and agencies backed a proposal to ban future sales of the most popular home routers in the United States on the grounds that the vendor's ties to mainland China make them a national security risk.'",
+      "sources": [
+        {
+          "url": "https://lda.senate.gov/filings/public/filing/36cfa565-c70f-4954-90c4-3807732e2324/print/",
+          "type": "government",
+          "accessed": "2026-05-22T14:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/lda-akingump-tplink-filing.md"
+        },
+        {
+          "url": "https://www.washingtonpost.com/technology/2025/10/30/tp-link-proposed-ban-commerce-department/",
+          "type": "news",
+          "accessed": "2026-05-22T14:34:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/wapo-tp-link-ban.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Primary LDA filing names the BVI ownership shell stack and the lobbyist with USTR China-enforcement pedigree directly. WaPo's October 30, 2025 report on the Commerce Department proposed ban provides independent confirmation of the active national-security review the lobbying targets.",
+      "perspective": "official",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "F6",
+      "claim": "The Adani SEC indictment may have been weakened or dropped by the second Trump administration: NYT reporting (May 18, 2026) headlines 'Federal Prosecutors Move to Drop Bribery Case Against Indian Billionaire' and reports that DOJ is preparing to drop the criminal fraud case against Gautam Adani, originally indicted under the Biden administration in November 2024. This is consistent with what would be a successful lobbying outcome for Akin Gump and successor counsel (Kirkland & Ellis, Quinn Emanuel) which collectively targeted State Dept on 'related criminal and civil matters' starting January 2025.",
+      "evidence": "NYT headline (2026-05-18): 'Federal Prosecutors Move to Drop Bribery Case Against Indian Billionaire' with description: 'In November 2024, during the final weeks of the Biden administration, federal prosecutors in Brooklyn unsealed an indictment against Mr. Adani.' Additional secondary corroboration: 'On Monday, the US Treasury Department said that it had sealed a $275 million settlement with Adani Enterprises over alleged violations of...' (ThePrint Facebook, undated). TheWire (August 2025) had already documented the lobbying sequence: Akin Gump retained 11/21/2024, then Kirkland & Ellis + Quinn Emanuel retained 1/20/2025 specifically for 'Green energy issues and related criminal and civil matters,' targeting solely the Department of State by 2025 Q1.",
+      "sources": [
+        {
+          "url": "https://www.nytimes.com/2026/05/18/nyregion/gautam-adani-indictment-trump.html",
+          "type": "news",
+          "accessed": "2026-05-22T14:32:00Z",
+          "archive_url": null,
+          "access_method": "abstract_only",
+          "access_notes": "NYT blocks firecrawl scrape; only search-snippet abstract retrieved. Full text not verified.",
+          "local_file": null
+        },
+        {
+          "url": "https://thewire.in/business/adani-us-indictment-lobbying-campaign",
+          "type": "news",
+          "accessed": "2026-05-22T14:35:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "case/spotlight/results/OS-002-akin-gump-foreign-cluster/research/thewire-adani-lobbying-v2.md"
+        }
+      ],
+      "confidence": "medium",
+      "confidence_rationale": "NYT primary article was not fully scraped (firecrawl blocked); only headline/abstract verified. The lobbying sequence is high-confidence. The outcome (case dropped) is reported but not directly verified from the DOJ filing — that needs a CourtListener docket pull to confirm.",
+      "perspective": "official",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "F7",
+      "claim": "The four flagged Akin Gump engagements span three distinct FARA-applicability scenarios. (a) TP-Link Global Inc.: incorporated in Delaware/California, ultimate parent and BVI/Singapore/UK affiliates disclosed but no foreign-government principal — facially LDA-only without FARA trigger UNLESS the Chinese-government-linked parent qualifies as a 'foreign principal' under FARA §1(b). (b) Ant Group Co., Ltd.: a Chinese private company, not a state-owned enterprise per public records, with Alibaba/Jack Ma minority interests — facially LDA-only without FARA trigger UNLESS the activity is 'for or in the interest of' the PRC government. (c) Adani Solar USA / Adani Enterprises Limited: an Indian publicly-traded private conglomerate; LDA-only is defensible UNLESS the lobbying involves intermediating US government policy on India-government matters (the LDA itself names 'U.S. - India renewable energy cooperation' — which IS bilateral). (d) United Solar Polysilicon (FZC) SPC: an Oman-incorporated free-zone entity led by a US-citizen-Chinese-national chairman with shareholders including Oman's sovereign wealth fund — DEFENSIBLE LDA-only because Oman SWF interest is minority and the Akin Gump engagement is for Section 232 trade defense. The cleanest FARA-trigger candidate is the Adani engagement, given the bilateral state-policy framing and the Akin Gump Q4 2024 LD-2's explicit White House + State Dept + Commerce + House targeting on the eve of an active US criminal prosecution.",
+      "evidence": "Synthesis of findings F1-F6. FARA §1(b) defines 'foreign principal' to include 'a partnership, association, corporation, organization, or other combination of persons organized under the laws of or having its principal place of business in a foreign country.' Under that definition, Adani Enterprises Limited (Mumbai-listed, Indian-headquartered) and Ant Group Co., Ltd. (Hangzhou-headquartered) would qualify as foreign principals — and any 'political activity' done by Akin Gump 'within the United States for or in the interests of such foreign principal' would arguably require FARA registration absent a §3 exemption. The likely Akin Gump defense is the §3(h) 'legal representation' exemption or the §3(d) 'private and nonpolitical activities in furtherance of bona fide trade or commerce' exemption. Whether the post-indictment crisis-management lobbying for Adani (with State Dept + White House contacts) qualifies under §3(d) is the contested question the gap rests on.",
+      "sources": [
+        {
+          "url": "https://www.justice.gov/nsd-fara/frequently-asked-questions",
+          "type": "government",
+          "accessed": "2026-05-22T14:32:00Z",
+          "archive_url": null,
+          "access_method": "open_access",
+          "local_file": null
+        }
+      ],
+      "confidence": "medium",
+      "confidence_rationale": "Legal analysis based on FARA statute and DOJ FAQ. The factual base is high-confidence; the legal conclusion (whether these engagements should have triggered FARA) is contestable and requires a specialist read.",
+      "perspective": "legal",
+      "fact_check_status": "pending"
+    }
+  ],
+  "connections": [
+    {
+      "from": "Brian Pomper (Akin Gump partner)",
+      "to": "Senate Finance Committee (former)",
+      "relationship": "Revolving-door: Chief International Trade Counsel and International Trade Counsel of the Senate Finance Committee before joining Akin Gump",
+      "evidence": "All four LDA filings examined list Pomper's covered-official position as 'Ch Intl Trade Cnsl, Intl Trade Cnsl, Senate Fin.' He signed three of the four flagged LD filings."
+    },
+    {
+      "from": "Steve Kho (Akin Gump lobbyist)",
+      "to": "Office of the U.S. Trade Representative (former)",
+      "relationship": "Revolving-door: Associate General Counsel and Acting Chief Counsel for China Enforcement at USTR (1998-2007); Legal Advisor to the U.S. Mission to the WTO (2002-2005). Now lobbies for TP-Link Global on the China-related ITC exclusion risk.",
+      "evidence": "Akin Gump TP-Link LD-1 filing (UUID 36cfa565), lobbyist Steve Kho covered-position field."
+    },
+    {
+      "from": "Ileana Ros-Lehtinen (Akin Gump lobbyist)",
+      "to": "U.S. House of Representatives (former)",
+      "relationship": "Revolving-door: Member of Congress 1989-2019, former Chair of House Foreign Affairs Committee. Now signs FARA short-forms for UAE, Cambodia, Japan, Korea Embassy AND lobbies for Adani Solar USA (post-indictment).",
+      "evidence": "Akin Gump Adani LD-2 (UUID eef6a92b) lobbyist list. FARA short-form filings 2025-09-18 (Costa Rica), 2026-03-03 (Korea Embassy)."
+    },
+    {
+      "from": "Akin Gump United Solar Polysilicon engagement",
+      "to": "Daqo New Energy / Xinjiang Daqo New Energy (BIS Entity List)",
+      "relationship": "United Solar Polysilicon founder/chairman Zhang Longgen (Longgen Zhang) was CEO of Daqo (2018-2023) and vice-chair of Xinjiang Daqo (2018-2022) which is on the BIS Entity List. Akin Gump's specific lobbying target is the Section 232 polysilicon trade investigation — the very investigation that could affect Daqo-linked supply chains.",
+      "evidence": "Washington Examiner investigation, Reuters reporting, Akin Gump LD-1 (UUID eda7a0c7) specific issues field."
+    },
+    {
+      "from": "Akin Gump Adani engagement",
+      "to": "DOJ EDNY / SEC indictment of Adani (November 20, 2024)",
+      "relationship": "Akin Gump retained 11/21/2024 (day after indictment) to lobby White House + State + Commerce + House on 'U.S. - India renewable energy cooperation and supply chain' for Adani Solar USA, naming Adani Enterprises Limited (indicted parent) as the foreign entity with interest. Likely outcome: DOJ moving to drop case as of May 2026 (per NYT abstract).",
+      "evidence": "Akin Gump LD-2 (UUID eef6a92b) signed 1/21/2025; DOJ EDNY indictment 11/20/2024; TheWire 8/2025 lobbying analysis; NYT 5/18/2026 abstract."
+    }
+  ],
+  "gaps": [
+    "NYT 2026-05-18 article on DOJ dropping the Adani case was not fully scraped (firecrawl blocked); the headline and dateline are verified but the article body and any direct quotation about Akin Gump's role in the resolution were not retrieved.",
+    "The legal opinion of whether the Adani engagement should have triggered FARA (vs. qualifying under the §3(d) commerce exemption or §3(h) legal representation exemption) requires a FARA specialist read; not resolved in this cycle.",
+    "Whether Ant Group's Q1 2025 LD-2 ($90,000 reported income) actually contains substantive lobbying activity is unconfirmed — the rendered LD-2 print shows empty 'specific lobbying issues' text, which may be a rendering artifact or may indicate a non-disclosure. Need to check the LD-1 registration form for Ant Group.",
+    "The CFIUS docket activity for any of the four entities is not directly verified — CFIUS reviews are largely confidential by statute; only inferred from press accounts.",
+    "Whether the Adani $275M Treasury settlement reported on social media is real and what its terms are is unverified."
+  ],
+  "next_steps": [
+    "Pull the Akin Gump x Ant Group LD-1 registration form (not the LD-2 quarterly) to retrieve the original specific-issue text and lobbyist list — likely findable via lda.senate.gov filing search for client 'Ant Group' registrant 'Akin Gump' type=RR.",
+    "Scrape the NYT 5/18/2026 article via the spotlight:content-access hierarchy — try Wayback snapshot, Google Scholar, archive.today.",
+    "Pull the SEC v. Adani complaint PDF (https://www.sec.gov/files/litigation/complaints/2024/comp-pr2024-181.pdf) to confirm defendants and any reference to Adani Solar USA's role in the bribery scheme.",
+    "Pull CourtListener docket for 1:24-cv-08080 EDNY to confirm whether the case has been dismissed or stayed and to identify defense counsel of record.",
+    "Check OFAC SDN list and BIS Entity List for any 2025-2026 additions naming United Solar Polysilicon, TP-Link Systems, or Ant Group affiliates."
+  ],
+  "monitoring_recommendations": [
+    {
+      "id": "M1",
+      "target": "https://efile.fara.gov/ords/fara/f?p=185:200::::RP,200:P200_REG_NUMBER:3492",
+      "scout_type": "web",
+      "criteria": "New filings on Akin Gump FARA registrant 3492 — specifically any new Exhibit AB attaching one of {Ant Group, TP-Link, Adani, United Solar Polysilicon} as a foreign principal. Would close the FARA gap if it ever appeared.",
+      "rationale": "If Akin Gump retroactively or prospectively FARA-registers any of the four engagements, the structural gap resolves. A scout on the registrant's FARA-eFile documents page would flag this within days of filing.",
+      "priority": "high",
+      "finding_refs": ["F1", "F2"]
+    },
+    {
+      "id": "M2",
+      "target": "https://lda.senate.gov/filings/public/filing/search/?registrant=AKIN+GUMP&client=&search=search",
+      "scout_type": "web",
+      "criteria": "New Akin Gump LD-1 registrations or LD-2 quarterlies naming clients with non-US client country, non-US PPB country, or foreign entity interest. Specifically watch for new engagements on US-government-restricted entities or sanctions-relevant sectors.",
+      "rationale": "The four flagged engagements are part of a pattern; if Akin Gump takes on new analogous engagements, the pattern can be expanded for editorial purposes.",
+      "priority": "medium",
+      "finding_refs": ["F1", "F4", "F5"]
+    },
+    {
+      "id": "M3",
+      "target": "https://www.dhs.gov/uflpa-entity-list",
+      "scout_type": "web",
+      "criteria": "Updates to the UFLPA Entity List, particularly any additions naming polysilicon producers with Daqo affiliations or Oman/UAE-based shell structures.",
+      "rationale": "United Solar Polysilicon is not currently on the UFLPA list but has direct Daqo-Xinjiang lineage through its founder. A future UFLPA addition would dramatically change the Akin Gump engagement's legal profile.",
+      "priority": "medium",
+      "finding_refs": ["F4"]
+    },
+    {
+      "id": "M4",
+      "target": "https://www.courtlistener.com/docket/69394927/securities-and-exchange-commission-v-adani/",
+      "scout_type": "web",
+      "criteria": "Activity on SEC v. Adani EDNY docket 1:24-cv-08080 — particularly any motion to dismiss, dismissal order, settlement, or notice of dismissal under Trump-era DOJ leadership.",
+      "rationale": "The lobbying campaign's objective output. Tracking docket activity confirms or refutes whether the Akin Gump / Kirkland / Quinn Emanuel campaign achieved its outcome.",
+      "priority": "high",
+      "finding_refs": ["F3", "F6"]
+    }
+  ]
+}

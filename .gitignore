@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# DuckDB (rebuild from corpus via skills)
+*.duckdb
+*.duckdb.wal
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,45 @@
+GAIN Challenge — Brief Directions
+Locked 2026-05-22
+
+LEAD
+Northwestern's GAIN Agentic AI Investigative Journalism Challenge. Federal-government
+corpus, 2022 through Q1 2026: Congressional lobbying filings (House LD-1/LD-2 XML;
+Senate LDA JSON for filings + LD-203 contributions) and Congressional press releases
+(JSONL by month). Deliverable is a reusable Agent Skill + newsworthy findings + traces.
+
+DELIVERABLE
+A portable skill called `data-detective` for structured-records investigations on any
+similar corpus. Submission includes the skill, our investigation's evidence map and
+findings, interaction traces, and a README.
+
+INVESTIGATION ANGLES (two parallel threads through one shared corpus index)
+1. Open exploration. Build broad anomaly detectors (spending spikes, missing-data
+   clusters, revolving-door candidates from covered_position, entity-graph oddities)
+   and chase whichever produces the strongest lead.
+2. Foreign influence / FARA gap. Filter LDA foreign_entities[]; join to public FARA
+   bulk data; surface lobbying-without-FARA patterns and shell-client structures.
+
+PERSONAS REUSED
+- investigator (spotlight): planning + execution, adapted for record-based evidence.
+- fact-checker (spotlight): claim verification with web archiving where claims rely
+  on external context (FARA cross-refs, news reporting).
+
+CORE DISCIPLINES (Spotlight pattern, preserved)
+- Brief → methodology → execution cycles (max 5) → fact-check → Gate 1 → ingestion.
+- Every finding is sourced to a specific filing_uuid or House XML filename via an
+  evidence card. No claim without a source.
+- All state in files (case/state.json, case/methodology.json, findings/*).
+
+ANTI-PATTERNS (explicit guardrails)
+- No naive RAG over the full 8.6 GB corpus. Heavy lifting goes into the DuckDB index.
+- No shipping the corpus or the prebuilt DB. Ship scripts + profile.
+- No fuzzy entity matching where bridge keys exist (Senate filings carry
+  house_registrant_id, senateID, houseID; bioguide_id bridges press → members).
+- No skill code that hard-codes LDA schema. Schema lives in a profile file.
+
+SUCCESS CRITERIA
+- Skill validates against the Agent Skills specification (https://agentskills.io/llms.txt).
+- 2-4 findings, each with verified evidence chain, at least one rising to national-
+  interest threshold.
+- Skill scores well on all four evaluation dimensions: organization, corpus efficiency,
+  human-verifiability, novel capability extension.

@@ -1,0 +1,163 @@
+{
+  "version": "1.0",
+  "case": "northwestern-gain-challenge",
+  "skill_under_construction": "data-detective",
+  "skill_name_rules": {
+    "agentskills_spec": "https://agentskills.io/specification.md",
+    "name": "data-detective",
+    "match_parent_dir": true,
+    "description_max_chars": 1024,
+    "body_target_lines": 500
+  },
+  "corpus": {
+    "senate_filings_total": 418170,
+    "senate_contributions_total_2025": 39438,
+    "house_xml_files_total": 409650,
+    "press_records_total": 141332,
+    "on_disk_size_gb": 8.6,
+    "coverage": "2022-01 to 2026-03"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "name": "Index build",
+      "intent": "Deterministic ETL from XML/JSON/JSONL into a queryable index. One-shot, cached. No LLM in this phase.",
+      "approach": "DuckDB with the following normalized tables: filings, registrants, clients, lobbying_activities, lobbyists, lobbyist_roles, contributions, contribution_items, press_releases, members, government_entities, foreign_entities, alis_issues. Source-of-truth fields preserved verbatim (filing_uuid, house_xml_filename, jsonl_line_offset). Loader scripts emit a manifest.json with per-table row counts and source-file hashes for reproducibility.",
+      "deliverables": [
+        "northwestern/case/index.duckdb (gitignored)",
+        "northwestern/case/manifest.json (committed)",
+        "data-detective/scripts/ingest.py (generic, profile-driven)",
+        "data-detective/references/examples/lda-corpus.profile.json"
+      ],
+      "estimated_runtime": "30-90 min one-shot; resumable per-year/per-quarter"
+    },
+    {
+      "id": "P2",
+      "name": "Entity resolution",
+      "intent": "Build canonical entity IDs across House+Senate registrants, clients, and lobbyists, plus the bioguide_id bridge to press releases.",
+      "approach": "Three-pass strategy. (1) Bridge keys: Senate registrant.house_registrant_id (already present), House senateID/houseID. (2) Exact-match on uppercased name + ZIP. (3) Fuzzy match (token set ratio >= 92) for the remainder, with a manual-review queue when a single House org has 2+ plausible Senate matches. Result: canonical_registrant_id, canonical_client_id, canonical_lobbyist_id columns on every record.",
+      "deliverables": [
+        "Resolved tables in the DuckDB index",
+        "northwestern/case/entity-resolution-report.md (counts, ambiguity queue)",
+        "data-detective/scripts/resolve_entities.py (generic)"
+      ],
+      "novelty": "Most teams will use embedding-based fuzzy matching for everything. We exploit bridge keys deterministically first, only falling back to fuzzy where needed. Faster, cheaper, more defensible."
+    },
+    {
+      "id": "P3",
+      "name": "Anomaly surface (Thread 1: open exploration)",
+      "intent": "Run a battery of deterministic anomaly detectors and rank candidate leads for investigator follow-up.",
+      "detectors": [
+        {"id": "D1", "name": "Spending spikes", "logic": "For each (registrant, client, quarter), compute z-score of total income vs. the prior 4 quarters. |z| > 2 surfaces."},
+        {"id": "D2", "name": "Missing-data filings", "logic": "Active filings where income/expenses are null AND filing_type is quarterly. Cluster by registrant to find systemic non-reporters."},
+        {"id": "D3", "name": "Revolving door candidates", "logic": "Lobbyists with non-empty covered_position. Parse the free text for (a) committee/chamber, (b) member name, (c) role. Cross-join to who their current clients are lobbying."},
+        {"id": "D4", "name": "Foreign-entity flagged filings", "logic": "Filings with non-empty foreign_entities[]. Cluster by registrant + jurisdiction. Feeds Thread 2."},
+        {"id": "D5", "name": "Single-client juggernauts", "logic": "Registrants with one or two clients but very high income; potential captive lobby shops."},
+        {"id": "D6", "name": "PAC contribution destinations", "logic": "Aggregate contribution_items.payee + honoree by registrant and by recipient. Identify recipient members in the press corpus."},
+        {"id": "D7", "name": "Issue-code concentration shifts", "logic": "For each general_issue_code, quarter-over-quarter delta in active registrants and total income. Surfacing emerging issues."},
+        {"id": "D8", "name": "New registrant surge", "logic": "Registrants whose first filing is in the most recent 2 quarters and whose first-quarter income is in the top 10% of all new registrants."}
+      ],
+      "triage_rule": "Each detector outputs a CSV with at most 50 candidates. Investigator agent reads these CSVs, not raw records.",
+      "deliverables": [
+        "northwestern/case/anomalies/{detector_id}.csv (top-50 per detector)",
+        "data-detective/scripts/query.py with these as built-in templates"
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "Foreign influence / FARA gap (Thread 2)",
+      "intent": "Find lobbying activity for foreign principals that appears in LDA filings but does not appear in FARA (or vice versa). Surface shell-client patterns.",
+      "external_data": [
+        {"source": "FARA bulk", "url": "https://efile.fara.gov/ords/fara/r/fara_ws/api/bulkdata", "scope": "active registrations 2022-2026"}
+      ],
+      "approach": "Pull FARA active registrations, normalize names with the same entity resolver, join to LDA foreign_entities[] cluster. Output: (a) FARA-registered foreign principals with no LDA filings, (b) LDA foreign_entities with no matching FARA registration, (c) clients whose name suggests foreign ownership (suffixes like 'Pty Ltd', 'GmbH', non-US PPB country) without foreign_entities[] disclosure.",
+      "deliverables": [
+        "northwestern/case/fara/fara-active.csv (raw pull)",
+        "northwestern/case/fara/fara-vs-lda.csv (the cross-reference table)",
+        "northwestern/case/fara/gaps.csv (specific candidate leads)",
+        "data-detective/scripts/external/fara.py (reusable puller + joiner)"
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "Investigator cycles",
+      "intent": "Spotlight-style execution. The investigator agent reads ranked candidates from P3+P4, picks the strongest threads, runs follow-up queries via the query layer, and writes findings.json.",
+      "max_cycles": 5,
+      "per_cycle_outputs": [
+        "northwestern/case/findings.json (cumulative)",
+        "northwestern/case/investigation-log.json (append-only)"
+      ],
+      "novelty": "The investigator never reads raw filings during candidate selection. It reads ranked CSVs, requests specific filing_uuids via the query layer, and only loads full record bodies for the leads it has chosen to pursue. This is the corpus-efficiency lever."
+    },
+    {
+      "id": "P6",
+      "name": "Fact-check",
+      "intent": "Verify each high-confidence finding against the source filings AND against external context (FARA, FEC, news reporting). External sources archived via web-archiving skill.",
+      "agent": "fact-checker (spotlight)",
+      "rules": [
+        "Every claim must cite at least one specific filing_uuid or House XML filename.",
+        "Every external source must be archived before citing.",
+        "Disputed claims get a resolution path or are downgraded to 'limitation'."
+      ]
+    },
+    {
+      "id": "P7",
+      "name": "Gate 1 — synthesis",
+      "intent": "Compile findings into evidence-map.json (claim → evidence cards → source records) and findings-report.md. Tom reviews before submission packaging.",
+      "exit_criteria": [
+        "2-4 findings at high confidence",
+        "Every claim sourced to a specific record",
+        "Each finding has at least 2 independent sources",
+        "Evidence map is complete and machine-readable"
+      ]
+    },
+    {
+      "id": "P8",
+      "name": "Submission packaging",
+      "intent": "Package data-detective skill + findings + traces + README per challenge requirements.",
+      "validations": [
+        "skills-ref validate data-detective/",
+        "SKILL.md under 500 lines",
+        "All scripts have --help and clear error messages",
+        "README maps each finding to the skill invocations and traces that produced it"
+      ]
+    }
+  ],
+  "evidence_model": {
+    "claim": {
+      "id": "C-NNN",
+      "statement": "string",
+      "confidence": "high | medium | low",
+      "supporting_cards": ["EC-NNN", "..."],
+      "fact_check_verdict": "verified | partially_verified | disputed | unable_to_verify"
+    },
+    "evidence_card": {
+      "id": "EC-NNN",
+      "source_kind": "filing_uuid | house_xml | press_record | external_url",
+      "source_id": "string",
+      "source_url": "string (for filings, the lda.senate.gov public URL; for press, the original URL)",
+      "extracted_fields": "object (only the fields cited in the claim)",
+      "raw_excerpt": "string (for free-text fields like specific_issues)",
+      "archived_at": "ISO timestamp (for external_url sources)",
+      "archive_path": "local path or wayback URL"
+    }
+  },
+  "session_state_model": {
+    "file": "northwestern/case/state.json",
+    "contents": {
+      "phase": "P1..P8",
+      "checked_threads": "array of thread descriptors with status (open/cold/promising)",
+      "open_questions": "array",
+      "completed_queries": "array of {detector_id, timestamp, row_count}",
+      "pending_fact_checks": "array of claim IDs",
+      "last_updated": "ISO timestamp"
+    }
+  },
+  "guardrails": [
+    "No claim without an evidence card.",
+    "No fuzzy entity matching where a bridge key exists.",
+    "No corpus-wide LLM scans. The query layer is the choke point.",
+    "Every script must be idempotent and resumable.",
+    "All numeric claims (dollars, counts) must be sourced to a specific SQL query with a stable hash."
+  ]
+}

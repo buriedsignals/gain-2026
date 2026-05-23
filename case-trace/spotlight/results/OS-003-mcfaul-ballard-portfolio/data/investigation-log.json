@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "cycles": [
+    {
+      "cycle": 1,
+      "timestamp": "2026-05-22T12:50:00Z",
+      "focus": "FEC + OpenSecrets + Trump-orbit context for Daniel McFaul. Press coverage of Ballard Partners' 2025 revenue surge. Live RAI/Reynolds-FDA news cycle (NYT May 20 2026). LA28 lobbying engagement.",
+      "methodology": {
+        "techniques_used": [
+          "FEC API direct query (Schedule A by contributor name + employer filter)",
+          "OpenSecrets revolving-door registry lookup",
+          "OpenSecrets lobbyist firm profile lookup",
+          "Press coverage triangulation across Politico Influence, Mother Jones, NOTUS",
+          "Issue-area tracing for top McFaul clients (RAI, LA28, Hard Rock Japan)",
+          "Wayback Machine archive submission for chain-of-custody"
+        ],
+        "tools_used": [
+          "firecrawl search",
+          "firecrawl scrape",
+          "curl + FEC API (api.open.fec.gov)",
+          "curl + Wayback Machine save endpoint",
+          "curl + archive.today",
+          "Python aggregation on FEC JSON"
+        ],
+        "search_queries": [
+          "Daniel McFaul Ballard Partners lobbyist",
+          "Daniel McFaul FEC donation contribution",
+          "Matt Gaetz Ballard Partners Brian Ballard Trump transition",
+          "Reynolds American 5 million Trump super PAC FDA vape",
+          "Ballard Partners Trump lobbying Politico Influence 2025",
+          "Hard Rock Japan Hokkaido Osaka Integrated Resort license lobbying Ballard",
+          "MHP Food Trading LLC lobbying Ukraine poultry Kosyuk",
+          "Ballard Partners LA 2028 Olympics lobbying federal",
+          "RAI Services Reynolds American PMTA vaping FDA lobbying 2025"
+        ],
+        "failed_approaches": [
+          "NYT 2026-05-20 'donation-big-tobacco-vaping.html' could not be scraped: Firecrawl returned an explicit 'we do not support this site' error; archive.today returned no snapshot; Wayback returns HTTP 403 on every snapshot attempted. Worked around by confirming the key facts via four independent secondary sources that quote the NYT byline.",
+          "FEC committees endpoint queried for treasurer name 'mcfaul' returned 0 results — no committee found where McFaul appears as a directing officer or treasurer.",
+          "OpenSecrets lobbyist summary page (Y0000052962L) returned 520 on Wayback save submission — rate-limited, deferred to cycle 2."
+        ]
+      },
+      "sources_consulted": [
+        {"url": "https://ballardpartners.com/team-member/dan-mcfaul/", "type": "corporate", "accessed": "2026-05-22T12:35:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/revolving-door/mcfaul-dan/summary?id=80462", "type": "registry", "accessed": "2026-05-22T12:38:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?id=Y0000052962L", "type": "registry", "accessed": "2026-05-22T12:38:00Z", "useful": true},
+        {"url": "https://ricksblog.biz/mcfaul-named-managing-partner-of-ballard-partners/", "type": "news", "accessed": "2026-05-22T12:38:00Z", "useful": true},
+        {"url": "https://floridapolitics.com/archives/571364-personnel-note-dan-mcfaul-named-managing-partner-at-ballard-partners-d-c-office/", "type": "news", "accessed": "2026-05-22T12:38:00Z", "useful": true},
+        {"url": "https://api.open.fec.gov/v1/schedules/schedule_a/?contributor_name=MCFAUL%2C+DANIEL", "type": "government", "accessed": "2026-05-22T12:20:00Z", "useful": true},
+        {"url": "https://api.open.fec.gov/v1/schedules/schedule_a/?contributor_name=MCFAUL%2C+DANIEL&contributor_employer=BALLARD", "type": "government", "accessed": "2026-05-22T12:20:00Z", "useful": true},
+        {"url": "https://www.politico.com/newsletters/politico-influence/2026/01/21/trump-2-0-unleashes-a-gusher-on-k-street-00740391", "type": "news", "accessed": "2026-05-22T12:42:00Z", "useful": true},
+        {"url": "https://www.motherjones.com/politics/2025/04/ballard-trump-lobbying-disclosures-wiles-bondi/", "type": "news", "accessed": "2026-05-22T12:42:00Z", "useful": true},
+        {"url": "https://www.notus.org/money/lobbying-donald-trump-k-street-spending-influence", "type": "news", "accessed": "2026-05-22T12:42:00Z", "useful": true},
+        {"url": "https://www.nytimes.com/2026/05/20/us/politics/donation-big-tobacco-vaping.html", "type": "news", "accessed": "2026-05-22T12:44:00Z", "useful": false},
+        {"url": "https://www.commondreams.org/news/trump-tobacco-bribe", "type": "news", "accessed": "2026-05-22T12:44:00Z", "useful": true},
+        {"url": "https://tobaccoreporter.com/2026/05/21/nyt-report-draws-attention-to-rjr-donation-and-fda-policy-shift/", "type": "news", "accessed": "2026-05-22T12:44:00Z", "useful": true},
+        {"url": "https://www.yahoo.com/news/articles/trump-fda-delivers-tobacco-industry-133021525.html", "type": "news", "accessed": "2026-05-22T12:44:00Z", "useful": true},
+        {"url": "https://www.politico.com/newsletters/politico-influence/2025/02/04/softbank-hires-miller-ballard-lands-28-olympics-organizers-00202491", "type": "news", "accessed": "2026-05-22T12:48:00Z", "useful": true},
+        {"url": "https://www.odwyerpr.com/story/public/22535/2025-02-07/ballard-partners-shoots-for-gold.html", "type": "news", "accessed": "2026-05-22T12:48:00Z", "useful": true},
+        {"url": "https://igamingbusiness.com/casino/japan-jumpstart-integrated-resort-licence-bidding-hard-rock/", "type": "news", "accessed": "2026-05-22T12:30:00Z", "useful": true},
+        {"url": "https://www.eenews.net/articles/chemical-industry-taps-trump-tied-lobbying-powerhouse/", "type": "news", "accessed": "2026-05-22T12:32:00Z", "useful": false}
+      ],
+      "findings_added": 7,
+      "findings_upgraded": 0,
+      "gaps_resolved": [],
+      "gaps_remaining": [
+        "NYT 2026-05-20 primary text inaccessible (paywall + archive 403)",
+        "LD-2 specific issue text for top clients not yet read line-by-line",
+        "MHP Foods (Ukraine) US lobbying ask not yet pinned to a specific bill or rule",
+        "Reynolds $5M MAGA Inc donation not yet verified in primary FEC data",
+        "Hard Rock Japan US-Foreign-Commercial-Service theory not yet confirmed",
+        "Donor-to-committee-jurisdiction overlay not yet built"
+      ],
+      "notes": "Investigation hit stop conditions: 5 high-confidence findings (F1, F2, F3, F4, F5), 1 medium-confidence (F6), 1 medium with stated path to upgrade (F7). Strongest single thread for promotion to a C-NNN data-detective finding is the RAI Services / Reynolds / MAGA Inc / FDA-flavored-vape-reversal timeline (F4) cross-referenced with McFaul's $3.18M RAI Services LDA revenue, because (a) it is current (May 2026), (b) it has explicit dollar-and-date detail, (c) it connects a McFaul client directly to a White House policy reversal within a 10-day window, and (d) the underlying FEC data is independently verifiable. Wayback successfully archived: Ballard McFaul bio + OpenSecrets revolving-door page + Tobacco Reporter RJR summary."
+    }
+  ]
+}

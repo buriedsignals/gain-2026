@@ -1,0 +1,83 @@
+{
+  "entries": [
+    {
+      "ts": "2026-05-22T10:13:00Z",
+      "event": "case_created",
+      "notes": "GAIN Challenge investigation initialized; brief approved; methodology written."
+    },
+    {
+      "ts": "2026-05-22T10:42:00Z",
+      "event": "ingest_started",
+      "details": {
+        "profile": "skill/references/examples/lda_profile.py",
+        "data_root": "data",
+        "db": "case/index.duckdb"
+      }
+    },
+    {
+      "ts": "2026-05-22T10:55:00Z",
+      "event": "ingest_killed_for_speed",
+      "details": {
+        "reason": "executemany insert was 740s per senate file",
+        "fix": "switched to pyarrow Table.from_pydict + INSERT ... SELECT FROM registered batch",
+        "new_per_file_time_seconds": 13
+      }
+    },
+    {
+      "ts": "2026-05-22T10:56:00Z",
+      "event": "ingest_restarted",
+      "details": {"db": "case/index.duckdb"}
+    },
+    {
+      "ts": "2026-05-22T11:00:00Z",
+      "event": "ingest_complete",
+      "details": {
+        "duration_minutes": 4,
+        "tables_created": 17,
+        "filings_total": 418098,
+        "bridge_key_coverage_house_to_senate_pct": 100.0
+      }
+    },
+    {
+      "ts": "2026-05-22T11:05:00Z",
+      "event": "entity_resolution_complete",
+      "details": {"pass1_bridge_matches": 7451, "pass2_exact_matches": 2, "pass3_fuzzy_matches": 5, "ambiguous": 1, "total_canonical": 7458}
+    },
+    {
+      "ts": "2026-05-22T11:30:00Z",
+      "event": "cycle1_findings_drafted",
+      "details": {"claims": ["C-001 LOC Nation", "C-002 Anchor & Arrow", "C-003 FARA gap aggregate"]}
+    },
+    {
+      "ts": "2026-05-22T12:00:00Z",
+      "event": "cycle4_started",
+      "trigger": "user_directive 'Do all of the above'",
+      "details": ["D9 shell-pattern", "D10 FARA narrowing", "D11 multi-hop", "USAspending pull", "bill extraction", "vector_search demonstrator"]
+    },
+    {
+      "ts": "2026-05-22T12:10:00Z",
+      "event": "D9_complete",
+      "details": {"unique_pattern_outliers_score_ge_2": 1, "registrant": "LOC COMMUNITY ASSOCIATION"}
+    },
+    {
+      "ts": "2026-05-22T12:12:00Z",
+      "event": "D11_complete",
+      "details": {"named_lobbyists": 16, "combined_2024_2026_income": 122000000, "headline_cluster": "Brownstein Hyatt Senate Finance alumni"}
+    },
+    {
+      "ts": "2026-05-22T12:14:00Z",
+      "event": "USAspending_pull_complete",
+      "details": {"clients_with_dod_awards": 4, "total_dod_obligations": 35937820, "cleanest_pairing": "Apex Technology $22M Air Force SBIR STRATFI"}
+    },
+    {
+      "ts": "2026-05-22T12:30:00Z",
+      "event": "C-004_promoted",
+      "details": {"claim": "Brownstein Hyatt Senate Finance alumni cluster", "lobbyists": ["Russell Sullivan", "Mark Warren", "Christopher Treanor (Akin Gump)"]}
+    },
+    {
+      "ts": "2026-05-22T12:45:00Z",
+      "event": "submission_repackaged",
+      "details": {"cycles_completed": 2, "findings": 4, "total_size_MB": 2.4}
+    }
+  ]
+}

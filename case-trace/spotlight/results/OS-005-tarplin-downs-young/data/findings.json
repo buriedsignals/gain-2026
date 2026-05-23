@@ -1,0 +1,431 @@
+{
+  "schema_version": "1.0",
+  "project": "OS-005-tarplin-downs-young",
+  "lead": "Tarplin, Downs & Young LLC — healthcare-policy lobbying boutique; $32M+ cluster from D11 with HHS-leadership revolving-door cluster; profile firm leadership, full client roster, HHS/Senate HELP/Senate Finance ties, and HHS-OIG enforcement actions involving its clients.",
+  "investigated_at": "2026-05-22T14:50:00Z",
+  "cycle": 1,
+  "questions": [
+    "Who are the founding partners and current partner roster of Tarplin, Downs & Young?",
+    "Is the data-detective brief's claim that Pam Smith is a former HHS Principal Deputy Asst Sec for Legislation correct, or is it a data error?",
+    "Has TDY changed hands or status during the engagement window (2022-2026)?",
+    "Are any of TDY's marquee clients (Abbott, BCBS, Vertex, Alzheimer's Assn, BIO) facing HHS-OIG enforcement actions during the engagement window?",
+    "Does TDY rate alongside Brownstein Hyatt as a 'promoted' data-detective finding cluster?"
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "claim": "Tarplin, Downs & Young, LLC was founded in January 2006 by three co-founders: Linda Tarplin (former HHS Deputy Assistant Secretary for Legislation; former White House Commissioned Officer under President George H.W. Bush; former Republican staff House Ways and Means Health Subcommittee), Raissa 'Rai' Downs (former HHS Principal Deputy Assistant Secretary for Legislation; helped spearhead Medicare Part D implementation), and Jennifer B. Young (former HHS Assistant Secretary for Legislation; former Senior Counselor to HHS Secretary Mike Leavitt; former staff Senate Finance Committee and House Ways and Means).",
+      "evidence": "TDY website partner pages: 'Linda Tarplin cofounded TDY in January 2006... At HHS, she served as the Deputy Assistant Secretary for Legislation... served as a Commissioned Officer in the White House under President George H.W. Bush'; 'Jennifer Young served as the Assistant Secretary for Legislation at the Department of Health and Human Services, as well as Senior Counselor to Secretary Mike Leavitt before cofounding TDY in January 2006.' PRWeek confirms: 'The Washington-based firm was founded in 2006 by partners and cofounders Linda Tarplin, Rai Downs and Jennifer Young.' ProPublica (2009): 'Raissa Downs... As deputy assistant secretary for legislation for Health and Human Services, Raissa Downs helped spearhead Part D implementation.' OpenSecrets revolving-door profile for Raissa H Downs lists 'US Dept of Health & Human Services... Principal Deputy Asst Sec of Legislation'.",
+      "sources": [
+        {
+          "url": "https://tdyllc.com/",
+          "type": "corporate",
+          "accessed": "2026-05-22T14:36:00Z",
+          "archive_url": "https://web.archive.org/web/20260522123759/https://tdyllc.com/",
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/tdyllc-home.md"
+        },
+        {
+          "url": "https://www.prweek.com/article/1931828/fgs-global-acquires-healthcare-policy-advocacy-firm-tarplin-downs-young",
+          "type": "news",
+          "accessed": "2026-05-22T14:38:00Z",
+          "archive_url": null,
+          "access_method": "abstract_only",
+          "access_notes": "PRWeek is paywalled; headline and deck visible without subscription confirm founders Linda Tarplin, Rai Downs, Jennifer Young.",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/prweek-fgs-acquisition.md"
+        },
+        {
+          "url": "https://www.propublica.org/article/medicare-drug-plan-architects-now-drug-company-lobbyists-102009",
+          "type": "news",
+          "accessed": "2026-05-22T14:40:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/propublica-medicare-drug-architects.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/revolving-door/summary?id=25639",
+          "type": "registry",
+          "accessed": "2026-05-22T14:40:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/opensecrets-rd-id25639.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Four independent primary sources (firm website, PRWeek industry trade, ProPublica investigative archive, OpenSecrets revolving-door database) name the same three co-founders with consistent biographies.",
+      "perspective": "corporate / independent_observer"
+    },
+    {
+      "id": "F2",
+      "claim": "The data-detective brief's attribution of 'former HHS Principal Deputy Assistant Secretary for Legislation' to Pamela Smith is incorrect; that covered_position belongs to Raissa Downs. Pamela 'Pam' Smith's actual revolving-door background is Senate-side, not HHS-side: she served as Legislative Director to Sen. Tom Harkin, then Deputy Staff Director and Staff Director of the Senate Committee on Health, Education, Labor and Pensions (HELP) under Chairman Harkin. Her pre-lobbying private-sector posts were VP of Federal Advocacy at PhRMA and Deputy Director of US Government Relations for the Bill & Melinda Gates Foundation, with an earlier stint at the US Department of Justice. She joined TDY as a partner in October 2016.",
+      "evidence": "TDY website: 'Pam Smith joined TDY as a partner 2016, having served in high level positions in and out of government for more than 20 years. Smith served as both Staff Director and Deputy Staff Director of the Senate Committee on Health, Education, Labor and Pensions (HELP) under the Committee's Chairman, Senator Tom Harkin... Prior to joining TDY, Smith served as Vice President of Federal Advocacy at the Pharmaceutical Research and Manufacturers of America (PhRMA), where she directed PhRMA's advocacy work with Senate and House Democrats, and as the Deputy Director of U.S. Government Relations for the Bill and Melinda Gates Foundation... She spent five years in the U.S. Department of Justice'. LDA disclosure form snippets via search confirm Pam Smith's covered_position is 'Leg. Dir., Sen. Tom Harkin; Dep. Staff Dir., Senate HELP Cmte; Staff Dir., Senate HELP Cmte; Counselor to the Asst. AG, Civil...' — NOT HHS. LegiStorm firm page: 'Pamela J. Smith - Most recent congressional employment: Senate Health, Education, Labor and Pensions Committee, Former Sen. Tom Harkin (D-IA)'.",
+      "sources": [
+        {
+          "url": "https://tdyllc.com/",
+          "type": "corporate",
+          "accessed": "2026-05-22T14:36:00Z",
+          "archive_url": "https://web.archive.org/web/20260522123759/https://tdyllc.com/",
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/tdyllc-home.md"
+        },
+        {
+          "url": "https://www.legistorm.com/organization/summary/40544/Tarplin_Downs_Young_LLC.html",
+          "type": "registry",
+          "accessed": "2026-05-22T14:39:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/legistorm-firm.md"
+        },
+        {
+          "url": "https://lda.senate.gov/filings/public/filing/22e169de-9ada-4ed4-9125-b09e733df23c/print/",
+          "type": "government",
+          "accessed": "2026-05-22T14:40:00Z",
+          "archive_url": null,
+          "access_method": "abstract_only",
+          "access_notes": "Search-result snippet of LDA filing confirms Pam Smith's covered_position. Filing itself not separately scraped this cycle.",
+          "local_file": null
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "TDY's own website, LegiStorm's congressional-employment-tracking biography, and an LDA disclosure form snippet all converge on the Harkin/HELP background. The data-detective brief appears to have mis-attributed Raissa Downs's HHS Principal Deputy Asst Sec role to Pam Smith — likely a join error between the LDA covered_position field (which lists positions for ALL lobbyists on a filing, comma-separated) and the per-lobbyist name. This correction matters because it changes the geometry of the cluster: TDY has BOTH a Senate HELP staff-director alum (Smith) AND TWO HHS Asst Sec for Legislation alums (Downs, Young) — a stronger triangle than the brief described.",
+      "perspective": "independent_observer"
+    },
+    {
+      "id": "F3",
+      "claim": "TDY was acquired by FGS Global on September 10, 2025, in the middle of the engagement window. Raissa Downs and Jennifer Young joined FGS as partners; Linda Tarplin 'retired from daily' operations as part of the deal. The firm continues to file under the Tarplin, Downs & Young name (LD-2 filings through Q4 2025 still list the firm as registrant); LegiStorm marks FGS Global as a 'related entity' to TDY in its database.",
+      "evidence": "FGS Global press release (Sept 10, 2025): 'Washington, D.C., September 10, 2025 – FGS Global... today announced the acquisition of Washington-based Tarplin, Downs & Young, LLC ('TDY'), a preeminent health care policy and advocacy firm with 20 years of experience.' Rai Downs quoted: 'We, and our incredible TDY partners, are excited to join FGS Global to start the next chapter of TDY's journey.' Jennifer Young quoted: 'By uniting our teams, we are creating a unique offering...'. PRWeek deck: 'TDY's team and leadership remain intact after the acquisition, with Downs and Young joining FGS as partners. Tarplin retired from daily [operations].' LegiStorm firm page: 'Tarplin, Downs & Young LLC has related entities in our database. These organizations include FGS Global.' D1 spending-spike CSV flags TDY Q4 2025 at $5.29M revenue (4× the firm's $1.3M trend) — consistent with acquisition-period billing activity. Politico Pulse (Feb 18, 2026): 'A few months later, FGS Global acquired Tarplin, Downs & Young, a top lobbying shop for drugmakers.'",
+      "sources": [
+        {
+          "url": "https://fgsglobal.com/insights/fgs-global-acquires-tarplin-downs-young-llc",
+          "type": "corporate",
+          "accessed": "2026-05-22T14:39:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/fgs-acquisition-announcement.md"
+        },
+        {
+          "url": "https://www.prweek.com/article/1931828/fgs-global-acquires-healthcare-policy-advocacy-firm-tarplin-downs-young",
+          "type": "news",
+          "accessed": "2026-05-22T14:38:00Z",
+          "archive_url": null,
+          "access_method": "abstract_only",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/prweek-fgs-acquisition.md"
+        },
+        {
+          "url": "https://www.politico.com/newsletters/politico-pulse/2026/02/18/health-lobbying-bonanza-continues-00784619",
+          "type": "news",
+          "accessed": "2026-05-22T14:39:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/politico-pulse-feb18.md"
+        },
+        {
+          "url": "https://www.legistorm.com/organization/summary/40544/Tarplin_Downs_Young_LLC.html",
+          "type": "registry",
+          "accessed": "2026-05-22T14:39:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/legistorm-firm.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Acquisition is documented by both the acquiring firm's own press release and Politico Pulse, with the corporate registration thread visible in LegiStorm.",
+      "perspective": "official / corporate"
+    },
+    {
+      "id": "F4",
+      "claim": "TDY's full partner roster as of May 2026 is 8: Linda Tarplin (strategic advisor, post-retirement), Raissa Downs (co-founder; HHS Principal Deputy Asst Sec for Legislation alum), Jennifer Young (co-founder; HHS Assistant Secretary for Legislation alum), Pam Smith (2016+; Senate HELP staff director under Harkin, PhRMA, Gates Foundation, DOJ), Elizabeth 'Liz' Murray (2014+; Senior Policy Adviser to Majority Leader Steny Hoyer; staff to House Ways and Means / Senate Finance members), Charlotte Spears Ivancic (2015+; staff to Speakers Paul Ryan and John Boehner, House Budget Committee, Sen. Bill Frist), Emily Henehan Murry (2018+; Health Subcommittee Staff Director on House Ways and Means under Chairman Kevin Brady; previously senior policy adviser to House Majority Leader Kevin McCarthy), Meg Joseph (2022+; Chief of Staff to Sen. Kyrsten Sinema; House staff to Rep. Jim Matheson and former Rep. Bobby Bright). Jeff Reczek joined in December 2025 (former Director of CDC Washington at CDC; former senior staffer Senate Appropriations Labor/HHS/Education subcommittee; former OMB Health Division). Laura Friedel (joined 2023; former clerk and GOP staff director, Senate Appropriations) is listed as a 2024 lobbyist on the firm's LDA filings.",
+      "evidence": "TDY website partner pages (verbatim bios for Tarplin, Young, Downs, Smith, Murray, Ivancic, Murry, Joseph, Reczek). 2024 OpenSecrets lobbyist roster lists: Kim Brandt, Patrick Braerton Carroll, Michelle P Easton, Peter Fise, Laura Friedel, Charlotte Ivancic, Margaret Joseph, Elizabeth Murray, Emily Murry, Pam Smith, Raissa H Downs (10 named individuals). LegiStorm: 'Most recent congressional employment' field for each partner cross-confirms Hill positions. Hub.jhu.edu (2023): 'Laura Friedel will be a partner at Tarplin, Downs & Young, LLC. She was previously clerk and GOP staff director for the Senate Appropriations Committee.' TDY website on Reczek: 'Jeff joined TDY in December 2025 after serving over 16 years advancing health budget and policy initiatives... Most recently, he served as Director of CDC Washington at the Centers for Disease Control and Prevention.'",
+      "sources": [
+        {
+          "url": "https://tdyllc.com/",
+          "type": "corporate",
+          "accessed": "2026-05-22T14:36:00Z",
+          "archive_url": "https://web.archive.org/web/20260522123759/https://tdyllc.com/",
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/tdyllc-home.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/firms/lobbyists?cycle=2024&id=D000030285",
+          "type": "registry",
+          "accessed": "2026-05-22T14:39:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/opensecrets-lobbyists.md"
+        },
+        {
+          "url": "https://www.legistorm.com/organization/summary/40544/Tarplin_Downs_Young_LLC.html",
+          "type": "registry",
+          "accessed": "2026-05-22T14:39:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/legistorm-firm.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Triple-sourced from the firm itself, OpenSecrets, and LegiStorm with consistent name match-up.",
+      "perspective": "corporate / registry"
+    },
+    {
+      "id": "F5",
+      "claim": "ProPublica's 2009 investigation 'Medicare Drug Plan Architects Now Drug Company Lobbyists' identified Tarplin Downs & Young as one of the principal post-government homes for Medicare Part D architects who became lobbyists for the drug industry. The investigation named THREE TDY lobbyists in this revolving-door cohort: Raissa Downs (HHS Deputy Assistant Secretary for Legislation; 'helped spearhead Part D implementation'), Jennifer Young (HHS Assistant Secretary for Legislation; oversaw all HHS legislative efforts and was 'an integral part of the administration's efforts to pass and implement the law that created Part D'), and Michelle Easton (Staff Director Senate Special Committee on Aging during the Part D debate, then VP of PhRMA during Part D implementation, then chief health counsel to Sen. Max Baucus). As of 2009 the firm was already lobbying for Amgen, AstraZeneca, BIO, Boston Scientific, Genzyme, PhRMA, Vertex Pharmaceuticals, WellPoint, and Wyeth — the same pharma-heavy client base it carries today.",
+      "evidence": "ProPublica (2009-10-20) chart entries verbatim: 'Raissa Downs — Deputy Assistant Secretary for Legislation, HHS — As deputy assistant secretary for legislation for Health and Human Services, Raissa Downs helped spearhead Part D implementation. Now Downs is a lobbyist at Tarplin Downs & Young, lobbying for Amgen, AstraZeneca, Biotechnology Industry Organization, Boston Scientific, Genzyme, PhRMA, Vertex Pharma, WellPoint, and Wyeth.' / 'Jennifer Young — Assistant Secretary for Legislation, HHS — Jennifer Young oversaw all legislative efforts for the department of Health and Human Service... Young was an integral part of the administration's efforts to pass and implement the law that created Part D. Now she's a lobbyist at Tarplin Downs & Young, lobbying on behalf of Amgen, AstraZeneca, Biotechnology Industry Organization, Blue Cross Blue Shield Assocation, Boston Scientific, Genzyme, PhRMA, Vertex Pharma, and Wyeth.' / 'Michelle Easton — Staff Director (working for Sen. Breaux's office), Senate Special Committee on Aging — Michelle Easton served as staff director for the Senate Special Committee on Aging while Part D was debated and passed. Later, after leaving briefly to serve as vice president of PhRMA while Part D was being implemented, she worked as chief health counsel to Sen. Max Baucus.'",
+      "sources": [
+        {
+          "url": "https://www.propublica.org/article/medicare-drug-plan-architects-now-drug-company-lobbyists-102009",
+          "type": "news",
+          "accessed": "2026-05-22T14:40:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/propublica-medicare-drug-architects.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Single primary source (ProPublica), but it is direct documentary evidence — the chart names individuals, their pre-lobbying government roles, and their post-lobbying clients with hyperlinks to House LDA filings (now archived). The 16-year-old vintage of the article is itself important: TDY's business model has not changed materially in 16 years; the same partners (Downs, Young) still represent the same client roster (BIO, Vertex, BCBS, AstraZeneca subsidiaries, etc.).",
+      "perspective": "independent_observer"
+    },
+    {
+      "id": "F6",
+      "claim": "TDY had a $16.83M total revenue in 2024 from 64 clients, ranking it as one of the top boutique pharmaceutical-and-healthcare lobbying shops in Washington. Politico Influence (Apr 22, 2026) explicitly lists TDY in the top tier of Q1 2026 pharma lobbying firms alongside Todd Strategy Group and BGR Group. In Q1 2026 alone TDY was hired by 82 clients for $5.37M (year-over-year growth post-acquisition). Politico Pulse (Feb 18, 2026) characterizes TDY as 'a top lobbying shop for drugmakers' in the broader 'health lobbying bonanza' narrative tied to Trump-administration drug-price pressure.",
+      "evidence": "OpenSecrets 2024 firm summary: 'Tarplin, Downs & Young is a lobbying firm that was hired by 64 clients in 2024, for a total amount of $16,830,000.' OpenSecrets 2026 summary: '...82 clients in 2026, for a total amount of $5,370,000' (Q1 only). Politico Influence Apr 22 2026: 'Among the top lobbying shops for pharmaceutical companies in Q1 include Todd Strategy Group, BGR Group and Tarplin, Downs & Young.' Politico Pulse Feb 18 2026: 'A few months later, FGS Global acquired Tarplin, Downs & Young, a top lobbying shop for drugmakers.'",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/firms/summary?cycle=2024&id=D000030285",
+          "type": "registry",
+          "accessed": "2026-05-22T14:36:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/opensecrets-2024.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/firms/summary?cycle=2026&id=D000030285",
+          "type": "registry",
+          "accessed": "2026-05-22T14:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/opensecrets-2026.md"
+        },
+        {
+          "url": "https://www.politico.com/newsletters/politico-influence/2026/04/22/health-care-industrys-big-q1-00887432",
+          "type": "news",
+          "accessed": "2026-05-22T14:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/politico-influence-q1.md"
+        },
+        {
+          "url": "https://www.politico.com/newsletters/politico-pulse/2026/02/18/health-lobbying-bonanza-continues-00784619",
+          "type": "news",
+          "accessed": "2026-05-22T14:39:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/politico-pulse-feb18.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Multiple consistent registry + trade-press sources.",
+      "perspective": "registry / news"
+    },
+    {
+      "id": "F7",
+      "claim": "Vertex Pharmaceuticals — a TDY client paying $6.00M cumulative 2022-2026 per the data-detective brief — is currently engaged in direct litigation against HHS-OIG over the Office of Inspector General's interpretation of the Anti-Kickback Statute. Vertex filed a lawsuit against HHS and OIG seeking a declaratory judgment that its fertility-preservation patient-assistance program for its sickle-cell gene therapy Casgevy does not violate the AKS. The suit was filed shortly after OIG informed Vertex that its forthcoming advisory opinion would be unfavorable. Vertex is, per Bass, Berry & Sims's analysis, 'pursuing the inducement argument' that Pfizer has also raised, with the apparent aim of 'trying to create a circuit split, potentially, to allow for review by the Supreme Court.' This is direct, named-defendant litigation against the agency where TWO of TDY's founding partners (Raissa Downs and Jennifer Young) held the senior Office of Legislation roles.",
+      "evidence": "Bass, Berry & Sims news release (July 2024, Law360-republished): 'Vertex Pharmaceuticals (Vertex), the manufacturer of a gene therapy drug that requires patients to undergo treatment that can cause infertility, sought an advisory opinion from OIG regarding its fertility preservation program. OIG informed Vertex that the opinion would be unfavorable. Although OIG has not yet issued its written opinion, earlier this week, Vertex filed a lawsuit against HHS and OIG seeking a declaration that Vertex's fertility preservation program does not violate the AKS and setting aside OIG's opinion that the fertility preservation program implicates the AKS.' / 'Vertex's suit comes on the heels of challenges to OIG's interpretation of the AKS filed by Pfizer and the Pharmaceutical Coalition for Patient Access (PCPA).' / Jennifer Michael (Bass Berry, former Chief of the Industry Guidance Branch at OCIG/HHS-OIG): 'It looks like they're trying to create a circuit split, potentially, to allow for review by the Supreme Court.' Underlying Law360 article: 'Vertex Pharma Widens War On Watchdog's Kickback Views' (July 16, 2024).",
+      "sources": [
+        {
+          "url": "https://www.bassberry.com/news/vertex-challenge-to-hhs-oig-interpretation-of-inducement/",
+          "type": "legal",
+          "accessed": "2026-05-22T14:43:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/bassberry-vertex-oig-suit.md"
+        },
+        {
+          "url": "https://www.law360.com/lifesciences/articles/1858315/vertex-pharma-widens-war-on-watchdog-s-kickback-views",
+          "type": "legal",
+          "accessed": "2026-05-22T14:43:00Z",
+          "archive_url": null,
+          "access_method": "inaccessible",
+          "access_notes": "Law360 is hard-paywalled. Bass, Berry & Sims summary serves as secondary verified source.",
+          "local_file": null
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Bass, Berry & Sims is a major healthcare regulatory firm publishing on its own website by a named former OIG branch chief; the underlying Law360 report is the standard healthcare-litigation source. Single primary source is paywalled but the secondary legal analysis is verified.",
+      "perspective": "legal"
+    },
+    {
+      "id": "F8",
+      "claim": "TDY's 2024 LDA bill-lobbying disclosures show the firm engaged on multiple bills with direct say-vs-pay tension against current Senate HELP, Senate Finance and House E&C members. Five top examples: (1) H.R.5378 Lower Costs, More Transparency Act (CH Boehringer Sohn, Novartis AG as clients — drug-price-transparency bill); (2) S.1269 INSULIN Act of 2023 (Breakthrough T1D); (3) H.R.3561 PATIENT Act of 2023 (American Investment Council — private-equity rollup transparency); (4) H.R.3262 Social-Security-Act amendment increasing transparency of health-related ownership information (American Investment Council); (5) H.R.4421 ASPR reauthorization / Healthcare Distribution Alliance. Pam Smith's specific revolving-door overlap — Senate HELP under Harkin — is the strongest committee-jurisdiction match for D11/D12 say-vs-pay analysis: Sen. Bernie Sanders, the current Senate HELP chair (in his July 2023 letter as Chairman to HHS Secretary Becerra), publicly attacked the high price of Alzheimer's drug Leqembi at $26,500/year — a drug whose policy environment is shaped in part by the Alzheimer's Association (TDY client at $320K in 2024, $6.51M cumulative per the brief) and Biogen/Eisai. While the Alzheimer's Association is not a direct manufacturer, it has historically lobbied for broader Medicare coverage of expensive Alzheimer's drugs, aligning with manufacturer interests against Sanders's pricing position.",
+      "evidence": "OpenSecrets 2024 bills page lists each H.R./S. number with sponsoring client. Healthcare Brew article (Jul 12, 2023): 'Sen. Bernie Sanders called on the Department of Health and Human Services (HHS) on Monday to lower the price of new Alzheimer's drug Leqembi... In a letter addressed to HHS secretary Xavier Becerra, Sanders said the $26,500 list price for Leqembi, set by drugmakers Eisai and Biogen, is unsustainable for Medicare... Sanders, who chairs the Senate Health, Education, Labor, and Pensions (HELP) Committee, wrote in the letter.' Data-detective brief: 'Top clients (LDA-confirmed): Blue Cross Blue Shield Association ($7.15M), Abbott / Alere ($6.72M), Alzheimer's Association ($6.51M), Vertex Pharmaceuticals ($6.00M), BIO ($5.84M).'",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/firms/bills?cycle=2024&id=D000030285",
+          "type": "registry",
+          "accessed": "2026-05-22T14:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/opensecrets-bills-2024.md"
+        },
+        {
+          "url": "https://www.healthcare-brew.com/stories/2023/07/12/sen-bernie-sanders-calls-on-hhs-to-address-high-price-of-new-alzheimer-s-drug",
+          "type": "news",
+          "accessed": "2026-05-22T14:45:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/sanders-alzheimer-drug.md"
+        }
+      ],
+      "confidence": "medium",
+      "confidence_rationale": "Bill list is high-confidence registry data. The Sanders-vs-Alzheimer-Association say-vs-pay framing is inferential — the Alzheimer's Association is not directly under attack from Sanders, but it lobbies in alignment with the drug manufacturers Sanders is attacking, so it functions as a third-party advocacy vehicle. D12 detector did not flag TDY because the say-vs-pay analysis appears to have used a more restrictive direct-attack model. This finding identifies an under-counted second-order alignment worth pursuing in a follow-up cycle.",
+      "perspective": "official"
+    },
+    {
+      "id": "F9",
+      "claim": "TDY filed a foreign-client LD-2 in Q1 2023 representing VALNEVA USA, INC, owned by VALNEVA AUSTRIA GMBH (Austria) — flagged by detector D4 as a foreign-filing pattern. TDY also lobbied on H.R.3631 and S.2080 'State Strategic Stockpile Act of 2023' on behalf of Valneva SE. Valneva is a French-Austrian vaccine manufacturer marketing the Lyme disease vaccine VLA15 (in development with Pfizer) and the chikungunya vaccine Ixchiq, both products with US public-health and stockpile interest.",
+      "evidence": "D4_foreign_filings.csv: 'ad941593-1ea8-4d0c-b773-db48433832b6,2023,first_quarter,\"TARPLIN, DOWNS & YOUNG, LLC\",\"VALNEVA USA, INC\",US,US,VALNEVA AUSTRIA GMBH,AT,AT'. OpenSecrets 2024 bills list: 'S.2080... Valneva SE... State Strategic Stockpile Act of 2023', 'H.R.3631... Valneva SE... State Strategic Stockpile Act of 2023'.",
+      "sources": [
+        {
+          "url": "https://lda.senate.gov/api/v1/filings/ad941593-1ea8-4d0c-b773-db48433832b6/?format=json",
+          "type": "government",
+          "accessed": "2026-05-22T14:33:00Z",
+          "archive_url": null,
+          "access_method": "abstract_only",
+          "access_notes": "Source is the LDA filing UUID flagged by detector D4; not separately scraped this cycle.",
+          "local_file": "cases/data-detective/anomalies/D4_foreign_filings.csv"
+        },
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/firms/bills?cycle=2024&id=D000030285",
+          "type": "registry",
+          "accessed": "2026-05-22T14:42:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/opensecrets-bills-2024.md"
+        }
+      ],
+      "confidence": "medium",
+      "confidence_rationale": "D4 detector identifies the foreign-affiliate pattern; OpenSecrets confirms TDY lobbying on specific stockpile bills for Valneva SE. The underlying LDA filing itself was not scraped this cycle but is referenced by UUID in the data-detective CSV.",
+      "perspective": "registry"
+    },
+    {
+      "id": "F10",
+      "claim": "TDY's Q4 2025 revenue spike of $5.29M, flagged by detector D1, coincides with the September 10, 2025 FGS Global acquisition close. This is approximately 4× the firm's $1.3M quarterly baseline and is the single largest quarterly spike in TDY's 20-year history per the D1 z-score (z=16.47). The spike is fully explained by acquisition-period billing and new-client onboarding; it is NOT an indicator of an enforcement-investigation surge or a single-client surge but rather of a transactional event.",
+      "evidence": "D1_spending_spikes.csv: '304736,\"TARPLIN, DOWNS & YOUNG, LLC\",2025,fourth_quarter,5290000.0,4265000.0,62249.49798994371,4,16.465996242501213'. FGS announcement timing: 'Washington, D.C., September 10, 2025'. Q4 2025 begins October 1, 2025 — the first full quarter after acquisition close. PRWeek confirms 'TDY's team and leadership remain intact after the acquisition' — i.e., the same lobbyists continued to file under the TDY registrant ID into Q4 2025.",
+      "sources": [
+        {
+          "url": "cases/data-detective/anomalies/D1_spending_spikes.csv",
+          "type": "internal",
+          "accessed": "2026-05-22T14:33:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/data-detective/anomalies/D1_spending_spikes.csv"
+        },
+        {
+          "url": "https://fgsglobal.com/insights/fgs-global-acquires-tarplin-downs-young-llc",
+          "type": "corporate",
+          "accessed": "2026-05-22T14:39:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-005-tarplin-downs-young/research/fgs-acquisition-announcement.md"
+        }
+      ],
+      "confidence": "medium",
+      "confidence_rationale": "Causal explanation is inferential. The acquisition's contractual structure (asset purchase / equity purchase / consulting fees) is not disclosed publicly. The D1 spike could also reflect new client retainer activity that's independently meaningful. A follow-up cycle should pull the actual Q4 2025 LD-2 filings to attribute the dollar increase to specific clients.",
+      "perspective": "internal"
+    }
+  ],
+  "connections": [
+    {
+      "from": "Linda Tarplin",
+      "to": "HHS (Bush 41 / Bush 43 era)",
+      "relationship": "Former HHS Deputy Assistant Secretary for Legislation; former White House Commissioned Officer under George H.W. Bush",
+      "evidence": "F1; TDY website"
+    },
+    {
+      "from": "Raissa Downs",
+      "to": "HHS Office of the Assistant Secretary for Legislation",
+      "relationship": "Former Principal Deputy Assistant Secretary for Legislation; spearheaded Medicare Part D implementation",
+      "evidence": "F1, F5; OpenSecrets RD profile 25639; ProPublica"
+    },
+    {
+      "from": "Jennifer Young",
+      "to": "HHS Office of the Assistant Secretary for Legislation",
+      "relationship": "Former Assistant Secretary for Legislation; Senior Counselor to HHS Secretary Mike Leavitt; integral to Medicare Part D passage and implementation",
+      "evidence": "F1, F5; TDY website; ProPublica"
+    },
+    {
+      "from": "Pam Smith",
+      "to": "Senate HELP Committee under Chairman Tom Harkin",
+      "relationship": "Former Staff Director and Deputy Staff Director, Senate HELP; former Legislative Director to Sen. Harkin; later VP Federal Advocacy at PhRMA, Deputy Director Gates Foundation US gov relations, and DOJ counsel",
+      "evidence": "F2; TDY website; LegiStorm; LDA disclosure form snippet"
+    },
+    {
+      "from": "Tarplin Downs & Young",
+      "to": "FGS Global",
+      "relationship": "Acquired by FGS Global on September 10, 2025; Downs and Young joined FGS as partners; Tarplin retired",
+      "evidence": "F3; FGS announcement; PRWeek; Politico Pulse"
+    },
+    {
+      "from": "Vertex Pharmaceuticals (TDY client, $6M+ cumulative)",
+      "to": "HHS Office of Inspector General",
+      "relationship": "Active federal litigation: Vertex sued HHS-OIG to set aside OIG's anti-kickback statute interpretation regarding its Casgevy fertility-preservation patient-assistance program. The agency Vertex is suing is the same agency where two of TDY's founders (Downs, Young) held the senior legislative-affairs roles.",
+      "evidence": "F7; Bass Berry analysis; Law360"
+    },
+    {
+      "from": "Michelle Easton (TDY lobbyist, 2009-)",
+      "to": "PhRMA / Senate Finance Committee under Sen. Baucus",
+      "relationship": "Former Senate Special Committee on Aging staff director during Medicare Part D debate; then VP PhRMA during Part D implementation; then chief health counsel to Sen. Max Baucus (Senate Finance Chair). A textbook agency-to-trade-to-committee revolving sequence.",
+      "evidence": "F5; ProPublica"
+    },
+    {
+      "from": "TDY",
+      "to": "Sen. Bernie Sanders (Senate HELP Chair 2023-)",
+      "relationship": "Indirect say-vs-pay: Sanders publicly attacked the $26,500/year list price of Alzheimer's drug Leqembi (Biogen/Eisai) and questioned its Medicare sustainability. TDY's $6.51M Alzheimer's Association engagement (per data-detective) historically lobbies for broader Medicare coverage of such drugs, aligning with manufacturer interests.",
+      "evidence": "F8; Healthcare Brew; data-detective brief"
+    }
+  ],
+  "gaps": [
+    "Specific direct HHS-OIG enforcement actions (settlements, exclusions, civil monetary penalties) against TDY clients Abbott, BCBS associations, and Alzheimer's Association during the 2022-2026 engagement window were not exhaustively scraped from oig.hhs.gov/fraud/enforcement during this 60-minute cycle. The Vertex-vs-OIG lawsuit (F7) is the strongest documented agency conflict but it is brought BY the client AGAINST OIG, not by OIG against the client. A second cycle should query the OIG enforcement database directly for each marquee client name across 2022-2026.",
+    "Inside Health Policy and Bloomberg Government coverage of TDY specifically is paywalled and was not directly accessed; only Politico Pulse and Politico Influence were scraped in full.",
+    "FARA filings: TDY's foreign-principal relationship via Valneva (F9) is documented under LDA but the firm does not appear to have FARA registrations; D10_fara_gap_narrowed.csv shows zero TDY matches. This is consistent with Valneva USA being a US-incorporated subsidiary lobbying on US legislation rather than a foreign-principal-on-behalf-of-Austria engagement.",
+    "Specific Q4 2025 LD-2 filings explaining the $5.29M D1 spike were not pulled by individual UUID this cycle; the acquisition-related billing hypothesis is plausible but not directly verified at the filing level.",
+    "Direct attribution of LDA-aggregated $32M to specific named partners (Pam Smith vs Raissa Downs vs Jennifer Young etc.) is a function of how the LDA `lobbyist` array repeats covered_position text for each filing — a single $440K BCBS retainer with 5 lobbyists named gets credited 5× by naive sums. The data-detective $32M figure is therefore an upper bound, not a per-lobbyist revenue allocation.",
+    "Direct verification that Linda Tarplin's HHS role (Deputy Assistant Secretary for Legislation, Office of Human Development Services Director of Office of Policy/Planning/Legislation) was held under the senior bipartisan-staff cooling-off-period rules in force at the time — was not pursued."
+  ],
+  "next_steps": [
+    "Pull HHS-OIG enforcement database directly (oig.hhs.gov/fraud/enforcement/?type=cmp-and-affirmative-exclusions) and filter by each TDY marquee client (Abbott, Vertex, BCBS, Alzheimer's Assn, Boehringer, Novartis, Lantheus, Becton Dickinson, AstraZeneca, Amgen, AbbVie) for the 2022-2026 window.",
+    "Pull the Q4 2025 LD-2 filings for TDY registrant (D000030285) individually from LDA.gov to attribute the $5.29M spike to specific new clients or new retainers, distinguishing acquisition-related billing from organic client growth.",
+    "Pull Vertex v. HHS-OIG complaint and docket (PACER / CourtListener) to confirm: (a) which district court, (b) named defendants, (c) named Vertex outside counsel — is TDY's name on the filing or attached as policy adviser?",
+    "Scrape Inside Health Policy paywall using Skill(spotlight:content-access) hierarchy for TDY-specific articles 2022-2026.",
+    "Cross-reference Pam Smith's PhRMA tenure dates with the period when PhRMA was a direct TDY client to identify any apparent direct-client revolving-door violation under LDA Section 2(a)(1).",
+    "Pull the full Senate HELP minority and majority press releases 2022-2026 against TDY clients (BCBS, Vertex, Abbott, BIO, Boehringer) and replicate the D12 say-vs-pay analysis for TDY-Smith specifically, since D12 did not include TDY."
+  ],
+  "monitoring_recommendations": [
+    {
+      "id": "M1",
+      "target": "https://tdyllc.com/",
+      "scout_type": "web",
+      "criteria": "Watch for any post-acquisition rebranding, partner-roster changes, or migration onto a fgsglobal.com health-policy subpath. Particularly: detection of Raissa Downs or Jennifer Young leaving the FGS roster, or Linda Tarplin returning to the firm.",
+      "rationale": "F3 documents an active corporate transition; the public-facing tdyllc.com page is the most reliable canary for partner-departure or rebranding.",
+      "priority": "medium",
+      "finding_refs": ["F3", "F4"]
+    },
+    {
+      "id": "M2",
+      "target": "https://oig.hhs.gov/fraud/enforcement/",
+      "scout_type": "web",
+      "criteria": "Monitor for new enforcement actions naming Vertex Pharmaceuticals, Abbott Laboratories, AbbVie, Blue Cross Blue Shield Association or any BCBS regional plan, Boehringer Ingelheim, Amgen, AstraZeneca, Boston Scientific, Becton Dickinson, Lantheus Holdings, Novartis, Astellas, Amneal, Amylyx, or Jazz Pharmaceuticals — all 2024 TDY clients.",
+      "rationale": "F7 demonstrates active agency conflict with one TDY client. Other clients are exposed to similar AKS/CMP risk, and OIG actions during the engagement window are the strongest say-vs-pay story.",
+      "priority": "high",
+      "finding_refs": ["F7", "F8"]
+    },
+    {
+      "id": "M3",
+      "target": "https://www.opensecrets.org/federal-lobbying/firms/summary?id=D000030285",
+      "scout_type": "web",
+      "criteria": "Track new clients added to TDY post-acquisition; specifically watch for non-healthcare clients (Chapter, General Catalyst already appearing in Q1 2026) indicating an FGS-driven expansion beyond healthcare.",
+      "rationale": "F6 shows post-acquisition client-count growth from 64 (2024) to 82 (Q1 2026). The mix shift matters: TDY's brand is healthcare boutique, so any AI / VC / fintech additions signal FGS using the TDY registrant as a vehicle.",
+      "priority": "medium",
+      "finding_refs": ["F3", "F6"]
+    }
+  ]
+}

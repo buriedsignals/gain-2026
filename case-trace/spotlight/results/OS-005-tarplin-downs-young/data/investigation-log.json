@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "cycles": [
+    {
+      "cycle": 1,
+      "timestamp": "2026-05-22T14:50:00Z",
+      "focus": "Initial profile of Tarplin, Downs & Young: founder identity, partner roster, HHS revolving-door pattern, client portfolio, recent FGS Global acquisition, Vertex-OIG litigation, and assessment of whether the cluster warrants promotion to a data-detective finding parallel to C-004 Brownstein Hyatt.",
+      "methodology": {
+        "techniques_used": [
+          "Firm-website partner-page scrape with verbatim bio extraction",
+          "OpenSecrets firm and lobbyist profile pivots (registrant ID D000030285)",
+          "OpenSecrets revolving-door profile chain (IDs 25639, 70245, 80161)",
+          "LegiStorm firm-summary cross-reference for congressional employment fields",
+          "ProPublica archival corroboration of revolving-door pattern (2009 Medicare Part D investigation)",
+          "Healthcare-trade-press scan via firecrawl search (PRWeek, Politico Pulse, Politico Influence)",
+          "Legal-analysis-blog scan for active client-vs-agency litigation (Bass Berry on Vertex v. HHS-OIG)",
+          "Bill-level LDA scrape via OpenSecrets bills page",
+          "Wayback Machine archival submission for canonical tdyllc.com homepage",
+          "Cross-check of data-detective brief's claim against OpenSecrets / LegiStorm / firm-website primary sources to identify a name-attribution error"
+        ],
+        "tools_used": [
+          "firecrawl search",
+          "firecrawl scrape",
+          "Wayback Machine save endpoint via curl",
+          "Read on data-detective CSVs (D1, D4, D11, D12)"
+        ],
+        "search_queries": [
+          "Tarplin Downs Young LLC lobbying firm Washington healthcare",
+          "FGS Global acquires Tarplin Downs Young announcement press release",
+          "Pamela Smith OpenSecrets revolving door Tarplin Downs Young Senator Harkin",
+          "Jennifer Young Tarplin Downs Young OpenSecrets HHS Assistant Secretary Legislation",
+          "Tarplin Downs Young Politico Inside Health Policy Bloomberg Government lobbying",
+          "HHS OIG enforcement Vertex Pharmaceuticals settlement civil monetary False Claims",
+          "Bernie Sanders attacks pharma Vertex Abbott BCBS Alzheimer Association drug prices Senate HELP Finance"
+        ],
+        "failed_approaches": [
+          "PRWeek paywall returned only headline + deck — could not access full text of the acquisition article. Headline+deck were enough to corroborate founders.",
+          "Law360 paywall on the Vertex-OIG complaint coverage — could not access; relied on Bass Berry analytical secondary source.",
+          "Initial Wayback availability lookups returned 429 Too Many Requests; relied on save endpoint returning 302 with archived URL.",
+          "D12 detector CSV does not include TDY at all — D12 appears to have used a more restrictive direct-attack analysis. Documented as a gap for follow-up."
+        ]
+      },
+      "sources_consulted": [
+        {"url": "https://tdyllc.com/", "type": "corporate", "accessed": "2026-05-22T14:36:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/firms/summary?cycle=2024&id=D000030285", "type": "registry", "accessed": "2026-05-22T14:36:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/firms/lobbyists?cycle=2024&id=D000030285", "type": "registry", "accessed": "2026-05-22T14:39:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/firms/bills?cycle=2024&id=D000030285", "type": "registry", "accessed": "2026-05-22T14:42:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/federal-lobbying/firms/summary?cycle=2026&id=D000030285", "type": "registry", "accessed": "2026-05-22T14:42:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/revolving-door/summary?id=25639", "type": "registry", "accessed": "2026-05-22T14:40:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/revolving-door/summary?id=70245", "type": "registry", "accessed": "2026-05-22T14:40:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/revolving-door/summary?id=80161", "type": "registry", "accessed": "2026-05-22T14:40:00Z", "useful": true},
+        {"url": "https://www.legistorm.com/organization/summary/40544/Tarplin_Downs_Young_LLC.html", "type": "registry", "accessed": "2026-05-22T14:39:00Z", "useful": true},
+        {"url": "https://fgsglobal.com/insights/fgs-global-acquires-tarplin-downs-young-llc", "type": "corporate", "accessed": "2026-05-22T14:39:00Z", "useful": true},
+        {"url": "https://www.prweek.com/article/1931828/fgs-global-acquires-healthcare-policy-advocacy-firm-tarplin-downs-young", "type": "news", "accessed": "2026-05-22T14:38:00Z", "useful": true},
+        {"url": "https://www.politico.com/newsletters/politico-pulse/2026/02/18/health-lobbying-bonanza-continues-00784619", "type": "news", "accessed": "2026-05-22T14:39:00Z", "useful": true},
+        {"url": "https://www.politico.com/newsletters/politico-influence/2026/04/22/health-care-industrys-big-q1-00887432", "type": "news", "accessed": "2026-05-22T14:42:00Z", "useful": true},
+        {"url": "https://www.propublica.org/article/medicare-drug-plan-architects-now-drug-company-lobbyists-102009", "type": "news", "accessed": "2026-05-22T14:40:00Z", "useful": true},
+        {"url": "https://www.bassberry.com/news/vertex-challenge-to-hhs-oig-interpretation-of-inducement/", "type": "legal", "accessed": "2026-05-22T14:43:00Z", "useful": true},
+        {"url": "https://www.healthcare-brew.com/stories/2023/07/12/sen-bernie-sanders-calls-on-hhs-to-address-high-price-of-new-alzheimer-s-drug", "type": "news", "accessed": "2026-05-22T14:45:00Z", "useful": true},
+        {"url": "https://www.privsource.com/acquisitions/deal/D8SyWg", "type": "news", "accessed": "2026-05-22T14:39:00Z", "useful": false}
+      ],
+      "findings_added": 10,
+      "findings_upgraded": 0,
+      "gaps_resolved": [],
+      "gaps_remaining": [
+        "Specific direct HHS-OIG enforcement actions against TDY marquee clients (Abbott, BCBS, Alzheimer's Assn) in 2022-2026",
+        "Inside Health Policy / Bloomberg Government coverage of TDY",
+        "Per-filing attribution of the Q4 2025 $5.29M D1 spike",
+        "PACER/CourtListener docket for Vertex v. HHS-OIG with named outside counsel",
+        "TDY-specific say-vs-pay replication of D12 detector",
+        "Per-lobbyist (vs aggregate) revenue allocation correcting the LDA-naive sum"
+      ],
+      "notes": "The most consequential finding of cycle 1 is the correction of the data-detective brief's name-attribution: Pam Smith is NOT the HHS Principal Deputy Asst Sec; that role belongs to Raissa Downs. The LDA covered_position field aggregates positions across all lobbyists on a filing, which produced the apparent overlap. Once corrected, the TDY cluster geometry is in fact STRONGER than the brief described: TWO of the three co-founders (Downs, Young) held the senior HHS Office of Legislation roles, and a third senior partner (Smith) was Staff Director of the Senate HELP Committee under Chair Harkin. The firm is documentably the institutional home for Medicare Part D architects who became drug-company lobbyists (ProPublica 2009), and its Sept 2025 acquisition by FGS Global is itself a market-structure event of note. The Vertex v. HHS-OIG active litigation is the strongest single claim for promotion to a Brownstein-Hyatt-parallel finding: a $6M+ client in active federal litigation against the agency where two of the firm's founders held senior legislative-affairs roles."
+    }
+  ]
+}

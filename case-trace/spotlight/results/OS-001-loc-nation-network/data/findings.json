@@ -1,0 +1,509 @@
+{
+  "schema_version": "1.0",
+  "project": "OS-001-loc-nation-network",
+  "lead": "External OSINT amplification of data-detective C-001 (LOC Nation $180M LDA filings) and the second-instance THEYFEARTRUTH FEDERAL GOVERNMENT OF AMERICA / Rico Dukes filing.",
+  "investigated_at": "2026-05-22T12:36:14Z",
+  "cycle": 1,
+  "investigation_mode": "external_osint_amplification",
+  "passover_from": "data-detective:C-001",
+  "questions": [
+    "Is there a documented network of shell LLCs tied to Christina Loren Clement, Rico Dukes, or the registered-agent address 8 The Green Suite A?",
+    "What is the full federal litigation footprint of each operator?",
+    "Are Clement and Dukes operationally connected, or are they independent sovereign-citizen-style filers occupying the same niche?",
+    "Has any extremism-research institution (SPLC, ADL, GW Program on Extremism) profiled LOC Nation or THEYFEARTRUTH?",
+    "What is the press / regulatory exposure record on Clement's lobbying disclosures, presidential candidacy, and Senate Georgia 2026 run?"
+  ],
+  "findings": [
+    {
+      "id": "OS-F1",
+      "claim": "The FEC issued a formal warning letter dated April 28, 2026 to Clement's Senate committee (STATE OF LOC NATION FOR CLEMENT FOR SENATE, ID C00857128) after she reported a $50.25 million self-loan in her Q1 2026 filing, and the FEC subsequently moved the loan entry out of its searchable database into its 'False and Fictitious Filings' miscellaneous repository on the committee's page. The amount is 10x larger than any other self-loan in the 2026 election cycle.",
+      "evidence": "OpenSecrets (Joedy McCreary, May 15, 2026): 'A write‑in Senate candidate in Georgia who reported loaning her own campaign more than $50 million has drawn a warning letter from the Federal Election Commission saying the filing may be inaccurate and reminding her that knowingly submitting false information can carry civil or criminal penalties. ... The FEC on Friday then removed the loan entry from its searchable online database and placed it in a separate repository for miscellaneous documents on the committee's page, agency spokesperson Myles Martin said. ... [FEC] filings deemed unverified or potentially false are moved to the commission's “False and Fictitious Filings” section, where they remain public but are excluded from its searchable database and campaign finance statistics.' The FEC committee page itself (C00857128) shows three 'Miscellaneous Report to FEC 2026' entries (FEC-1972827, dated 05/05/2026, 7 pages; plus filings dated 04/12/2026 and 02/10/2026) under 'Other documents' — consistent with FEC's documented process of moving questionable filings out of mainline reports.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/news/2026/05/georgia-senate-candidate-christina-clement-reports-50m-self-loan",
+          "type": "news",
+          "accessed": "2026-05-22T12:21:00Z",
+          "archive_url": "https://web.archive.org/web/20260522122626/https://www.opensecrets.org/news/2026/05/georgia-senate-candidate-christina-clement-reports-50m-self-loan",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/opensecrets-clement-50m-self-loan.md"
+        },
+        {
+          "url": "https://www.fec.gov/data/committee/C00857128/?cycle=2026",
+          "type": "government",
+          "accessed": "2026-05-22T12:28:00Z",
+          "archive_url": "https://web.archive.org/web/20260522122808/https://www.fec.gov/data/committee/C00857128/?cycle=2026",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/fec-committee-c00857128.md"
+        },
+        {
+          "url": "https://www.fec.gov/data/committee/C00857128/?cycle=2026&tab=filings",
+          "type": "government",
+          "accessed": "2026-05-22T12:33:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/fec-committee-c00857128-filings.md"
+        },
+        {
+          "url": "https://www.documentcloud.org/documents/28124610-fec-clement/",
+          "type": "government",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "abstract_only",
+          "access_notes": "Referenced from OpenSecrets article as the April 28, 2026 FEC warning letter; not directly scraped but content described verbatim by OpenSecrets which is the primary reporting outlet for FEC RAD review documents."
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Two independent primary sources (FEC.gov committee page + OpenSecrets investigative piece) plus FEC spokesperson on the record. The FEC committee page itself shows the miscellaneous-filing reclassification.",
+      "perspective": "regulatory_official + independent_observer",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F2",
+      "claim": "Clement's $50.25M reported self-loan is not cash; it is the asserted fair-market value of a license to her own 'Loc Nation Dollar' (LND) intellectual property — a sovereign-currency framework she calls 'the official Black dollar' pegged at '1 LND = $750 USD' by her own published policy. Her campaign's May 5, 2026 response to the FEC provided no evidence that any cash was deposited into the campaign account.",
+      "evidence": "OpenSecrets: 'Clement said the filing reflects a complex valuation of a license to her own currency-related intellectual property and referred OpenSecrets to a website describing the “LND” monetary unit, but did not provide evidence that any funds were deposited into the campaign's account.' And: 'Clement's response to OpenSecrets included a set of self‑prepared notarized documents asserting that the campaign's reported $50.25 million “loan” reflects the value of a limited non‑exclusive license to her own intellectual property... But they do not include any evidence showing that $50 million was ever deposited into the campaign's account. Nor do they demonstrate the existence of liquid funds corresponding to the amount reported to the FEC.' The State of Loc Nation 'About' page press release of May 18, 2025 states: 'The Loc Nation Dollar (LND), pegged at 1 LND = $750 USD, is the initial step in rebalancing historical accounts.' John Martin, election-law professor at Quinnipiac, told OpenSecrets the filing is plausibly 'a typo, or it's fabricated... I wouldn't be surprised if somebody forged a self-loan to profit off third-party contributions.'",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/news/2026/05/georgia-senate-candidate-christina-clement-reports-50m-self-loan",
+          "type": "news",
+          "accessed": "2026-05-22T12:21:00Z",
+          "archive_url": "https://web.archive.org/web/20260522122626/https://www.opensecrets.org/news/2026/05/georgia-senate-candidate-christina-clement-reports-50m-self-loan",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/opensecrets-clement-50m-self-loan.md"
+        },
+        {
+          "url": "https://stateoflocnation.com/about",
+          "type": "self_published",
+          "accessed": "2026-05-22T12:30:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/stateoflocnation-about.md"
+        },
+        {
+          "url": "https://stateoflocnation.com/soln-central-bank-gov",
+          "type": "self_published",
+          "accessed": "2026-05-22T12:31:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/soln-central-bank-gov.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "OpenSecrets obtained the campaign's own response to the FEC and quotes Clement directly; primary source (her own website) confirms the LND framework and the 1 LND = $750 USD peg.",
+      "perspective": "independent_observer + corporate (Clement)",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F3",
+      "claim": "Clement and Dukes both registered with the FEC as 2024 presidential candidates and now also lead self-styled 'sovereign government' entities that file federal lobbying disclosures. Clement: FEC candidate ID P40016412, REPUBLICAN PARTY, principal committee 'CLEMENT, CHRISTINA LOREN REV DR LLC'. Dukes: FEC candidate ID P00011163, AMERICAN INDEPENDENT PARTY, principal committee 'THEYFEARTRUTH PRESIDENTIAL COMMITTEE' (C00884064), statement of candidacy filed 08/17/2021 (Form FEC-1534886). Ballotpedia explicitly classifies Clement's 2024 ballot label as 'State of Loc Nation Party' in Georgia for November 5, 2024.",
+      "evidence": "FEC candidate page P40016412: 'CLEMENT, CHRISTINA LOREN REV DR LLC ... Candidate for President ID: P40016412 REPUBLICAN PARTY'. FEC candidate page P00011163: 'DUKES, RICO CORTEZ ... Candidate for President ID: P00011163 AMERICAN INDEPENDENT PARTY ... Statement of candidacy: FEC-1534886 Filed 08/17/2021 ... THEYFEARTRUTH PRESIDENTIAL COMMITTEE (C00884064) Principal campaign committee'. Ballotpedia: 'Christina Clement (State of Loc Nation Party) ran for election to President of the United States in Georgia on November 5, 2024.'",
+      "sources": [
+        {
+          "url": "https://www.fec.gov/data/candidate/P40016412/",
+          "type": "government",
+          "accessed": "2026-05-22T12:31:00Z",
+          "archive_url": "https://web.archive.org/web/20260522123339/https://www.fec.gov/data/candidate/P40016412/",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/fec-clement-pres-P40016412.md"
+        },
+        {
+          "url": "https://www.fec.gov/data/candidate/P00011163/",
+          "type": "government",
+          "accessed": "2026-05-22T12:31:00Z",
+          "archive_url": "https://web.archive.org/web/20260522123538/https://www.fec.gov/data/candidate/P00011163/",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/fec-dukes-pres-P00011163.md"
+        },
+        {
+          "url": "https://ballotpedia.org/Christina_Clement_(President_of_the_United_States,_Georgia,_candidate_2024)",
+          "type": "reference",
+          "accessed": "2026-05-22T12:31:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/ballotpedia-clement-2024-pres.md"
+        },
+        {
+          "url": "https://ballotpedia.org/Christina_Loren_Clement",
+          "type": "reference",
+          "accessed": "2026-05-22T12:31:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/ballotpedia-clement.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Three independent primary sources: FEC for both candidates (Wayback-archived) plus Ballotpedia for ballot label. Direct verbatim text on each.",
+      "perspective": "official",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F4",
+      "claim": "Rico Cortez Dukes (b. August 26, 1979, Shreveport LA) has filed at least 11 pro se federal civil actions in the U.S. District Court for the Northern District of Texas in 2017-2021, all dismissed. The docket pattern — including 'Dukes v. United States' (3:17-cv-02063), 'Dukes v. Trump' (3:17-cv-02167), 'Dukes v. Roman Empire' (3:17-cv-02834), 'Dukes v. Federal Reserve Central Bank' (3:17-cv-02510), 'Dukes v. Shreveport LA' (3:17-cv-02506), 'Dukes v. Denton County Court' (3:17-cv-02066), 'Dukes v. Barnes', 'Dukes v. Hatch', 'Dukes v. Brody', 'Dukes v. Lee' (3:21-cv-00305-K-BK) — is the textbook serial-litigant sovereign-citizen profile (named opposing parties of sovereign-citizen interest, subject-matter-jurisdiction arguments, IFP motions). The 2017 court documents include a recommendation of dismissal of Dukes's 'criminal complaint' (Case 3:17-cv-02509-D-BH).",
+      "evidence": "CourtListener docket listings: Dukes v. Denton County Court 3:17-cv-02066 (filed 08/04/2017); Dukes v. Barnes 3:17-cv-02064; Dukes v. United States 3:17-cv-02063 ('COMPLAINT against United States of America filed by RicoDukes'); Dukes v. Trump 3:17-cv-02167; Dukes v. Roman Empire 3:17-cv-02834; Dukes v. Federal Reserve Central Bank 3:17-cv-02510; Dukes v. Shreveport LA 3:17-cv-02506; Dukes v. Hatch 3:17-cv-02065; Dukes v. Brody 3:18-cv-02189; Dukes v. United States 3:17-cv-01657; Dukes v. Lee 3:21-cv-00305-K-BK. GovInfo PDF for 3:17-cv-02509-D-BH: 'recommending dismissal of Rico Dukes’ “criminal complaint”'. Dukes's own Wikimedia profile narrates: 'Texas Federal Northern District Court Judge KINKEADE ruled that the courts lack Subject matter jurisdiction over Rico Dukes are Theyfeartruth Federal Government of America in The Dukes v Lee case.'",
+      "sources": [
+        {
+          "url": "https://www.courtlistener.com/?type=r&q=Rico+Dukes",
+          "type": "court_filing",
+          "accessed": "2026-05-22T12:30:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/courtlistener-rico-dukes-search.md"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/User:Rico_Cortez_Dukes",
+          "type": "self_published",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/wikimedia-rico-dukes.md"
+        },
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USCOURTS-txnd-3_17-cv-02509/pdf/USCOURTS-txnd-3_17-cv-02509-0.pdf",
+          "type": "court_filing",
+          "accessed": "2026-05-22T12:26:00Z",
+          "access_method": "abstract_only",
+          "access_notes": "PDF referenced via search; not directly scraped, but the citing search result quotes verbatim from the published opinion."
+        },
+        {
+          "url": "https://clearinghouse.net/case/44879/",
+          "type": "court_filing",
+          "accessed": "2026-05-22T12:26:00Z",
+          "access_method": "abstract_only"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Multiple federal court dockets independently confirmed via CourtListener; case names and numbers cross-verified across CourtListener, GovInfo, CaseMine, and Clearinghouse. The 'Dukes v. Roman Empire' filing is dispositive of the sovereign-citizen profile.",
+      "perspective": "official",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F5",
+      "claim": "On the available evidence as of May 22, 2026, there is NO documented operational connection between Christina Loren Clement / State of LOC Nation and Rico Cortez Dukes / THEYFEARTRUTH FEDERAL GOVERNMENT OF AMERICA. The two operators share a pattern (self-declared sovereign government, 2024 FEC presidential candidacy, LDA filing under their own self-government entity, prolific self-publishing) but no shared address, registered agent, lawyer, court filing, corporate officer, or social-media cross-pollination has surfaced. Searches for 'Rico Dukes' + 'Christina Clement' / 'LOC Nation' return only flat directory listings (Politics1's 2028 presidential candidates registry lists both as separate, unaffiliated entries). Their digital footprints are disjoint: Clement at @dynastyhealing / queenclc1 (Atlanta-Dover-Apopka triangle), Dukes at @official_son_of_huey_p_newton (Shreveport-Dallas).",
+      "evidence": "Three targeted searches ('\\\"Rico Dukes\\\" \\\"Christina Clement\\\"', '\\\"Rico Dukes\\\" Christina OR Clement OR \\\"loc nation\\\" connection collaboration', '\\\"State of LOC Nation\\\" OR \\\"LOC Nation\\\" reparations sovereign') returned zero co-mentions. Politics1's 2028 presidential candidates page lists 'Christina Clement (DE)' (at line 429) and 'Rico Dukes (I-TX)' (at line 716) as separate alphabetical entries with no cross-reference. Geography is disjoint: Dukes founded THEYFEARTRUTH at '1818 Coriscana St in Dallas' per his Wikimedia self-bio; Clement operates from Atlanta GA, Apopka FL (2787 S Orange Blossom Trl per Northrop Grumman bankruptcy creditor matrix), and Dover DE (Christina Loren Clement LLC).",
+      "sources": [
+        {
+          "url": "https://politics1.com/p2028.htm",
+          "type": "reference",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/politics1-2028-presidential.md"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/User:Rico_Cortez_Dukes",
+          "type": "self_published",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/wikimedia-rico-dukes.md"
+        }
+      ],
+      "confidence": "medium",
+      "confidence_rationale": "Negative finding. Absence of evidence is not evidence of absence — a private connection (shared lawyer, off-line meeting) cannot be ruled out from open-source signal. But the affirmative null across multiple OSINT vectors supports 'independent sovereign-citizen-style filers occupying the same niche, not a coordinated network' over 'operationally connected'. The Spotlight finding stands as: distinct cells of a broader movement, not a single network.",
+      "perspective": "independent_observer",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F6",
+      "claim": "Clement is on the November 3, 2026 Georgia general election ballot as a write-in candidate for U.S. Senate, registered with the FEC as a REPUBLICAN PARTY candidate (ID S6GA00366, statement of candidacy filed 05/08/2025, FEC-1891410). Her name was NOT on the May 19, 2026 Republican primary ballot (Fulton County composite ballot). Her FEC committee 'STATE OF LOC NATION FOR CLEMENT FOR SENATE' was registered on November 17, 2023. Despite the Republican registration she campaigns under the 'Loc Nation Party' brand and has had at least four direct local-press appearances (WTOC, Savannah Morning News, Yahoo News, WSAV) in March-April 2026 covering her economic-justice / Black Dollar Initiative pitch alongside the mainstream GOP field.",
+      "evidence": "FEC candidate page S6GA00366: 'Candidate for Senate Georgia ID: S6GA00366 REPUBLICAN PARTY ... Statement of candidacy: Filed 05/08/2025'. FEC committee C00857128: 'STATE OF LOC NATION FOR CLEMENT FOR SENATE ... ID: C00857128 Registration date: November 17, 2023'. Ballotpedia: 'Christina Loren Clement (Republican Party) is running for election to the U.S. Senate to represent Georgia. She declared candidacy as a write-in for the general election scheduled on November 3, 2026.' WTOC (Greg Pickel, April 1, 2026): 'Write-in candidate Rev. Dr. Christina Clement, with the Loc Nation Party, spoke next. She focused on restitution policy, economic justice, and what she called the Black Dollar Initiative.' Savannah Morning News (Evan Lasseter, April 2, 2026): 'The fourth candidate, Clement, did not qualify for the race and is running as a write-in candidate. Clement promoted her community benefit corporation, Loc Nation Global Public Benefit Corporation.' OpenSecrets: 'While FEC records show Clement is a Republican, her name does not appear on the ballot for the May 19 Georgia primary.'",
+      "sources": [
+        {
+          "url": "https://www.fec.gov/data/candidate/S6GA00366/?cycle=2026",
+          "type": "government",
+          "accessed": "2026-05-22T12:30:00Z",
+          "archive_url": "https://web.archive.org/web/20260522123129/https://www.fec.gov/data/candidate/S6GA00366/?cycle=2026",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/fec-candidate-S6GA00366.md"
+        },
+        {
+          "url": "https://ballotpedia.org/Christina_Loren_Clement",
+          "type": "reference",
+          "accessed": "2026-05-22T12:31:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/ballotpedia-clement.md"
+        },
+        {
+          "url": "https://www.wtoc.com/2026/04/01/georgias-senate-race-heats-up-four-candidates-pitch-savannah-voters/",
+          "type": "news",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/wtoc-senate-race-clement.md"
+        },
+        {
+          "url": "https://www.savannahnow.com/story/news/local/2026/04/02/georgia-republican-senate-primary-candidates-speak-at-savannah-area-event/89423953007/",
+          "type": "news",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/savannahnow-clement.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "FEC primary record + Ballotpedia + two independent local news outlets converge on identical facts.",
+      "perspective": "official + affected_community + independent_observer",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F7",
+      "claim": "The registered-agent address '8 The Green, Suite A, Dover, DE 19901' that data-detective flagged is the office of 'A Registered Agent, Inc.' / 'Delaware Corporate Headquarters LLC', a mass-LLC commercial registered-agent provider used by thousands of unrelated corporate clients (e.g., TRN Finance 4 LLC, BTEK Holdings LLC, Complete Reservation Solutions LLC, and entities listed on FMCSA's process-agent registry). It is NOT a Clement-cluster signal. Christina Loren Clement LLC simply uses this same commercial RA service — the address therefore does not by itself indicate a network of shell entities tied to Clement.",
+      "evidence": "Delaware Division of Corporations registered-agents listing: 'Delaware Corporate Headquarters LLC, 8 The Green, Suite A, Dover, DE 19901. Kent County. Phone: (302) 288-0670.' Simplify LLC registered-agent comparison: 'Address: 8 The Green, Suite A, Dover, DE 19901.' SEC EDGAR filing (Certificate of Formation): 'The address of the registered office of the Company in the State of Delaware is c/o A Registered Agent, Inc., 8 The Green, Suite A, in the City of Dover, County [of Kent].' FMCSA process-agent CSV lists multiple unrelated trucking entities at the same suite. Bloomberg LEI for TRN Finance 4 LLC: 'Legal Address. c/o A Registered Agent, Inc., 8 The Green, Suite A Dover, Delaware (US-DE), 19901.' West Virginia SOS shows BTEK Holdings LLC also using this RA.",
+      "sources": [
+        {
+          "url": "https://corp.delaware.gov/agents/",
+          "type": "government",
+          "accessed": "2026-05-22T12:22:00Z",
+          "access_method": "abstract_only",
+          "access_notes": "Search snippet confirms address; the Delaware corp search portal requires interactive search and does not expose a static list of all LLCs at a given RA address — a paid Bizapedia/OpenCorporates pull would be needed to enumerate."
+        },
+        {
+          "url": "https://www.simplifyllc.com/registered-agents/delaware/",
+          "type": "reference",
+          "accessed": "2026-05-22T12:22:00Z",
+          "access_method": "abstract_only"
+        },
+        {
+          "url": "https://lei.bloomberg.com/leis/view/5299003BD589OC5I6287",
+          "type": "registry",
+          "accessed": "2026-05-22T12:22:00Z",
+          "access_method": "abstract_only"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "The address is documented across multiple independent corporate filings as a commercial RA office; the inferential bridge 'shared address → network' is broken by this single fact. SIFT-disconfirmed; finding is the disconfirmation, not the network.",
+      "perspective": "independent_observer",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F8",
+      "claim": "stateoflocnation.com was first archived by the Wayback Machine on October 8, 2022 — 16 months BEFORE Clement filed CLEMENT v. GARLAND (Feb 13, 2024) and 13 months before her FEC committee 'STATE OF LOC NATION FOR CLEMENT FOR SENATE' was registered (Nov 17, 2023). The website therefore predates both the federal litigation and the FEC committee that are now its main rhetorical anchors. The Wayback CDX index shows continuous active capture through at least March 15, 2026 (55+ day-collapsed snapshots between Oct 2022 and Mar 2026).",
+      "evidence": "Wayback CDX query (web.archive.org/cdx/search/cdx?url=stateoflocnation.com) earliest capture: '20221008005255 200 https://stateoflocnation.com/'. Latest capture in pull: '20260315023551 https://stateoflocnation.com/'. CourtListener docket for 1:24-cv-00479: 'Date Filed: Feb. 13, 2024'. FEC committee C00857128 page: 'Registration date: November 17, 2023.'",
+      "sources": [
+        {
+          "url": "https://web.archive.org/cdx/search/cdx?url=stateoflocnation.com&output=json&from=20220101&to=20260601&fl=timestamp,original&collapse=timestamp:8",
+          "type": "archive",
+          "accessed": "2026-05-22T12:22:00Z",
+          "access_method": "full_text",
+          "local_file": "/tmp/cdx-soln-all.json"
+        },
+        {
+          "url": "https://www.courtlistener.com/docket/68269445/clement-v-garland/",
+          "type": "court_filing",
+          "accessed": "2026-05-22T12:29:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/courtlistener-clement-garland.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Wayback CDX is canonical; CourtListener docket dates are canonical. Cross-check is mechanical.",
+      "perspective": "independent_observer",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F9",
+      "claim": "Clement's CLEMENT v. GARLAND complaint (1:24-cv-00479-RC, D.D.C.) was dismissed without prejudice on October 28, 2024 by Judge Rudolph Contreras for failure to serve defendants under FRCP 4(m). Multiple subsequent post-judgment motions (default judgment, reconsideration, motion to establish justice, motion to compel) were denied. Clement filed a Notice of Appeal pro se on 11/19/2024 with no fee paid; USCA Case 24-5263 was opened in the D.C. Circuit. The case is the ONLY federal-court hook on which the SOLN $180M LDA filings, the LND currency, and the $50.25M Senate self-loan all rest — yet it produced no money judgment, no land award, no recognition of any 'State of Loc Nation'.",
+      "evidence": "CourtListener docket 1:24-cv-00479: 'ORDER denying 77 Motion for Entry of Default; denying 78 Motion for Injunction; denying 79 Motion to Establish Justice; denying 83 Motion to Compel; and dismissing without prejudice Plaintiff's claims for failure to serve Defendants pursuant to Fed. R. Civ. P. 4(m). See document for details. Signed by Judge Rudolph Contreras on 10/28/2024.' Subsequent: 'MINUTE ORDER denying 86 Motion for Reconsideration: It is hereby ORDERED that Plaintiff's motion for reconsideration re 84 Order is DENIED, as the matter is closed/dismissed. SO ORDERED. Signed by Judge Rudolph Contreras on 11/12/2024.' 'NOTICE OF APPEAL TO DC CIRCUIT COURT as to 11/12/2024 MINUTE Order on Motion for Reconsideration, by CHRISTINA CLEMENT. Fee Status: No Fee Paid. (Entered: 11/19/2024).' 'USCA Case Number 24-5263 for 88 Notice of Appeal to DC Circuit Court filed by CHRISTINA CLEMENT.' LegiStorm article (Pro News 4318): 'Clement has also claimed to have secured a $500 quadrillion legal judgment and land rights for 1.4 trillion people in a lawsuit against then-U.S. Attorney General Merrick Garland. Federal court records show the case was dismissed without any such ruling.'",
+      "sources": [
+        {
+          "url": "https://www.courtlistener.com/docket/68269445/clement-v-garland/",
+          "type": "court_filing",
+          "accessed": "2026-05-22T12:29:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/courtlistener-clement-garland.md"
+        },
+        {
+          "url": "https://www.legistorm.com/pro_news/4318/sovereignty-group-claims-40m-lobbying-total.html",
+          "type": "news",
+          "accessed": "2026-05-22T12:28:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/legistorm-sovereignty-group-40m.md",
+          "access_notes": "Article body fully visible in markdown scrape — no paywall walled this URL despite the brief flagging it as paywalled."
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Primary court docket directly accessed; independent secondary (LegiStorm) confirms the dispositive fact that the $500 quadrillion / land award claims map to a dismissed (not adjudicated) case.",
+      "perspective": "official + independent_observer",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F10",
+      "claim": "No specialised extremism-research institution (SPLC, ADL, GW Program on Extremism, or any other indexed Hatewatch / counter-extremism profile) has yet published a dedicated profile of the State of LOC Nation, LOC Community Association, Christina Loren Clement, Rico Dukes, or THEYFEARTRUTH FEDERAL GOVERNMENT OF AMERICA, despite (a) the textbook sovereign-citizen-style litigation profile of each operator and (b) the unprecedented LDA-filing and self-loan amounts. SPLC's 'March 2025 Trends, Rhetoric and Incidents of the Hard Right' memo and ADL's 'extremely' newsletter both cover sovereign-citizen activity generically (RuSA, Moorish sovereign citizens, shootout stats) but neither names LOC Nation or THEYFEARTRUTH. The State of Loc Nation's own May 18, 2025 press release pre-emptively states 'SOLN affirms that it is not a sovereign citizen group, but a duly organized post-reparative governing body' — a self-disavowal that is itself a textbook sovereign-citizen rhetorical move.",
+      "evidence": "Targeted searches on 'site:splcenter.org OR site:adl.org OR site:gwu.edu \\\"sovereign citizen\\\" black OR Moorish 2024 OR 2025 reparations' and on '\\\"State of LOC Nation\\\" OR \\\"LOC Nation\\\" extremism researcher OR journalist OR profile' returned only generic sovereign-citizen coverage (SPLC March 2025 Hatewatch memo, ADL extremely newsletter, SPLC 2017 'All Forms of Violence Need Condemnation' report on Moorish sovereign citizens) plus stateoflocnation.com's own self-disavowal. No SPLC/ADL profile of LOC Nation, Clement, Dukes, or THEYFEARTRUTH surfaces in open search. State of Loc Nation press release of May 18, 2025: 'Contrary to misinterpretations, SOLN affirms that it is not a sovereign citizen group, but a duly organized post-reparative governing body structured to inherit and modernize the financial, legal, and moral obligations of the United States.'",
+      "sources": [
+        {
+          "url": "https://www.splcenter.org/resources/hatewatch/march-2025-research-memo/",
+          "type": "ngo_report",
+          "accessed": "2026-05-22T12:24:00Z",
+          "access_method": "abstract_only",
+          "access_notes": "Snippet confirms LOC Nation is not named in SPLC's March 2025 trends memo."
+        },
+        {
+          "url": "https://www.adl.org/resources/article/extremely-newsletter",
+          "type": "ngo_report",
+          "accessed": "2026-05-22T12:24:00Z",
+          "access_method": "abstract_only"
+        },
+        {
+          "url": "https://stateoflocnation.com/about",
+          "type": "self_published",
+          "accessed": "2026-05-22T12:30:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/stateoflocnation-about.md"
+        }
+      ],
+      "confidence": "medium",
+      "confidence_rationale": "Negative finding via open search; specialist databases (full SPLC Hatewatch index, ADL CoE, GW PoE individual subject files) are not fully open-search-indexed. A definitive 'never profiled' would require direct outreach to SPLC/ADL research desks. The pre-emptive self-disavowal is, however, independently confirmed verbatim and is the more reportable finding.",
+      "perspective": "ngo_observer + corporate (Clement)",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F11",
+      "claim": "Rico Cortez Dukes has a well-developed multi-platform digital and commercial footprint distinct from the bare LDA filing: LinkedIn ('TFTFG SENATE HOUSE ID 401109639'); Instagram (@official_son_of_huey_p_newton); 'Rico Dukes Theyfeartruth Show' podcast (Apple Podcasts ID 1477576580, Amazon Music, Spreaker); Action Network 2024 presidential fundraiser; UnitedMasters music distribution; tftdm.com Theyfeartruth Distribution label; Wikimedia Commons user account; abarol.academia.edu Academia.edu account; Forward Party page; Clarity.fm advisor profile. He self-publishes a biography (Wikimedia user page) claiming to be 'the son of Black Panther Founder Huey P Newton', having survived 'a United States government murder contract on November 26 2010', having 'established Theyfeartruth Federal Government of America on June 14 2020 at 1818 Coriscana St in Dallas', and that 'Texas Federal Northern District Court Judge KINKEADE ruled that the courts lack Subject matter jurisdiction over Rico Dukes... in The Dukes v Lee case' — the canonical sovereign-citizen 'no jurisdiction' rhetorical claim.",
+      "evidence": "Direct scrapes of: Wikimedia Commons (verbatim self-bio quoted above); LegiStorm Rico Cortez Dukes bio page 544998 (lists LinkedIn, employment 'Theyfeartruth Federal Government of America (July 2020-)' as Chief Officer, lobbying registrant 360057). Apple Podcasts listing for 'Rico Dukes Theyfeartruth Show' ID 1477576580. Academia.edu: 'Rico Dukes Born in Shreveport Louisiana August 26 1979 is the Son of Black Panther Founder Huey P Newton.' Forward Party page 'home.forwardparty.com/theyfeartruthfederal'. Action Network 2024 fundraiser URL. UnitedMasters and tftdm.com confirm music-distribution arm. Instagram handle @official_son_of_huey_p_newton (referenced in firecrawl search result via Instagram reel URL).",
+      "sources": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/User:Rico_Cortez_Dukes",
+          "type": "self_published",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/wikimedia-rico-dukes.md"
+        },
+        {
+          "url": "https://www.legistorm.com/person/bio/544998/Rico_Cortez_Dukes.html",
+          "type": "reference",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/legistorm-rico-dukes.md"
+        },
+        {
+          "url": "https://home.forwardparty.com/theyfeartruthfederal",
+          "type": "self_published",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/forwardparty-dukes.md"
+        },
+        {
+          "url": "https://abarol.academia.edu/RicoDukes",
+          "type": "self_published",
+          "accessed": "2026-05-22T12:21:00Z",
+          "access_method": "abstract_only"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Self-publishing across 10+ platforms; the biographical claims are Dukes's own assertions — their existence as claims is high-confidence; the truth of the underlying claims (Huey P. Newton paternity, government murder contract) is separately untestable and should be reported as 'Dukes claims X', not 'X is true'.",
+      "perspective": "corporate (Dukes self-presentation)",
+      "fact_check_status": "pending"
+    },
+    {
+      "id": "OS-F12",
+      "claim": "Independent (non-Clement-authored) press coverage of the LOC Nation $180M LDA-filing pattern exists as of August 2025: the LegiStorm Pro News article 'Sovereignty group claims $40M lobbying total' (article 4318) is the only known piece of investigative journalism that specifically calls out the SOLN LDA filings, compares them to U.S. Chamber of Commerce / NAR / Business Roundtable lobbying totals, and notes the $500 quadrillion claim with the explicit factual correction that the underlying federal case was dismissed without any such ruling. This is the first known piece of independent newsroom-grade work on the lead and predates the OpenSecrets May 2026 piece by roughly 10 months.",
+      "evidence": "LegiStorm article 4318 (markdown-scraped, full body accessible — not paywalled despite brief flagging): 'If lobbying filings are to be believed, a sovereignty group spent $20 million lobbying in Q2, more than eight times the next biggest lobbying contract. The State of Loc Nation Global Public Benefit Corp., which claims to be a self-governed nation with its own currency and central bank, reports $40 million in federal lobbying so far in 2025... If the group's extraordinary spending claims are to be believed, Loc Nation's second quarter figure would top the list of spending on external lobbying contracts, surpassing the U.S. Chamber of Commerce's total of $19.34 million... Clement has also claimed to have secured a $500 quadrillion legal judgment and land rights for 1.4 trillion people in a lawsuit against then-U.S. Attorney General Merrick Garland. Federal court records show the case was dismissed without any such ruling.' Subjects tagged at end of article: 'Merrick Brian Garland; Christina Loren Clement; U.S. Chamber of Commerce; Business Roundtable Inc.; National Association of Realtors; Brownstein Hyatt Farber Schreck LLP; BGR Government Affairs LLC; State of Loc Nation Global Public Benefit Corp.; Loc Community Association.'",
+      "sources": [
+        {
+          "url": "https://www.legistorm.com/pro_news/4318/sovereignty-group-claims-40m-lobbying-total.html",
+          "type": "news",
+          "accessed": "2026-05-22T12:28:00Z",
+          "access_method": "full_text",
+          "local_file": "case/spotlight-results/OS-001-loc-nation-network/external/legistorm-sovereignty-group-40m.md",
+          "access_notes": "Brief flagged this as paywalled; firecrawl scrape returned the full article body. No paywall barrier on this URL at this access time."
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Primary source directly accessed; quoted verbatim.",
+      "perspective": "independent_observer",
+      "fact_check_status": "pending"
+    }
+  ],
+  "connections": [
+    {
+      "from": "Christina Loren Clement",
+      "to": "State of Loc Nation Global Public Benefit Corporation",
+      "relationship": "founder / President / Co-Trustee / sole disclosed lobbyist (via LOC Community Association)",
+      "evidence": "FEC P40016412 + S6GA00366 + stateoflocnation.com/about + LegiStorm article 4318"
+    },
+    {
+      "from": "Christina Loren Clement",
+      "to": "STATE OF LOC NATION FOR CLEMENT FOR SENATE (FEC C00857128)",
+      "relationship": "principal candidate; LLC also listed as treasurer (Clement, Christina Loren LLC)",
+      "evidence": "FEC committee C00857128 page"
+    },
+    {
+      "from": "Christina Loren Clement",
+      "to": "CLEMENT v. GARLAND 1:24-cv-00479-RC (D.D.C.) and appeal 24-5263 (D.C. Cir.)",
+      "relationship": "pro se plaintiff",
+      "evidence": "CourtListener docket 68269445"
+    },
+    {
+      "from": "Christina Loren Clement",
+      "to": "Christina Loren Clement LLC",
+      "relationship": "owner; LLC also serves as the Senate committee's treasurer and the registered agent for LOC Community Association in its LDA filings",
+      "evidence": "FEC C00857128 + FEC SOO PDF 202408139666182593 (Northrop Grumman bankruptcy creditor matrix lists same name)"
+    },
+    {
+      "from": "Rico Cortez Dukes",
+      "to": "THEYFEARTRUTH FEDERAL GOVERNMENT OF AMERICA",
+      "relationship": "founder / Chief Officer / sole disclosed lobbyist",
+      "evidence": "LegiStorm bio 544998 + Wikimedia self-bio + Forward Party page"
+    },
+    {
+      "from": "Rico Cortez Dukes",
+      "to": "THEYFEARTRUTH PRESIDENTIAL COMMITTEE (FEC C00884064)",
+      "relationship": "principal candidate (FEC P00011163)",
+      "evidence": "FEC candidate page P00011163"
+    },
+    {
+      "from": "Rico Cortez Dukes",
+      "to": "Multiple N.D. Texas federal pro se cases (3:17-cv-01657, 3:17-cv-02063, 3:17-cv-02064, 3:17-cv-02065, 3:17-cv-02066, 3:17-cv-02167, 3:17-cv-02506, 3:17-cv-02509, 3:17-cv-02510, 3:17-cv-02834, 3:18-cv-02189, 3:21-cv-00305)",
+      "relationship": "pro se serial litigant (sovereign-citizen-pattern)",
+      "evidence": "CourtListener search index for Rico Dukes"
+    },
+    {
+      "from": "Christina Loren Clement",
+      "to": "Rico Cortez Dukes",
+      "relationship": "NO documented operational connection. Both are FEC 2024 presidential candidates and both lead self-styled sovereign-government LDA registrants, but no shared address, lawyer, court filing, corporate officer, or social-media interaction has surfaced.",
+      "evidence": "Triangulated negative across three direct searches; flat directory co-listing on Politics1 only."
+    }
+  ],
+  "gaps": [
+    "Whether SPLC, ADL, or GW Program on Extremism have private (non-published) profiles of LOC Nation, Clement, Dukes, or THEYFEARTRUTH. Direct outreach to research desks would resolve.",
+    "Whether the D.C. Circuit (24-5263) issued any merits ruling on Clement's appeal or simply dismissed for failure to prosecute / pay fee. PACER pull on the appellate docket would resolve.",
+    "Whether Clement has additional Florida or Georgia corporate filings beyond Christina Loren Clement LLC (Delaware) — a Sunbiz interactive search and Georgia SOS corporations search were not exhaustively run. Northrop Grumman bankruptcy matrix lists her at 2787 S Orange Blossom Trl, Apopka FL 32703 — the source of that creditor listing is also unexplained (why is Clement a creditor of Northrop Grumman?).",
+    "Whether the FEC has formally referred Clement's $50.25M filing to DOJ for criminal review per 52 U.S.C. §§30109. OpenSecrets reports the FEC lacks a quorum but the procedure is in place.",
+    "The full Statement of Organization for THEYFEARTRUTH PRESIDENTIAL COMMITTEE (C00884064) and any 2024-2025 financial activity were not pulled — worth confirming Dukes's committee shows zero raised/spent (matching the zero-income LDA pattern).",
+    "Whether any of Clement's self-published 'Executive Orders' / 'Restitution Act' / Crane Currency MOU claims have any independent corroboration (none found in firecrawl pass)."
+  ],
+  "next_steps": [
+    "Pull the D.C. Circuit appellate docket for 24-5263 from PACER to confirm appellate disposition.",
+    "Cross-check the Apopka FL address against Sunbiz, Orange County FL property records, and Florida Secretary of State for any Clement-controlled entities not yet surfaced.",
+    "Pull Georgia Secretary of State UCC filings 044-2024-004422 and 044-2025-002376 referenced on stateoflocnation.com to confirm these are real UCC-1 financing statements (sovereign citizens use UCC-1 to assert fictitious commercial liens).",
+    "Direct journalist outreach to SPLC Hatewatch and ADL CoE asking whether LOC Nation/THEYFEARTRUTH are under research watch.",
+    "Pull FEC committee C00884064 (THEYFEARTRUTH PRESIDENTIAL COMMITTEE) and C00946418 (additional Dukes-linked committee seen in 2026 Form1Filer CSV) to map Dukes's full FEC footprint.",
+    "Promote OS-001 to a full data-detective finding (C-005): we now have (a) FEC regulatory action (warning letter + reclassification to False & Fictitious section), (b) named, on-the-record outside expert (Quinnipiac law prof John Martin), and (c) two-operator pattern documented via independent court dockets. This is the headline."
+  ],
+  "monitoring_recommendations": [
+    {
+      "id": "M1",
+      "target": "https://www.fec.gov/data/committee/C00857128/?cycle=2026 (and ?tab=filings) — Clement Senate committee",
+      "scout_type": "web",
+      "criteria": "Watch for any new filings (amended Q1, Q2 2026 reports, FEC final referral to DOJ, any new committee filings) and any movement of the $50.25M loan back into mainline reports.",
+      "rationale": "The FEC RAD review is the live regulatory thread. Any DOJ referral or amended Q1 would be reportable.",
+      "priority": "high",
+      "finding_refs": ["OS-F1", "OS-F2", "OS-F6"]
+    },
+    {
+      "id": "M2",
+      "target": "https://www.courtlistener.com/docket/68269445/clement-v-garland/ and the appellate docket for 24-5263",
+      "scout_type": "web",
+      "criteria": "New docket entries on either CLEMENT v. GARLAND or the D.C. Circuit appeal 24-5263. CourtListener also alerts on new RECAP uploads.",
+      "rationale": "Appellate disposition is the only remaining path that could either close the matter or surface new pro se filings to cross-reference.",
+      "priority": "high",
+      "finding_refs": ["OS-F9"]
+    },
+    {
+      "id": "M3",
+      "target": "https://stateoflocnation.com/press-release and https://stateoflocnation.com/u-s-senate-georgia-2026",
+      "scout_type": "web",
+      "criteria": "New press releases, executive orders, UCC filings, or '72-hour notices' published by SOLN; any new claimed federal-court action.",
+      "rationale": "Operator-side narrative shifts (especially any new sovereign-citizen-pattern doctrinal moves) signal escalation.",
+      "priority": "medium",
+      "finding_refs": ["OS-F2", "OS-F8", "OS-F10"]
+    },
+    {
+      "id": "M4",
+      "target": "Rico Dukes Instagram @official_son_of_huey_p_newton + Apple Podcasts 'Rico Dukes Theyfeartruth Show' (ID 1477576580)",
+      "scout_type": "social",
+      "criteria": "New posts referencing Christina Clement, LOC Nation, sovereign-citizen activity, or any indication of cross-pollination with Clement.",
+      "rationale": "If a Clement-Dukes connection ever surfaces it is most likely to surface in Dukes's own broadcast/social channels; the absence-of-connection finding (OS-F5) should be re-tested over time.",
+      "priority": "medium",
+      "finding_refs": ["OS-F5", "OS-F11"]
+    }
+  ]
+}

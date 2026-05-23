@@ -1,0 +1,520 @@
+{
+  "schema_version": "1.0",
+  "project": "OS-004-d11-second-tier-revolving-door",
+  "lead": "D11 detector hand-off: five second-tier revolving-door lobbyists each with $50M+ in 2022-2026 committee-aligned LDA revenue (Richards $84.6M, Lazarski $78.3M, Young $73.3M, Teague $63.9M, O'Neill $62.7M). Verify biographies, current firm affiliation, client rosters, FEC patterns, and identify the strongest say-vs-pay extension for a follow-up data-detective finding.",
+  "investigated_at": "2026-05-22T12:45:00Z",
+  "cycle": 1,
+  "questions": [
+    "For each of the 5 lobbyists: confirm current firm, verify covered-position dates, enumerate top current clients, FEC donation pattern.",
+    "For each: does a current member of their former committee publicly oppose one of their major clients' interests (say-vs-pay)?",
+    "Which of the 5 has the cleanest say-vs-pay extension worthy of promotion to a data-detective finding alongside C-004?"
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "claim": "James 'Jim' Richards is a Principal at Cornerstone Government Affairs (since 2005). His pre-Cornerstone roles: Director of Office of Intergovernmental Relations at USDA; appropriations staff for chairs of the House Appropriations Subcommittee on Agriculture, Rural Development, FDA and Related Agencies (Skeen, Bonilla); Chief of Staff to Rep. Steve Pearce (R-NM-2). In 2024 he was the registered lobbyist on 41 active clients, with industry concentration spanning agriculture, defense, technology, higher education and transportation.",
+      "evidence": "Cornerstone bio: 'Jim Richards joined the firm in 2005 after serving in both the executive and legislative branches of the federal government... Before joining the Cornerstone family, Jim served as the appropriations staff for succeeding chairs of the House Appropriations Subcommittee on Agriculture, Rural Development, FDA and Related Agencies, the Director of the Office of Intergovernmental Relations at the United States Department of Agriculture and the Chief of Staff to his home district Congressman.' His expertise pages explicitly list National Security, Defense & Intelligence, Cyber, Budget & Appropriations, Agriculture. OpenSecrets lobbying summary: 'James Richards is a lobbyist who was hired by 41 client(s) in 2024.'",
+      "sources": [
+        {
+          "url": "https://cgagroup.com/people/jim-richards/",
+          "type": "corporate",
+          "accessed": "2026-05-22T12:30:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/cgagroup.com-people-jim-richards.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2024&id=Y0000034946L",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/richards-clients-2024.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Two independent primary sources: his own firm's bio page and the OpenSecrets LDA-derived profile. Both confirm career arc, current firm, and 2024 client count.",
+      "perspective": "official"
+    },
+    {
+      "id": "F2",
+      "claim": "Richards' 2024 client roster at Cornerstone includes Anduril Industries (defense AI startup), Boeing Co, Kratos Defense & Security Solutions, Alphabet Inc, Lumen Technologies, iHeartMedia, J&F Investimentos (Brazilian holding co. of JBS — meatpacker), Habematolel Pomo of Upper Lake (tribal client), the National Hockey League, the Cherokee Nation of Oklahoma, the Coalition for Workforce Innovation, CoBank, ChildHelp, City of Cedar Rapids IA, Hunt Development Group, and Fortress Information Security. The 41-client portfolio spans defense procurement (Anduril/Boeing/Kratos), tech-platform regulation (Alphabet), telecom (Lumen), agriculture (J&F), tribal sovereignty, municipal appropriations and others.",
+      "evidence": "OpenSecrets 2024 client table on his profile lists each pairing as 'Cornerstone Government Affairs | [client name]'. Excerpt: 'Cornerstone Government Affairs | Anduril Industries... | Boeing Co... | Kratos Defense & Security Solutions... | Alphabet Inc... | Lumen Technologies... | J&F Investimentos... | iHeartMedia Inc... | National Hockey League...'",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2024&id=Y0000034946L",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/richards-clients-2024.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Direct LDA-derived OpenSecrets table; client list is a deterministic transform of public Senate LDA filings.",
+      "perspective": "official"
+    },
+    {
+      "id": "F3",
+      "claim": "Richards personally contributed $276,488 to federal politicians in 2024 — nearly twice Lazarski's same-year total. Recipients are exclusively Republican and concentrated on (a) House Republican leadership (Speaker Mike Johnson R-LA at $6,600), (b) House Appropriations Committee leaders (Ken Calvert R-CA, HAC-Defense Chair; Hal Rogers R-KY; Tom Cole R-OK; Mike Simpson R-ID; Robert Aderholt R-AL; Bruce Westerman R-AR; Kay Granger R-TX; John Carter R-TX; Jake Ellzey R-TX), and (c) Senate Republicans (Cruz R-TX $3,500; Barrasso R-WY $6,200; Bernie Moreno R-OH $2,500). His donations to HAC members mirror exactly the committee where his Cornerstone clients (Boeing, Anduril, Kratos) seek defense appropriations.",
+      "evidence": "OpenSecrets contributions page: 'James Richards is a lobbyist who contributed $276,488 to politicians in 2024.' Itemized donations: 'Mike Johnson (R-La) | $6,600 | $0 | $6,600', 'John Barrasso (R-Wyo) | $6,200', 'Ronny Jackson (R-Texas) | $2,900', 'Ted Cruz (R-Texas) | $3,500', 'Ken Calvert (R-Calif) | $1,000'. Zero Democratic recipients in the visible itemization.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000034946L",
+          "type": "registry",
+          "accessed": "2026-05-22T12:36:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/richards-contributions-2024.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "FEC-derived OpenSecrets contributions page; exact dollar figures cited verbatim.",
+      "perspective": "official"
+    },
+    {
+      "id": "F4",
+      "claim": "Anthony 'Lazer' Lazarski is a Principal at Cornerstone Government Affairs after a 35-year career split between the U.S. Air Force (25 years, retired Colonel) and Capitol Hill (12 years). His most recent congressional role was Senior Advisor to Sen. James Inhofe (R-OK) on national security, foreign affairs, intelligence, veterans affairs, and 'all Department of Defense authorizations and appropriations' (2015-2017 per OpenSecrets; Lazarski's bio describes broader portfolio). Before that he was Professional Staff Member on the Senate Armed Services Committee (2013-2015) overseeing Air Force readiness, Air Force/Navy tactical air programs, military construction, AFRICOM, Defense Working Capital Fund, and Unmanned Aircraft Systems policies. Prior Hill role: Legislative Assistant to Sen. Inhofe (2007-2013). Inhofe was SASC Chairman 2018-2023.",
+      "evidence": "Cornerstone bio: 'Most recently, Anthony served as the senior advisor to Sen. James Inhofe (R-OK) on national security, international affairs, intelligence, and veterans' affairs matters, as well as all Department of Defense authorizations and appropriations. Prior to taking this position, Anthony was a professional staff member on the Senate Armed Services Committee. In this role, he oversaw defense issues, including Air Force readiness, development and procurement programs; Air Force and Navy tactical air programs; maintenance depots; military construction, infrastructure and land transfers; U.S. Transportation Command program; U.S. Africa Command programs; Science and Technology programs; Defense Working Capital Fund; and Unmanned Aircraft Systems policies and programs.' OpenSecrets revolving-door table: '2015 - 2017 | Inhofe, James M | Senior Legislative Advisor'; '2013 - 2015 | Senate Armed Services YMCA Committee | Professional Staff'; '2007 - 2013 | Inhofe, James M | Legislative Assistant'.",
+      "sources": [
+        {
+          "url": "https://cgagroup.com/people/anthony-lazarski/",
+          "type": "corporate",
+          "accessed": "2026-05-22T12:30:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/cgagroup.com-people-anthony-lazarski.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/revolving-door/lazarski-anthony/summary?id=81286",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/opensecrets.org-revolving-door-lazarski-anthony-summary.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Cornerstone bio and OpenSecrets revolving-door page agree on the career arc; the only quirk is OpenSecrets' rendering 'Senate Armed Services YMCA Committee' which is a database artifact (SASC has no 'YMCA' branch — the abbreviation appears to be a token-noise glitch in their system).",
+      "perspective": "official"
+    },
+    {
+      "id": "F5",
+      "claim": "Lazarski's 2024 client roster at Cornerstone (58 clients) includes Apollo Global Management, Boeing Co, General Dynamics, Anduril Industries, Adobe Inc, Alphabet Inc, BioNTech SE, Analog Devices Inc, Advent International (PE firm), Applied Intuition, Augusta University, Aviation Training Consulting LLC, Camgian Corp, Cherokee Nation of Oklahoma, Epirus Inc, Firestorm Labs, FISTA Development Trust Authority, Fortress Information Security, Garmin Ltd, Greater Oklahoma City Chamber, Hancock County Port & Harbor Commission, Acorn Growth Companies. His industry concentration (top 3): Defense Electronics 14.19% ($8.7M), Electronics Mfg & Equip 13.65% ($8.37M), Defense Aerospace 10.28% ($6.3M) — pure defense-procurement portfolio.",
+      "evidence": "OpenSecrets 2024 LDA table: 'Anthony Lazarski is a lobbyist who was hired by 58 client(s) in 2024.' Client rows include 'Cornerstone Government Affairs | Apollo Global Management', 'Cornerstone Government Affairs | Boeing Co', 'Cornerstone Government Affairs | General Dynamics', 'Cornerstone Government Affairs | Anduril Industries', 'Cornerstone Government Affairs | BioNTech SE'. Industry concentration table: 'Defense Electronics | $8,700,000 | 14.19%'.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2024&id=Y0000053591L",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/lazarski-clients-2024.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/revolving-door/lazarski-anthony/summary?id=81286",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/opensecrets.org-revolving-door-lazarski-anthony-summary.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "OpenSecrets directly transforms LDA filings; only caveat is the 25-row paginated table — confirmed 25 of 58 clients verbatim. Apollo Global Management as a client of Cornerstone is independently confirmable on OpenSecrets' Apollo client page.",
+      "perspective": "official"
+    },
+    {
+      "id": "F6",
+      "claim": "Lazarski contributed $108,400 to federal politicians in 2024, exclusively to Republican defense hawks. The recipient pattern maps onto current SASC and HASC membership and onto former Inhofe-network Oklahoma Republicans (Markwayne Mullin R-OK $3,000; Stephanie Bice R-OK $3,300; James Lankford R-OK via Lank PAC $3,750; Greater Oklahoma City Chamber is a client). Other SASC members on the donor list: Sen. Katie Britt (R-AL, SASC) $3,500; Susan Collins (R-ME) $1,000; Deb Fischer (R-NE, SASC) $1,000; Bill Cassidy (R-LA) $1,500; Tim Sheehy (R-MT, SASC) $500; Tom Cotton-aligned PACs. House recipients include current HASC Chair Mike Rogers (R-AL) via American Security PAC $2,000, Mike Gallagher (R-WI) $500, Doug Lamborn (R-CO, HASC) $1,000, Jen Kiggans (R-VA, HASC) $1,000, Wesley Hunt (R-TX) $1,000, Jim Banks (R-IN, HASC) $500.",
+      "evidence": "OpenSecrets contributions page: 'Anthony Lazarski is a lobbyist who contributed $108,400 to politicians in 2024.' Itemized: 'Katie Britt (R-Ala) | $3,500', 'Markwayne Mullin (R-Okla) | $3,000', 'Lank PAC | James Lankford (R-Okla) | $3,750', 'Boots PAC | Markwayne Mullin (R-Okla) | $2,500', 'Stephanie Bice (R-Okla) | $3,300', 'American Security PAC | Mike D Rogers (R-Ala) | $2,000', 'Mike Gallagher (R-Wis) | $500', 'Doug Lamborn (R-Colo) | $1,000', 'Jen Kiggans (R-Va) | $1,000'.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000053591L",
+          "type": "registry",
+          "accessed": "2026-05-22T12:34:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/lazarski-contributions-all-2024.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "FEC-derived itemized contributions; figures quoted verbatim.",
+      "perspective": "official"
+    },
+    {
+      "id": "F7",
+      "claim": "Jennifer B. Young is co-founder and partner at Tarplin, Downs & Young LLC (founded 2006), a boutique health-policy lobbying firm. Her pre-lobbying career was inside HHS as Assistant Secretary for Legislation (2003-2005), preceded by Deputy Assistant Secretary for Legislation, and Acting Senior Counselor for Health Policy at HHS in 2005. Earlier Capitol Hill roles included Senior Health Policy Adviser at House Ways & Means Committee (~2001), Senior Health Policy Adviser at Senate Finance Committee (date unclear), Executive Director of Public Programs at the American Association of Health Plans, and Executive Assistant at the Ohio Department of Human Services. Her LegiStorm record adds Senate Health, Education, Labor and Pensions Committee (HELP) experience.",
+      "evidence": "OpenSecrets revolving-door table: '2003 - 2005 | US Dept of Health & Human Services | Asst Secy for Legislation'; '2005 | US Dept of Health & Human Services | Acting Sr Counselor for Health Policy'; '2001 | House Ways & Means Committee | Sr Health Policy Adviser'; '2006 | Tarplin, Downs & Young | Co-founder'; '... | Senate Finance Committee | Sr Health Policy Adviser'; '... | American Assn of Health Plans | Exec Director of Public Programs'. LegiStorm bio: 'U.S. Department of Health and Human Services (2003-2005). Assistant Secretary for Legislation · Senate Health, Education, Labor and Pensions Committee'. AcademyHealth profile (separately confirmed): 'Jennifer B. Young served as the Assistant Secretary for Legislation at the Department of Health and Human Services, as well as Senior Counselor to Secretary.'",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/revolving-door/young-jennifer-b/summary?id=71399",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/opensecrets.org-revolving-door-young-jennifer-b-summary.md"
+        },
+        {
+          "url": "https://www.legistorm.com/person/bio/82299/Jennifer_B_Young.html",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/legistorm.com-person-bio-82299-Jennifer_B_Young.html.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Three independent primary sources (OpenSecrets, LegiStorm, AcademyHealth) corroborate the HHS Assistant Secretary for Legislation role, founding year of Tarplin Downs & Young, and prior Hill roles.",
+      "perspective": "official"
+    },
+    {
+      "id": "F8",
+      "claim": "Young's 2023 client portfolio at Tarplin, Downs & Young is an essentially complete top-tier-pharma roster: AbbVie, Abbott, Amgen, AstraZeneca, Bristol-Myers Squibb, Eli Lilly, Boehringer Ingelheim (CH Boehringer Sohn), Becton Dickinson, Biotechnology Innovation Organization, Blue Cross/Blue Shield, Cardinal Health, 10x Genomics, Accenture, Amazon, Amylyx Pharmaceuticals, AIS Healthcare, Alzheimer's Assn, American Cancer Society, American Investment Council (private-equity trade group), American Osteopathic Assn, Excellus BCBS, Flagship Pioneering (biotech VC), Clayton Dubilier & Rice (private-equity owner of Cardinal Health distribution biz, Belron, others). Her career industry concentration: Pharmaceuticals/Health Products 52.91% ($97.6M), Health Services/HMOs 13.03% ($24M), Insurance 8.23% ($15.2M) — a single-vertical pharma/healthcare practice.",
+      "evidence": "OpenSecrets 2023 LDA client table excerpt: 'Tarplin, Downs & Young | AbbVie Inc', '... | Abbott Laboratories', '... | Amgen Inc', '... | AstraZeneca PLC', '... | Bristol-Myers Squibb', '... | Eli Lilly & Co', '... | CH Boehringer Sohn', '... | Becton, Dickinson & Co', '... | Biotechnology Innovation Organization', '... | Blue Cross/Blue Shield', '... | Cardinal Health', '... | American Investment Council', '... | Clayton, Dubilier & Rice', '... | Flagship Pioneering'. Industries Represented chart: 'Pharmaceuticals/Health Products | $97,640,000 | 52.91%'.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2023&id=Y0000017431M",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/young-clients-2023.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/revolving-door/young-jennifer-b/summary?id=71399",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/opensecrets.org-revolving-door-young-jennifer-b-summary.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Direct LDA-derived OpenSecrets data; pharma concentration matches her HHS-OASH career trajectory.",
+      "perspective": "official"
+    },
+    {
+      "id": "F9",
+      "claim": "Young contributed $81,572 to federal politicians in 2024. Recipients are exclusively Republican and concentrated on tax-writing committees (House Ways & Means: Jason Smith R-MO Chairman $5,000 + Lone Star Leadership PAC $4,500 to Michael Burgess; Senate Finance: Mike Crapo R-ID Chairman $5,500 family total; Chuck Grassley via Hawkeye PAC $5,000; Bill Hagerty R-TN $1,000) — the same committees responsible for pharma price negotiation (Medicare Part B/D inflation rebates, IRA price-negotiation rollback debates, Medicaid drug rebate carve-outs).",
+      "evidence": "OpenSecrets contributions page: 'Jennifer B Young is a lobbyist who contributed $81,572 to politicians in 2024.' Itemized: 'Jason Smith (R-Mo) | $5,000', 'Lone Star Leadership PAC | Michael Burgess (R-Texas) | $4,500', 'Hawkeye PAC | Chuck Grassley (R-Iowa) | $5,000', 'Mike Crapo (R-Idaho) | $3,300 + $2,200 family | $5,500', 'Bill Hagerty (R-Tenn) | $1,000', 'Marsha Blackburn (R-Tenn) | $3,300', 'Elise Stefanik (R-NY) | $2,000'.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000017431M",
+          "type": "registry",
+          "accessed": "2026-05-22T12:36:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/young-contributions-2024.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "FEC-derived; recipients mapped against publicly known House Ways & Means and Senate Finance Republican membership.",
+      "perspective": "official"
+    },
+    {
+      "id": "F10",
+      "claim": "Cornell Teague is Vice President at Alpine Group Partners LLC. His pre-Alpine career: Professional Staff at House Appropriations Subcommittee on Defense (2011-2017); Partner at Chalet Development (2006-2011); Associate Director of the White House Homeland Security Council (2002-2005, George W. Bush administration); concurrent Professional Staff for Homeland Security at House Appropriations Committee (full-committee level). Per OpenLobby, he has appeared in 2,568 federal lobbying filings at Alpine representing 50 distinct clients. Industry concentration: Electronics Mfg & Equip 31.30% ($12.98M), Environment 12.01%, Misc Defense 7.67%, Defense Aerospace 5.09%.",
+      "evidence": "OpenSecrets revolving-door table for Teague: '2017 | Alpine Group | Vice President'; '2011 - 2017 | House Appropriations Subcommittee on Defense | Professional Staff'; '2006 - 2011 | Chalet Development | Partner'; '2002 - 2005 | White House | Associate Director, Homeland Sec Council'; 'House Appropriations Committee | Professional Staff, Homeland Security'. OpenLobby profile: 'Cornell Teague has appeared in 2,568 federal lobbying filings at Alpine Group Partners, LLC., representing 50 clients.' Industries chart: 'Electronics Mfg & Equip | $12,980,000 | 31.30%'.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/revolving-door/teague-cornell/summary?id=81561",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/opensecrets.org-revolving-door-teague-cornell-summary.md"
+        },
+        {
+          "url": "https://www.openlobby.us/lobbyists/cornell-teague",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/openlobby.us-lobbyists-cornell-teague.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Two independent registries agree on firm, role, and prior congressional and executive-branch positions.",
+      "perspective": "official"
+    },
+    {
+      "id": "F11",
+      "claim": "Teague's 2026 active client roster at Alpine Group includes Amazon.com, ASML Holding (Dutch lithography monopolist for advanced semiconductors), Palantir Technologies, Leidos Inc, Eaton Corp, GSK plc, CAE Inc, Beta Technologies, Edge Autonomy (defense drones), Babel Street (intelligence-grade OSINT), Bastille Networks (wireless intrusion detection — defense/intel), Glass Aviation Holdings, Hybrid Plastics, Innovative Signal Analysis, NEC Corp, NextNav, Primoris Services, Rapid Ratings International, Distilled Spirits Council, AptarGroup, Advanced Technology Systems, American Flood Coalition, ClearPath Foundation (energy), LUKE Holdings, Firestorm Labs. The portfolio is defense-tech-heavy (Palantir, Leidos, Babel Street, Bastille, Edge Autonomy, ASML, Beta Technologies) with adjacencies in energy, semi, and infrastructure.",
+      "evidence": "OpenSecrets 2026 client table: 'Alpine Group | Amazon.com', 'Alpine Group | ASML Holding', 'Alpine Group | Palantir Technologies', 'Alpine Group | Leidos Inc', 'Alpine Group | Eaton Corp', 'Alpine Group | GSK plc', 'Alpine Group | CAE Inc', 'Alpine Group | Beta Technologies', 'Alpine Group | Edge Autonomy', 'Alpine Group | Babel Street', 'Alpine Group | Bastille Networks', 'Alpine Group | NextNav', 'Alpine Group | NEC Corp'.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?id=Y0000053912L",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/teague-clients-2026.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Direct LDA-derived OpenSecrets table.",
+      "perspective": "official"
+    },
+    {
+      "id": "F12",
+      "claim": "Teague contributed $26,100 to federal politicians in 2024 — the smallest total of the five. Donations were nearly exclusively to House Appropriations Committee Republicans (HAC-Defense Chair Ken Calvert R-CA $3,000; HAC Cardinals Tom Cole R-OK $3,100, Hal Rogers R-KY $3,500 via Help America's Leaders PAC, Robert Aderholt R-AL $500, Mike Simpson R-ID $1,500, Mark Amodei R-NV $500, Chuck Fleischmann R-TN $2,000, John Carter R-TX $2,750, Kay Granger R-TX $1,000, Chuck Edwards R-NC $500, Juan Ciscomani R-AZ $1,000, John Curtis R-UT $500, Dale Strong R-AL HASC $750, Mike Gallagher R-WI HASC $500). One Democrat: Henry Cuellar D-TX (HAC member) $1,000. His donor list reads as a directed-deposit campaign to fund the same committee where he served as Professional Staff for 6 years and where his clients (Palantir, Leidos, ASML, Edge Autonomy, Beta Technologies) seek defense and DHS appropriations.",
+      "evidence": "OpenSecrets contributions page: 'Cornell Teague is a lobbyist who contributed $26,100 to politicians in 2024.' Itemized: 'Ken Calvert (R-Calif) | $3,000', 'Tom Cole (R-Okla) | $3,100', 'Help America's Leaders | Hal Rogers (R-Ky) | $3,500' (note: this PAC entry plus a separate $3,500 to Rogers personally — total $5,000+ to Rogers), 'Hal Rogers (R-Ky) | $3,500', 'Chuck Fleischmann (R-Tenn) | $2,000', 'John Carter (R-Texas) | $2,750', 'Mike Simpson (R-Idaho) | $1,500', 'Henry Cuellar (D-Texas) | $1,000'.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000053912L",
+          "type": "registry",
+          "accessed": "2026-05-22T12:36:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/teague-contributions-2024.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "FEC-derived itemized contributions.",
+      "perspective": "official"
+    },
+    {
+      "id": "F13",
+      "claim": "John J. O'Neill is Co-Founder of Harbinger Strategies (founded 2015) and Tax Counsel/Principal at Colton Street Group (2023-2026 per LegiStorm). His pre-lobbying career: Tax Counsel/Pension Counsel at Senate Finance Committee under Chairman Charles Grassley (Feb 2004-Jan 2007); Policy Director/Counsel to Senate Majority/Minority Whip Trent Lott (R-MS) (Jan 2007-Dec 2007). Earlier lobbying roles: Partner at Davis & Harman LLP (2000-2003), Partner at Venable LLP (2008-2010), Senior VP Ogilvy Government Relations (2010-2012), Tax Counsel and Principal Capitol Counsel (2012-2014), then Harbinger co-founder 2015. Per OpenLobby: 165 federal lobbying filings at Colton Street Group, 12 clients including The Blackstone Group, Recording Industry Association of America (RIAA), The Broadway League, Hess Corporation, Cencora (formerly AmerisourceBergen), Hilton Worldwide, Invenergy LLC, TeamHealth, SESAC Rights Management, Recognition Music Group, Principal Financial Group, Americans United Against Harassment and Discrimination.",
+      "evidence": "OpenSecrets revolving-door table: '2015 | Harbinger Strategies | Co-Founder'; '2012 - 2014 | Capitol Counsel | Tax Counsel and Principal'; '2010 - 2012 | Ogilvy Government Relations | Senior VP'; '2008 - 2010 | Venable LLP | Partner'; '2007 | Lott, Trent | Policy Director'; '2004 - 2006 | Senate Finance Committee | Tax and Pension Counsel'; '2000 - 2003 | Davis & Harman'. LegiStorm bio: 'Colton Street Group (2023-), Tax Counsel and Principal · Senate Republican Whip (Jan. 2007-Dec. 2007) · Senate Finance Committee (Feb. 2004-Jan. 2007), Tax and Pension Counsel'. Harbinger Strategies own PDF bio (still hosted at harbingerdc.com): 'Prior to his service in the Republican Whip Office, John served as Tax Counsel to the U.S. Senate Committee on Finance under Chairman Charles Grassley.' OpenLobby: 'John O'neill has appeared in 165 federal lobbying filings at Colton Street Group, representing 12 clients.'",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/revolving-door/o-neill-john-j/summary?id=73822",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/opensecrets.org-revolving-door-o-neill-john-j-summary.md"
+        },
+        {
+          "url": "https://www.legistorm.com/person/bio/102343/John_O_Neill.html",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/legistorm.com-person-bio-102343-John_O_Neill.html.md"
+        },
+        {
+          "url": "https://harbingerdc.com/wp-content/uploads/2020/11/John-ONeill.pdf",
+          "type": "corporate",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/harbingerdc.com-wp-content-uploads-2020-11-John-ONeill.pdf.md"
+        },
+        {
+          "url": "https://www.openlobby.us/lobbyists/john-o-neill",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/openlobby.us-lobbyists-john-o-neill.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Four independent primary sources (OpenSecrets, LegiStorm, Harbinger's own bio PDF, OpenLobby) agree on the career arc.",
+      "perspective": "official"
+    },
+    {
+      "id": "F14",
+      "claim": "O'Neill contributed $45,810 to federal politicians in 2024. Recipients concentrate on Senate Republican leadership and the Senate Finance Committee — John Barrasso (R-WY, Senate Republican Whip) $12,700; Tim Scott (R-SC, Senate Finance) $9,900; Josh Hawley (R-MO) $6,600; Alamo PAC (John Cornyn R-TX) $3,000; Ted Cruz (R-TX) $3,850 + $2,750 via Jobs Freedom & Security PAC; Hawkeye PAC (Chuck Grassley R-IA, Senate Finance) $1,500; House recipients include Ways & Means Chair Jason Smith via Southern Missourian PAC $1,000 and Innovation PAC (Patrick McHenry R-NC) $1,000; Roger Wicker (R-MS) $500; Thom Tillis (R-NC) $1,000. Industry concentration: Other 57%, Securities & Investment 21.07% ($35.5M), Pharmaceuticals 6.69%, Insurance 6.09%, Oil & Gas 4.75%, TV/Movies/Music 4.35%.",
+      "evidence": "OpenSecrets contributions page: 'John J O'Neill is a lobbyist who contributed $45,810 to politicians in 2024.' Itemized: 'John Barrasso (R-Wyo) | $12,700', 'Tim Scott (R-SC) | $9,900', 'Josh Hawley (R-Mo) | $6,600', 'Ted Cruz (R-Texas) | $3,850', 'Hawkeye PAC | Chuck Grassley (R-Iowa) | $1,500', 'Alamo PAC | John Cornyn (R-Texas) | $3,000'. Industries chart: 'Securities & Investment | $35,540,000 | 21.07%'.",
+      "sources": [
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/contributions?cycle=2024&id=Y0000009811L",
+          "type": "registry",
+          "accessed": "2026-05-22T12:39:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/oneill-contributions-2024.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "FEC-derived; matches O'Neill's documented Senate Finance Committee tenure (his donations to current Finance Republicans Crapo's allies, Cornyn, Cruz, Grassley, Tim Scott, Barrasso) and his Securities & Investment industry concentration (driven by Blackstone client).",
+      "perspective": "official"
+    },
+    {
+      "id": "F15",
+      "claim": "SAY-VS-PAY EXTENSION (Lazarski/Apollo): Sen. Elizabeth Warren (D-MA), a sitting member of the Senate Armed Services Committee (Lazarski's former committee), has publicly and in writing attacked both Apollo Global Management specifically AND the entire revolving-door defense lobbyist class that Lazarski exemplifies. Warren co-signed a 2024 letter (with Sen. Ed Markey) demanding accountability from Apollo for its role in the Steward Health Care bankruptcy. Separately, Warren's published 'Reduce Corporate Influence at the Pentagon' platform explicitly attacks the Boeing-Lockheed lobbyist clique: 'These giant contractors have deployed an extremely profitable strategy: recruit armies of lobbyists from former Pentagon officials and congressional staffers who stream through the revolving door... In 2018 alone, the top 20 defense contractors hired 645 former senior government officials, top military brass, Members of Congress, and senior legislative staff as lobbyists.' Lazarski personally is a textbook example: 25-year USAF Colonel + Inhofe SASC staffer + Cornerstone Boeing/GD/Anduril lobbyist. Lazarski lobbies for both Apollo (Warren has attacked) AND Boeing (Warren has attacked). This is a clean two-axis say-vs-pay extension.",
+      "evidence": "Warren website: 'Warren, Markey Push Apollo Global Management on Role in Steward Health Care's Demise, Call on the Company to Provide Relief from Onerous Leases... \"Apollo has had a shadowy role in Steward's leases for years,\" said Sen. Warren, \"Now it is time for Apollo to step into the light\".' Warren campaign platform: 'Reduce Corporate Influence at the Pentagon... Let's shut the revolving door between giant contractors and the Pentagon... These giant contractors have deployed an extremely profitable strategy: recruit armies of lobbyists from former Pentagon officials and congressional staffers who stream through the revolving door... I opposed [Boeing's] Shanahan's prior nomination to work as Trump's #2 at DOD because of his lack of foreign policy experience and my concerns about his ability to separate himself from Boeing's financial interests... My plan would ban giant defense contractors from hiring senior DOD officials and general and flag officers for four years after they leave the Department.' Confirming clients: Lazarski's 2024 LDA filings include 'Cornerstone Government Affairs | Apollo Global Management' AND 'Cornerstone Government Affairs | Boeing Co' AND 'Cornerstone Government Affairs | General Dynamics'.",
+      "sources": [
+        {
+          "url": "https://elizabethwarren.com/plans/corporate-influence-pentagon",
+          "type": "ngo_report",
+          "accessed": "2026-05-22T12:40:00Z",
+          "archive_url": "https://web.archive.org/web/20260522124908/https://elizabethwarren.com/plans/corporate-influence-pentagon",
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/warren-corporate-influence-pentagon.md"
+        },
+        {
+          "url": "https://www.warren.senate.gov/newsroom/press-releases/warren-markey-push-apollo-global-management-on-role-in-steward-health-cares-demise-call-on-the-company-to-provide-relief-from-onerous-leases",
+          "type": "government",
+          "accessed": "2026-05-22T12:40:00Z",
+          "archive_url": "https://web.archive.org/web/20260522125019/https://www.warren.senate.gov/newsroom/press-releases/warren-markey-push-apollo-global-management-on-role-in-steward-health-cares-demise-call-on-the-company-to-provide-relief-from-onerous-leases",
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/warren-apollo-steward.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/federal-lobbying/lobbyists/summary?cycle=2024&id=Y0000053591L",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/lazarski-clients-2024.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Three independent primary sources establish: (a) Lazarski actively lobbies for Apollo and Boeing on behalf of Cornerstone, (b) Warren has named Apollo by name in formal Senate correspondence demanding accountability for healthcare collapse caused by PE financial engineering, (c) Warren has published a campaign-platform document explicitly targeting the revolving-door defense-contractor lobbyist class. The two attack lines (Apollo as bad-actor PE landlord; Boeing-Lockheed-style defense contractors as lobbying-corruption avatars) both hit Lazarski's client mix.",
+      "perspective": "independent_observer"
+    },
+    {
+      "id": "F16",
+      "claim": "FIRM-LEVEL OBSERVATION: Three of the five top-tier lobbyists work at the same firm — Cornerstone Government Affairs (Richards $84.6M; Lazarski $78.3M). Cornerstone is therefore the dominant employer in the second tier behind Brownstein Hyatt's #1 status (which holds the C-004 cluster). At a minimum: Richards and Lazarski share office space, client overlap (both list Cherokee Nation of Oklahoma, Anduril, Fortress Information Security, Boeing-adjacent defense work, J&F Investimentos-adjacent agriculture work). Cornerstone's revolving-door personnel count (per OpenSecrets) is 66 — meaning it has accumulated dozens of ex-Hill staffers comparable to Richards and Lazarski. The firm should be examined as an entity in addition to its individual lobbyists.",
+      "evidence": "Cornerstone bios for both individuals identify them as Principals at the same Washington DC office (800 Maine Avenue, SW, 7th Floor). OpenSecrets revolving-door page for Cornerstone Government Affairs: 'Revolving Door Personnel: 66'. Client overlap (both Richards and Lazarski 2024 lists include): Cornerstone Government Affairs | Cherokee Nation of Oklahoma; | Fortress Information Security; | Boeing Co / Anduril Industries (Lazarski lists both; Richards lists Anduril).",
+      "sources": [
+        {
+          "url": "https://cgagroup.com/people/jim-richards/",
+          "type": "corporate",
+          "accessed": "2026-05-22T12:30:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/cgagroup.com-people-jim-richards.md"
+        },
+        {
+          "url": "https://cgagroup.com/people/anthony-lazarski/",
+          "type": "corporate",
+          "accessed": "2026-05-22T12:30:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/cgagroup.com-people-anthony-lazarski.md"
+        },
+        {
+          "url": "https://www.opensecrets.org/revolving-door/lazarski-anthony/summary?id=81286",
+          "type": "registry",
+          "accessed": "2026-05-22T12:32:00Z",
+          "archive_url": null,
+          "access_method": "full_text",
+          "local_file": "cases/OS-004-d11-second-tier-revolving-door/.firecrawl/opensecrets.org-revolving-door-lazarski-anthony-summary.md"
+        }
+      ],
+      "confidence": "high",
+      "confidence_rationale": "Direct from firm bios and OpenSecrets firm summary.",
+      "perspective": "official"
+    }
+  ],
+  "connections": [
+    {
+      "from": "James Richards (Cornerstone)",
+      "to": "House Appropriations Committee",
+      "relationship": "Pre-lobbying staff to two HAC-Agriculture Chairs (Skeen, Bonilla); current donor stack matches HAC leadership (Calvert, Cole, Rogers, Simpson, Aderholt, Granger)",
+      "evidence": "F1, F3"
+    },
+    {
+      "from": "Anthony Lazarski (Cornerstone)",
+      "to": "Senate Armed Services Committee",
+      "relationship": "Pre-lobbying SASC Professional Staff and Inhofe (SASC Chair) Senior Advisor; current donor stack heavily Oklahoma Republicans + SASC Republicans (Britt, Fischer, Collins, Sheehy)",
+      "evidence": "F4, F6"
+    },
+    {
+      "from": "Anthony Lazarski",
+      "to": "Apollo Global Management",
+      "relationship": "Registered lobbyist for Apollo at Cornerstone (2024 LDA)",
+      "evidence": "F5"
+    },
+    {
+      "from": "Sen. Elizabeth Warren (D-MA, SASC)",
+      "to": "Apollo Global Management",
+      "relationship": "Co-signed 2024 Senate letter holding Apollo accountable for Steward Health Care's bankruptcy; published Pentagon-corporate-influence platform attacking the revolving-door defense lobbyist class Lazarski exemplifies",
+      "evidence": "F15"
+    },
+    {
+      "from": "Jennifer Young (Tarplin Downs & Young)",
+      "to": "House Ways & Means / Senate Finance",
+      "relationship": "Former Senior Health Policy Adviser at both committees + HHS Asst Sec for Legislation; current donor stack to Ways & Means Chair Jason Smith, Senate Finance Chair Crapo, Burgess, Grassley, Hagerty",
+      "evidence": "F7, F9"
+    },
+    {
+      "from": "Jennifer Young",
+      "to": "Big Pharma (AbbVie, Amgen, AstraZeneca, BMS, Eli Lilly, Boehringer)",
+      "relationship": "Registered lobbyist for entire tier-1 pharma roster + PhRMA-affiliated trade groups + PE in healthcare (Clayton Dubilier & Rice, American Investment Council)",
+      "evidence": "F8"
+    },
+    {
+      "from": "Cornell Teague (Alpine Group)",
+      "to": "House Appropriations Subcommittee on Defense",
+      "relationship": "Pre-lobbying Professional Staff (2011-2017); current donor stack to HAC-D Chair Calvert + HAC Cardinals Cole/Rogers/Fleischmann/Simpson/Carter/Granger/Ciscomani",
+      "evidence": "F10, F12"
+    },
+    {
+      "from": "Cornell Teague",
+      "to": "Palantir / Leidos / Edge Autonomy / ASML / Babel Street",
+      "relationship": "Registered lobbyist for advanced-tech/defense/intel clients at Alpine Group",
+      "evidence": "F11"
+    },
+    {
+      "from": "John J O'Neill (Harbinger/Colton Street)",
+      "to": "Senate Finance Committee",
+      "relationship": "Former Tax Counsel under Chairman Grassley; current donor stack to Senate Republican Whip Barrasso, Senate Finance member Tim Scott, Hawley, Cornyn, Cruz",
+      "evidence": "F13, F14"
+    },
+    {
+      "from": "John J O'Neill",
+      "to": "Blackstone Group",
+      "relationship": "Top client by filing count (30 filings) at Colton Street Group — PE giant whose carried-interest tax treatment is decided by Senate Finance",
+      "evidence": "F13"
+    },
+    {
+      "from": "Cornerstone Government Affairs (firm)",
+      "to": "Tier-2 revolving-door pipeline",
+      "relationship": "Both Richards (#1 by matched income) and Lazarski (#2) work here. Cornerstone has 66 documented revolving-door personnel — comparable in scale to Brownstein. Should be treated as a firm-level finding alongside Brownstein.",
+      "evidence": "F16"
+    }
+  ],
+  "gaps": [
+    "Could not verify Wayback Machine archive URLs — IA returned 429 (rate-limited) during the investigation window. Local scrapes are in cases/OS-004-d11-second-tier-revolving-door/.firecrawl/. Re-archive in a later cycle when IA accepts the requests.",
+    "LinkedIn profiles for all five were not directly scraped (LinkedIn blocks anonymous scraping); identification of current firm + bio is otherwise complete from corporate websites and registries.",
+    "Press coverage (Politico / Bloomberg / Roll Call profile pieces) was not directly searched in this cycle — bandwidth was spent on registries and FEC pattern. Recommend follow-up cycle to dig Politico Influence newsletter archives for each name.",
+    "Full 58-client roster for Lazarski and 41-client roster for Richards is paginated — only first 25 rows verified verbatim. The remainder is mechanically identical (LDA-derived) but should be downloaded as CSV from OpenSecrets in a later cycle for full enumeration.",
+    "Say-vs-pay extension was only fully built for Lazarski/Apollo. Equivalent analysis for the other four (Richards-Anduril vs. House Progressive Caucus on autonomous weapons; Young-AbbVie vs. Sanders/Wyden on drug pricing; Teague-Palantir vs. Wyden/Warren on intel contractors; O'Neill-Blackstone vs. Warren on PE carried interest) is suggested as a follow-up cycle.",
+    "FEC personal-PAC affiliation (i.e. whether any of the five operate or co-control their own leadership PAC) was not separately checked.",
+    "Did not run a check for whether any of the five hold positions on registered foreign agents (FARA) filings — particularly relevant for Richards (J&F Investimentos = Brazilian), Lazarski (BioNTech = German), Teague (ASML = Dutch / NEC = Japanese), and O'Neill if Colton Street has FARA-side work."
+  ],
+  "next_steps": [
+    "Promote F15 (Lazarski/Apollo/Warren say-vs-pay) to a data-detective finding parallel to C-004. The cleanness is unusually high because Warren attacks both axes of Lazarski's portfolio (Apollo as bad-actor PE landlord AND the Boeing-style defense-lobbyist revolving door).",
+    "Open a Spotlight follow-up case on Cornerstone Government Affairs as a firm (F16) — its revolving-door personnel count and second-tier income ranking match Brownstein.",
+    "Pull the full LDA CSVs for all five lobbyists from OpenSecrets to enumerate the complete client roster beyond the 25-row visible cap.",
+    "Search Politico Influence newsletter archives (politico.com/influence) for each of the five names — these are the canonical 'lobbying-beat' profile pieces.",
+    "Run D12-style detector pass for Young/AbbVie vs. Sanders/Wyden, O'Neill/Blackstone vs. Warren/Wyden, Teague/Palantir vs. Wyden, Richards/Anduril vs. House Progressive Caucus — replicates the C-004 pattern across all five tier-2 lobbyists, not just Lazarski.",
+    "Check FARA filings for each lobbyist (the Senate LDA captures only domestic clients; foreign agents file separately under FARA via the DOJ database)."
+  ],
+  "monitoring_recommendations": [
+    {
+      "id": "M1",
+      "target": "Sen. Elizabeth Warren press releases (warren.senate.gov/newsroom/press-releases)",
+      "scout_type": "web",
+      "criteria": "Filter for mentions of 'Apollo', 'Cornerstone Government Affairs', 'Lazarski', 'defense contractor lobbyist', or 'Pentagon revolving door'. Any new letter from Warren targeting Apollo's defense-acquisition activities is direct evidence supporting F15.",
+      "rationale": "Warren is the most active Senate critic of both Apollo and the defense-lobbyist revolving door. A new salvo would directly upgrade F15 from 'platform position' to 'active enforcement action.'",
+      "priority": "high",
+      "finding_refs": ["F15"]
+    },
+    {
+      "id": "M2",
+      "target": "Cornerstone Government Affairs hires page (cgagroup.com)",
+      "scout_type": "web",
+      "criteria": "Any new Principal-level hire announcement, especially with a House Appropriations or Senate Armed Services committee background, deepens F16's pattern.",
+      "rationale": "Cornerstone's second-tier dominance is built by adding ex-staffers like Richards and Lazarski. New hires reveal the pipeline.",
+      "priority": "medium",
+      "finding_refs": ["F16"]
+    },
+    {
+      "id": "M3",
+      "target": "OpenSecrets Apollo Global Management lobbyist page (opensecrets.org/federal-lobbying/clients/lobbyists?id=D000021845)",
+      "scout_type": "web",
+      "criteria": "Quarterly LDA-update changes to Apollo's roster of lobbyists. If Lazarski's name disappears or if new ex-SASC staff are added, the F15 thesis evolves.",
+      "rationale": "Tracking client-side rather than lobbyist-side gives an early signal on team changes invisible in the lobbyist's own summary page.",
+      "priority": "medium",
+      "finding_refs": ["F5", "F15"]
+    }
+  ]
+}

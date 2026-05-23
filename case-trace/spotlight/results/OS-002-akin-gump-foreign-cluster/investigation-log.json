@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "cycles": [
+    {
+      "cycle": 1,
+      "timestamp": "2026-05-22T14:50:00Z",
+      "focus": "External OSINT amplification of data-detective's D10 finding: Akin Gump's LDA-disclosed foreign-affiliated engagements (Ant Group, TP-Link Systems, Adani North America, United Solar Polysilicon) not matched by firm-level FARA registrations. Priority: verify attorney-level FARA, characterize each engagement's regulatory context, identify the strongest 'gap should not exist' case.",
+      "methodology": {
+        "techniques_used": [
+          "Primary-source FARA registry lookup (DOJ eFile registrant 3492)",
+          "Cross-reference of attorney names across FARA short-forms and LDA filings",
+          "LDA filing print-view scrape for foreign-entity disclosure and lobbyist credentials",
+          "Adversarial open-source corroboration via Washington Examiner, Reuters, NYT, TheWire",
+          "Web archiving via Wayback Machine (firecrawl-mediated saves) for evidence preservation",
+          "Temporal sequencing (indictment date vs engagement date for Adani)"
+        ],
+        "tools_used": [
+          "firecrawl search (primary)",
+          "firecrawl scrape (primary)",
+          "Wayback Machine save endpoint (via firecrawl scrape)",
+          "data-detective D10 narrowed CSV (cross-reference)"
+        ],
+        "search_queries": [
+          "Akin Gump FARA registrations site:efile.fara.gov",
+          "TP-Link national security review Commerce Justice 2025 ban",
+          "SEC v. Gautam Adani indictment November 2024 EDNY counsel",
+          "\"United Solar Polysilicon\" OR \"FZC SPC\" UFLPA OR sanctioned OR \"Entity List\"",
+          "Adani SEC defense counsel Akin Gump lobbying State Department 2025",
+          "Reginald Babin FARA Akin Gump short form",
+          "Brian Pomper FARA short form Akin Gump"
+        ],
+        "failed_approaches": [
+          "PDF scraping of FARA supplemental statements (3492-Supplemental-Statement-20240129-41.pdf, 3492-Supplemental-Statement-20250730-44.pdf): firecrawl returned 0-byte output, likely a PDF rendering limitation. Worked around by using the documents-list HTML page which lists every supplemental and short-form by date and name.",
+          "NYT article on Adani case being dropped (5/18/2026): firecrawl returned 'site not supported.' Only headline/abstract verified via search-result snippet. Flagged as a gap.",
+          "DHS UFLPA Entity List page scrape: page is image-heavy and the resulting markdown was largely base64-encoded SVG/PNG. Could not reliably text-search. Confirmed United Solar Polysilicon is NOT currently on UFLPA list via Washington Examiner and Reuters reporting (which would have said so otherwise)."
+        ]
+      },
+      "sources_consulted": [
+        {"url": "https://www.opensecrets.org/fara/registrants/D000000162", "type": "ngo_report", "accessed": "2026-05-22T14:32:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/fara/registrants/D000000162/clients?cycle=2025", "type": "ngo_report", "accessed": "2026-05-22T14:33:00Z", "useful": true},
+        {"url": "https://www.opensecrets.org/fara/registrants/D000000162/lobbyists?cycle=2025", "type": "ngo_report", "accessed": "2026-05-22T14:33:00Z", "useful": false},
+        {"url": "https://efile.fara.gov/ords/fara/f?p=185:200::::RP,200:P200_REG_NUMBER:3492", "type": "government", "accessed": "2026-05-22T14:35:00Z", "useful": true},
+        {"url": "https://lda.senate.gov/filings/public/filing/eef6a92b-3ac6-4e47-84a4-faf0618bcb5a/print/", "type": "government", "accessed": "2026-05-22T14:36:00Z", "useful": true},
+        {"url": "https://lda.senate.gov/filings/public/filing/eda7a0c7-5907-47ce-8581-30bd78fc3424/print/", "type": "government", "accessed": "2026-05-22T14:42:00Z", "useful": true},
+        {"url": "https://lda.senate.gov/filings/public/filing/36cfa565-c70f-4954-90c4-3807732e2324/print/", "type": "government", "accessed": "2026-05-22T14:42:00Z", "useful": true},
+        {"url": "https://lda.senate.gov/filings/public/filing/a4411100-2eef-4903-9950-850271612499/print/", "type": "government", "accessed": "2026-05-22T14:42:00Z", "useful": true},
+        {"url": "https://www.justice.gov/usao-edny/pr/billionaire-chairman-conglomerate-and-seven-other-senior-business-executives-indicted", "type": "government", "accessed": "2026-05-22T14:34:00Z", "useful": true},
+        {"url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26177", "type": "government", "accessed": "2026-05-22T14:34:00Z", "useful": true},
+        {"url": "https://www.washingtonpost.com/technology/2025/10/30/tp-link-proposed-ban-commerce-department/", "type": "news", "accessed": "2026-05-22T14:34:00Z", "useful": true},
+        {"url": "https://www.washingtonexaminer.com/news/investigations/4542548/top-lobbying-firm-does-bidding-entity-linked-uyghur-repression/", "type": "news", "accessed": "2026-05-22T14:40:00Z", "useful": true},
+        {"url": "https://www.reuters.com/sustainability/climate-energy/world-banks-ifc-approves-oman-polysilicon-project-loan-over-us-objection-2025-08-09/", "type": "news", "accessed": "2026-05-22T14:42:00Z", "useful": true},
+        {"url": "https://thewire.in/business/adani-us-indictment-lobbying-campaign", "type": "news", "accessed": "2026-05-22T14:35:00Z", "useful": true},
+        {"url": "https://www.nytimes.com/2026/05/18/nyregion/gautam-adani-indictment-trump.html", "type": "news", "accessed": "2026-05-22T14:32:00Z", "useful": false}
+      ],
+      "findings_added": 7,
+      "findings_upgraded": 0,
+      "gaps_resolved": [
+        "Whether Akin Gump has any FARA registration covering Ant Group, TP-Link, Adani, or United Solar — answered NO at both firm and attorney level (F1, F2).",
+        "Whether Akin Gump's Adani engagement was crisis-management response to the indictment — answered YES, retained 11/21/2024 immediately following 11/20/2024 indictment (F3).",
+        "What specific national-security review each engagement targets — answered: TP-Link = ITC Exclusion + Commerce ban review (F5); United Solar = Section 232 polysilicon investigation (F4); Adani = post-indictment State/White House lobbying (F3); Ant Group = unclear from filing text alone."
+      ],
+      "gaps_remaining": [
+        "Full text of NYT 5/18/2026 article on DOJ dropping Adani case",
+        "Akin Gump x Ant Group LD-1 specific lobbying issue text (Q1 2025 LD-2 was rendered with empty issue text — may be artifact)",
+        "Legal opinion: whether the Adani engagement triggers FARA registration vs. §3(d) trade exemption",
+        "CFIUS docket activity for Ant Group, TP-Link, Adani, United Solar (largely confidential by statute)",
+        "Confirmation of reported Adani $275M Treasury settlement"
+      ],
+      "notes": "Strongest 'gap should not exist' case is the ADANI engagement: retained day after federal indictment of the foreign-parent's executives, with lobbying directed at White House + State + Commerce on bilateral 'U.S.-India renewable energy cooperation' — a topic that is intrinsically state-policy and not bona-fide-commerce. The Adani Enterprises Limited parent is the named foreign entity of interest, and the LDA-disclosed lobbying targets only the executive branch, not Congress on trade/regulatory matters. Strongest 'gap is legitimately structural' case is TP-LINK: the LDA client is a Delaware/California-incorporated US subsidiary, the lobbying issue is a specific ITC Section 337 exclusion order (a commercial defense), and the ultimate foreign parents are private-corporate not state. UNITED SOLAR sits between: the Section 232 trade investigation is a regulatory matter (defensible LDA-only) BUT the chairman's Daqo/Xinjiang Daqo lineage and the IFC vote against the project by US Treasury make it the most reputationally exposed. ANT GROUP is the least-amplified externally — Akin Gump filed but the LD-2 issue text is empty in the rendered print; needs LD-1 retrieval. OS-002 should be PROMOTED to a full data-detective finding: the firm-level FARA absence is empirically verified at high confidence, two engagements (Adani, United Solar) have independent press corroboration, and the structural question (which engagements legitimately trigger FARA vs. don't) has a clear journalistic story arc."
+    }
+  ]
+}
