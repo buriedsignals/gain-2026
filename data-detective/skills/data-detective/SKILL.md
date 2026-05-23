@@ -49,9 +49,9 @@ Two persona files live at `data-detective/agents/`:
 
 | Phase | Subagent persona | File | Mode | Purpose |
 |---|---|---|---|---|
-| P2 methodology | `data-detective-investigator` | [agents/investigator.md](agents/investigator.md) | PLANNING | Design investigation plan over the DuckDB-indexed corpus |
-| P3 execution | `data-detective-investigator` | [agents/investigator.md](agents/investigator.md) | EXECUTION (one cycle per loop) | Run detectors, drill via SQL, render evidence cards, archive external sources, write findings.json |
-| P3 fact-check | `data-detective-fact-checker` | [agents/fact-checker.md](agents/fact-checker.md) | adversarial | Re-derive claims from raw records, archive independent sources, surface disconfirming evidence |
+| P2 methodology | `data-detective-investigator` | [agents/investigator.md](../../agents/investigator.md) | PLANNING | Design investigation plan over the DuckDB-indexed corpus |
+| P3 execution | `data-detective-investigator` | [agents/investigator.md](../../agents/investigator.md) | EXECUTION (one cycle per loop) | Run detectors, drill via SQL, render evidence cards, archive external sources, write findings.json |
+| P3 fact-check | `data-detective-fact-checker` | [agents/fact-checker.md](../../agents/fact-checker.md) | adversarial | Re-derive claims from raw records, archive independent sources, surface disconfirming evidence |
 | P6 spotlight-handoff (handover path only) | `spotlight:investigator` + `spotlight:fact-checker` | (spotlight repo) | OSINT amplification | External web-based amplification of data-side findings via the Spotlight orchestrator. Hybrid-aware. |
 
 The data-detective personas share the orchestration discipline of Spotlight's personas (PLANNING / EXECUTION modes, gate-driven cycles, adversarial fact-check, every claim grounded in primary evidence) but ship a data-corpus tool palette: SQL via `detect`, in-DB joins, evidence-cards rendering, external-data pullers. At Phase 6 handover, Spotlight's persona family takes over with the data-side audit chain as upstream context.
@@ -100,7 +100,7 @@ command -v duckdb || command -v uv      # need uv (PEP 723 scripts) or duckdb CL
 ls .spotlight-config.json 2>/dev/null   # vault config; required if ingesting findings to Obsidian
 ```
 
-Confirm a profile exists for the corpus (see `ingest`). If not, prompt the user to write one against the worked example at `skills/ingest/scripts/examples/lda_profile.py`.
+Confirm a profile exists for the corpus (see `ingest`). If not, prompt the user to write one against the worked example at `../ingest/scripts/examples/lda_profile.py`.
 
 Create the case workspace if absent:
 
@@ -155,7 +155,7 @@ SEARCH_LIBRARY: not-applicable (this is a structured-records investigation)
 INVESTIGATION_KIND: data-corpus
 CORPUS_INDEX: case/index.duckdb (~<size> GB; tables: <list>)
 ENTITY_GRAPH: built via resolve (99%+ deterministic via bridge keys)
-DETECTOR_CATALOG: see skills/detect/references/detectors.md (D1-D12+)
+DETECTOR_CATALOG: see ../detect/references/detectors.md (D1-D12+)
 EXTERNAL_JOINS_AVAILABLE: FARA bulk, Congress.gov committee graph, USAspending
 SKILLS_AVAILABLE: detect (run detector battery / ad-hoc SQL),
                   evidence-cards (emit per-record audit cards),
@@ -189,7 +189,7 @@ Each cycle: [run detectors] → [investigator picks threads + drills] → [fact-
 CYCLE N (N starts at 1):
 
 1. Run/refresh detector battery via detect:
-     uv run skills/detect/scripts/query.py \
+     uv run ../detect/scripts/query.py \
        --db case/index.duckdb \
        --detector all --out case/anomalies
 
@@ -316,8 +316,8 @@ Run only if user chose `direct` at Gate 1.
 Invoke `report-drafting` (the Phase 5 sub-skill). It produces three deliverables:
 
 1. **`case/findings-report.md`** — narrative audit document (editor / fact-checker read).
-2. **`case/report.html`** — public-facing journalism artifact, built from `skills/report-drafting/references/report-template.html`. Required structure per finding: novelty pill + confidence pill, replication-path block (`.path`), inline primary-source strip (`.sources`). Methodology section walks all executed phases in order, with the adversarial fact-check verdict table INSIDE the Phase 3 block — NOT a separate top-level section.
-3. **`case/evidence-map.json`** — machine-readable audit ledger (see [references/evidence-map-format.md](references/evidence-map-format.md)). Every claim → cards → query hashes → external URLs.
+2. **`case/report.html`** — public-facing journalism artifact, built from `../report-drafting/references/report-template.html`. Required structure per finding: novelty pill + confidence pill, replication-path block (`.path`), inline primary-source strip (`.sources`). Methodology section walks all executed phases in order, with the adversarial fact-check verdict table INSIDE the Phase 3 block — NOT a separate top-level section.
+3. **`case/evidence-map.json`** — machine-readable audit ledger (see [references/evidence-map-format.md](../../references/evidence-map-format.md)). Every claim → cards → query hashes → external URLs.
 
 Editing protocol: use `Read` + `Edit` with anchored old_strings. Never run greedy regex on the live HTML — past investigations lost hours to a single `re.sub(..., re.DOTALL)` that ate the file.
 
@@ -348,7 +348,7 @@ For each candidate finding (subset of findings.json, user-curated at Gate 1):
 
 3. Spotlight runs its own cycles externally. Its output (`cases/<project>/summary.md`, evidence cards, web archives) joins data-detective's case-trace as upstream context.
 
-The composite result — data-side audit trail + spotlight-side external OSINT — is richer than either alone. See [spotlight-handoff/SKILL.md](skills/spotlight-handoff/SKILL.md) for the full protocol.
+The composite result — data-side audit trail + spotlight-side external OSINT — is richer than either alone. See [spotlight-handoff/SKILL.md](../spotlight-handoff/SKILL.md) for the full protocol.
 
 ---
 
@@ -359,7 +359,7 @@ Two ingestion paths run in parallel:
 1. **`vault-ingest`** — the data-detective side. Limited by design to what's in the final report (findings-report.md + evidence-map.json). Mirrors `spotlight:ingest`'s pattern but uses source-record / detector / query-hash note types. Honors `--sensitive` for source-redacted notes destined for outside-counsel or pre-publication review vaults.
 
    ```bash
-   uv run skills/vault-ingest/scripts/vault_ingest.py \
+   uv run ../vault-ingest/scripts/vault_ingest.py \
      --report case/findings-report.md \
      --evidence-map case/evidence-map.json \
      --vault <obsidian-vault-path> \
@@ -420,17 +420,17 @@ Resume at the phase indicated by `state.json`. The investigation has no oral his
 
 ## References
 
-- [methodology.md](references/methodology.md) — full phase-by-phase playbook (deep dive)
-- [evidence-map-format.md](references/evidence-map-format.md) — claim → cards → records schema
+- [methodology.md](../../references/methodology.md) — full phase-by-phase playbook (deep dive)
+- [evidence-map-format.md](../../references/evidence-map-format.md) — claim → cards → records schema
 - [Agent Skills specification](https://agentskills.io/specification.md)
 
 ## Sub-skills (sibling directories)
 
-- [ingest](skills/ingest/SKILL.md)
-- [resolve](skills/resolve/SKILL.md)
-- [detect](skills/detect/SKILL.md)
-- [evidence-cards](skills/evidence-cards/SKILL.md)
-- [external-data](skills/external-data/SKILL.md)
-- [similarity-search](skills/similarity-search/SKILL.md)
-- [spotlight-handoff](skills/spotlight-handoff/SKILL.md)
-- [vault-ingest](skills/vault-ingest/SKILL.md)
+- [ingest](../ingest/SKILL.md)
+- [resolve](../resolve/SKILL.md)
+- [detect](../detect/SKILL.md)
+- [evidence-cards](../evidence-cards/SKILL.md)
+- [external-data](../external-data/SKILL.md)
+- [similarity-search](../similarity-search/SKILL.md)
+- [spotlight-handoff](../spotlight-handoff/SKILL.md)
+- [vault-ingest](../vault-ingest/SKILL.md)

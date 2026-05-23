@@ -19,26 +19,26 @@ That's the launcher. The orchestrator takes the brief, designs a methodology, sp
 
 ## The orchestration
 
-The `data-detective` skill package is one self-contained unit. Drop it into any agent harness that supports the [agentskills.io](https://agentskills.io/specification.md) spec:
+The `data-detective` package is one self-contained unit. Mirrors the [Spotlight](https://github.com/buriedsignals/spotlight) layout convention: agents at the package root, all skills as siblings under `skills/` (orchestrator named after the package), references + pipeline driver at the package root.
 
 ```
 data-detective/                          ← drop this in your agent's skills dir
-├── SKILL.md                             ← orchestrator (424 lines)
 ├── agents/
 │   ├── investigator.md                  ← PLANNING + EXECUTION subagent
 │   └── fact-checker.md                  ← adversarial verifier subagent
-├── skills/                              ← nine sub-skills, invoked by phase
-│   ├── ingest/                          ← P1 · corpus → DuckDB
-│   ├── resolve/                         ← P2 · entity resolution
-│   ├── detect/                          ← P3 · detector catalog (D1-D12)
-│   ├── evidence-cards/                  ← P3 + P5 · record → audit card
-│   ├── external-data/                   ← P3 · FARA, Congress.gov, USAspending
-│   ├── similarity-search/               ← P3 · vector NN (optional)
-│   ├── report-drafting/                 ← P5 · synthesis (direct path)
-│   ├── spotlight-handoff/               ← P6 · → Spotlight (handover path)
-│   └── vault-ingest/                    ← P7 · Obsidian write-back
-├── references/
-└── run_pipeline.sh
+├── skills/                              ← all skills siblings; runtime resolves by bare name
+│   ├── data-detective/SKILL.md          ← orchestrator (the launcher)
+│   ├── ingest/SKILL.md                  ← P1 · corpus → DuckDB
+│   ├── resolve/SKILL.md                 ← P2 · entity resolution
+│   ├── detect/SKILL.md                  ← P3 · detector catalog (D1-D12)
+│   ├── evidence-cards/SKILL.md          ← P3 + P5 · record → audit card
+│   ├── external-data/SKILL.md           ← P3 · FARA, Congress.gov, USAspending
+│   ├── similarity-search/SKILL.md       ← P3 · vector NN (optional)
+│   ├── report-drafting/SKILL.md         ← P5 · synthesis (direct path)
+│   ├── spotlight-handoff/SKILL.md       ← P6 · → Spotlight (handover path)
+│   └── vault-ingest/SKILL.md            ← P7 · Obsidian write-back
+├── references/                          ← orchestrator-level docs
+└── run_pipeline.sh                      ← end-to-end pipeline driver (CWD-agnostic)
 ```
 
 Every sub-skill validates against agentskills.io spec: name matches dir, description ≤ 1024 chars, body < 500 lines.

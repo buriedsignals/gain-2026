@@ -43,6 +43,7 @@ if [[ -z "$PROFILE" || -z "$DATA_ROOT" || -z "$CASE_DIR" ]]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SKILLS_DIR="$SCRIPT_DIR/skills"
 DB="$CASE_DIR/index.duckdb"
 mkdir -p "$CASE_DIR/anomalies" "$CASE_DIR/fara/cache"
 
@@ -55,7 +56,7 @@ echo
 
 if [[ $SKIP_INGEST -eq 0 ]]; then
   echo "==> [1/4] Ingest"
-  uv run "$SCRIPT_DIR/ingest.py" \
+  uv run "$SKILLS_DIR/ingest/scripts/ingest.py" \
     --profile "$PROFILE" \
     --data-root "$DATA_ROOT" \
     --db "$DB" \
@@ -65,15 +66,15 @@ fi
 
 if [[ $SKIP_RESOLVE -eq 0 ]]; then
   echo "==> [2/4] Resolve entities"
-  uv run "$SCRIPT_DIR/resolve_entities.py" \
+  uv run "$SKILLS_DIR/resolve/scripts/resolve_entities.py" \
     --db "$DB" \
     --out "$CASE_DIR"
   echo
 fi
 
-if [[ $SKIP_FARA -eq 0 && -f "$SCRIPT_DIR/external/fara.py" ]]; then
+if [[ $SKIP_FARA -eq 0 && -f "$SKILLS_DIR/external-data/scripts/fara.py" ]]; then
   echo "==> [3/4] Pull FARA + load"
-  uv run "$SCRIPT_DIR/external/fara.py" \
+  uv run "$SKILLS_DIR/external-data/scripts/fara.py" \
     --db "$DB" \
     --cache "$CASE_DIR/fara/cache"
   echo
@@ -81,7 +82,7 @@ fi
 
 if [[ $SKIP_DETECTORS -eq 0 ]]; then
   echo "==> [4/4] Anomaly detectors"
-  uv run "$SCRIPT_DIR/query.py" \
+  uv run "$SKILLS_DIR/detect/scripts/query.py" \
     --db "$DB" \
     --detector all \
     --out "$CASE_DIR/anomalies"
@@ -91,4 +92,4 @@ echo
 echo "==> Done."
 echo "    Inspect:  $CASE_DIR/anomalies/*.csv"
 echo "    Manifest: $CASE_DIR/manifest.json"
-echo "    Cards:    uv run $SCRIPT_DIR/evidence_card.py --db $DB --source <kind> --id <id> --out $CASE_DIR/cards"
+echo "    Cards:    uv run $SKILLS_DIR/evidence-cards/scripts/evidence_card.py --db $DB --source <kind> --id <id> --out $CASE_DIR/cards"
