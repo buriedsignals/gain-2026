@@ -793,7 +793,7 @@
 
         <rect x="200" y="60" width="200" height="120" fill="#fbf3df" stroke="#a8200d" stroke-width="1.5"/>
         <text x="300" y="84" text-anchor="middle" font-weight="700" fill="#a8200d">DuckDB index</text>
-        <text x="300" y="100" text-anchor="middle" font-size="10">2.3 GB · 17 tables · 3 min build</text>
+        <text x="300" y="100" text-anchor="middle" font-size="10">2.3 GB · 17 tables · 4 min build</text>
         <text x="300" y="118" text-anchor="middle" font-size="10">99.9% entity resolution via bridge keys</text>
         <text x="300" y="136" text-anchor="middle" font-size="10">100% House↔Senate join coverage</text>
         <text x="300" y="154" text-anchor="middle" font-size="10">20K bills extracted from 1.5M activities</text>
@@ -831,7 +831,7 @@
   </div>
 
   <div class="methods-list">
-    <div><code>~3 min</code> Full corpus ingest (pyarrow bulk insert; 60× faster than executemany)</div>
+    <div><code>~4 min</code> Full corpus ingest (pyarrow bulk insert; 60× faster than executemany)</div>
     <div><code>99.9%</code> Entity resolution via deterministic bridge keys</div>
     <div><code>0 tokens</code> LLM tokens spent scanning raw documents during exploration</div>
     <div><code>12</code> SQL-only detectors with SHA-tagged provenance per query</div>
@@ -852,7 +852,7 @@
 
   <div class="phase">
     <div class="phase-head"><span class="phase-id">Phase 1 · ingest</span><h4 class="phase-title"><code>ingest</code> sub-skill — load to columnar DuckDB.</h4></div>
-    <p>First run took 740 s/file using <code>executemany</code>. Replaced with <code>pyarrow.Table.from_pydict()</code> → <code>INSERT INTO ... SELECT FROM _batch</code>: full corpus ingests in ~3 minutes. Output: 17 normalized tables, 2.3 GB on disk, 1.5M+ lobbying activities. The XML parser was hardened with <code>recover=True</code> to handle several malformed House quarterly XMLs.</p>
+    <p>First run took 740 s/file using <code>executemany</code>. Replaced with <code>pyarrow.Table.from_pydict()</code> → <code>INSERT INTO ... SELECT FROM _batch</code>: full corpus ingests in ~4 minutes (down from ~12h at 740 s/file). Output: 17 normalized tables, 2.3 GB on disk, 1.5M+ lobbying activities. The XML parser was hardened with <code>recover=True</code> to handle several malformed House quarterly XMLs.</p>
   </div>
 
   <div class="phase">
