@@ -86,7 +86,7 @@ Full claim-by-claim narrative + replication paths in [`report.html`](report.html
 
 ```bash
 # 1. Clone
-git clone --branch final-submission https://github.com/buriedsignals/gain-2026.git
+git clone https://github.com/buriedsignals/gain-2026.git
 cd gain-2026
 
 # 2. Drop data-detective into your agent's skills directory
@@ -107,7 +107,7 @@ The orchestrator handles the rest: preflight, brief, methodology, cycles, Gate 1
 ## Submission details
 
 - **Submitter:** Tom Vaillant · Buried Signals · tom@buriedsignals.com
-- **Repository:** https://github.com/buriedsignals/gain-2026 · tag `final-submission`
+- **Repository:** https://github.com/buriedsignals/gain-2026 (will be tagged `final-submission` at the submission deadline)
 - **License:** MIT (skills) · CC-BY-4.0 (findings + report)
 - **Conflicts of interest:** None. No relationship to any registrant, client, member, or lobbyist named in findings.
 - **Future development:** This repository is frozen. Productized `data-detective` evolves at [github.com/buriedsignals/skills](https://github.com/buriedsignals/skills).
