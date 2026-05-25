@@ -45,16 +45,14 @@ Each sub-skill has its own `SKILL.md` describing how to invoke it. The orchestra
 
 ## Agent routing table
 
-Two persona files live at `data-detective/agents/`:
+| Phase | Subagent | Mode | Purpose |
+|---|---|---|---|
+| P2 methodology | `spotlight:investigator` | PLANNING (data-corpus context) | Design investigation plan over the indexed corpus |
+| P3 execution | `spotlight:investigator` | EXECUTION (one cycle) | Read ranked CSVs, drill via SQL, write findings.json |
+| P3 fact-check | `spotlight:fact-checker` | adversarial | Verify claims independently; surface disconfirming evidence |
+| P6 spotlight-handoff | `Skill(spotlight)` (orchestrator) | normal | External OSINT amplification of chosen findings |
 
-| Phase | Subagent persona | File | Mode | Purpose |
-|---|---|---|---|---|
-| P2 methodology | `data-detective-investigator` | [agents/investigator.md](../../agents/investigator.md) | PLANNING | Design investigation plan over the DuckDB-indexed corpus |
-| P3 execution | `data-detective-investigator` | [agents/investigator.md](../../agents/investigator.md) | EXECUTION (one cycle per loop) | Run detectors, drill via SQL, render evidence cards, archive external sources, write findings.json |
-| P3 fact-check | `data-detective-fact-checker` | [agents/fact-checker.md](../../agents/fact-checker.md) | adversarial | Re-derive claims from raw records, archive independent sources, surface disconfirming evidence |
-| P6 spotlight-handoff (handover path only) | `spotlight:investigator` + `spotlight:fact-checker` | (spotlight repo) | OSINT amplification | External web-based amplification of data-side findings via the Spotlight orchestrator. Hybrid-aware. |
-
-The data-detective personas share the orchestration discipline of Spotlight's personas (PLANNING / EXECUTION modes, gate-driven cycles, adversarial fact-check, every claim grounded in primary evidence) but ship a data-corpus tool palette: SQL via `detect`, in-DB joins, evidence-cards rendering, external-data pullers. At Phase 6 handover, Spotlight's persona family takes over with the data-side audit chain as upstream context.
+`spotlight:investigator` and `spotlight:fact-checker` are reused unchanged. They already know how to operate over evidence chains — we adapt the prompt to give them corpus-aware tools instead of firecrawl search.
 
 ---
 
@@ -100,7 +98,7 @@ command -v duckdb || command -v uv      # need uv (PEP 723 scripts) or duckdb CL
 ls .spotlight-config.json 2>/dev/null   # vault config; required if ingesting findings to Obsidian
 ```
 
-Confirm a profile exists for the corpus (see `ingest`). If not, prompt the user to write one against the worked example at `../ingest/scripts/examples/lda_profile.py`.
+Confirm a profile exists for the corpus (see `ingest`). If not, prompt the user to write one against the worked example at `ingest/scripts/examples/lda_profile.py`.
 
 Create the case workspace if absent:
 
@@ -148,14 +146,14 @@ Build/refresh the index first via `ingest`. Then spawn the investigator in plann
 
 ```
 Agent(
-  subagent_type: "data-detective-investigator",
+  subagent_type: "spotlight:investigator",
   prompt: "MODE: PLANNING
 PROJECT: <project_slug>
 SEARCH_LIBRARY: not-applicable (this is a structured-records investigation)
 INVESTIGATION_KIND: data-corpus
 CORPUS_INDEX: case/index.duckdb (~<size> GB; tables: <list>)
 ENTITY_GRAPH: built via resolve (99%+ deterministic via bridge keys)
-DETECTOR_CATALOG: see ../detect/references/detectors.md (D1-D12+)
+DETECTOR_CATALOG: see detect/references/detectors.md (D1-D12+)
 EXTERNAL_JOINS_AVAILABLE: FARA bulk, Congress.gov committee graph, USAspending
 SKILLS_AVAILABLE: detect (run detector battery / ad-hoc SQL),
                   evidence-cards (emit per-record audit cards),
@@ -189,13 +187,13 @@ Each cycle: [run detectors] → [investigator picks threads + drills] → [fact-
 CYCLE N (N starts at 1):
 
 1. Run/refresh detector battery via detect:
-     uv run ../detect/scripts/query.py \
+     uv run detect/scripts/query.py \
        --db case/index.duckdb \
        --detector all --out case/anomalies
 
 2. Spawn investigator in EXECUTION mode:
      Agent(
-       subagent_type: "data-detective-investigator",
+       subagent_type: "spotlight:investigator",
        prompt: "MODE: EXECUTION
 PROJECT: <slug>
 CYCLE: <N>
@@ -219,7 +217,7 @@ Stop when 3+ high-confidence claims accumulate OR you exhaust strong leads.",
 
 3. Spawn fact-checker adversarially:
      Agent(
-       subagent_type: "data-detective-fact-checker",
+       subagent_type: "spotlight:fact-checker",
        prompt: "PROJECT: <slug>
 SEARCH_LIBRARY: firecrawl
 INVESTIGATION_KIND: data-corpus
@@ -316,8 +314,8 @@ Run only if user chose `direct` at Gate 1.
 Invoke `report-drafting` (the Phase 5 sub-skill). It produces three deliverables:
 
 1. **`case/findings-report.md`** — narrative audit document (editor / fact-checker read).
-2. **`case/report.html`** — public-facing journalism artifact, built from `../report-drafting/references/report-template.html`. Required structure per finding: novelty pill + confidence pill, replication-path block (`.path`), inline primary-source strip (`.sources`). Methodology section walks all executed phases in order, with the adversarial fact-check verdict table INSIDE the Phase 3 block — NOT a separate top-level section.
-3. **`case/evidence-map.json`** — machine-readable audit ledger (see [references/evidence-map-format.md](../../references/evidence-map-format.md)). Every claim → cards → query hashes → external URLs.
+2. **`case/report.html`** — public-facing journalism artifact, built from `report-drafting/references/report-template.html`. Required structure per finding: novelty pill + confidence pill, replication-path block (`.path`), inline primary-source strip (`.sources`). Methodology section walks all executed phases in order, with the adversarial fact-check verdict table INSIDE the Phase 3 block — NOT a separate top-level section.
+3. **`case/evidence-map.json`** — machine-readable audit ledger (see [references/evidence-map-format.md](references/evidence-map-format.md)). Every claim → cards → query hashes → external URLs.
 
 Editing protocol: use `Read` + `Edit` with anchored old_strings. Never run greedy regex on the live HTML — past investigations lost hours to a single `re.sub(..., re.DOTALL)` that ate the file.
 
@@ -359,7 +357,7 @@ Two ingestion paths run in parallel:
 1. **`vault-ingest`** — the data-detective side. Limited by design to what's in the final report (findings-report.md + evidence-map.json). Mirrors `spotlight:ingest`'s pattern but uses source-record / detector / query-hash note types. Honors `--sensitive` for source-redacted notes destined for outside-counsel or pre-publication review vaults.
 
    ```bash
-   uv run ../vault-ingest/scripts/vault_ingest.py \
+   uv run vault-ingest/scripts/vault_ingest.py \
      --report case/findings-report.md \
      --evidence-map case/evidence-map.json \
      --vault <obsidian-vault-path> \
@@ -407,6 +405,52 @@ Resume at the phase indicated by `state.json`. The investigation has no oral his
 
 ---
 
+## Citation provenance (orchestrator-wide hard rule)
+
+**No phase of this pipeline — investigator, fact-checker, report-drafting, or any sub-skill — may originate a primary-source citation from semantic memory.** Every UUID, every URL, every court docket caption, every direct quote MUST be copied verbatim from a file written by an earlier phase or by an explicit web fetch.
+
+This is the single most common way investigative-journalism submissions get killed: a draft that "looks right" but contains URLs that 404 or UUIDs that resolve to the wrong filing under adversarial editorial review. LLM-generated citations are guesses formatted to look like sources. They are not sources.
+
+### The four classes of citation drift, and how each phase prevents them
+
+| Drift class | Where it happens | Prevention |
+|---|---|---|
+| **Hallucinated URL** ("nytimes.com/2026/05/18/business/<plausible-slug>") | P3 investigator inventing a URL that "sounds right"; P5 synthesis re-deriving a URL from headline | Every URL must come from `firecrawl scrape` output, not from memory. The investigator agent records `urls_accessed` in `investigation-log.json`; P5 reads from there. |
+| **Wrong filing UUID** ("3a6e17c0-... is the Ant Group filing" → actually Posco America) | P3 investigator picking a plausible-looking UUID from a search-results page without verifying client name; P5 re-deriving a UUID from prose | Every LDA UUID must be present in an evidence card (`case/cards/senate_filing_<UUID>.md`) OR in a Spotlight-archived scrape (`case-trace/spotlight/results/*/research/*.md`). |
+| **Wrong-person attribution** ("Stephen Pomper" at Akin Gump → actual partner is Brian Pomper) | P5 synthesis "remembering" a name and formatting a URL from it | Every named person must be quoted from primary-source text (an actual LDA filing, an actual firm bio page, an actual court docket). If the name only appears in your reasoning, not in an archived file, do not cite it. |
+| **Stale archive snapshot** (Wayback URL no longer resolves; original page moved) | Any phase that captures a `web.archive.org/web/<ts>/<URL>` link without verifying it later | Always also capture the canonical (non-archive) URL. Prefer the canonical URL in citations; reference the local archive file by relative path. |
+
+### The closure script (every phase must pass it)
+
+Before any phase declares completion, run:
+
+```bash
+# Extract every UUID and external URL from this phase's outputs
+grep -ohE '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|https?://[^[:space:])"]+' \
+  <phase-output-files> | sort -u > /tmp/phase-citations.txt
+
+# Confirm each appears in a ground-truth file
+while read -r token; do
+  if ! grep -rlq -- "$token" case/cards/ case-trace/spotlight/results/ case-trace/data-detective/external/ case-trace/data-detective/anomalies/ case-trace/data-detective/data/ 2>/dev/null; then
+    echo "ORPHAN: $token"
+  fi
+done < /tmp/phase-citations.txt
+```
+
+An orphan citation is a phase bug. Resolve before advancing — either by fetching the source (firecrawl into `external/`) or by removing the claim from the output. The `report-drafting` sub-skill ships the canonical implementation; other phases should call it identically.
+
+### Audit breadcrumbs
+
+When a later phase catches and corrects an earlier-phase citation error, leave the breadcrumb in the corrected file:
+
+```
+"description": "<corrected claim>. Previous version of this entry cited <wrong-token> in error — that resolves to <what-it-actually-is>. Citation corrected against <ground-truth-file>."
+```
+
+The case-trace's defensibility is not "we never made mistakes" — it's "we caught and corrected the ones we made, with the audit trail in the artifact."
+
+---
+
 ## Anti-patterns (the orchestrator enforces these)
 
 - **No claim without a sourced evidence card.** Gate readiness check will bounce these.
@@ -415,13 +459,15 @@ Resume at the phase indicated by `state.json`. The investigation has no oral his
 - **No fuzzy entity matching where bridge keys exist.** The resolver's three-pass enforces this.
 - **No skipping the adversarial fact-checker.** Phase 3 step 3 is mandatory before Gate 1.
 - **No undated transitions.** Every gate appends a date-stamped event to investigation-log.json.
+- **No citation that didn't exist before this phase started.** See "Citation provenance" above — closure script is mandatory before declaring a phase complete.
+- **No novelty inflation.** If a finding's core claim was previously published by a mainstream outlet (NYT/ProPublica/WaPo/Reuters), the finding gets `.pill-connected` not `.pill-novel`; the novel sub-element (typically a cross-corpus join) must be called out explicitly in a "Novelty" paragraph.
 
 ---
 
 ## References
 
-- [methodology.md](../../references/methodology.md) — full phase-by-phase playbook (deep dive)
-- [evidence-map-format.md](../../references/evidence-map-format.md) — claim → cards → records schema
+- [methodology.md](references/methodology.md) — full phase-by-phase playbook (deep dive)
+- [evidence-map-format.md](references/evidence-map-format.md) — claim → cards → records schema
 - [Agent Skills specification](https://agentskills.io/specification.md)
 
 ## Sub-skills (sibling directories)

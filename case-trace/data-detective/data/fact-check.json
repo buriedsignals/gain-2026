@@ -180,8 +180,8 @@
           "local_file": "case/external/factcheck/house-akin-gump-clients-20260522.md"
         },
         {
-          "description": "Akin Gump LDA filing for Ant Group on lda.senate.gov is one of the disclosure forms returned in the Senate LDA search for 'AKIN GUMP STRAUSS HAUER & FELD' (filing UUID 3a6e17c0-4ff2-4fd7-bd55-35e106d2f28e).",
-          "source": "https://lda.senate.gov/filings/public/filing/3a6e17c0-4ff2-4fd7-bd55-35e106d2f28e/print/",
+          "description": "Akin Gump LDA filing for Ant Group on lda.senate.gov: filing UUID a4411100-2eef-4903-9950-850271612499 (Q1 2025 LD-2, Senate ID 682-1010014, House ID 317840961, client 'Ant Group Co., Ltd.', registrant 'AKIN GUMP STRAUSS HAUER & FELD', signed by Brian Pomper). Previous version of this entry cited UUID 3a6e17c0-4ff2-4fd7-bd55-35e106d2f28e in error — that UUID is a different Akin Gump LD-2 for client 'Posco America' (Q1 2025, $80K) and not the Ant Group filing. Citation corrected against Spotlight OS-002 evidence archive at case-trace/spotlight/results/OS-002-akin-gump-foreign-cluster/research/lda-akingump-antgroup-filing.md.",
+          "source": "https://lda.senate.gov/filings/public/filing/a4411100-2eef-4903-9950-850271612499/print/",
           "source_type": "primary",
           "archive_url": null,
           "access_method": "full_text"

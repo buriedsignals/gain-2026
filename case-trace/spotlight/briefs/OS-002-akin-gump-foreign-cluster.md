@@ -42,7 +42,7 @@
 
 - D10 detector CSV: `case/data-detective/anomalies/D10_fara_gap_narrowed.csv`
 - Akin Gump House LDA lookup: https://lobbyingdisclosure.house.gov/lookup.asp?reg_id=31784
-- Akin Gump x Ant Group LDA filing: https://lda.senate.gov/filings/public/filing/3a6e17c0-4ff2-4fd7-bd55-35e106d2f28e/print/
+- Akin Gump x Ant Group LDA filing: https://lda.senate.gov/filings/public/filing/a4411100-2eef-4903-9950-850271612499/print/  (Q1 2025 LD-2, Senate ID 682-1010014; previous version of brief cited UUID 3a6e17c0-... in error — that resolved to a Posco America filing.)
 - Akin Gump FARA-registrants page (OpenSecrets): https://www.opensecrets.org/fara/registrants/D000000162
 - FARA bulk source (OpenSanctions DOJ mirror): https://data.opensanctions.org/datasets/latest/us_fara_filings/
 

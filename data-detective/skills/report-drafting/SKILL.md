@@ -96,29 +96,107 @@ Specifically:
 
 ---
 
+## Citation discipline (hard rule — learned the hard way)
+
+**The synthesis layer must NEVER originate a primary-source citation.** Every UUID, every external URL, every filing reference, every direct quote MUST be copied verbatim from a ground-truth file written by an earlier phase. If a citation is not already in the trail, do not invent it — go fetch it.
+
+This is the same class of rule as Firecrawl-only. The failure mode it prevents: a synthesis pass that "looks right" but contains URLs and UUIDs the LLM generated from semantic memory, that 404 or resolve to the wrong filing under adversarial review. This is the most common way investigative-journalism submissions get killed.
+
+### Sources of truth (in priority order)
+
+1. `case-trace/spotlight/results/*/research/*.md` — the literal scraped page text. URL of the original is in the filename or in the file's frontmatter or in `case-trace/spotlight/results/*/investigation-log.json` under `urls_accessed`.
+2. `case-trace/spotlight/results/*/data/findings.json` — the Spotlight investigator's curated source list per finding (the `external_sources` arrays).
+3. `case-trace/data-detective/cards/senate_filing_<UUID>.md` — evidence cards for primary filings, generated deterministically from the DuckDB index. The UUID in the filename IS the canonical UUID.
+4. `case-trace/data-detective/anomalies/*.provenance.json` — SQL hashes and detector SQL.
+5. `case-trace/data-detective/external/factcheck/*` — adversarial fact-checker archives.
+
+### Required before any external URL or UUID lands in the draft
+
+For each citation, run a verification step:
+
+```bash
+# Pattern A — UUID is a Senate LDA filing
+grep -rln "<UUID>" case-trace/spotlight/results/ case-trace/data-detective/cards/
+# Must return at least one ground-truth file. If empty: STOP. Do not paste this UUID into the draft.
+
+# Pattern B — external URL (news article, gov page, etc.)
+grep -rln "<URL>" case-trace/spotlight/results/
+# Must return at least one ground-truth file. If empty AND the URL is not already in case-trace/data-detective/external/, STOP.
+# To add a new URL: firecrawl-scrape it first, write the result under case-trace/data-detective/external/, then it is grep-able.
+```
+
+If a fact you want to cite has no ground-truth file, you have two options:
+- **Option 1**: drop the claim from the draft. The synthesis layer documents what was verified upstream — it does not introduce new facts.
+- **Option 2**: spawn a one-shot firecrawl scrape, write the result to `case-trace/data-detective/external/<slug>.md`, then cite it. Never paraphrase or "remember" a URL.
+
+### What NOT to do
+
+- ❌ "I'll cite the NYT story on X" → write a `nytimes.com/<year>/<month>/<day>/<section>/<slug>.html` guess. NYT URLs are not predictable from headline. **Look it up.**
+- ❌ "The Akin Gump × Ant Group filing is somewhere in the LDA database" → pick a plausible-looking UUID. UUIDs are not predictable. **Grep the Spotlight scrape.**
+- ❌ "Apple was retained the day after the indictment" → invent timing. The LD-1 has an effective date; if you haven't read it, do not assert "day after".
+- ❌ Re-derive a court case name or docket caption from memory ("Bass Berry & Sims is counsel"). Pull it from the docket text the upstream agent archived.
+
+### Final pre-commit check
+
+Before declaring P5 complete, run a closure script:
+
+```bash
+# Extract every UUID and external URL from the three drafted files
+grep -ohE '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|https?://[^[:space:])"]+' \
+  case/findings-report.md case/report.html case/evidence-map.json \
+  | sort -u > /tmp/p5-citations.txt
+
+# For each one, confirm it appears in ground-truth files
+while read -r token; do
+  if ! grep -rlq -- "$token" case-trace/spotlight/results/ case-trace/data-detective/cards/ case-trace/data-detective/external/ case-trace/data-detective/anomalies/; do
+    echo "ORPHAN CITATION: $token"
+  fi
+done < /tmp/p5-citations.txt
+```
+
+An orphan citation is a P5 bug. Fix it before declaring P5 complete — either by fetching the source (firecrawl scrape into `external/`) or by removing the claim from the draft.
+
+### Audit breadcrumbs
+
+When you correct a previously-published citation, leave a trail:
+
+```json
+"description": "Akin Gump LDA filing for Ant Group: UUID a4411100-... (Q1 2025 LD-2). Previous version of this entry cited UUID 3a6e17c0-... in error — that UUID resolves to a Posco America filing. Citation corrected against Spotlight OS-002 evidence archive at case-trace/spotlight/results/OS-002.../research/lda-akingump-antgroup-filing.md."
+```
+
+This is what makes the case-trace defensible to an editor: not "we never made mistakes" but "we caught and corrected the ones we made, with the audit trail in the artifact."
+
+---
+
 ## Workflow
 
 ```
 1. Read references/report-template.html. Copy to case/report.html.
 2. Fill the header (title, deck, byline, lede) and the TL;DR table from findings.json.
-3. For each verified finding in findings.json:
+3. BEFORE drafting any finding, extract its citation manifest:
+   - From data-detective: findings.json supporting_cards + external_sources + supporting_query_hashes
+   - From spotlight (if promoted_from is set): case-trace/spotlight/results/<OS-NNN>/data/findings.json external_sources + research/*.md filenames + investigation-log.json urls_accessed
+   - Write the manifest to /tmp/c-NNN-citations.txt — this is the ALLOWED set for this finding.
+   - Any URL or UUID you want to put in the draft must appear in this file. No exceptions.
+4. For each verified finding in findings.json:
    a. Drop a <section class="finding"> from the template's finding-stub block.
    b. Fill the H2 + pills (novelty inferred from finding's promoted_from + corroboration; confidence from fact-check verdict).
-   c. Write the body (3-6 paragraphs, prose).
-   d. Insert the .path block — one .step+.what pair per phase that produced this finding. Cite SQL hashes from anomalies/*/provenance.json. Cite scripts. Cite archived URLs.
-   e. Insert the .sources strip — primary-source URLs only (not secondary commentary).
-4. Fill methodology section:
+   c. Write the body (3-6 paragraphs, prose). Quote primary-source text via Read of the archived page, never paraphrase from memory.
+   d. Insert the .path block — one .step+.what pair per phase that produced this finding. Cite SQL hashes from anomalies/*/provenance.json. Cite scripts. Cite archived URLs from /tmp/c-NNN-citations.txt only.
+   e. Insert the .sources strip — primary-source URLs only (not secondary commentary), all from the citation manifest.
+5. Fill methodology section:
    a. One .phase block per executed phase (P0..P7).
    b. INSIDE Phase 3: adversarial fact-check verdict table.
    c. INSIDE Phase 6: spotlight-handoff outcomes table.
-5. Fill "Open monitoring targets" section from findings.json's unresolved-gaps list.
-6. Fill footer: conflicts of interest, database attributions.
-7. Write findings-report.md in parallel (narrative form, no styling, every claim sourced).
-8. Write evidence-map.json (audit ledger, see data-detective/references/evidence-map-format.md).
-9. Validate HTML tags balance via:
+6. Fill "Open monitoring targets" section from findings.json's unresolved-gaps list.
+7. Fill footer: conflicts of interest, database attributions.
+8. Write findings-report.md in parallel (narrative form, no styling, every claim sourced from the same allowed-set manifest as the HTML).
+9. Write evidence-map.json (audit ledger, see data-detective/references/evidence-map-format.md).
+10. RUN THE CITATION CLOSURE SCRIPT (see Citation Discipline section above). Every UUID and external URL in the three drafted files must trace to a ground-truth file. Fix orphans before proceeding.
+11. Validate HTML tags balance via:
      python3 -c "from html.parser import HTMLParser; ..." 
-10. Open report.html in browser; visual smoke test.
-11. Append synthesis_complete + draft_paths to investigation-log.json.
+12. Open report.html in browser; visual smoke test.
+13. Append synthesis_complete + draft_paths + citation_closure_passed to investigation-log.json.
 ```
 
 ---
@@ -147,6 +225,8 @@ Specifically:
 - **`.flag strong { display: block }`.** Breaks inline legal citations to new lines. Use `<span class="flag-label">` instead.
 - **Markdown-style HTML.** The HTML is a designed document, not a markdown render. Tables, grids, pill systems, two-column blocks are the point. If your HTML reads like a `pandoc` output, restart from the template.
 - **Regex on the live file.** Use `Read` + `Edit` with anchored old_strings. A greedy substitution will destroy hours of work.
+- **Citation hallucination.** The synthesis layer must never originate a UUID, URL, court case docket caption, or direct quote that doesn't appear in the case-trace ground-truth files. See "Citation discipline" above. The failure mode this prevents — a draft that looks right but cites URLs that 404 or UUIDs that resolve to the wrong filing — is the single most common way investigative-journalism submissions get killed. Run the closure script before declaring done.
+- **Novelty inflation.** If a finding's core claim has already been published by a mainstream outlet (NYT, ProPublica, WaPo, Reuters, etc.), it gets `.pill-connected` (outline), not `.pill-novel` (purple). The novel sub-element — typically a cross-corpus join or a specific lobbyist's institutional history — should be called out explicitly in a "Novelty" paragraph at the top of the finding body. Prize panels read the novelty framing first; mislabeling a NYT-reported timeline as "novel" is a credibility hit.
 
 ---
 
