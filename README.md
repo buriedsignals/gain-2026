@@ -121,4 +121,4 @@ lda.senate.gov · FARA bulk (OpenSanctions DOJ mirror) · USAspending.gov · Con
 
 ### Interaction traces
 
-The human-judgment moments in the run (brief approval, methodology approval, Gate 1, finishing-path choice, OSINT lead curation) are documented in [`interaction-traces/`](interaction-traces/).
+The human-judgment moments in the run (brief approval, methodology approval, Gate 1, finishing-path choice, OSINT lead curation, post-publication verification pushback) are documented in [`interaction-traces/`](interaction-traces/) — see [`interaction-traces/README.md`](interaction-traces/README.md) for the manifest mapping each transcript to the findings it produced. The directory contains the full raw Claude Code session transcripts in JSONL form: the main investigation (`01-data-detective-investigation-20260522.jsonl`, 9.7M), the post-publication verification + corrections pass (`02-verification-and-corrections-20260525.jsonl`, 1.7M), and five parallel `spotlight:fact-checker` subagent traces (one per finding cluster).
