@@ -66,10 +66,19 @@ The pattern:
 
 Drop new pullers into `scripts/` next to the existing ones. Each is self-contained PEP 723.
 
+## Source hygiene (each rule cost a published correction)
+
+- **Record dataset vintage.** Every pull writes a one-line manifest entry (source URL + pull date + row count) so findings can cite the dataset's as-of date. External-source claims decay: a "zero contracts" result at pull time was contradicted eight weeks later on the same query. Frame such results as "as of <pull date>."
+- **Effective vs posted dates.** Registry records (LDA especially) carry both; timing claims join on the `effective_date` field, never the posted/receipt date. FPDS/USAspending has a ~90-day reporting lag — a "no award" result within 90 days of the window edge is not evidence of absence.
+- **Aggregator rollups are leads, not joins.** OpenSecrets-style parent-company attributions must be resolved to filing-level client names before entering the index as a relationship.
+- **Identifier liveness.** FEC committees terminate (`filing_frequency: "T"`); registrants re-file under sibling names with distinct IDs. Match on the ID that carries the transaction, and store the ID with its entity note, not just the name.
+
 ## Anti-patterns
 
 - **No new external sources without archiving.** If a finding cites a pulled dataset, the case-trace should keep a copy of the raw source (or a manifest of source-file SHAs).
 - **No API-key-required pullers without graceful fallback.** Use community mirrors (OpenSanctions, unitedstates.io GitHub) where possible to maximize reproducibility.
+- **`executemany` for bulk inserts.** ~60× slower than the pyarrow-Table → `INSERT ... SELECT FROM _batch` path on large pulls (measured during ingest). Fine for small reference tables like these; never for corpus-scale data.
+- **Uppercase-equality name matching across registries.** The FARA↔LDA gap analysis loses matches to punctuation/suffix variants. Build an FTS or canonicalized-name candidate matcher (install-time index, like the corpus itself) rather than `UPPER(a)=UPPER(b)`.
 
 ## Composes with
 

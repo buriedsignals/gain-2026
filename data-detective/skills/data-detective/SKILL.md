@@ -17,7 +17,7 @@ You — the host session — execute. This skill instructs. You call Agent() to 
 **Two absolute rules** (borrowed from Spotlight discipline):
 
 1. **You orchestrate; subagents investigate.** The investigator agent reads ranked candidate CSVs and drills via SQL — it never scans raw documents during exploration. The fact-checker runs adversarially after every cycle.
-2. **Gates require explicit user approval before proceeding.** No exceptions.
+2. **Gates are real and require the user — no exceptions, on every runtime.** At each gate (brief, methodology, Gate 1), present your synthesis and decisions, then **END YOUR TURN**. Do not proceed, delegate past the gate, or self-approve. Act only on the user's reply; never treat the absence of a reply as approval — stopping and waiting IS the correct behavior. The inverse holds for subagents: they have no user and no gates — they run their delegated task end-to-end and return their result to you (their personas carry this contract).
 
 The discipline borrowed from Spotlight (brief → methodology → cycles → fact-check → gate → ingest) is preserved. The medium is different: where Spotlight verifies claims about people and organizations through web OSINT, `data-detective` finds and verifies claims **inside a corpus of structured records**. After Gate 1, the **spotlight-handoff** phase hands chosen findings to Spotlight for external OSINT amplification.
 
@@ -315,7 +315,7 @@ Invoke `report-drafting` (the Phase 5 sub-skill). It produces three deliverables
 
 1. **`case/findings-report.md`** — narrative audit document (editor / fact-checker read).
 2. **`case/report.html`** — public-facing journalism artifact, built from `report-drafting/references/report-template.html`. Required structure per finding: novelty pill + confidence pill, replication-path block (`.path`), inline primary-source strip (`.sources`). Methodology section walks all executed phases in order, with the adversarial fact-check verdict table INSIDE the Phase 3 block — NOT a separate top-level section.
-3. **`case/evidence-map.json`** — machine-readable audit ledger (see [references/evidence-map-format.md](references/evidence-map-format.md)). Every claim → cards → query hashes → external URLs.
+3. **`case/evidence-map.json`** — machine-readable audit ledger (see `references/evidence-map-format.md` at the data-detective package root — sibling of `agents/` and `skills/`, not inside this skill dir). Every claim → cards → query hashes → external URLs.
 
 Editing protocol: use `Read` + `Edit` with anchored old_strings. Never run greedy regex on the live HTML — past investigations lost hours to a single `re.sub(..., re.DOTALL)` that ate the file.
 
@@ -467,7 +467,7 @@ The case-trace's defensibility is not "we never made mistakes" — it's "we caug
 ## References
 
 - [methodology.md](references/methodology.md) — full phase-by-phase playbook (deep dive)
-- [evidence-map-format.md](references/evidence-map-format.md) — claim → cards → records schema
+- `references/evidence-map-format.md` (package root) — claim → cards → records schema
 - [Agent Skills specification](https://agentskills.io/specification.md)
 
 ## Sub-skills (sibling directories)
