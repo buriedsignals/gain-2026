@@ -113,6 +113,35 @@ By design, `vault-ingest` does **not** ingest:
 
 What's in the vault is what's in the final, gate-approved report. The case-trace remains the raw working layer.
 
+## Registries, aliases, supersession (ported from the Spotlight vault contract)
+
+Every collection directory (`findings/`, `entities/`, `source-records/`, `detectors/`, `query-hashes/`, `methodology/`) carries a `_registry.json` (`schema_version`, `last_updated`, per-note index), with a root `_registry.json` holding collection stats. `entities/` additionally carries `_aliases.json` (canonical-name → alias list; e.g. "MAGA INC." ↔ "Make America Great Again Inc." lives HERE, not resolved silently in note bodies) and `_merge-proposals.json` (suspected duplicate entities awaiting a human merge decision — never auto-merge).
+
+Finding notes carry claim-lifecycle frontmatter:
+
+```yaml
+verdict: verified            # from fact-check.json
+confidence: high
+confidence_cap: high         # lower it for time-decaying claims ("through Q1 2026" framings)
+layer: durable               # durable | session
+recorded: 2026-05-22
+verified: 2026-07-09         # date of the LATEST verification pass
+verified_by: <pass id or trace file>
+```
+
+and a **Supersession History** table — one row per verification/correction pass:
+
+```markdown
+## Supersession History
+| Date | Event | Note |
+|---|---|---|
+| 2026-05-22 | recorded | initial finding, Gate 1 approved |
+| 2026-05-25 | corrected | citation drift fixes (see findings-report Corrections log) |
+| 2026-07-09 | re-verified | Apollo→Arconic scope correction; still holds |
+```
+
+A claim that fails a later pass is not deleted — it gets a `superseded` row, `verdict: false` (or `mischaracterized`), and stays in the graph as a record of what was corrected. Re-running vault-ingest after a corrections pass appends supersession rows; it never silently overwrites note bodies.
+
 ## Dry-run output
 
 ```bash
